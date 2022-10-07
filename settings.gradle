@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ComposeClean"
+include ':app'
+include ':ui'
+include ':provider'
+include ':collection'
+include ':text'
+include ':preference'
+include ':mutable'
+include ':constraint'
