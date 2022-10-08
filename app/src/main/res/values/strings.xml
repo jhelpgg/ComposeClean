@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ComposeClean</string>
+    <string name="text1">First text</string>
+    <string name="text2">Second text</string>
+    <string name="buttonChangeText">Change text</string>
+    <string name="buttonContacts">Contacts</string>
+    <string name="buttonFirstName">First name</string>
+    <string name="buttonLastName">Last name</string>
+    <string name="hintFilter">--- filter ---</string>
 </resources>
