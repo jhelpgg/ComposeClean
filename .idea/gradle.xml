@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/collection" />
+            <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/constraint" />
             <option value="$PROJECT_DIR$/provider" />
             <option value="$PROJECT_DIR$/text" />
