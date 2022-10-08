@@ -14,10 +14,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ComposeClean"
 include ':app'
-include ':ui'
 include ':provider'
 include ':collection'
 include ':text'
-include ':preference'
-include ':mutable'
 include ':constraint'
+include ':app_models'
+include ':common'
