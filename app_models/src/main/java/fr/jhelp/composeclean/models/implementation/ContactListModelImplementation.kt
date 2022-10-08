@@ -58,7 +58,8 @@ internal class ContactListModelImplementation : ContactListModel
             this.recyclerModel.filter { contact ->
                 (contact is ContactPerson) &&
                         (contact.firstName.startsWith(safeFilter, ignoreCase = true) ||
-                                contact.lastName.startsWith(safeFilter, ignoreCase = true))
+                                contact.lastName.startsWith(safeFilter, ignoreCase = true) ||
+                                contact.secretIdentity.equals(safeFilter, ignoreCase = true))
             }
         }
     }
@@ -77,16 +78,18 @@ internal class ContactListModelImplementation : ContactListModel
         this.recyclerModel += ContactPerson("Jhon", "Doe")
         this.recyclerModel += ContactPerson("Dandy", "Space")
         this.recyclerModel += ContactPerson("Arthur", "Dent")
-        this.recyclerModel += ContactPerson("Diego", "Vega")
+        this.recyclerModel += ContactPerson("Diego", "Vega", "Zorro")
         this.recyclerModel += ContactPerson("Joe", "Baby")
         this.recyclerModel += ContactPerson("Jackie", "Chan")
-        this.recyclerModel += ContactPerson("Ryo", "Saeba")
-        this.recyclerModel += ContactPerson("Curtis", "Newton")
-        this.recyclerModel += ContactPerson("Barry", "Allen")
-        this.recyclerModel += ContactPerson("Reed", "Richards")
-        this.recyclerModel += ContactPerson("Susan", "Storm")
-        this.recyclerModel += ContactPerson("Johnny", "Storm")
-        this.recyclerModel += ContactPerson("Benjamin", "Grimm")
+        this.recyclerModel += ContactPerson("Ryo", "Saeba", "City Hunter")
+        this.recyclerModel += ContactPerson("Curtis", "Newton", "Captain Future")
+        this.recyclerModel += ContactPerson("Barry", "Allen", "Flash")
+        this.recyclerModel += ContactPerson("Reed", "Richards", "Mister fantastic")
+        this.recyclerModel += ContactPerson("Susan", "Storm", "Invisible woman")
+        this.recyclerModel += ContactPerson("Johnny", "Storm", "Fire man")
+        this.recyclerModel += ContactPerson("Benjamin", "Grimm", "The thing")
+        this.recyclerModel += ContactPerson("Bruce", "Wayne", "Batman")
+        this.recyclerModel += ContactPerson("Clark", "Kent", "Superman")
 
         for (firstCharacter in 'A'..'Z')
         {
