@@ -13,11 +13,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/collection" />
             <option value="$PROJECT_DIR$/constraint" />
-            <option value="$PROJECT_DIR$/mutable" />
-            <option value="$PROJECT_DIR$/preference" />
             <option value="$PROJECT_DIR$/provider" />
             <option value="$PROJECT_DIR$/text" />
-            <option value="$PROJECT_DIR$/ui" />
           </set>
         </option>
       </GradleProjectSettings>
