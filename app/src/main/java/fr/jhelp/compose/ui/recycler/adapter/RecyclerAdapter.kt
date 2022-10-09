@@ -11,6 +11,11 @@ import kotlin.math.min
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
+/**
+ * Recycler view adapter/model
+ * @param drawItem Describes how to draw a cell element.
+ *                 It receives the value to draw on the cell.
+ */
 internal class RecyclerAdapter<T : Any>(private val drawItem: @Composable (T) -> Unit) :
         RecyclerView.Adapter<RecyclerItemHolder<T>>(),
         RecyclerModel<T>,

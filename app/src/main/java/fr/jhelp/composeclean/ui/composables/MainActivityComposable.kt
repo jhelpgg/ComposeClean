@@ -19,6 +19,9 @@ import fr.jhelp.composeclean.ui.activities.ContactListActivity
 import fr.jhelp.composeclean.ui.extensions.stringResource
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
+/**
+ * Main activity composable
+ */
 class MainActivityComposable
 {
     private val applicationContext: Context by provided<Context>()
@@ -27,6 +30,7 @@ class MainActivityComposable
     @Composable
     fun Show()
     {
+        // Create holders and initialize the model
         val textChoice = mutable<TextChoice>(TextChoice.CHOICE1)
         this.mainModel.initialize(textChoice)
 

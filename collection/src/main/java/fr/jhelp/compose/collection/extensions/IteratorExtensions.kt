@@ -4,6 +4,9 @@ import fr.jhelp.compose.collection.SelectedIterator
 import fr.jhelp.compose.collection.TransformedIterator
 
 
+/**
+ * Creates iterator with elements filtered by a given criteria
+ */
 fun <T : Any> Iterator<T>.select(criteria: (T) -> Boolean): Iterator<T> =
     if (this is SelectedIterator)
     {
@@ -15,5 +18,8 @@ fun <T : Any> Iterator<T>.select(criteria: (T) -> Boolean): Iterator<T> =
         SelectedIterator<T>(criteria, this)
     }
 
+/**
+ * Creates iterator that each elements are transformed by given transformation
+ */
 fun <P : Any, R : Any> Iterator<P>.transform(transformation: (P) -> R): Iterator<R> =
     TransformedIterator<P, R>(transformation, this)

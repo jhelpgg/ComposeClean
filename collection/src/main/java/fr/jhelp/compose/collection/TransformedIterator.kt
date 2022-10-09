@@ -1,5 +1,8 @@
 package fr.jhelp.compose.collection
 
+/**
+ * Iterator with transformed values
+ */
 internal class TransformedIterator<P : Any, R : Any>(private val transformation: (P) -> R,
                                                      private val iterator: Iterator<P>) :
         Iterator<R>

@@ -2,6 +2,9 @@ package fr.jhelp.compose.collection
 
 import java.util.concurrent.atomic.AtomicBoolean
 
+/**
+ * Iterator with filtered values
+ */
 internal class SelectedIterator<T : Any>(val criteria: (T) -> Boolean,
                                          val iterator: Iterator<T>) :
         Iterator<T>

@@ -1,5 +1,8 @@
 package fr.jhelp.compose.collection
 
+/**
+ * Iterable with filtered values
+ */
 internal class SelectedIterable<T : Any>(val criteria: (T) -> Boolean,
                                          val iterable: Iterable<T>) :
         Iterable<T>
