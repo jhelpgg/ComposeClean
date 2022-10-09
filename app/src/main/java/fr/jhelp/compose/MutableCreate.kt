@@ -1,4 +1,4 @@
-package fr.jhelp.composeclean.ui
+package fr.jhelp.compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

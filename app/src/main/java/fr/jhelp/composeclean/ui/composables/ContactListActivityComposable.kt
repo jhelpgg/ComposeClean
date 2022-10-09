@@ -21,6 +21,7 @@ import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.next
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
+import fr.jhelp.compose.mutable
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
@@ -30,7 +31,6 @@ import fr.jhelp.composeclean.models.contact.Contact
 import fr.jhelp.composeclean.models.shared.ContactListModel
 import fr.jhelp.composeclean.models.shared.preview.ContactListModelPreview
 import fr.jhelp.composeclean.ui.composables.contact.DrawContact
-import fr.jhelp.composeclean.ui.mutable
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
 class ContactListActivityComposable
