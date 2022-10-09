@@ -13,12 +13,25 @@ import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.recycler.adapter.RecyclerAdapter
 import kotlin.math.max
 
+/**
+ * Recycler view embed in composable
+ * @param drawItem Describes how to draw a cell element.
+ *                 It receives the value to draw on the cell.
+ */
 class RecyclerComposable<T : Any>(drawItem: @Composable (T) -> Unit)
 {
+    /** Linked model for manipulates list/grid data */
     val recyclerModel: RecyclerModel<T> = RecyclerAdapter<T>(drawItem)
+
     private lateinit var recyclerView: RecyclerView
     private var recyclerViewInitialized = false
     private val applicationContext by provided<Context>()
+
+    /**
+     * The grid span.
+     * If 1 it shows a list, for mor than one
+     * If more than 1 shows a grid and the value is the number of columns
+     */
     var gridSpan: Int = 1
         set(value)
         {
@@ -46,6 +59,8 @@ class RecyclerComposable<T : Any>(drawItem: @Composable (T) -> Unit)
         AndroidView<RecyclerView>(
             modifier = modifier,
             factory = { context ->
+                // Auto provide application context if not already provided to be sure there if grid
+                // span changed after recycler view is shown
                 if (!isProvided<Context>())
                 {
                     val applicationContext = context.applicationContext
@@ -69,6 +84,4 @@ class RecyclerComposable<T : Any>(drawItem: @Composable (T) -> Unit)
                 this.recyclerView
             })
     }
-
-
 }

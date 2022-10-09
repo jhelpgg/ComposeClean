@@ -5,6 +5,9 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Holder of list/grid cell
+ */
 internal class RecyclerItemHolder<T : Any>(view: ComposeView) : RecyclerView.ViewHolder(view)
 {
     private val composeView = this.itemView as ComposeView

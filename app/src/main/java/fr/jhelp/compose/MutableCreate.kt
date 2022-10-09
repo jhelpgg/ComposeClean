@@ -7,6 +7,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import fr.jhelp.compose.mutable.Mutable
 
+/**
+ * Crete a mutable holder in composable context
+ */
 @Composable
 inline fun <reified T : Any> mutable(initialValue: T): Mutable<T>
 {
