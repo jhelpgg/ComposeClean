@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor User
+participant ContactListActivity
+participant ContactListModel
+participant RecyclerAdapter
+
+User -> ContactListActivity : type/delete letter in text field
+ContactListActivity --> ContactListActivity : update filter text field
+ContactListActivity -> ContactListModel : filter
+ContactListModel -> RecyclerAdapter : filter
+RecyclerAdapter --> RecyclerAdapter : update
+RecyclerAdapter --> ContactListActivity : update list
+
+@enduml
