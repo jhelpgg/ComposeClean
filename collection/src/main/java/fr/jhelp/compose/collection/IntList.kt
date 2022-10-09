@@ -116,7 +116,7 @@ class IntList(initialCapacity: Int = 1024)
     operator fun plus(listInt: List<Int>): IntList
     {
         this.expandIfNeed(listInt.size)
-        System.arraycopy(listInt, 0, this.list, this.size, listInt.size)
+        System.arraycopy(listInt.toTypedArray(), 0, this.list, this.size, listInt.size)
         this.size += listInt.size
         return this
     }
@@ -124,7 +124,7 @@ class IntList(initialCapacity: Int = 1024)
     operator fun plusAssign(listInt: List<Int>)
     {
         this.expandIfNeed(listInt.size)
-        System.arraycopy(listInt, 0, this.list, this.size, listInt.size)
+        System.arraycopy(listInt.toTypedArray(), 0, this.list, this.size, listInt.size)
         this.size += listInt.size
     }
 
