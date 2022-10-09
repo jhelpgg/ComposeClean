@@ -9,13 +9,16 @@ import fr.jhelp.composeclean.models.contact.ContactLastNameComparator
 import fr.jhelp.composeclean.models.contact.ContactPerson
 import fr.jhelp.composeclean.models.contact.ContactSeparator
 import fr.jhelp.composeclean.models.shared.ContactListModel
-import java.lang.RuntimeException
 
+/**
+ * Contact list activity model used for preview
+ */
 object ContactListModelPreview : ContactListModel
 {
     override fun initialize(recyclerModel: RecyclerModel<Contact>, sortType: Mutable<SortType>)
     {
-        for(character in 'A' .. 'Z') {
+        for (character in 'A'..'Z')
+        {
             recyclerModel += ContactSeparator(character.toString())
         }
 
@@ -35,9 +38,10 @@ object ContactListModelPreview : ContactListModel
         recyclerModel += ContactPerson("Benjamin", "Grimm")
         //
 
-        when(sortType.get()) {
+        when (sortType.get())
+        {
             SortType.SORT_BY_FIRST_NAME -> recyclerModel.sort(ContactFirstNameComparator)
-            SortType.SORT_BY_LAST_NAME -> recyclerModel.sort(ContactLastNameComparator)
+            SortType.SORT_BY_LAST_NAME  -> recyclerModel.sort(ContactLastNameComparator)
         }
     }
 
