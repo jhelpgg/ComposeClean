@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import fr.jhelp.compose.mutable
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.R
@@ -16,7 +17,6 @@ import fr.jhelp.composeclean.models.shared.MainModel
 import fr.jhelp.composeclean.models.shared.preview.MainModelPreview
 import fr.jhelp.composeclean.ui.activities.ContactListActivity
 import fr.jhelp.composeclean.ui.extensions.stringResource
-import fr.jhelp.composeclean.ui.mutable
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
 class MainActivityComposable
