@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor User
+participant ContactListActivity
+participant ContactListModel
+participant RecyclerAdapter
+
+User -> ContactListActivity : click sort
+ContactListActivity -> ContactListModel : toggleSort
+ContactListModel -> RecyclerAdapter : sort
+RecyclerAdapter --> RecyclerAdapter : update
+RecyclerAdapter --> ContactListActivity : update list
+ContactListModel -> ContactListActivity : sort type changed
+ContactListActivity --> ContactListActivity : update buttons
+
+@enduml

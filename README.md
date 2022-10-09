@@ -77,10 +77,10 @@ Bruce Wayne
 
 The application is able to switch between the two order
 
-The application provides a filter system. 
+The application provides a filter system.
 
-If something typed in filter, show only contacts with first or last name that start with the search typed.
-No more letters shows when filter. The search is case insensitive.
+If something typed in filter, show only contacts with first or last name that start with the search
+typed. No more letters shows when filter. The search is case insensitive.
 
 For example if type `a` in filter, with previous example sort by first name, it shows :
 
@@ -93,9 +93,17 @@ Since `Arthur` and `Allen` starts with `A`
 
 Special rule for secret identity, have to type the complete secret identity to show the contact.
 
-By example type `Batma` will show nothing, but with complete `Batman` it will show `Bruce Wayne` 
+By example type `Batma` will show nothing, but with complete `Batman` it will show `Bruce Wayne`
 
 Secret identity is secret so not shows.
+
+To illustrate the exchanges here the sort list sequence diagram
+
+![Contact list sort sequence diagram](doc/ContactListSortSequence.png)
+
+And the filter exchange
+
+![Contact list filter sequence diagram](doc/ContactListFilterSequence.png)
 
 ### Model
 
@@ -103,25 +111,35 @@ Models are in `app_models` module
 
 In `fr.jhelp.composeclean.models` there :
 
-[TextChoice](app_models/src/main/java/fr/jhelp/composeclean/models/TextChoice.kt) : An enumeration of text type show in alternative text show
+[TextChoice](app_models/src/main/java/fr/jhelp/composeclean/models/TextChoice.kt) : An enumeration
+of text type show in alternative text show
 
-[SortType](app_models/src/main/java/fr/jhelp/composeclean/models/SortType.kt) : An enumeration of sort's type in contact list 
+[SortType](app_models/src/main/java/fr/jhelp/composeclean/models/SortType.kt) : An enumeration of
+sort's type in contact list
 
-[Models](app_models/src/main/java/fr/jhelp/composeclean/models/Models.kt) : To provide activities models implementation 
+[Models](app_models/src/main/java/fr/jhelp/composeclean/models/Models.kt) : To provide activities
+models implementation
 
 In `fr.jhelp.composeclean.models.contact` there :
 
 All things link to contact. Since we want show letters and contact, we have :
-* A generic [Contact](app_models/src/main/java/fr/jhelp/composeclean/models/contact/Contact.kt) interface
-* [ContactSeparator](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactSeparator.kt) : A virtual contact to represents a letter
-* [ContactPerson](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactPerson.kt) : A real contact person
-* Two comparators to sort contact list : [ContactFirstNameComparator](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactFirstNameComparator.kt) and [ContactLastNameComparator](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactLastNameComparator.kt)
+
+* A generic [Contact](app_models/src/main/java/fr/jhelp/composeclean/models/contact/Contact.kt)
+  interface
+* [ContactSeparator](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactSeparator.kt) :
+  A virtual contact to represents a letter
+* [ContactPerson](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactPerson.kt) :
+  A real contact person
+* Two comparators to sort contact
+  list : [ContactFirstNameComparator](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactFirstNameComparator.kt)
+  and [ContactLastNameComparator](app_models/src/main/java/fr/jhelp/composeclean/models/contact/ContactLastNameComparator.kt)
 
 In `fr.jhelp.composeclean.models.shared` there :
 
 The models used by activities. One model per activity.
 
-Due compose restrictions we need an initializer that UI should call first to provide a link for manipulate interface
+Due compose restrictions we need an initializer that UI should call first to provide a link for
+manipulate interface
 
 As we said before models are interfaces an real implementation is internal.
 
@@ -133,10 +151,12 @@ In main activity we have a text that change and a button to change it
 
 `changeText` change the text
 
-[ContactListModel](app_models/src/main/java/fr/jhelp/composeclean/models/shared/ContactListModel.kt) details :
+[ContactListModel](app_models/src/main/java/fr/jhelp/composeclean/models/shared/ContactListModel.kt)
+details :
 
-In contact list activity we have to fill/sort/filter a list model. An change buttons enable state depends on sort type.
-That's why in `initialize` we collect the model to manipulate and holder to signal sort change to UI
+In contact list activity we have to fill/sort/filter a list model. An change buttons enable state
+depends on sort type. That's why in `initialize` we collect the model to manipulate and holder to
+signal sort change to UI
 
 `toggleSort` : Change first name sort by last name sort and vice versa.
 
@@ -144,7 +164,7 @@ That's why in `initialize` we collect the model to manipulate and holder to sign
 
 In `fr.jhelp.composeclean.models.shared.preview` :
 
-Sample models can be used in compose preview : 
+Sample models can be used in compose preview :
 [MainModelPreview](app_models/src/main/java/fr/jhelp/composeclean/models/shared/preview/MainModelPreview.kt)
 and [ContactListModelPreview](app_models/src/main/java/fr/jhelp/composeclean/models/shared/preview/ContactListModelPreview.kt)
 
@@ -152,63 +172,71 @@ In `fr.jhelp.composeclean.models.implementation` :
 
 The real implementation of activities models
 
-[MainModelImplementation](app_models/src/main/java/fr/jhelp/composeclean/models/implementation/MainModelImplementation.kt) for main activity
+[MainModelImplementation](app_models/src/main/java/fr/jhelp/composeclean/models/implementation/MainModelImplementation.kt)
+for main activity
 
-[ContactListModelImplementation](app_models/src/main/java/fr/jhelp/composeclean/models/implementation/ContactListModelImplementation.kt) for contact activity
+[ContactListModelImplementation](app_models/src/main/java/fr/jhelp/composeclean/models/implementation/ContactListModelImplementation.kt)
+for contact activity
 
 ### UI
 
 Application UI is in `app` module package `fr.jhelp.composeclean`
 
-We have an application : [ComposeCleanApplication](app/src/main/java/fr/jhelp/composeclean/ComposeCleanApplication.kt).
-In `onCreate` method we provide the application context and inject the activities models
+We have an
+application : [ComposeCleanApplication](app/src/main/java/fr/jhelp/composeclean/ComposeCleanApplication.kt)
+. In `onCreate` method we provide the application context and inject the activities models
 
-In `fr.jhelp.composeclean.ui.theme` you will find the application's compose theme 
+In `fr.jhelp.composeclean.ui.theme` you will find the application's compose theme
 
-Each activity, in `fr.jhelp.composeclean.ui.activities` have its composable description in `fr.jhelp.composeclean.ui.composables`.
-We have also to render contact list cell their composable are in `fr.jhelp.composeclean.ui.composables.contact`
+Each activity, in `fr.jhelp.composeclean.ui.activities` have its composable description
+in `fr.jhelp.composeclean.ui.composables`. We have also to render contact list cell their composable
+are in `fr.jhelp.composeclean.ui.composables.contact`
 
-[MainActivity](app/src/main/java/fr/jhelp/composeclean/ui/activities/MainActivity.kt) show the composable
+[MainActivity](app/src/main/java/fr/jhelp/composeclean/ui/activities/MainActivity.kt) show the
+composable
 [MainActivityComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/MainActivityComposable.kt)
 
-`MainActivityComposable` gets the provided application context and its model. 
-It have the method `Show` (Start with upper case letter is compose convention) to show the UI and
+`MainActivityComposable` gets the provided application context and its model. It have the
+method `Show` (Start with upper case letter is compose convention) to show the UI and
 `Preview`method to show a preview on Android studio
 
-In `Show` method we first create holder for `textChoice` change and provide it to the model.
-This creation must be done in Composable method and as soon as possible, so here its the perfect spot.
+In `Show` method we first create holder for `textChoice` change and provide it to the model. This
+creation must be done in Composable method and as soon as possible, so here its the perfect spot.
 
-Then it follows the UI description. Use the holder for the text would let compose the capacity to update
-the text each time a new value is given. 
+Then it follows the UI description. Use the holder for the text would let compose the capacity to
+update the text each time a new value is given.
 
-In button click we delegate the action to the model. The UI should not have to know of the consequence 
-of button click, so that's a good practice to delegate action to model.
+In button click we delegate the action to the model. The UI should not have to know of the
+consequence of button click, so that's a good practice to delegate action to model.
 
-In `Preview` we inject the preview model first then call `Show`.
-If the preview model is not injected, the system will complains that it can't found the model,
-because application is not launched in preview, so no models are injected.
+In `Preview` we inject the preview model first then call `Show`. If the preview model is not
+injected, the system will complains that it can't found the model, because application is not
+launched in preview, so no models are injected.
 
-[ContactListActivity](app/src/main/java/fr/jhelp/composeclean/ui/activities/ContactListActivity.kt) show the composable
+[ContactListActivity](app/src/main/java/fr/jhelp/composeclean/ui/activities/ContactListActivity.kt)
+show the composable
 [ContactListActivityComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/ContactListActivityComposable.kt)
 
-`ContactListActivityComposable` get its provided model
-It have the method `Show` to show the UI and
+`ContactListActivityComposable` get its provided model It have the method `Show` to show the UI and
 `Preview`method to show a preview on Android studio
 
-in `Show` method we first create the recycler view, to have its model, and holder for `sortType`.
-We create a filter holder to manage the text field for filter (TODO : Find a better component than 
+in `Show` method we first create the recycler view, to have its model, and holder for `sortType`. We
+create a filter holder to manage the text field for filter (TODO : Find a better component than
 `BasicTextField` or create one to not have do the trick each time)
 We provide the recycler view model and `sortType`holder to the model
 
-Thew we create the UI. the `fillMaxSize` is not necessary in theory, but it permits to view the list in preview.
+Thew we create the UI. the `fillMaxSize` is not necessary in theory, but it permits to view the list
+in preview.
 
-The `BasicTextField` is tricky, we had to have a holder to cumulate the letters type, show the text 
+The `BasicTextField` is tricky, we had to have a holder to cumulate the letters type, show the text
 and manage the hint our self.
 
 In `Preview` we inject the preview model first then call `Show`.
 
-For draw contact in list, we use [ContactComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/contact/ContactComposable.kt).
-Depends on the contact type, aa separator or real contact, it calls [ContactSeparatorComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/contact/ContactSeparatorComposable.kt) 
+For draw contact in list, we
+use [ContactComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/contact/ContactComposable.kt)
+. Depends on the contact type, aa separator or real contact, it
+calls [ContactSeparatorComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/contact/ContactSeparatorComposable.kt)
 or [ContactPersonComposable](app/src/main/java/fr/jhelp/composeclean/ui/composables/contact/ContactPersonComposable.kt)
 
 ## Tools
