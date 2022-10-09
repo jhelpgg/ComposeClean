@@ -33,6 +33,9 @@ import fr.jhelp.composeclean.models.shared.preview.ContactListModelPreview
 import fr.jhelp.composeclean.ui.composables.contact.DrawContact
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
+/**
+ * Contact list activity composable
+ */
 class ContactListActivityComposable
 {
     private val contactListModel: ContactListModel by provided<ContactListModel>()
@@ -40,17 +43,23 @@ class ContactListActivityComposable
     @Composable
     fun Show()
     {
+        // Create holders and initialize the model
         val recyclerView = RecyclerComposable<Contact> { contact -> DrawContact(contact) }
         val sortType = mutable(SortType.SORT_BY_FIRST_NAME)
-        var filtered: String by remember { mutableStateOf("") }
         this.contactListModel.initialize(recyclerView.recyclerModel, sortType)
+        // Trick for cumulate filter text
+        var filtered: String by remember { mutableStateOf("") }
 
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
             val (filter, contactList, buttonFirstName, buttonLastName) = createRefs()
 
-            BasicTextField(value = filtered,
+            BasicTextField(value = filtered, // We use the previous complete text so it cumulates
                            onValueChange = { filterTyped ->
-                               filtered = filterTyped
+                               filtered = filterTyped // We store and update the filter, so additional letters are not lost and delete action is preserve
+                               // Since we have the recycler model we can be tempted to filter the recycler
+                               // composable form here.
+                               // But this not respect our good practice, we delegate the filter to the model,
+                               // because it is model side the "intelligence" should be
                                this@ContactListActivityComposable.contactListModel
                                    .filter(filterTyped)
                            },
@@ -61,6 +70,7 @@ class ContactListActivityComposable
                                startParent
                                endParent
                            }) {
+                // We manage the hint "manually"
                 Text(text = filtered.ifEmpty { stringResource(R.string.hintFilter) },
                      color = if (filtered.isEmpty()) Color.Gray else Color.White)
             }
@@ -76,6 +86,7 @@ class ContactListActivityComposable
 
             val buttonGuideline = createGuidelineFromStart(0.5f)
 
+            // Same remarks as above about recycler compose model
             Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
                    enabled = sortType.get() == SortType.SORT_BY_LAST_NAME,
                    modifier = Modifier.constrainAs(buttonFirstName) {
@@ -88,6 +99,7 @@ class ContactListActivityComposable
                 Text(text = stringResource(R.string.buttonFirstName))
             }
 
+            // Same remarks as above about recycler compose model
             Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
                    enabled = sortType.get() == SortType.SORT_BY_FIRST_NAME,
                    modifier = Modifier.constrainAs(buttonLastName) {

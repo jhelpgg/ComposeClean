@@ -10,8 +10,11 @@ class ComposeCleanApplication: Application()
     override fun onCreate()
     {
         super.onCreate()
+        // Inject the application context
+        // here a trick to be sure not embed the Application instance, but only the application context
         val applicationContext = this.applicationContext
         provideSingle<Context> { applicationContext }
+        // Inject activities models
         injectModels()
     }
 }
