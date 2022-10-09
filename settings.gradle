@@ -16,7 +16,6 @@ rootProject.name = "ComposeClean"
 include ':app'
 include ':provider'
 include ':collection'
-include ':text'
 include ':constraint'
 include ':app_models'
 include ':common'

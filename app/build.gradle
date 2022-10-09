@@ -57,7 +57,6 @@ dependencies {
 
     implementation(project(":provider"))
     implementation(project(":collection"))
-    implementation(project(":text"))
     implementation implementation(project(':common'))
     implementation(project(":constraint"))
     implementation(project(":app_models"))

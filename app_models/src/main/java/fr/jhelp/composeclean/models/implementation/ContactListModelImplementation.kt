@@ -16,24 +16,46 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
+/**
+ * Contact list activity model implementation
+ */
 internal class ContactListModelImplementation : ContactListModel
 {
+    /** Coroutine scope to launch task in parallel */
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+    /** Recycler model of contact list to manipulate it */
     private lateinit var recyclerModel: RecyclerModel<Contact>
+    /** Holder of sort type to able get/change it */
     private lateinit var sortType: Mutable<SortType>
 
+    /**
+     * Initialize the model
+     *
+     * @param recyclerModel Recycler model of contact list to manipulate it
+     * @param sortType Holder of sort type to able get/change it
+     */
     override fun initialize(recyclerModel: RecyclerModel<Contact>, sortType: Mutable<SortType>)
     {
         this.recyclerModel = recyclerModel
         this.sortType = sortType
+
+        // Fill the model
 
         this.fillAlphabet()
         this.scope.launch { this@ContactListModelImplementation.fillContact() }
             .invokeOnCompletion { this.update() }
     }
 
+    /**
+     * Change the sort type action
+     */
     override fun toggleSort()
     {
+        // Here if we set the holder and just after get the value we have a great chance to have the previous value.
+        // Because the holder is link to compose system. And it don't immediately change the value,
+        // so if we request the value to soon it may have not the type to be updated, and will received value before set
+        //
+        // To solve this here we just not refer to get to have the value but use the computed one for update the sort
         val newSortType =
             when (this.sortType.get())
             {
@@ -45,6 +67,13 @@ internal class ContactListModelImplementation : ContactListModel
         this.sortType.set(newSortType)
     }
 
+    /**
+     * Filter the content
+     *
+     * Empty filter will remove filter
+     *
+     * @param filter Filter to apply
+     */
     override fun filter(filter: String)
     {
         val safeFilter = filter.trim()
@@ -64,6 +93,9 @@ internal class ContactListModelImplementation : ContactListModel
         }
     }
 
+    /**
+     * Fill letters
+     */
     private fun fillAlphabet()
     {
         for (character in 'A'..'Z')
@@ -72,6 +104,9 @@ internal class ContactListModelImplementation : ContactListModel
         }
     }
 
+    /**
+     * Fill contacts
+     */
     private fun fillContact()
     {
         // NOTE : In real application we will get te real contact here, for the demo, we just provide some contacts
@@ -101,6 +136,9 @@ internal class ContactListModelImplementation : ContactListModel
         }
     }
 
+    /**
+     * Compute a random name start by given letter
+     */
     private fun name(firstLetter: Char): String
     {
         val random = Random(SystemClock.elapsedRealtime())
@@ -116,6 +154,9 @@ internal class ContactListModelImplementation : ContactListModel
         return name.toString()
     }
 
+    /**
+     * Update the sort order
+     */
     private fun update(sortType: SortType = this.sortType.get())
     {
         when (sortType)

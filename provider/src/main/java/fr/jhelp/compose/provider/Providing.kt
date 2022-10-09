@@ -87,7 +87,7 @@ inline fun <reified T : Any> provideMultiple(qualifier: String, noinline produce
 }
 
 /**
- * Forget an association, any instance used after thi call will failed, unless [provideSingle] or [provideMultiple]
+ * Forget an association, any instance used after this call will failed, unless [provideSingle] or [provideMultiple]
  * is called again
  */
 inline fun <reified T : Any> forget(qualifier: String = "")
@@ -123,5 +123,8 @@ inline fun <reified T : Any> forget(qualifier: String = "")
 inline fun <reified T> provided(qualifier: String = "") =
     Provided<T>("${T::class.qualifiedName}:$qualifier")
 
+/**
+ * Indicate if something is provided for the class, and qualifier
+ */
 inline fun <reified T> isProvided(qualifier: String = "") =
     ProviderManager.isProvided("${T::class.qualifiedName}:$qualifier")
