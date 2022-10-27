@@ -11,12 +11,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/animations" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app_models" />
             <option value="$PROJECT_DIR$/collection" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/constraint" />
+            <option value="$PROJECT_DIR$/engine" />
+            <option value="$PROJECT_DIR$/images" />
+            <option value="$PROJECT_DIR$/math" />
             <option value="$PROJECT_DIR$/provider" />
+            <option value="$PROJECT_DIR$/sound" />
           </set>
         </option>
       </GradleProjectSettings>
