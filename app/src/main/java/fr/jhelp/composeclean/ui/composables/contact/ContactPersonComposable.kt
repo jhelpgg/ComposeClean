@@ -8,10 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import fr.jhelp.compose.constraint.extensions.bottomParent
 import fr.jhelp.compose.constraint.extensions.far
 import fr.jhelp.compose.constraint.extensions.startParent
-import fr.jhelp.compose.constraint.extensions.topParent
 import fr.jhelp.composeclean.models.contact.ContactPerson
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
@@ -27,8 +25,8 @@ fun DrawContactPerson(contactPerson: ContactPerson)
              Modifier.constrainAs(firstName) {
                  width = Dimension.wrapContent
                  height = Dimension.wrapContent
-                 topParent
-                 bottomParent
+                 top.linkTo(parent.top)
+                 bottom.linkTo(parent.bottom)
                  startParent
              })
 
@@ -36,8 +34,8 @@ fun DrawContactPerson(contactPerson: ContactPerson)
              Modifier.constrainAs(lastName) {
                  width = Dimension.wrapContent
                  height = Dimension.wrapContent
-                 topParent
-                 bottomParent
+                 top.linkTo(parent.top)
+                 bottom.linkTo(parent.bottom)
                  start far firstName.end
              })
     }
