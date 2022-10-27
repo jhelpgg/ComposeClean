@@ -8,11 +8,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import fr.jhelp.compose.mutable
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.TextChoice
 import fr.jhelp.composeclean.models.shared.MainModel
 import fr.jhelp.composeclean.models.shared.preview.MainModelPreview
 import fr.jhelp.composeclean.ui.activities.ContactListActivity
@@ -31,11 +29,10 @@ class MainActivityComposable
     fun Show()
     {
         // Create holders and initialize the model
-        val textChoice = mutable<TextChoice>(TextChoice.CHOICE1)
-        this.mainModel.initialize(textChoice)
+        val textChoice = this.mainModel.textChoiceState
 
         Column {
-            Text(text = stringResource(textChoice.get().stringResource))
+            Text(text = stringResource(textChoice.value.stringResource))
             Button(onClick = { this@MainActivityComposable.mainModel.changeText() }) {
                 Text(text = stringResource(R.string.buttonChangeText))
             }

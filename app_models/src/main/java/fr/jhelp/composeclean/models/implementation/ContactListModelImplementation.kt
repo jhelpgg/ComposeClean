@@ -1,7 +1,9 @@
 package fr.jhelp.composeclean.models.implementation
 
 import android.os.SystemClock
-import fr.jhelp.compose.mutable.Mutable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.SortType
 import fr.jhelp.composeclean.models.contact.Contact
@@ -23,10 +25,15 @@ internal class ContactListModelImplementation : ContactListModel
 {
     /** Coroutine scope to launch task in parallel */
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+
     /** Recycler model of contact list to manipulate it */
     private lateinit var recyclerModel: RecyclerModel<Contact>
-    /** Holder of sort type to able get/change it */
-    private lateinit var sortType: Mutable<SortType>
+
+    /** mutable state of sort type*/
+    private val sortTypeMutableState: MutableState<SortType> =
+        mutableStateOf(SortType.SORT_BY_FIRST_NAME)
+    /** Shared sort type state */
+    override val sortTypeState: State<SortType> get() = this.sortTypeMutableState
 
     /**
      * Initialize the model
@@ -34,10 +41,9 @@ internal class ContactListModelImplementation : ContactListModel
      * @param recyclerModel Recycler model of contact list to manipulate it
      * @param sortType Holder of sort type to able get/change it
      */
-    override fun initialize(recyclerModel: RecyclerModel<Contact>, sortType: Mutable<SortType>)
+    override fun initialize(recyclerModel: RecyclerModel<Contact>)
     {
         this.recyclerModel = recyclerModel
-        this.sortType = sortType
 
         // Fill the model
 
@@ -45,6 +51,7 @@ internal class ContactListModelImplementation : ContactListModel
         this.scope.launch { this@ContactListModelImplementation.fillContact() }
             .invokeOnCompletion { this.update() }
     }
+
 
     /**
      * Change the sort type action
@@ -57,14 +64,14 @@ internal class ContactListModelImplementation : ContactListModel
         //
         // To solve this here we just not refer to get to have the value but use the computed one for update the sort
         val newSortType =
-            when (this.sortType.get())
+            when (this.sortTypeMutableState.value)
             {
                 SortType.SORT_BY_FIRST_NAME -> SortType.SORT_BY_LAST_NAME
                 SortType.SORT_BY_LAST_NAME  -> SortType.SORT_BY_FIRST_NAME
             }
 
         this.update(newSortType)
-        this.sortType.set(newSortType)
+        this.sortTypeMutableState.value = newSortType
     }
 
     /**
@@ -157,7 +164,7 @@ internal class ContactListModelImplementation : ContactListModel
     /**
      * Update the sort order
      */
-    private fun update(sortType: SortType = this.sortType.get())
+    private fun update(sortType: SortType = this.sortTypeMutableState.value)
     {
         when (sortType)
         {
