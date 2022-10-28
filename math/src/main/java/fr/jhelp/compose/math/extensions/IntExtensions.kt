@@ -1,6 +1,7 @@
 package fr.jhelp.compose.math.extensions
 
 import fr.jhelp.compose.math.COLOR_MASK
+import fr.jhelp.compose.math.anotations.Milliseconds
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -43,3 +44,15 @@ infix fun Int.LCM(integer: Int): Int
 
     return this * (integer / gcd)
 }
+
+/** Number of seconds converted in milliseconds*/
+inline val @receiver:Milliseconds Int.seconds: Int get() = this * 1000
+
+/** Number of minutes converted in milliseconds*/
+inline val @receiver:Milliseconds Int.minutes: Int get() = this * 60 * 1000
+
+/** Number of hours converted in milliseconds*/
+inline val @receiver:Milliseconds Int.hours: Int get() = this * 60 * 60 * 1000
+
+/** Number of days converted in milliseconds*/
+inline val @receiver:Milliseconds Int.days: Int get() = this * 24 * 60 * 60 * 1000

@@ -25,6 +25,7 @@ import fr.jhelp.compose.engine.dsl.textureReferences
 import fr.jhelp.compose.engine.extensions.children
 import fr.jhelp.compose.engine.extensions.material
 import fr.jhelp.compose.engine.extensions.position
+import fr.jhelp.compose.math.extensions.seconds
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.engine.View3DComposable
@@ -64,19 +65,19 @@ class MainActivityComposable
         val animationCenter = animationNodeReference(centerReference)
 
         animationNode(animationCenter) {
-            atTime(1000, AccelerationInterpolation(2f)) {
+            atTime(1.seconds, AccelerationInterpolation(2f)) {
                 x = 0.5f
                 y = 1f
                 angleY = 180f
             }
 
-            atTime(3000, AnticipateOvershootInterpolation(5f)) {
+            atTime(3.seconds, AnticipateOvershootInterpolation(5f)) {
                 x = -0.5f
                 y = -1f
                 angleY = -180f
             }
 
-            atTime(4000, BounceInterpolation) {
+            atTime(4.seconds + 500, BounceInterpolation) {
                 x = 0f
                 y = 0f
             }

@@ -1,5 +1,6 @@
 package fr.jhelp.compose.math.extensions
 
+import fr.jhelp.compose.math.anotations.Milliseconds
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -38,3 +39,15 @@ infix fun Long.LCM(integer: Long): Long
 
     return this * (integer / gcd)
 }
+
+/** Number of seconds converted in milliseconds*/
+inline val @receiver:Milliseconds Long.seconds: Long get() = this * 1000L
+
+/** Number of minutes converted in milliseconds*/
+inline val @receiver:Milliseconds Long.minutes: Long get() = this * 60L * 1000L
+
+/** Number of hours converted in milliseconds*/
+inline val @receiver:Milliseconds Long.hours: Long get() = this * 60L * 60L * 1000L
+
+/** Number of days converted in milliseconds*/
+inline val @receiver:Milliseconds Long.days: Long get() = this * 24L * 60L * 60L * 1000L

@@ -6,6 +6,7 @@ import fr.jhelp.compose.collection.sortedArray
 import fr.jhelp.compose.engine.animation.keyFrame.AnimationNode3D
 import fr.jhelp.compose.engine.dsl.NodeReference
 import fr.jhelp.compose.engine.scene.Position3D
+import fr.jhelp.compose.math.anotations.Milliseconds
 import kotlin.math.max
 
 class AnimationNodeCreator internal constructor(private val nodeReference: NodeReference)
@@ -26,7 +27,7 @@ class AnimationNodeCreator internal constructor(private val nodeReference: NodeR
 
     private val elements = sortedArray<AnimationNodeCreatorElement>()
 
-    fun atTime(atTimeMilliseconds: Int,
+    fun atTime(@Milliseconds atTimeMilliseconds: Int,
                withInterpolation: Interpolation = LinearInterpolation,
                betAtPosition: Position3D.() -> Unit)
     {

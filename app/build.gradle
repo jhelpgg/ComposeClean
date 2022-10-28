@@ -63,6 +63,7 @@ dependencies {
     implementation(project(":constraint"))
     implementation(project(":engine"))
     implementation(project(":animations"))
+    implementation(project(":math"))
     implementation(project(":app_models"))
 
     testImplementation 'junit:junit:4.13.2'
