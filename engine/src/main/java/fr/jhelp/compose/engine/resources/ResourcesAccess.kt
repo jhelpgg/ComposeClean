@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.annotation.DrawableRes
 import fr.jhelp.compose.engine.scene.Texture
+import fr.jhelp.compose.provider.isProvided
 import fr.jhelp.compose.provider.provided
 
 object ResourcesAccess
@@ -35,16 +36,30 @@ object ResourcesAccess
      * Obtain texture from drawable resources
      */
     fun obtainTexture(@DrawableRes drawableID: Int, sealed: Boolean = true): Texture =
-        texture(this.resources, drawableID, sealed)
+        if (isProvided<Context>())
+        {
+            texture(this.resources, drawableID, sealed)
+        }
+        else
+        {
+            defaultTexture()
+        }
 
     fun obtainTexture(assetPath: String, sealed: Boolean = true): Texture =
-        try
+        if (isProvided<Context>())
         {
-            texture({ this.assetManager.open(assetPath) }, sealed)
+            try
+            {
+                texture({ this.assetManager.open(assetPath) }, sealed)
+            }
+            catch (exception: Exception)
+            {
+                Log.w("ResourcesAccess", "Issue while loading asset : $assetPath", exception)
+                defaultTexture()
+            }
         }
-        catch (exception: Exception)
+        else
         {
-            Log.w("ResourcesAccess", "Issue while loading asset : $assetPath", exception)
             defaultTexture()
         }
 

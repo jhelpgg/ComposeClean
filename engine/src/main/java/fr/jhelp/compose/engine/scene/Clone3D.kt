@@ -16,7 +16,7 @@ import javax.microedition.khronos.opengles.GL10
  *
  * The aim is to save memory, only original object stores the mesh, clones just use it
  */
-class Clone3D(private val object3D: Object3D) : NodeWithBoundingBox()
+class Clone3D(internal val object3D: Object3D) : NodeWithBoundingBox()
 {
     /**Clone material*/
     var material = Material()

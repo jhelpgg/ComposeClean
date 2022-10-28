@@ -59,8 +59,10 @@ dependencies {
 
     implementation(project(":provider"))
     implementation(project(":collection"))
-    implementation implementation(project(':common'))
+    implementation(project(':common'))
     implementation(project(":constraint"))
+    implementation(project(":engine"))
+    implementation(project(":animations"))
     implementation(project(":app_models"))
 
     testImplementation 'junit:junit:4.13.2'
