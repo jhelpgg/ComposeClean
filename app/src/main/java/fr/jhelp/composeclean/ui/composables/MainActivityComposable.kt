@@ -101,7 +101,7 @@ class MainActivityComposable
             view3DComposable.Draw(modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()) {
-                position { z = -2f }
+                scenePosition { z = -2f }
                 root {
                     node(centerReference) {
                         children {

@@ -16,7 +16,7 @@ class View3DComposable
     @Composable
     fun Draw(modifier: Modifier = Modifier,
              scene: SceneCreator.() -> Unit = {
-                 position { z = -2f }
+                 scenePosition { z = -2f }
                  root { box {} }
              })
     {

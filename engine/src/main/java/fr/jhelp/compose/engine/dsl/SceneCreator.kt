@@ -12,7 +12,7 @@ class SceneCreator internal constructor(private val view3D: View3D)
 {
     private val scene3D: Scene3D = this.view3D.scene3D
 
-    fun position(position: Position3D.() -> Unit)
+    fun scenePosition(position: Position3D.() -> Unit)
     {
         this.scene3D.root.position(position)
     }
