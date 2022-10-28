@@ -10,11 +10,6 @@ import fr.jhelp.compose.engine.view.View3D
 
 class SceneCreator internal constructor(private val view3D: View3D)
 {
-    companion object
-    {
-        internal val junkReference = NodeReference()
-    }
-
     private val scene3D: Scene3D = this.view3D.scene3D
 
     fun position(position: Position3D.() -> Unit)

@@ -9,7 +9,7 @@ import fr.jhelp.compose.engine.scene.geometry.Sphere
 
 class NodeTreeCreator internal constructor(private val root: Node3D)
 {
-    fun node(reference: NodeReference = SceneCreator.junkReference, node: Node3D.() -> Unit)
+    fun node(reference: NodeReference = junkReference, node: Node3D.() -> Unit)
     {
         val node3D = Node3D()
         reference.node = node3D
@@ -17,7 +17,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(node3D)
     }
 
-    fun object3D(reference: NodeReference = SceneCreator.junkReference,
+    fun object3D(reference: NodeReference = junkReference,
                  object3D: Object3D.() -> Unit)
     {
         val object3DReal = Object3D()
@@ -26,7 +26,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(object3DReal)
     }
 
-    fun clone(reference: NodeReference = SceneCreator.junkReference,
+    fun clone(reference: NodeReference = junkReference,
               referenceObjectOrClone: NodeReference,
               clone3D: Clone3D.() -> Unit)
     {
@@ -44,7 +44,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(clone)
     }
 
-    fun plane(reference: NodeReference = SceneCreator.junkReference,
+    fun plane(reference: NodeReference = junkReference,
               startU: Float = 0f, endU: Float = 1f,
               startV: Float = 0f, endV: Float = 1f,
               plane: Plane.() -> Unit)
@@ -55,7 +55,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(planeReal)
     }
 
-    fun box(reference: NodeReference = SceneCreator.junkReference,
+    fun box(reference: NodeReference = junkReference,
             boxUV: BoxUVCreator.() -> Unit = {},
             box: Box.() -> Unit)
     {
@@ -67,7 +67,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(boxReal)
     }
 
-    fun sphere(reference: NodeReference = SceneCreator.junkReference,
+    fun sphere(reference: NodeReference = junkReference,
                multiplierU: Float = 1f, multiplierV: Float = 1f, slice: Int = 16, slack: Int = 16,
                sphere: Sphere.() -> Unit)
     {

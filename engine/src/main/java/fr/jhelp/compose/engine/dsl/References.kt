@@ -5,6 +5,8 @@ import fr.jhelp.compose.engine.dsl.animation.AnimationNodeCreator
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceAsset
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceDrawable
 
+internal val junkReference = NodeReference()
+
 fun nodeReference(): NodeReference = NodeReference()
 fun nodeReferences(): NodeReferencesCreator = NodeReferencesCreator
 
