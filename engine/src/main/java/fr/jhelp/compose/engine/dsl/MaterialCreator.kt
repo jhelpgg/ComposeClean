@@ -1,26 +1,29 @@
 package fr.jhelp.compose.engine.dsl
 
-import fr.jhelp.compose.engine.scene.GREY
+import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.Material
 import fr.jhelp.compose.math.extensions.bounds
 
-class MaterialCreator
+class MaterialCreator internal constructor(private val material: Material)
 {
-    var alpha: Float = 1f
+    var alpha: Float
+        get() = this.material.alpha
         set(value)
         {
-            field = value.bounds(0f, 1f)
+            this.material.alpha = value.bounds(0f, 1f)
         }
 
-    var diffuse = GREY
+    var diffuse: Color3D
+        get() = this.material.diffuse
+        set(value)
+        {
+            this.material.diffuse = value
+        }
+
     var textureReference: TextureReference? = null
 
-    operator fun invoke(): Material
+    internal fun resolveTexture()
     {
-        val material = Material()
-        material.alpha = this.alpha
-        material.diffuse = diffuse
-        material.texture = this.textureReference?.textureSource?.texture
-        return material
+        this.material.texture = this.textureReference?.textureSource?.texture
     }
 }

@@ -43,7 +43,7 @@ class MainActivityComposable
 {
     private val applicationContext: Context by provided<Context>()
     private val mainModel: MainModel by provided<MainModel>()
-    private var animationPlayer: AnimationPlayer? = null
+    private lateinit var animationPlayer: AnimationPlayer
 
     @Composable
     fun Show()
@@ -87,7 +87,7 @@ class MainActivityComposable
             Text(text = stringResource(textChoice.value.stringResource))
             Button(onClick = {
                 this@MainActivityComposable.mainModel.changeText()
-                this@MainActivityComposable.animationPlayer?.play()
+                this@MainActivityComposable.animationPlayer.play()
             }) {
                 Text(text = stringResource(R.string.buttonChangeText))
             }
