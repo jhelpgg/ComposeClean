@@ -246,12 +246,12 @@ internal class RecyclerAdapter<T : Any>(private val drawItem: @Composable (T) ->
         }
     }
 
-    override fun onViewAttachedToWindow(v: View?)
+    override fun onViewAttachedToWindow(view: View)
     {
         this.attached = true
     }
 
-    override fun onViewDetachedFromWindow(v: View?)
+    override fun onViewDetachedFromWindow(view: View)
     {
         this.attached = false
     }

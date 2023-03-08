@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.models.shared
 
-import fr.jhelp.compose.mutable.Mutable
+import androidx.compose.runtime.State
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.SortType
 import fr.jhelp.composeclean.models.contact.Contact
@@ -10,13 +10,14 @@ import fr.jhelp.composeclean.models.contact.Contact
  */
 interface ContactListModel
 {
+    val sortTypeState: State<SortType>
+
     /**
      * Initialize the model
      *
      * @param recyclerModel Recycler model of contact list to manipulate it
-     * @param sortType Holder of sort type to able get/change it
      */
-    fun initialize(recyclerModel: RecyclerModel<Contact>, sortType: Mutable<SortType>)
+    fun initialize(recyclerModel: RecyclerModel<Contact>)
 
     /**
      * Change the sort type action

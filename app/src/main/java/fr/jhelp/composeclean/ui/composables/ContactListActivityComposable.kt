@@ -1,16 +1,16 @@
 package fr.jhelp.composeclean.ui.composables
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -21,7 +21,6 @@ import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.next
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.mutable
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
@@ -40,40 +39,40 @@ class ContactListActivityComposable
 {
     private val contactListModel: ContactListModel by provided<ContactListModel>()
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun Show()
     {
         // Create holders and initialize the model
         val recyclerView = RecyclerComposable<Contact> { contact -> DrawContact(contact) }
-        val sortType = mutable(SortType.SORT_BY_FIRST_NAME)
-        this.contactListModel.initialize(recyclerView.recyclerModel, sortType)
+        val sortType = this.contactListModel.sortTypeState
+        this.contactListModel.initialize(recyclerView.recyclerModel)
         // Trick for cumulate filter text
         var filtered: String by remember { mutableStateOf("") }
 
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
             val (filter, contactList, buttonFirstName, buttonLastName) = createRefs()
 
-            BasicTextField(value = filtered, // We use the previous complete text so it cumulates
-                           onValueChange = { filterTyped ->
-                               filtered = filterTyped // We store and update the filter, so additional letters are not lost and delete action is preserve
-                               // Since we have the recycler model we can be tempted to filter the recycler
-                               // composable form here.
-                               // But this not respect our good practice, we delegate the filter to the model,
-                               // because it is model side the "intelligence" should be
-                               this@ContactListActivityComposable.contactListModel
-                                   .filter(filterTyped)
-                           },
-                           modifier = Modifier.constrainAs(filter) {
-                               width = Dimension.fillToConstraints
-                               height = Dimension.wrapContent
-                               topParent
-                               startParent
-                               endParent
-                           }) {
-                // We manage the hint "manually"
-                Text(text = filtered.ifEmpty { stringResource(R.string.hintFilter) },
-                     color = if (filtered.isEmpty()) Color.Gray else Color.White)
-            }
+            TextField(
+                value = filtered,
+                onValueChange = { filterTyped ->
+                    // We store and update the filter, so additional letters are not lost and delete action is preserve
+                    filtered = filterTyped
+                    // Since we have the recycler model we can be tempted to filter the recycler
+                    // composable form here.
+                    // But this not respect our good practice, we delegate the filter to the model,
+                    // because it is model side the "intelligence" should be
+                    this@ContactListActivityComposable.contactListModel
+                        .filter(filterTyped)
+                },
+                label = { Text(stringResource(R.string.hintFilter)) },
+                modifier = Modifier.constrainAs(filter) {
+                    width = Dimension.fillToConstraints
+                    height = Dimension.wrapContent
+                    topParent
+                    startParent
+                    endParent
+                })
 
             recyclerView.Draw(Modifier.constrainAs(contactList) {
                 width = Dimension.fillToConstraints
@@ -88,7 +87,7 @@ class ContactListActivityComposable
 
             // Same remarks as above about recycler compose model
             Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
-                   enabled = sortType.get() == SortType.SORT_BY_LAST_NAME,
+                   enabled = sortType.value == SortType.SORT_BY_LAST_NAME,
                    modifier = Modifier.constrainAs(buttonFirstName) {
                        width = Dimension.wrapContent
                        height = Dimension.wrapContent
@@ -101,7 +100,7 @@ class ContactListActivityComposable
 
             // Same remarks as above about recycler compose model
             Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
-                   enabled = sortType.get() == SortType.SORT_BY_FIRST_NAME,
+                   enabled = sortType.value == SortType.SORT_BY_FIRST_NAME,
                    modifier = Modifier.constrainAs(buttonLastName) {
                        width = Dimension.wrapContent
                        height = Dimension.wrapContent

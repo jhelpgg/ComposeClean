@@ -1,6 +1,8 @@
 package fr.jhelp.composeclean.models.implementation
 
-import fr.jhelp.compose.mutable.Mutable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import fr.jhelp.composeclean.models.TextChoice
 import fr.jhelp.composeclean.models.shared.MainModel
 
@@ -10,16 +12,9 @@ import fr.jhelp.composeclean.models.shared.MainModel
 internal class MainModelImplementation : MainModel
 {
     /** Holder for get/change the text choice */
-    private lateinit var textChoice: Mutable<TextChoice>
-
-    /**
-     * Initialize the model
-     * @param textChoice Holder for get/change the text choice
-     */
-    override fun initialize(textChoice: Mutable<TextChoice>)
-    {
-        this.textChoice = textChoice
-    }
+    private val textChoiceMutableState: MutableState<TextChoice> =
+        mutableStateOf(TextChoice.CHOICE1)
+    override val textChoiceState: State<TextChoice> get() = this.textChoiceMutableState
 
     /**
      * Change the text action
@@ -28,12 +23,11 @@ internal class MainModelImplementation : MainModel
     {
         // Use in this order work because we get before we set
         // See issue described in contact list model implementation for the other order
-        this.textChoice.set(
-            when (this.textChoice.get())
+        this.textChoiceMutableState.value =
+            when (this.textChoiceMutableState.value)
             {
                 TextChoice.CHOICE1 -> TextChoice.CHOICE2
                 TextChoice.CHOICE2 -> TextChoice.CHOICE1
             }
-                           )
     }
 }

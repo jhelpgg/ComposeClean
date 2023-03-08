@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.models.shared
 
-import fr.jhelp.compose.mutable.Mutable
+import androidx.compose.runtime.State
 import fr.jhelp.composeclean.models.TextChoice
 
 /**
@@ -8,11 +8,7 @@ import fr.jhelp.composeclean.models.TextChoice
  */
 interface MainModel
 {
-    /**
-     * Initialize the model
-     * @param textChoice Holder for get/change the text choice
-     */
-    fun initialize(textChoice: Mutable<TextChoice>)
+    val textChoiceState: State<TextChoice>
 
     /**
      * Change the text action
