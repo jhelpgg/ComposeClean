@@ -1,5 +1,6 @@
 package fr.jhelp.compose.engine.dsl
 
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.DrawableRes
@@ -48,7 +49,7 @@ fun texture(textureReference: TextureReference, assetPath: String)
 }
 
 fun texture(textureReference: TextureReference,
-            width: Int, height: Int, draw: (Canvas, Paint) -> Unit)
+            width: Int, height: Int, draw: (Bitmap, Canvas, Paint) -> Unit)
 {
     textureReference.textureSource = TextureSourceCreated(width, height, draw)
 }

@@ -2,6 +2,7 @@ package fr.jhelp.compose.engine.view.touch
 
 import android.graphics.Point
 import android.os.SystemClock
+import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.engine.scene.Texture
 import fr.jhelp.compose.engine.view.CLICK_TIME
@@ -117,11 +118,12 @@ class View3DTouchOverSensitive(private val view3DTouchOverListener: View3DTouchO
     private fun refresh()
     {
         {
-            this.texture.bitmap()?.clear(0x00_00_00_00)
-            val canvas = this.texture.canvas()!!
-            val paint = this.texture.paint()!!
-            this.view3DTouchOverListener.onRefresh(canvas, paint)
-            this.texture.refresh()
+            this.texture.draw { bitmap, canvas, paint ->
+                bitmap.clear(0x00_00_00_00)
+                this.view3DTouchOverListener.onRefresh(canvas, paint)
+            }
+
+            Unit
         }.parallel()
     }
 }

@@ -16,11 +16,13 @@ import fr.jhelp.compose.engine.R
 import fr.jhelp.compose.engine.resources.Eyes
 import fr.jhelp.compose.engine.resources.Mouths
 import fr.jhelp.compose.engine.resources.ResourcesAccess
+import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.images.bitmap
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.mask
 import fr.jhelp.compose.images.tint
+import fr.jhelp.compose.math.COLOR_WHITE
 
 private val hairPath by lazy {
     val path = Path()
@@ -63,14 +65,9 @@ class Head(var leftEye: Eyes = Eyes.GREEN_2, var rightEye: Eyes = Eyes.GREEN_2,
      */
     fun refresh()
     {
-        val canvas = this.texture.canvas()
-        val paint = this.texture.paint()
-
-        if (canvas != null && paint != null)
-        {
+        this.texture.draw { textureBitmap, canvas, paint ->
+            textureBitmap.clear(COLOR_WHITE)
             paint.style = Paint.Style.FILL
-            paint.color = 0xFFFFFFFF.toInt()
-            canvas.drawRect(0f, 0f, 512f, 512f, paint)
             var bitmap = this.leftEye.bitmap()
             canvas.bitmap(bitmap, 271f, 192f)
             bitmap.recycle()
@@ -91,7 +88,6 @@ class Head(var leftEye: Eyes = Eyes.GREEN_2, var rightEye: Eyes = Eyes.GREEN_2,
             canvas.bitmap(bitmap, 0f, 0f)
             bitmap.recycle()
             mask.recycle()
-            this.texture.refresh()
         }
     }
 }
