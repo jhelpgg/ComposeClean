@@ -41,6 +41,10 @@ fun square(number: Float) = number * number
 
 fun square(number: Double) = number * number
 
+fun sqrt(number: Int) = sqrt(number.toDouble()).toInt()
+
+fun sqrt(number: Long) = sqrt(number.toDouble()).toLong()
+
 fun distance(point1: Point2D, point2: Point2D): Float =
     sqrt(square(point1.x - point2.x) + square(point1.y - point2.y))
 

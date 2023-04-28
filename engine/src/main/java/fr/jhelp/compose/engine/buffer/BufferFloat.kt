@@ -45,6 +45,20 @@ class BufferFloat
         }
     }
 
+    fun clear()
+    {
+        synchronized(this.dirty)
+        {
+            if (this.array == null)
+            {
+                return
+            }
+
+            this.size = 0
+            this.dirty.set(true)
+        }
+    }
+
     fun buffer(): FloatBuffer
     {
         synchronized(this.dirty)
