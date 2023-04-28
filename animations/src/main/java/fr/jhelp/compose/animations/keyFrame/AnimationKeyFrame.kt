@@ -13,6 +13,7 @@ import fr.jhelp.compose.collection.sortedArray
  * This class says at that frame the object state must be that
  *
  * @param animated Modified object
+ * @param fps Animation FPS
  * @param A Type of the modified object
  * @param V Type of the value change by the animation
  */
@@ -47,11 +48,28 @@ abstract class AnimationKeyFrame<A, V : Any>(private val animated: A, fps: Int) 
      */
     protected abstract fun setValue(animated: A, value: V)
 
+    /**
+     * Put an animation step for a number of milliseconds after animation started.
+     *
+     * The number of milliseconds is converted in number of frames depends to animation FPS
+     *
+     * @param milliseconds Milliseconds from the start where put sth step
+     * @param value Value to give at this step
+     * @param interpolation Interpolation type to use to go to this step ([LinearInterpolation] by default)
+     */
     fun time(milliseconds: Int, value: V, interpolation: Interpolation = LinearInterpolation)
     {
         this.frame(this.millisecondsToFrame(milliseconds), value, interpolation)
     }
 
+
+    /**
+     * Put an animation step at given frame
+     *
+     * @param frame Number frames passed from the animation start where put the step
+     * @param value Value to give at this step
+     * @param interpolation Interpolation type to use to go to this step ([LinearInterpolation] by default)
+     */
     fun frame(frame: Int, value: V, interpolation: Interpolation = LinearInterpolation)
     {
         if (frame < 0)
@@ -76,11 +94,19 @@ abstract class AnimationKeyFrame<A, V : Any>(private val animated: A, fps: Int) 
         }
     }
 
+    /**
+     * Initialize the animation
+     */
     final override fun initialize()
     {
         this.startValue = this.obtainValue(this.animated)
     }
 
+    /**
+     * Remove all animation steps.
+     *
+     * Animation becomes empty
+     */
     fun clear()
     {
         synchronized(this.keyFrames)
@@ -89,6 +115,9 @@ abstract class AnimationKeyFrame<A, V : Any>(private val animated: A, fps: Int) 
         }
     }
 
+    /**
+     * Put animation at given frame
+     */
     final override fun animate(frame: Float): Boolean
     {
         synchronized(this.keyFrames)

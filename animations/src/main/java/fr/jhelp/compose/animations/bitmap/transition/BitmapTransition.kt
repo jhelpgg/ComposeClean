@@ -16,6 +16,7 @@ abstract class BitmapTransition
 {
     companion object
     {
+        /** Scope use for parallel tasks */
         private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     }
 
@@ -28,12 +29,21 @@ abstract class BitmapTransition
     /**Image result*/
     val bitmapResult: Bitmap
 
+    /** Images number of pixels */
     protected val numberPixels: Int
-
+    /** Start image pixels */
     private val pixelsStart: IntArray
+    /** End image pixels */
     private val pixelsEnd: IntArray
+    /** Result image pixels where transition is draw */
     private val pixelsResult: IntArray
 
+    /**
+     * Create a transition from an image to an other
+     *
+     * @param bitmapStart Start image
+     * @param bitmapEnd Image at end
+     */
     constructor(bitmapStart: Bitmap, bitmapEnd: Bitmap)
     {
         val startWidth = bitmapStart.width
@@ -77,6 +87,13 @@ abstract class BitmapTransition
         }
     }
 
+    /**
+     * Create a transition from an image to an other
+     *
+     * @param bitmapStart Start image
+     * @param bitmapEnd Image at end
+     * @param bitmapResult Image where write the transition
+     */
     internal constructor(bitmapStart: Bitmap, bitmapEnd: Bitmap, bitmapResult: Bitmap)
     {
         this.width = bitmapResult.width
@@ -148,9 +165,10 @@ abstract class BitmapTransition
     }
 
     /**
-     * Inbdicates how to do a transition for a specific implementation
+     * Indicates how to do a transition for a specific implementation
      * @param width Images width
      * @param height Images height
+     * @param numberPixels Number of pixels on images
      * @param factor Progression percentage
      * @param pixelsStart Pixels of start image
      * @param pixelsEnd Pixels of end image
