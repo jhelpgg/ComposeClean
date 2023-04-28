@@ -1,5 +1,8 @@
 package fr.jhelp.compose.animations.bitmap.transition
 
+/**
+ * Way the cover progress in [BitmapCoverTransition]
+ */
 enum class BitmapCoverWay
 {
     LEFT_TO_RIGHT,
