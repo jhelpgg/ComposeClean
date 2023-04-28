@@ -1,5 +1,9 @@
 package fr.jhelp.compose.engine.dsl
 
+import android.util.Log
+import androidx.annotation.RawRes
+import fr.jhelp.compose.engine.loaders.NodeLoader
+import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.engine.scene.Clone3D
 import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Object3D
@@ -75,5 +79,22 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         reference.node = sphereReal
         sphere(sphereReal)
         this.root.add(sphereReal)
+    }
+
+    fun load(reference: NodeReference = junkReference,
+             name: String, @RawRes rawID: Int, loader: NodeLoader,
+             material: MaterialReference = MaterialReference(),
+             node: Node3D.() -> Unit)
+    {
+        val nodeParent = Node3D()
+        reference.node = nodeParent
+        ResourcesAccess.loadNode(name, rawID, loader)
+            .and { nodeLoaded ->
+                nodeLoaded.applyMaterialHierarchically(material.material)
+                nodeParent.add(nodeLoaded)
+                Log.d("NodeTreeCreator", "$name loaded !")
+            }
+        node(nodeParent)
+        this.root.add(nodeParent)
     }
 }
