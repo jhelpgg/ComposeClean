@@ -1,5 +1,7 @@
 package fr.jhelp.compose.engine.dsl
 
+import android.graphics.Canvas
+import android.graphics.Paint
 import androidx.annotation.DrawableRes
 import fr.jhelp.compose.engine.dsl.animation.AnimationNodeCreator
 import fr.jhelp.compose.engine.dsl.animation.effect.ParticleEffectCreator
@@ -9,6 +11,7 @@ import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeCreator
 import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeReference
 import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeReferenceCreator
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceAsset
+import fr.jhelp.compose.engine.dsl.texture.TextureSourceCreated
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceDrawable
 
 internal val junkReference = NodeReference()
@@ -42,6 +45,12 @@ fun texture(textureReference: TextureReference, @DrawableRes resource: Int)
 fun texture(textureReference: TextureReference, assetPath: String)
 {
     textureReference.textureSource = TextureSourceAsset(assetPath)
+}
+
+fun texture(textureReference: TextureReference,
+            width: Int, height: Int, draw: (Canvas, Paint) -> Unit)
+{
+    textureReference.textureSource = TextureSourceCreated(width, height, draw)
 }
 
 fun material(materialReference: MaterialReference, material: MaterialCreator.() -> Unit)
