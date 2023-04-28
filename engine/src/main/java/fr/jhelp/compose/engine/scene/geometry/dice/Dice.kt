@@ -22,10 +22,8 @@ import fr.jhelp.compose.engine.scene.geometry.Box
 import fr.jhelp.compose.engine.scene.geometry.CrossUV
 import fr.jhelp.compose.math.extensions.bounds
 import fr.jhelp.compose.math.random
+import fr.jhelp.tasks.TaskType
 import kotlin.math.max
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -42,11 +40,6 @@ private val DICE_POSITIONS = arrayOf(Position3D(), // 1: Face
  */
 class Dice(@DiceValue value: Int = random(1, 6)) : Node3D()
 {
-    companion object
-    {
-        private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-    }
-
     private val dice = Box(CrossUV())
     var value = value.bounds(1, 6)
         private set
@@ -79,7 +72,7 @@ class Dice(@DiceValue value: Int = random(1, 6)) : Node3D()
         val animationNode = AnimationNode3D(this.dice)
         animationNode.frame(max(1, numberFrame), DICE_POSITIONS[diceValue - 1])
         animation.add(animationNode)
-        animation.add(AnimationTask(Dice.scope, diceValue, this.changeValue))
+        animation.add(AnimationTask(TaskType.SHORT_TASK, diceValue, this.changeValue))
         return animation
     }
 
@@ -110,7 +103,7 @@ class Dice(@DiceValue value: Int = random(1, 6)) : Node3D()
 
         val animation = AnimationList()
         animation.add(animationNode)
-        animation.add(AnimationTask(Dice.scope, value, this.changeValue))
+        animation.add(AnimationTask(TaskType.SHORT_TASK, value, this.changeValue))
         return animation
     }
 
