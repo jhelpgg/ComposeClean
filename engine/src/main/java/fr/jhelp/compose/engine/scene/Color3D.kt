@@ -11,6 +11,11 @@ import java.nio.FloatBuffer
  * Color used for 3D
  *
  * Each part are in [0, 1]
+ *
+ * @property red Red percentage in [0, 1]
+ * @property green Green percentage in [0, 1]
+ * @property blue Blue percentage in [0, 1]
+ * @property alpha Opacity percentage in [0, 1]
  */
 data class Color3D(val red: Float, val green: Float, val blue: Float, val alpha: Float = 1f)
 {
@@ -35,6 +40,9 @@ data class Color3D(val red: Float, val green: Float, val blue: Float, val alpha:
         this.floatBuffer.put(this.alpha)
     }
 
+    /**
+     * Push color value in a float buffer to b able to transfer to OpenGL
+     */
     fun floatBuffer(): FloatBuffer
     {
         this.floatBuffer.rewind()

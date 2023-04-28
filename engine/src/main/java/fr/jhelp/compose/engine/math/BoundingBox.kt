@@ -12,24 +12,44 @@ import fr.jhelp.compose.math.Point3D
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Box that contains object limits
+ */
 class BoundingBox()
 {
-    var minX = Float.POSITIVE_INFINITY
-        private set
-    var maxX = Float.NEGATIVE_INFINITY
-        private set
-    var minY = Float.POSITIVE_INFINITY
-        private set
-    var maxY = Float.NEGATIVE_INFINITY
-        private set
-    var minZ = Float.POSITIVE_INFINITY
-        private set
-    var maxZ = Float.NEGATIVE_INFINITY
+    /** Points coordinates minimum x */
+    var minX: Float = Float.POSITIVE_INFINITY
         private set
 
-    val empty get() = this.minX > this.maxX
-    val notEmpty get() = this.minX <= this.maxX
+    /** Points coordinates maximum x */
+    var maxX: Float = Float.NEGATIVE_INFINITY
+        private set
 
+    /** Points coordinates minimum y */
+    var minY: Float = Float.POSITIVE_INFINITY
+        private set
+
+    /** Points coordinates maximum y */
+    var maxY: Float = Float.NEGATIVE_INFINITY
+        private set
+
+    /** Points coordinates minimum z */
+    var minZ: Float = Float.POSITIVE_INFINITY
+        private set
+
+    /** Points coordinates maximum z */
+    var maxZ: Float = Float.NEGATIVE_INFINITY
+        private set
+
+    /** Indicates if box is empty */
+    val empty: Boolean get() = this.minX > this.maxX
+
+    /** Indicates if box is not empty */
+    val notEmpty: Boolean get() = this.minX <= this.maxX
+
+    /**
+     * Create a bounding box copy from those in parameters
+     */
     constructor(boundingBox: BoundingBox) : this()
     {
         this.minX = boundingBox.minX
@@ -40,8 +60,14 @@ class BoundingBox()
         this.maxZ = boundingBox.maxZ
     }
 
-    fun copy() = BoundingBox(this)
+    /**
+     * Create a bounding by copy
+     */
+    fun copy(): BoundingBox = BoundingBox(this)
 
+    /**
+     * Add a point in bounding box
+     */
     fun add(x: Float, y: Float, z: Float)
     {
         this.minX = min(this.minX, x)
@@ -52,20 +78,32 @@ class BoundingBox()
         this.maxZ = max(this.maxZ, z)
     }
 
+    /**
+     * Compute bounding box current center
+     */
     fun center(): Point3D =
         if (this.empty) Point3D(0f, 0f, 0f)
         else Point3D((this.minX + this.maxX) / 2f,
                      (this.minY + this.maxY) / 2f,
                      (this.minZ + this.maxZ) / 2f)
 
+    /**
+     * Indicates if a point is inside the box
+     */
     operator fun contains(point3D: Point3D): Boolean =
         this.contains(point3D.x, point3D.y, point3D.z)
 
+    /**
+     * Indicates if a point is inside the box
+     */
     fun contains(x: Float, y: Float, z: Float): Boolean = this.notEmpty
-                                                          && (x in this.minX..this.maxX)
-                                                          && (y in this.minY..this.maxY)
-                                                          && (z in this.minZ..this.maxZ)
+            && (x in this.minX..this.maxX)
+            && (y in this.minY..this.maxY)
+            && (z in this.minZ..this.maxZ)
 
+    /**
+     * Compute a translated version of this box
+     */
     fun translate(x: Float, y: Float): BoundingBox =
         if (this.empty) this
         else
@@ -78,6 +116,9 @@ class BoundingBox()
             copy
         }
 
+    /**
+     * Indicates if this box translate in a direction and an other one translate in an other direction a collision happen
+     */
     fun willIntersects(thisTranslateX: Float, thisTranslateY: Float, thisTranslateZ: Float,
                        boundingBox: BoundingBox,
                        boxTranslateX: Float, boxTranslateY: Float, boxTranslateZ: Float): Boolean
@@ -109,7 +150,9 @@ class BoundingBox()
         return min <= max
     }
 
-
+    /**
+     * Indicates if this bounding box intersects an other one
+     */
     fun intersects(boundingBox: BoundingBox): Boolean
     {
         if (this.empty || boundingBox.empty)
@@ -139,6 +182,11 @@ class BoundingBox()
         return min <= max
     }
 
+    /**
+     * Compute bonding box intersection with an other one.
+     *
+     * If no intersection an empty bounding box is returned
+     */
     fun intersection(boundingBox: BoundingBox): BoundingBox
     {
         if (this.empty || boundingBox.empty)
@@ -180,6 +228,9 @@ class BoundingBox()
         return intersection
     }
 
+    /**
+     * Compute union with a bonding box
+     */
     fun union(boundingBox: BoundingBox): BoundingBox
     {
         if (this.empty)

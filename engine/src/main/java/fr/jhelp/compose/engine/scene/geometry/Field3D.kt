@@ -31,7 +31,10 @@ class Field3D(functionZ: MathFunction<*>,
         this.compute()
     }
 
-    fun z(x: Float, y: Float) =
+    /**
+     * Compute z for given position
+     */
+    fun z(x: Float, y: Float): Float =
         (this.functionZ.replace(X, x).replace(Y, y).simplifyMax() as Constant).value.toFloat()
 
     private fun compute()
@@ -92,10 +95,12 @@ class Field3D(functionZ: MathFunction<*>,
             1    ->
                 if (X in collector || Y in collector) simplify
                 else throw IllegalArgumentException("function '$function' not depends on X or Y")
+
             2    ->
                 if (X in collector && Y in collector) simplify
                 else throw IllegalArgumentException(
                     "function '$function' not depends on only X and Y")
+
             else -> throw IllegalArgumentException(
                 "function '$function' have more than two variables")
         }

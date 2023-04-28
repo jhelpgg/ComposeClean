@@ -13,6 +13,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
 
+/**
+ * Dispatcher used for network ask type
+ */
 object NetworkDispatcher : CoroutineDispatcher()
 {
     private val scope = CoroutineScope(Dispatchers.IO.limitedParallelism(1))

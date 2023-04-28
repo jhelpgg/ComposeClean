@@ -9,6 +9,9 @@ import fr.jhelp.compose.engine.scene.Position3D
 import fr.jhelp.compose.math.anotations.Milliseconds
 import kotlin.math.max
 
+/**
+ * Create on animation for a node
+ */
 class AnimationNodeCreator internal constructor(private val nodeReference: NodeReference)
 {
     internal val animation: AnimationNode3D by lazy {
@@ -27,6 +30,13 @@ class AnimationNodeCreator internal constructor(private val nodeReference: NodeR
 
     private val elements = sortedArray<AnimationNodeCreatorElement>()
 
+    /**
+     * Define the node position for an animation time
+     *
+     * @param atTimeMilliseconds Number of milliseconds since the animation started
+     * @param withInterpolation Interpolation used to reach the position ([LinearInterpolation] by default)
+     * @param betAtPosition Desired node position at the specified moment
+     */
     fun atTime(@Milliseconds atTimeMilliseconds: Int,
                withInterpolation: Interpolation = LinearInterpolation,
                betAtPosition: Position3D.() -> Unit)

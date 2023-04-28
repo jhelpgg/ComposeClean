@@ -6,9 +6,15 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Limit an integer in given interval
+ */
 fun Int.bounds(value1: Int, value2: Int): Int =
     max(min(value1, value2), min(this, max(value1, value2)))
 
+/**
+ * Apply an alpha to a color
+ */
 fun Int.useAlpha(colorAlpha: Int) = (this and COLOR_MASK) or colorAlpha
 
 /**

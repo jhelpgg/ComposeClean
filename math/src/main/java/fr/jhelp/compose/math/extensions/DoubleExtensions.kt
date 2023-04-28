@@ -5,6 +5,9 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+/**
+ * Limit a double in given interval
+ */
 fun Double.bounds(value1: Double, value2: Double): Double =
     max(min(value1, value2), min(this, max(value1, value2)))
 

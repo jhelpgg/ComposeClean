@@ -10,6 +10,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import fr.jhelp.composeclean.models.contact.ContactSeparator
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
+/**
+ * Draw contact element represents a separator
+ */
 @Composable
 fun DrawContactSeparator(contactSeparator: ContactSeparator)
 {
@@ -20,6 +23,9 @@ fun DrawContactSeparator(contactSeparator: ContactSeparator)
          textAlign = TextAlign.Center)
 }
 
+/**
+ * Composable preview of [DrawContactSeparator]
+ */
 @Preview(showBackground = true)
 @Composable
 fun DrawContactSeparatorPreview()

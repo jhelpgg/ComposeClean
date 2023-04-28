@@ -4,16 +4,27 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import fr.jhelp.tasks.extensions.parallel
 
+/**
+ * Generic component to place on [GUI]
+ */
 abstract class ComponentGUI
 {
+    /** Define the action when click on component */
     var click: (ComponentGUI) -> Unit = {}
-
+/** X location on parent */
     var x: Int = 0
+    /** Y location on parent */
     var y: Int = 0
+    /** Component's width */
     var width: Int = 16
+    /** Component's height */
     var height: Int = 16
+    /** Indicates if component is visible */
     var visible = true
 
+    /**
+     * Draw the component
+     */
     fun draw(canvas: Canvas, paint: Paint)
     {
         canvas.save()
@@ -25,6 +36,9 @@ abstract class ComponentGUI
         canvas.restore()
     }
 
+    /**
+     * Specific draw component
+     */
     protected abstract fun internalDraw(canvas: Canvas, paint: Paint)
 
     internal open fun touchDown() = Unit

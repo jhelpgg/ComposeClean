@@ -7,6 +7,9 @@ import fr.jhelp.composeclean.models.contact.ContactPerson
 import fr.jhelp.composeclean.models.contact.ContactSeparator
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
+/**
+ * Composable for draw a contact element
+ */
 @Composable
 fun DrawContact(contact: Contact)
 {
@@ -17,6 +20,9 @@ fun DrawContact(contact: Contact)
     }
 }
 
+/**
+ * Preview of draw contact element
+ */
 @Preview(showBackground = true)
 @Composable
 fun DrawContactPreview()

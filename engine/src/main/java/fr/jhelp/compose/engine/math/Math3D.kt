@@ -6,6 +6,11 @@ import fr.jhelp.compose.engine.scene.Position3D
 import fr.jhelp.compose.math.Point3D
 import java.util.Stack
 
+/**
+ * Compute anti-projection of of point relative to a node.
+ *
+ * That is to say, it convert position in given node space to absolute space
+ */
 fun antiProjection(node: Node3D, point3D: Point3D): Point3D
 {
     var projected = point3D
@@ -20,6 +25,11 @@ fun antiProjection(node: Node3D, point3D: Point3D): Point3D
     return projected
 }
 
+/**
+ * Compute projection of of point relative to a node.
+ *
+ * That is to say, it convert position in absolute space to given node space
+ */
 fun projection(node: Node3D, point3D: Point3D): Point3D
 {
     val stack = Stack<Node3D>()
@@ -41,6 +51,9 @@ fun projection(node: Node3D, point3D: Point3D): Point3D
     return projected
 }
 
+/**
+ * Compute anti-projection of a node's bounding box
+ */
 fun antiProjectionBoundingBox(node: NodeWithBoundingBox): BoundingBox
 {
     var projectedPoint: Point3D
@@ -93,6 +106,9 @@ fun antiProjectionBoundingBox(node: NodeWithBoundingBox): BoundingBox
     return projected
 }
 
+/**
+ * Indicates if a bounding box translate in a direction and an other one translate in an other direction a collision happen
+ */
 fun mayWillCollide(node1: NodeWithBoundingBox,
                    translateX1: Float, translateY1: Float, translateZ1: Float,
                    node2: NodeWithBoundingBox,

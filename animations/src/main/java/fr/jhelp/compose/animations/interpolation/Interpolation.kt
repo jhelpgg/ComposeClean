@@ -1,5 +1,8 @@
 package fr.jhelp.compose.animations.interpolation
 
+/**
+ * Represents an interpolation
+ */
 interface Interpolation
 {
     /**

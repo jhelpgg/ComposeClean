@@ -8,7 +8,8 @@ import fr.jhelp.compose.math.extensions.bounds
  */
 abstract class Animation(fps: Int)
 {
-    val fps = fps.bounds(1, 100)
+    /** Animation frame per seconds */
+    val fps: Int = fps.bounds(1, 100)
     private var statTime = 0L
 
     /**
@@ -16,7 +17,7 @@ abstract class Animation(fps: Int)
      *
      * Does nothing by default
      */
-    protected open fun initialize() = Unit
+    protected open fun initialize(): Unit = Unit
 
     /**
      * Play animation for given frame.
@@ -30,8 +31,11 @@ abstract class Animation(fps: Int)
      *
      * Does nothing by default
      */
-    open fun finished() = Unit
+    open fun finished(): Unit = Unit
 
+    /**
+     * Start the animation
+     */
     fun start()
     {
         this.statTime = SystemClock.uptimeMillis()
@@ -39,6 +43,11 @@ abstract class Animation(fps: Int)
         this.animate(0f)
     }
 
+    /**
+     * Call to refresh animation
+     *
+     * @return `true`if animation continue. `false` if animation finished
+     */
     fun animate(): Boolean =
         this.animate(((SystemClock.uptimeMillis() - this.statTime) * this.fps) / 1000f)
 

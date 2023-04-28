@@ -8,4 +8,10 @@
 
 package fr.jhelp.compose.engine.scene.geometry.dice
 
-data class DiceInfo(val diceID:Int, val diceName:String, @DiceValue val diceValue:Int)
+/**
+ * Dice current information
+ * @property diceID : Dice identifier see [Dice.id]
+ * @property diceName : Dice name
+ * @property diceValue : Dice current value
+ */
+data class DiceInfo(val diceID: Int, val diceName: String, @DiceValue val diceValue: Int)

@@ -21,67 +21,117 @@ val String.variable
     get() =
         Variable(this)
 
-val X = "X".variable
-val Y = "Y".variable
-val Z = "Z".variable
-val T = "T".variable
-val A = "A".variable
-val alpha = "alpha".variable
-val epsilon = "epsilon".variable
+/** X variable */
+val X: Variable = "X".variable
 
-operator fun MathFunction<*>.unaryMinus() =
+/** Y variable */
+val Y: Variable = "Y".variable
+
+/** Z variable */
+val Z: Variable = "Z".variable
+
+/** T variable */
+val T: Variable = "T".variable
+
+/** A variable */
+val A: Variable = "A".variable
+
+/** Alpha variable */
+val alpha: Variable = "alpha".variable
+
+/** Epsilon variable */
+val epsilon: Variable = "epsilon".variable
+
+/***
+ * Function oposite
+ */
+operator fun MathFunction<*>.unaryMinus(): MathFunction<*> =
     UnaryMinus(this)
 
-operator fun MathFunction<*>.plus(mathFunction: MathFunction<*>) =
+/**
+ * Add an other mathematical function
+ */
+operator fun MathFunction<*>.plus(mathFunction: MathFunction<*>): MathFunction<*> =
     Addition(this, mathFunction)
 
-operator fun MathFunction<*>.minus(mathFunction: MathFunction<*>) =
+/**
+ * Subtract an other mathematical function
+ */
+operator fun MathFunction<*>.minus(mathFunction: MathFunction<*>): MathFunction<*> =
     Subtraction(this, mathFunction)
 
-operator fun MathFunction<*>.times(mathFunction: MathFunction<*>) =
+/**
+ * Multiply an other mathematical function
+ */
+operator fun MathFunction<*>.times(mathFunction: MathFunction<*>): MathFunction<*> =
     Multiplication(this, mathFunction)
 
-operator fun MathFunction<*>.div(mathFunction: MathFunction<*>) =
+/**
+ * Divide an other mathematical function
+ */
+operator fun MathFunction<*>.div(mathFunction: MathFunction<*>): MathFunction<*> =
     Division(this, mathFunction)
 
-operator fun MathFunction<*>.plus(number: Number) =
+/**
+ * Add a number
+ */
+operator fun MathFunction<*>.plus(number: Number): MathFunction<*> =
     number.const + this
 
-operator fun MathFunction<*>.minus(number: Number) =
+/**
+ * Subtract a number
+ */
+operator fun MathFunction<*>.minus(number: Number): MathFunction<*> =
     -number.const + this
 
-operator fun MathFunction<*>.times(number: Number) =
+/**
+ * Multiply a number
+ */
+operator fun MathFunction<*>.times(number: Number): MathFunction<*> =
     number.const * this
 
-operator fun MathFunction<*>.div(number: Number) =
+/**
+ * Divide a number
+ */
+operator fun MathFunction<*>.div(number: Number): MathFunction<*> =
     number.const.invert() * this
 
-operator fun Number.plus(mathFunction: MathFunction<*>) =
+/** Add mathematical function to this number */
+operator fun Number.plus(mathFunction: MathFunction<*>): MathFunction<*> =
     this.const + mathFunction
 
-operator fun Number.minus(mathFunction: MathFunction<*>) =
+/** Subtract mathematical function to this number */
+operator fun Number.minus(mathFunction: MathFunction<*>): MathFunction<*> =
     this.const - mathFunction
 
-operator fun Number.times(mathFunction: MathFunction<*>) =
+/** Multiply mathematical function to this number */
+operator fun Number.times(mathFunction: MathFunction<*>): MathFunction<*> =
     this.const * mathFunction
 
-operator fun Number.div(mathFunction: MathFunction<*>) =
+/** Divide mathematical function to this number */
+operator fun Number.div(mathFunction: MathFunction<*>): MathFunction<*> =
     this.const / mathFunction
 
-operator fun MathFunction<*>.plus(string: String) =
+/** Add variable to mathematical function */
+operator fun MathFunction<*>.plus(string: String): MathFunction<*> =
     this + string.variable
 
-operator fun MathFunction<*>.minus(string: String) =
+/** Subtract variable to mathematical function */
+operator fun MathFunction<*>.minus(string: String): MathFunction<*> =
     this - string.variable
 
-operator fun MathFunction<*>.times(string: String) =
+/** Multiply variable to mathematical function */
+operator fun MathFunction<*>.times(string: String): MathFunction<*> =
     this * string.variable
 
-operator fun MathFunction<*>.div(string: String) =
+/** Divide variable to mathematical function */
+operator fun MathFunction<*>.div(string: String): MathFunction<*> =
     this / string.variable
 
-fun cos(mathFunction: MathFunction<*>) =
+/** Compute cosinus of mathematical function */
+fun cos(mathFunction: MathFunction<*>): MathFunction<*> =
     Cosinus(mathFunction)
 
-fun sin(mathFunction: MathFunction<*>) =
+/** Compute sinus of mathematical function */
+fun sin(mathFunction: MathFunction<*>): MathFunction<*> =
     Sinus(mathFunction)

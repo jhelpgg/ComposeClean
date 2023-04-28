@@ -4,10 +4,18 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.ColorInt
 
+/**
+ * Button to add in [GUI]
+ * @property normalColor Color when button not touched
+ * @property downColor Color when button is touched
+ */
 class ButtonGUI(@ColorInt val normalColor: Int, @ColorInt val downColor: Int) : ComponentGUI()
 {
     private var currentColor = this.normalColor
 
+    /**
+     * Draw the button
+     */
     override fun internalDraw(canvas: Canvas, paint: Paint)
     {
         paint.color = this.currentColor

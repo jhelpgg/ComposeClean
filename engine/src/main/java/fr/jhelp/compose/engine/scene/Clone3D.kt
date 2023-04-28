@@ -9,6 +9,8 @@
 package fr.jhelp.compose.engine.scene
 
 import fr.jhelp.compose.engine.annotations.OpenGLThread
+import fr.jhelp.compose.engine.math.BoundingBox
+import fr.jhelp.compose.math.Point3D
 import javax.microedition.khronos.opengles.GL10
 
 /**
@@ -21,12 +23,18 @@ class Clone3D(internal val object3D: Object3D) : NodeWithBoundingBox()
     /**Clone material*/
     var material = Material()
 
-    override fun boundingBox() = this.object3D.boundingBox()
+    /**
+     * Clone bounding box limits
+     */
+    override fun boundingBox() : BoundingBox = this.object3D.boundingBox()
 
-    override fun hasSomethingToDraw() = this.object3D.numberTriangle > 0
+    override fun hasSomethingToDraw() : Boolean = this.object3D.numberTriangle > 0
 
-    override fun center() = this.object3D.center()
+    override fun center() : Point3D = this.object3D.center()
 
+    /**
+     * Copy the clone
+     */
     override fun internalCopy(): Node3D
     {
         val copy = Clone3D(this.object3D)
@@ -34,6 +42,9 @@ class Clone3D(internal val object3D: Object3D) : NodeWithBoundingBox()
         return copy
     }
 
+    /**
+     * Change the material
+     */
     override fun material(material: Material)
     {
         this.material = material

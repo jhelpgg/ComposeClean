@@ -5,7 +5,8 @@ package fr.jhelp.compose.math
  */
 class Matrix
 {
-    var determinant = 0.0f
+    /**Matrix determinant */
+    var determinant: Float = 0.0f
         private set
 
     /**

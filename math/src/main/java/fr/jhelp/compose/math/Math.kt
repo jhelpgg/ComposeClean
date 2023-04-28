@@ -11,49 +11,89 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sqrt
 
-const val PI_FLOAT = PI.toFloat()
+/** PI in float precision */
+const val PI_FLOAT: Float = PI.toFloat()
 
-const val E_FLOAT = E.toFloat()
+/** E in float precision */
+const val E_FLOAT: Float = E.toFloat()
 
-const val TWO_PI = 2.0 * PI
+/** Two PI or Theta */
+const val TWO_PI: Double = 2.0 * PI
 
-const val TWO_PI_FLOAT = 2.0f * PI_FLOAT
+/** Two PI or Theta  in float precision*/
+const val TWO_PI_FLOAT: Float = 2.0f * PI_FLOAT
 
 /**
  * Double precision, the "zero"
  */
-val EPSILON = maximum(Double.MIN_VALUE, abs(E - exp(1.0)), abs(PI - acos(-1.0)))
+val EPSILON: Double = maximum(Double.MIN_VALUE, abs(E - exp(1.0)), abs(PI - acos(-1.0)))
 
 /**
  * Float precision, the "zero"
  */
-val EPSILON_FLOAT = maximum(Float.MIN_VALUE, abs(E_FLOAT - exp(1.0f)), abs(PI_FLOAT - acos(-1.0f)))
+val EPSILON_FLOAT: Float =
+    maximum(Float.MIN_VALUE, abs(E_FLOAT - exp(1.0f)), abs(PI_FLOAT - acos(-1.0f)))
 
-val AXIS_X = Vector3D(1f, 0f, 0F)
-val AXIS_Y = Vector3D(0f, 1f, 0F)
-val AXIS_Z = Vector3D(0f, 0f, 1f)
+/** X axis */
+val AXIS_X: Vector3D = Vector3D(1f, 0f, 0F)
 
-fun square(number: Int) = number * number
+/** Y axis */
+val AXIS_Y: Vector3D = Vector3D(0f, 1f, 0F)
 
-fun square(number: Long) = number * number
+/** Z axis */
+val AXIS_Z: Vector3D = Vector3D(0f, 0f, 1f)
 
-fun square(number: Float) = number * number
+/**
+ * Square of number
+ */
+fun square(number: Int): Int = number * number
 
-fun square(number: Double) = number * number
+/**
+ * Square of number
+ */
+fun square(number: Long): Long = number * number
 
-fun sqrt(number: Int) = sqrt(number.toDouble()).toInt()
+/**
+ * Square of number
+ */
+fun square(number: Float): Float = number * number
 
-fun sqrt(number: Long) = sqrt(number.toDouble()).toLong()
+/**
+ * Square of number
+ */
+fun square(number: Double): Double = number * number
 
+/**
+ * Square root of number
+ */
+fun sqrt(number: Int): Int = sqrt(number.toDouble()).toInt()
+
+/**
+ * Square root of number
+ */
+fun sqrt(number: Long): Long = sqrt(number.toDouble()).toLong()
+
+/**
+ * Distance between two points
+ */
 fun distance(point1: Point2D, point2: Point2D): Float =
     sqrt(square(point1.x - point2.x) + square(point1.y - point2.y))
 
+/**
+ * Distance between two points
+ */
 fun distance(point1: Point3D, point2: Point3D): Float =
     sqrt(square(point1.x - point2.x) + square(point1.y - point2.y) + square(point1.z - point2.z))
 
+/**
+ * Distance between two points
+ */
 fun distance(x1: Float, y1: Float, x2: Float, y2: Float): Float =
     sqrt(square(x1 - x2) + square(y1 - y2))
 
+/**
+ * Distance between two points
+ */
 fun distance(x1: Float, y1: Float, z1: Float, x2: Float, y2: Float, z2: Float): Float =
     sqrt(square(x1 - x2) + square(y1 - y2) + square(z1 - z2))
 
@@ -578,22 +618,52 @@ fun moduloInterval(real: Float, min: Float, max: Float): Float
     return space * (realLocal - floor(realLocal)) + minLocal
 }
 
-fun degreeToGrade(degree: Double) = degree * 0.9
+/**
+ * Convert degree to grade
+ */
+fun degreeToGrade(degree: Double): Double = degree * 0.9
 
-fun radianToGrade(radian: Double) = radian * 200.0 / PI
+/**
+ * Convert radian to grade
+ */
+fun radianToGrade(radian: Double): Double = radian * 200.0 / PI
 
-fun gradeToDegree(grade: Double) = grade / 0.9
+/**
+ * Convert grade to degree
+ */
+fun gradeToDegree(grade: Double): Double = grade / 0.9
 
-fun gradeToRadian(grade: Double) = grade * PI / 200.0
+/**
+ * Convert grade to radian
+ */
+fun gradeToRadian(grade: Double): Double = grade * PI / 200.0
 
-fun degreeToRadian(degree: Float) = degree * PI_FLOAT / 180.0f
+/**
+ * Convert degree to radian
+ */
+fun degreeToRadian(degree: Float): Float = degree * PI_FLOAT / 180.0f
 
-fun radianToDegree(radian: Float) = radian * 180.0f / PI_FLOAT
+/**
+ * Convert radian to degree
+ */
+fun radianToDegree(radian: Float): Float = radian * 180.0f / PI_FLOAT
 
-fun degreeToGrade(degree: Float) = degree * 0.9f
+/**
+ * Convert degree to grade
+ */
+fun degreeToGrade(degree: Float): Float = degree * 0.9f
 
-fun radianToGrade(radian: Float) = radian * 200.0f / PI_FLOAT
+/**
+ * Convert radian to grade
+ */
+fun radianToGrade(radian: Float): Float = radian * 200.0f / PI_FLOAT
 
-fun gradeToDegree(grade: Float) = grade / 0.9f
+/**
+ * Convert grade to degree
+ */
+fun gradeToDegree(grade: Float): Float = grade / 0.9f
 
-fun gradeToRadian(grade: Float) = grade * PI_FLOAT / 200.0f
+/**
+ * Convert grade to radian
+ */
+fun gradeToRadian(grade: Float): Float = grade * PI_FLOAT / 200.0f

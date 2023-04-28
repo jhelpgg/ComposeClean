@@ -1,5 +1,6 @@
 package fr.jhelp.compose.engine.scene
 
+import fr.jhelp.compose.engine.annotations.OpenGLThread
 import javax.microedition.khronos.opengles.GL10
 
 /**
@@ -7,10 +8,14 @@ import javax.microedition.khronos.opengles.GL10
  */
 class Material
 {
-    var alpha = 1f
-    var diffuse = GREY
+    /**Material opacity in [0, 1] */
+    var alpha : Float = 1f
+    /** Diffuse color */
+    var diffuse : Color3D = GREY
+    /** Texture to apply */
     var texture: Texture? = null
 
+    @OpenGLThread
     internal fun render(gl: GL10)
     {
         gl.glDisable(GL10.GL_TEXTURE_2D)

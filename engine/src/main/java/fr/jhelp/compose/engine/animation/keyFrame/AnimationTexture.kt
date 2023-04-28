@@ -13,14 +13,16 @@ import fr.jhelp.compose.engine.scene.Texture
 /**
  * Animated texture that do transitions between images.
  * Can decide how many frames it takes for transition and interpolation type to use
+ * @property size Animation texture size
  */
 class AnimationTexture(@DrawableRes firstImage: Int,
                        val size: AnimationTextureSize = AnimationTextureSize.MEDIUM) :
-    Animation(25)
+        Animation(25)
 {
     private val animationBitmap: AnimationBitmap =
         AnimationBitmap(ResourcesAccess.obtainBitmap(firstImage, this.size.size, this.size.size),
                         this.size.size, this.size.size, 25)
+
     /**Animated texture to apply to object*/
     val texture: Texture = texture(this.animationBitmap.resultBitmap, false)
 

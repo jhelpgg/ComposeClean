@@ -8,6 +8,9 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.round
 
+/**
+ * Limit a float in given interval
+ */
 fun Float.bounds(value1: Float, value2: Float): Float =
     max(min(value1, value2), min(this, max(value1, value2)))
 

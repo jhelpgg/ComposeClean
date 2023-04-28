@@ -8,6 +8,7 @@ import fr.jhelp.composeclean.models.TextChoice
  */
 interface MainModel
 {
+    /** Observable of current text choice */
     val textChoiceState: State<TextChoice>
 
     /**

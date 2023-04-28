@@ -7,20 +7,21 @@ import fr.jhelp.compose.math.extensions.sign
 
 /**
  * Constant mathematical function
+ * @property value Constant value
  */
 class Constant(val value: Double) : MathFunction<Constant>()
 {
     /**Indicates if constant is invalid*/
-    val invalid = this.value.isNaN() || this.value.isInfinite()
+    val invalid: Boolean = this.value.isNaN() || this.value.isInfinite()
 
     /**Indicates if constant is 0*/
-    val zero = this.value.nul
+    val zero: Boolean = this.value.nul
 
     /**Indicates if constant is 1*/
-    val one = this.value.compare(1.0) == 0
+    val one: Boolean = this.value.compare(1.0) == 0
 
     /**Indicates if constant is -1*/
-    val minusOne = this.value.compare(-1.0) == 0
+    val minusOne: Boolean = this.value.compare(-1.0) == 0
 
     /**
      * Simplification one step
@@ -36,9 +37,9 @@ class Constant(val value: Double) : MathFunction<Constant>()
         }
 
     /**Constant sign*/
-    val sign = this.value.sign()
+    val sign: Int = this.value.sign()
 
-    override fun equalsIntern(mathFunction: Constant) =
+    override fun equalsIntern(mathFunction: Constant): Boolean =
         when
         {
             this.invalid         -> mathFunction.invalid
@@ -46,7 +47,10 @@ class Constant(val value: Double) : MathFunction<Constant>()
             else                 -> this.value.same(mathFunction.value)
         }
 
-    override fun hash() =
+    /**
+     * Hash code
+     */
+    override fun hash(): Int =
         this.value.hashCode()
 
     /**
@@ -58,6 +62,9 @@ class Constant(val value: Double) : MathFunction<Constant>()
         if (this.invalid) "INVALID"
         else this.value.toString()
 
+    /**
+     * Compare to an other constant
+     */
     operator fun compareTo(other: Constant): Int
     {
         if (this.invalid)
@@ -78,6 +85,9 @@ class Constant(val value: Double) : MathFunction<Constant>()
         return this.value.compare(other.value)
     }
 
+    /**
+     * Compute the opposite
+     */
     operator fun unaryMinus(): Constant =
         when
         {
@@ -88,13 +98,22 @@ class Constant(val value: Double) : MathFunction<Constant>()
             else          -> Constant(-this.value)
         }
 
+    /**
+     * Divide per a number
+     */
     operator fun div(value: Number): Constant =
         this / value.toDouble()
 
+    /**
+     * Divide per a double
+     */
     operator fun div(value: Double): Constant =
         if (this.invalid || value.isNaN() || value.isInfinite() || value.nul) INVALID
         else this / Constant(value)
 
+    /**
+     * Divide per an other constant
+     */
     operator fun div(constant: Constant): Constant =
         when
         {
@@ -106,16 +125,28 @@ class Constant(val value: Double) : MathFunction<Constant>()
                 Constant(this.value / constant.value)
         }
 
-    operator fun Number.div(constant: Constant) =
+    /**
+     * Divide a number per a constant
+     */
+    operator fun Number.div(constant: Constant): Constant =
         Constant(this.toDouble()) / constant
 
+    /**
+     * Subtract a number
+     */
     operator fun minus(value: Number): Constant =
         this - value.toDouble()
 
+    /**
+     * Subtract a double
+     */
     operator fun minus(value: Double): Constant =
         if (this.invalid || value.isNaN() || value.isInfinite()) INVALID
         else this - Constant(value)
 
+    /**
+     * Subtract a constant
+     */
     operator fun minus(constant: Constant): Constant =
         when
         {
@@ -126,16 +157,28 @@ class Constant(val value: Double) : MathFunction<Constant>()
             else                             -> Constant(this.value - constant.value)
         }
 
-    operator fun Number.minus(constant: Constant) =
+    /**
+     * Subtract a number per a constant
+     */
+    operator fun Number.minus(constant: Constant): Constant =
         Constant(this.toDouble()) - constant
 
+    /**
+     * Add a number
+     */
     operator fun plus(value: Number): Constant =
         this + value.toDouble()
 
+    /**
+     * Add a double
+     */
     operator fun plus(value: Double): Constant =
         if (this.invalid || value.isNaN() || value.isInfinite()) INVALID
         else this + Constant(value)
 
+    /**
+     * Add a constant
+     */
     operator fun plus(constant: Constant): Constant =
         when
         {
@@ -145,16 +188,28 @@ class Constant(val value: Double) : MathFunction<Constant>()
             else                             -> Constant(this.value + constant.value)
         }
 
-    operator fun Number.plus(constant: Constant) =
+    /**
+     * Add a number with a constant
+     */
+    operator fun Number.plus(constant: Constant): Constant =
         Constant(this.toDouble()) + constant
 
+    /**
+     * Multiply a number
+     */
     operator fun times(value: Number): Constant =
         this * value.toDouble()
 
+    /**
+     * Multiply a double
+     */
     operator fun times(value: Double): Constant =
         if (this.invalid || value.isNaN() || value.isInfinite()) INVALID
         else this * Constant(value)
 
+    /**
+     * Multiply a constant
+     */
     operator fun times(constant: Constant): Constant =
         when
         {
@@ -167,10 +222,16 @@ class Constant(val value: Double) : MathFunction<Constant>()
             else                             -> Constant(this.value * constant.value)
         }
 
-    operator fun Number.times(constant: Constant) =
+    /**
+     * Multiply a number with a constant
+     */
+    operator fun Number.times(constant: Constant): Constant =
         Constant(this.toDouble()) * constant
 
-    fun invert() =
+    /**
+     * Compute the invert
+     */
+    fun invert(): Constant =
         when
         {
             this.invalid || this.zero -> INVALID
@@ -180,10 +241,14 @@ class Constant(val value: Double) : MathFunction<Constant>()
         }
 }
 
-val INVALID = Constant(Double.NaN)
+/** Invalid constant */
+val INVALID: Constant = Constant(Double.NaN)
 
-val ZERO = Constant(0.0)
+/** Zero constant */
+val ZERO: Constant = Constant(0.0)
 
-val ONE = Constant(1.0)
+/** One constant */
+val ONE: Constant = Constant(1.0)
 
-val MINUS_ONE = Constant(-1.0)
+/** Minus one constant */
+val MINUS_ONE: Constant = Constant(-1.0)

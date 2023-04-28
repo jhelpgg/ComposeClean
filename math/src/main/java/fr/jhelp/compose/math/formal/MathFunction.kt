@@ -8,7 +8,7 @@ import java.util.TreeSet
  * Generic mathematical function
  */
 abstract class MathFunction<MF : MathFunction<MF>> internal constructor() :
-    Comparable<MathFunction<*>>
+        Comparable<MathFunction<*>>
 {
     private fun collectAddition(): MutableList<MathFunction<*>>
     {
@@ -189,6 +189,9 @@ abstract class MathFunction<MF : MathFunction<MF>> internal constructor() :
      */
     protected abstract fun equalsIntern(mathFunction: MF): Boolean
 
+    /**
+     * Hash code
+     */
     protected abstract fun hash(): Int
 
     /**
@@ -278,18 +281,25 @@ abstract class MathFunction<MF : MathFunction<MF>> internal constructor() :
         {
             this is Constant && other is Constant                                                  ->
                 this.compareTo(other)
+
             this is Constant                                                                       ->
                 -1
+
             other is Constant                                                                      ->
                 1
+
             this is Variable && other is Variable                                                  ->
                 this.name.compareAlphabet(other.name)
+
             this is Variable                                                                       ->
                 -1
+
             other is Variable                                                                      ->
                 1
+
             this.javaClass == other.javaClass && this is UnaryOperator && other is UnaryOperator   ->
                 this.parameter.compareTo(other.parameter)
+
             this.javaClass == other.javaClass && this is BinaryOperator && other is BinaryOperator ->
             {
                 val comparision = this.parameter1.compareTo(other.parameter1)
@@ -303,6 +313,7 @@ abstract class MathFunction<MF : MathFunction<MF>> internal constructor() :
                     this.parameter2.compareTo(other.parameter2)
                 }
             }
+
             else                                                                                   ->
                 this.javaClass.name.compareAlphabet(other.javaClass.name)
         }

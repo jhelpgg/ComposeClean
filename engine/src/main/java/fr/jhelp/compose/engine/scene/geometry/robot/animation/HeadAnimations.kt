@@ -13,6 +13,9 @@ import fr.jhelp.compose.engine.scene.geometry.robot.Robot
 import fr.jhelp.compose.engine.scene.geometry.robot.RobotAnimation
 import fr.jhelp.compose.engine.scene.geometry.robot.RobotPosition
 
+/**
+ * Animation for robot to say yes
+ */
 val Robot.headYesAnimation: Animation
     get()
     {
@@ -25,6 +28,9 @@ val Robot.headYesAnimation: Animation
         return animation
     }
 
+/**
+ * Animation for robot to say no
+ */
 val Robot.headNoAnimation: Animation
     get()
     {

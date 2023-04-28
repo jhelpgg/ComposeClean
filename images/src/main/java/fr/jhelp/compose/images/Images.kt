@@ -7,24 +7,33 @@ import fr.jhelp.compose.math.minimum
 import kotlin.math.max
 import kotlin.math.min
 
-const val ALPHA_MASK = 0xFF000000.toInt()
-const val COLOR_MASK = 0x00FFFFFF
+/**Mask use to get only alpha part (remove color information) */
+const val ALPHA_MASK :Int= 0xFF000000.toInt()
+/**Mask use to get only color part (remove alpha information) */
+const val COLOR_MASK  :Int= 0x00FFFFFF
 
-val Int.alpha get() = this ushr 24
+/** Color int alpha part */
+val Int.alpha  :Int get() = this ushr 24
 
-val Int.red get() = (this shr 16) and 0xFF
+/** Color int red part */
+val Int.red  :Int get() = (this shr 16) and 0xFF
 
-val Int.green get() = (this shr 8) and 0xFF
+/** Color int green part */
+val Int.green :Int  get() = (this shr 8) and 0xFF
 
-val Int.blue get() = this and 0xFF
+/** Color int blue part */
+val Int.blue  :Int get() = this and 0xFF
 
 /**
  * Create color whit given Alpha, Red, Green and Blue parts
  */
-fun color(alpha: Int, red: Int, green: Int, blue: Int) =
+fun color(alpha: Int, red: Int, green: Int, blue: Int) :Int  =
     (alpha shl 24) or (red shl 16) or (green shl 8) or blue
 
-fun limitPart(integer: Int) = integer.bounds(0, 255)
+/**
+ * Limit a value to what a color part support as value
+ */
+fun limitPart(integer: Int)  :Int = integer.bounds(0, 255)
 
 /**
  * Compute blue part of color from YUV
@@ -36,7 +45,7 @@ fun limitPart(integer: Int) = integer.bounds(0, 255)
  * @param v V
  * @return Blue part
  */
-fun computeBlue(y: Double, u: Double, v: Double) =
+fun computeBlue(y: Double, u: Double, v: Double) :Int  =
     limitPart((y + 1.7721604 * (u - 128) + 0.0009902 * (v - 128)).toInt())
 
 /**
@@ -49,7 +58,7 @@ fun computeBlue(y: Double, u: Double, v: Double) =
  * @param v V
  * @return Green part
  */
-fun computeGreen(y: Double, u: Double, v: Double) =
+fun computeGreen(y: Double, u: Double, v: Double) :Int  =
     limitPart((y - 0.3436954 * (u - 128) - 0.7141690 * (v - 128)).toInt())
 
 /**
@@ -62,7 +71,7 @@ fun computeGreen(y: Double, u: Double, v: Double) =
  * @param v V
  * @return Red part
  */
-fun computeRed(y: Double, u: Double, v: Double) =
+fun computeRed(y: Double, u: Double, v: Double)  :Int =
     limitPart((y - 0.0009267 * (u - 128) + 1.4016868 * (v - 128)).toInt())
 
 /**
@@ -75,7 +84,7 @@ fun computeRed(y: Double, u: Double, v: Double) =
  * @param blue  Blue part
  * @return U
  */
-fun computeU(red: Int, green: Int, blue: Int) = -0.169 * red - 0.331 * green + 0.500 * blue + 128.0
+fun computeU(red: Int, green: Int, blue: Int):Double = -0.169 * red - 0.331 * green + 0.500 * blue + 128.0
 
 /**
  * Compute V of a color
@@ -87,7 +96,7 @@ fun computeU(red: Int, green: Int, blue: Int) = -0.169 * red - 0.331 * green + 0
  * @param blue  Blue part
  * @return V
  */
-fun computeV(red: Int, green: Int, blue: Int) = 0.500 * red - 0.419 * green - 0.081 * blue + 128.0
+fun computeV(red: Int, green: Int, blue: Int):Double = 0.500 * red - 0.419 * green - 0.081 * blue + 128.0
 
 /**
  * Compute Y of a color
@@ -99,8 +108,11 @@ fun computeV(red: Int, green: Int, blue: Int) = 0.500 * red - 0.419 * green - 0.
  * @param blue  Blue part
  * @return Y
  */
-fun computeY(red: Int, green: Int, blue: Int) = red * 0.299 + green * 0.587 + blue * 0.114
+fun computeY(red: Int, green: Int, blue: Int) :Double= red * 0.299 + green * 0.587 + blue * 0.114
 
+/**
+ * Clear bitmap with given color
+ */
 fun Bitmap.clear(color: Int)
 {
     this.pixelsOperation { pixels ->
@@ -130,7 +142,7 @@ fun Bitmap.grey()
 }
 
 /**
- * Tinit the bitmap with given color
+ * Tint the bitmap with given color
  */
 fun Bitmap.tint(color: Int)
 {

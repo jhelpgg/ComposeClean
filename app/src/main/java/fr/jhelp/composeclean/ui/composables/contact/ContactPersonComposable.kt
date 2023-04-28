@@ -14,7 +14,7 @@ import fr.jhelp.composeclean.models.contact.ContactPerson
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
 /**
- * Draw a contact
+ * Draw a contact that represents a person
  */
 @Composable
 fun DrawContactPerson(contactPerson: ContactPerson)

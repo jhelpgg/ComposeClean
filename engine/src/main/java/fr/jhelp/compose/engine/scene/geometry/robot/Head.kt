@@ -18,6 +18,7 @@ import fr.jhelp.compose.engine.resources.Mouths
 import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
+import fr.jhelp.compose.engine.scene.Texture
 import fr.jhelp.compose.images.bitmap
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.mask
@@ -48,12 +49,17 @@ private val hairPath by lazy {
 
 /**
  * Robot's head
+ * @param leftEye Left eye image
+ * @param rightEye Right eye image
+ * @param mouth Mouth image
+ * @param hair Hair color
  */
 class Head(var leftEye: Eyes = Eyes.GREEN_2, var rightEye: Eyes = Eyes.GREEN_2,
            var mouth: Mouths = Mouths.SMILE_2,
            var hair: Int = 0xFFA0661C.toInt())
 {
-    val texture = texture(512, 512)
+    /** Head texture */
+    val texture: Texture = texture(512, 512)
 
     init
     {

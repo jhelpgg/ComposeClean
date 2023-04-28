@@ -13,6 +13,7 @@ object MainModelPreview : MainModel
 {
     private val textChoiceMutableState: MutableState<TextChoice> =
         mutableStateOf(TextChoice.CHOICE1)
+    /** Observable of current text choice */
     override val textChoiceState: State<TextChoice> get() = this.textChoiceMutableState
 
     /**

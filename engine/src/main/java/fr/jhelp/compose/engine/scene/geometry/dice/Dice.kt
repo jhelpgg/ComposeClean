@@ -41,10 +41,14 @@ private val DICE_POSITIONS = arrayOf(Position3D(), // 1: Face
 class Dice(@DiceValue value: Int = random(1, 6)) : Node3D()
 {
     private val dice = Box(CrossUV())
-    var value = value.bounds(1, 6)
+
+    /** Current dice value */
+    var value: Int = value.bounds(1, 6)
         private set
     private val diceInfoMutableState: MutableStateFlow<DiceInfo> =
         MutableStateFlow<DiceInfo>(DiceInfo(this.id, this.name, this.value))
+
+    /** Observable on dice info change */
     val diceInfoState: StateFlow<DiceInfo> = this.diceInfoMutableState.asStateFlow()
     private val changeValue = { value: Int ->
         this.value = value
@@ -107,6 +111,9 @@ class Dice(@DiceValue value: Int = random(1, 6)) : Node3D()
         return animation
     }
 
+    /**
+     * Change dice color
+     */
     fun color(color: Color3D = GREY)
     {
         this.dice.material.diffuse = color

@@ -8,6 +8,9 @@ class AnimationParallel : Animation(25)
     private val animations = ArrayList<Animation>()
     private var length = 0
 
+    /**
+     * Add animation to do in "same time"
+     */
     fun add(animation: Animation)
     {
         synchronized(this.animations)

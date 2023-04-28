@@ -13,10 +13,13 @@ class BufferFloat
     private var array: FloatArray? = FloatArray(128)
     private val dirty = AtomicBoolean(true)
     private lateinit var floatBuffer: FloatBuffer
-    var size = 0
+
+    /** Buffer current size */
+    var size: Int = 0
         private set
 
-    val sealed get() = synchronized(this.dirty) { this.array == null }
+    /** Indicates if buffer is sealed ot not */
+    val sealed: Boolean get() = synchronized(this.dirty) { this.array == null }
 
     private fun expand(more: Int)
     {
@@ -32,6 +35,11 @@ class BufferFloat
         }
     }
 
+    /**
+     * Add some floats to the buffer
+     *
+     * Does nothing if buffer is sealed
+     */
     fun add(vararg floats: Float)
     {
         synchronized(this.dirty)
@@ -45,6 +53,11 @@ class BufferFloat
         }
     }
 
+    /**
+     * Make th buffer empty
+     *
+     * Does nothing if buffer is sealed
+     */
     fun clear()
     {
         synchronized(this.dirty)
@@ -59,6 +72,9 @@ class BufferFloat
         }
     }
 
+    /**
+     * Convert the buffer to NIO buffer, so that can be send to OpenGL
+     */
     fun buffer(): FloatBuffer
     {
         synchronized(this.dirty)
@@ -72,6 +88,9 @@ class BufferFloat
         }
     }
 
+    /**
+     * Seal the buffer
+     */
     fun seal()
     {
         synchronized(this.dirty)

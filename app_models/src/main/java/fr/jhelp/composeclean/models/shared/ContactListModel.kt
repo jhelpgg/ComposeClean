@@ -10,6 +10,9 @@ import fr.jhelp.composeclean.models.contact.Contact
  */
 interface ContactListModel
 {
+    /**
+     * Observable on current sort order
+     */
     val sortTypeState: State<SortType>
 
     /**

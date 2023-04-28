@@ -18,6 +18,11 @@ import fr.jhelp.tasks.extensions.parallel
 import fr.jhelp.tasks.future.FutureResult
 import fr.jhelp.tasks.future.futureError
 
+/**
+ * Access to resources helper
+ *
+ * It suppose that application context is provided
+ */
 object ResourcesAccess
 {
     private val applicationContext: Context by provided<Context>()
@@ -52,6 +57,9 @@ object ResourcesAccess
             defaultTexture()
         }
 
+    /**
+     * Obtain texture from assets
+     */
     fun obtainTexture(assetPath: String, sealed: Boolean = true): Texture =
         if (isProvided<Context>())
         {
@@ -97,6 +105,9 @@ object ResourcesAccess
         return bitmap
     }
 
+    /**
+     * Obtain bitmap from assets
+     */
     fun obtainBitmap(assetPath: String): Bitmap
     {
         val options = BitmapFactory.Options()
@@ -107,6 +118,9 @@ object ResourcesAccess
         return bitmap ?: this.defaultBitmap()
     }
 
+    /**
+     * Obtain bitmap from assets and resize it to fit specified size
+     */
     fun obtainBitmap(assetPath: String, width: Int, height: Int): Bitmap
     {
         val bitmap = this.obtainBitmap(assetPath)
@@ -121,6 +135,9 @@ object ResourcesAccess
         return bitmap
     }
 
+    /**
+     * Load a node hierarchy from raw resource
+     */
     fun loadNode(name: String,
                  @RawRes rawID: Int,
                  loader: NodeLoader,
@@ -135,6 +152,9 @@ object ResourcesAccess
             exception.futureError()
         }
 
+    /**
+     * Load a node hierarchy from assets
+     */
     fun loadNode(name: String,
                  assetPath: String,
                  loader: NodeLoader,

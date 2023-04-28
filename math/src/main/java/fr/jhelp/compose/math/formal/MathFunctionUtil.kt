@@ -1,6 +1,9 @@
 package fr.jhelp.compose.math.formal
 
-fun MathFunction<*>.simpleType() =
+/**
+ * Indicates if function is simple, that is to say a constant or a variable
+ */
+fun MathFunction<*>.simpleType(): Boolean =
     this is Constant || this is Variable
 
 /**

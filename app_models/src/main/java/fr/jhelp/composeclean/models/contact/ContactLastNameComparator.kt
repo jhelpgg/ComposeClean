@@ -1,7 +1,13 @@
 package fr.jhelp.composeclean.models.contact
 
+/**
+ * Comparator of contact by their last name
+ */
 object ContactLastNameComparator : Comparator<Contact>
 {
+    /**
+     * Compare two contacts by their last name
+     */
     override fun compare(firstContact: Contact, secondContact: Contact): Int =
         when (firstContact)
         {

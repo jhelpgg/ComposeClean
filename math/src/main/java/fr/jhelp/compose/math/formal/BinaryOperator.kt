@@ -5,13 +5,15 @@ import java.util.TreeSet
 /**
  * Generic mathematical function with two parameters
  *
+ * @property parameter1 First mathematical function
+ * @property parameter2 Second mathematical function
  * @param orderImportant Indicates if first follow by second is different from second follow by first.
  * By example `X - Y` is different of `Y - X`. Or not like `X + Y`and `Y + X`
  */
 abstract class BinaryOperator<BO : BinaryOperator<BO>>
 internal constructor(val parameter1: MathFunction<*>, val parameter2: MathFunction<*>,
                      private val orderImportant: Boolean) :
-    MathFunction<BO>()
+        MathFunction<BO>()
 {
     /**
      * Create specific type new instance with given parameters
@@ -35,8 +37,11 @@ internal constructor(val parameter1: MathFunction<*>, val parameter2: MathFuncti
      */
     final override fun equalsIntern(mathFunction: BO): Boolean =
         (this.parameter1 == mathFunction.parameter1 && this.parameter2 == mathFunction.parameter2) ||
-        (!this.orderImportant && this.parameter1 == mathFunction.parameter2 && this.parameter2 == mathFunction.parameter1)
+                (!this.orderImportant && this.parameter1 == mathFunction.parameter2 && this.parameter2 == mathFunction.parameter1)
 
+    /**
+     * Compute hash code
+     */
     final override fun hash(): Int =
         this.parameter1.hashCode() + 31 * this.parameter2.hashCode()
 

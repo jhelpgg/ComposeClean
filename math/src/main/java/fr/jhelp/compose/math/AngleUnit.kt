@@ -1,28 +1,32 @@
 package fr.jhelp.compose.math
 
-const val DEGREE_NAME = "deg"
-const val RADIAN_NAME = "rad"
-const val GRADE_NAME = "grad"
+/** Degree unit name */
+const val DEGREE_NAME: String = "deg"
 
-fun angleUnitByName(name: String) = AngleUnit.values().first { it.angleName == name }
+/** Radian unit name */
+const val RADIAN_NAME: String = "rad"
+
+/** Grade unit name */
+const val GRADE_NAME: String = "grad"
 
 /**
  * Managed angle unit
+ * @property angleName Name of the unit
  */
 enum class AngleUnit(val angleName: String, private val modularizeValue: Double)
 {
+    /** Represents degree unit for angles */
     DEGREE(DEGREE_NAME, 360.0),
+
+    /** Radian degree unit for angles */
     RADIAN(RADIAN_NAME, TWO_PI),
+
+    /** Represents grade unit for angles */
     GRADE(GRADE_NAME, 400.0)
     ;
 
     /**
      * Modularize the value for this unit
      */
-    fun modularize(value: Double) = modulo(value, this.modularizeValue)
-
-    /**
-     * Modularize the value for this unit
-     */
-    fun modularize(value: Float) = modulo(value, this.modularizeValue.toFloat())
+    fun modularize(value: Float): Float = modulo(value, this.modularizeValue.toFloat())
 }

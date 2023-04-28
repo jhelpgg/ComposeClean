@@ -16,24 +16,53 @@ class AngleFloat(value: Float, val unit: AngleUnit) : Comparable<AngleFloat>
     /**Angle value in its unit*/
     val value = this.unit.modularize(value)
 
-    operator fun plus(angle: AngleFloat) =
+    /**
+     * Add an angle to this angle
+     *
+     * @param angle Angle to add (Angle unit is convert to this angle unit if necessary)
+     * @return Result angle in same unit as this angle unit
+     */
+    operator fun plus(angle: AngleFloat): AngleFloat =
         AngleFloat(this.value + angle.convert(this.unit).value, this.unit)
 
-    operator fun minus(angle: AngleFloat) =
+    /**
+     * Subtract an angle to this angle
+     *
+     * @param angle Angle to subtract (Angle unit is convert to this angle unit if necessary)
+     * @return Result angle in same unit as this angle unit
+     */
+    operator fun minus(angle: AngleFloat): AngleFloat =
         AngleFloat(this.value - angle.convert(this.unit).value, this.unit)
 
-    operator fun times(factor: Number) = AngleFloat(this.value * factor.toFloat(), this.unit)
+    /**
+     * Multiply a number to this angle
+     *
+     * @param factor Factor to apply to this angle
+     * @return Result angle in same unit as this angle unit
+     */
+    operator fun times(factor: Number): AngleFloat =
+        AngleFloat(this.value * factor.toFloat(), this.unit)
 
-    operator fun div(factor: Number) = AngleFloat(this.value / factor.toFloat(), this.unit)
+    /**
+     * Divide a number to this angle
+     *
+     * @param factor Factor to apply to this angle
+     * @return Result angle in same unit as this angle unit
+     */
+    operator fun div(factor: Number): AngleFloat =
+        AngleFloat(this.value / factor.toFloat(), this.unit)
 
-    operator fun unaryMinus() = AngleFloat(-this.value, this.unit)
+    /**
+     * This opposite angle
+     */
+    operator fun unaryMinus(): AngleFloat = AngleFloat(-this.value, this.unit)
 
     /**
      * Convert this angle to an other unit
      *
      * If the unit is the same as this angle unit, this angle is returns, else a new angle is created
      */
-    fun convert(angleUnit: AngleUnit) =
+    fun convert(angleUnit: AngleUnit): AngleFloat =
         when (this.unit)
         {
             AngleUnit.DEGREE ->
@@ -43,6 +72,7 @@ class AngleFloat(value: Float, val unit: AngleUnit) : Comparable<AngleFloat>
                     AngleUnit.RADIAN -> AngleFloat(degreeToRadian(this.value), AngleUnit.RADIAN)
                     AngleUnit.GRADE  -> AngleFloat(degreeToGrade(this.value), AngleUnit.GRADE)
                 }
+
             AngleUnit.RADIAN ->
                 when (angleUnit)
                 {
@@ -50,6 +80,7 @@ class AngleFloat(value: Float, val unit: AngleUnit) : Comparable<AngleFloat>
                     AngleUnit.RADIAN -> this
                     AngleUnit.GRADE  -> AngleFloat(radianToGrade(this.value), AngleUnit.GRADE)
                 }
+
             AngleUnit.GRADE  ->
                 when (angleUnit)
                 {
@@ -62,14 +93,14 @@ class AngleFloat(value: Float, val unit: AngleUnit) : Comparable<AngleFloat>
     /**
      * Angle cosinus values
      */
-    fun cos() = cos(this.convert(AngleUnit.RADIAN).value)
+    fun cos(): Float = cos(this.convert(AngleUnit.RADIAN).value)
 
     /**
      * Angle sinus values
      */
-    fun sin() = sin(this.convert(AngleUnit.RADIAN).value)
+    fun sin(): Float = sin(this.convert(AngleUnit.RADIAN).value)
 
-    override fun hashCode() = this.convert(AngleUnit.RADIAN).value.hashCode()
+    override fun hashCode(): Int = this.convert(AngleUnit.RADIAN).value.hashCode()
 
     override fun equals(other: Any?): Boolean
     {
@@ -86,14 +117,13 @@ class AngleFloat(value: Float, val unit: AngleUnit) : Comparable<AngleFloat>
         return this.convert(AngleUnit.RADIAN).value.same(other.convert(AngleUnit.RADIAN).value)
     }
 
-    override fun toString() = "${this.value}${this.unit.angleName}"
+    override fun toString(): String = "${this.value}${this.unit.angleName}"
 
-    override operator fun compareTo(other: AngleFloat) =
+    override operator fun compareTo(other: AngleFloat): Int =
         this.convert(AngleUnit.RADIAN).value.compare(other.convert(AngleUnit.RADIAN).value)
 }
 
-val AngleFloatZero = AngleFloat(0.0f, AngleUnit.RADIAN)
-val AngleFloatQuarter = AngleFloat(PI_FLOAT / 2.0f, AngleUnit.RADIAN)
-val AngleFloatMiddle = AngleFloat(PI_FLOAT, AngleUnit.RADIAN)
-
-operator fun Number.times(angle: AngleFloat) = angle * this
+/**
+ * Multiply a factor to an angle
+ */
+operator fun Number.times(angle: AngleFloat): AngleFloat = angle * this

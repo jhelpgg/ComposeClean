@@ -15,6 +15,7 @@ const val COLOR_ALPHA_OPAQUE: Int = 0xFF000000.toInt()
 /** Alpha suggested for totally transparent */
 const val COLOR_ALPHA_TRANSPARENT: Int = 0x00000000
 
+/** Mask use for extract only the color part (It removes the opacity/alpha information) */
 const val COLOR_MASK: Int = 0x00FFFFFF
 
 /** Black */

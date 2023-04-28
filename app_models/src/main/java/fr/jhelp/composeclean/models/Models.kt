@@ -6,6 +6,9 @@ import fr.jhelp.composeclean.models.implementation.MainModelImplementation
 import fr.jhelp.composeclean.models.shared.ContactListModel
 import fr.jhelp.composeclean.models.shared.MainModel
 
+/**
+ * Inject models implementations to share them
+ */
 fun injectModels()
 {
     provideSingle<MainModel> { MainModelImplementation() }
