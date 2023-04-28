@@ -7,9 +7,9 @@ import android.os.SystemClock
 import android.util.AttributeSet
 import android.view.MotionEvent
 import fr.jhelp.compose.engine.scene.Node3D
+import fr.jhelp.compose.engine.view.touch.View3DTouchAction
+import fr.jhelp.compose.engine.view.touch.View3DTouchManipulation
 import fr.jhelp.compose.math.Point3D
-import fr.jhelp.compose.math.distance
-import fr.jhelp.compose.math.extensions.bounds
 import fr.jhelp.tasks.TaskType
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
@@ -33,6 +33,13 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
     var maximumAngleX = Float.POSITIVE_INFINITY
     var minimumZ = -9f
     var maximumZ = -1f
+    var view3DTouchAction: View3DTouchAction = View3DTouchManipulation
+        set(value)
+        {
+            field.detachFrom(this)
+            value.attachTo(this)
+            field = value
+        }
 
     /**
      * Last touch X position
@@ -68,6 +75,8 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         TaskType.SHORT_TASK.delay(1024L) {
             this@View3D.refreshScene()
         }
+
+        this.view3DTouchAction.attachTo(this)
     }
 
     override fun onDetachedFromWindow()
@@ -123,25 +132,24 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         val x = event.x
         val y = event.y
 
-        if (event.action == MotionEvent.ACTION_MOVE)
+        when (event.action)
         {
-            this.manipulateNode.position.angleY =
-                (this.manipulateNode.position.angleY + (x - this.touchX) * 0.25f)
-                    .bounds(this.minimumAngleY, this.maximumAngleY)
-            this.manipulateNode.position.angleX =
-                (this.manipulateNode.position.angleX + (y - this.touchY) * 0.25f)
-                    .bounds(this.minimumAngleX, this.maximumAngleX)
-        }
-        else if (event.action == MotionEvent.ACTION_UP)
-        {
-            this.numberFinger = 0
+            MotionEvent.ACTION_DOWN ->
+                this.view3DTouchAction.oneFingerDown(x, y)
 
-            if (this.hasOnClickListeners())
+            MotionEvent.ACTION_MOVE ->
+                this.view3DTouchAction.oneFingerMove(this.touchX, this.touchY, x, y)
+
+            MotionEvent.ACTION_UP   ->
             {
-                this.callOnClick()
+                this.numberFinger = 0
+
+                if (this.view3DTouchAction.oneFingerUp(x, y) && this.hasOnClickListeners())
+                {
+                    this.callOnClick()
+                }
             }
         }
-
 
         this.touchX = x
         this.touchY = y
@@ -162,13 +170,23 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         val x2 = event.getX(1)
         val y2 = event.getY(1)
 
-        if (event.actionMasked == MotionEvent.ACTION_MOVE)
+        when (event.action)
         {
-            val previousDistance = distance(this.touchX1, this.touchY1, this.touchX2, this.touchY2)
-            val currentDistance = distance(x1, y1, x2, y2)
-            this.manipulateNode.position.z =
-                (this.manipulateNode.position.z + 0.01f * (currentDistance - previousDistance))
-                    .bounds(this.minimumZ, this.maximumZ)
+            MotionEvent.ACTION_DOWN ->
+                this.view3DTouchAction.twoFingersDown(x1, y1,
+                                                      x2, y2)
+
+            MotionEvent.ACTION_MOVE ->
+                this.view3DTouchAction.twoFingersMove(this.touchX1, this.touchY1, x1, y1,
+                                                      this.touchX2, this.touchY2, x2, y2)
+
+            MotionEvent.ACTION_UP   ->
+            {
+                this.numberFinger = 0
+
+                this.view3DTouchAction.twoFingersUp(x1, y1,
+                                                    x2, y2)
+            }
         }
 
         this.touchX1 = x1
