@@ -10,9 +10,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-enum class TaskType(val coroutineScope: CoroutineScope)
+enum class TaskType(internal val coroutineScope: CoroutineScope)
 {
-    SHORT_TASK(CoroutineScope(Dispatchers.Default.limitedParallelism(8))), //newFixedThreadPoolContext(8, "ShortTasks")),
+    SHORT_TASK(CoroutineScope(Dispatchers.Default.limitedParallelism(8))),
     HEAVY_TASK(CoroutineScope(Dispatchers.Default.limitedParallelism(4))),
     NETWORK(CoroutineScope(NetworkDispatcher)),
     IO(CoroutineScope(Dispatchers.IO)),

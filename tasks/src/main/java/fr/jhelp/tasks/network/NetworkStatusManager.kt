@@ -6,8 +6,6 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.annotation.RequiresPermission
 import fr.jhelp.compose.provider.provided
-import fr.jhelp.tasks.network.NetworkStatusManager.destroy
-import fr.jhelp.tasks.network.NetworkStatusManager.initialize
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
