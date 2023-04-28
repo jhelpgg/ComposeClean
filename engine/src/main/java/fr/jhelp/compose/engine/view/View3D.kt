@@ -10,14 +10,10 @@ import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.math.Point3D
 import fr.jhelp.compose.math.distance
 import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.tasks.TaskType
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 /**
  * View with OpenGL inside.
@@ -27,8 +23,6 @@ import kotlinx.coroutines.launch
 class View3D(context: Context, attributes: AttributeSet? = null) :
         GLSurfaceView(context, attributes)
 {
-    /** Coroutine scope to launch task in parallel */
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val alive = AtomicBoolean(true)
     private val renderer = View3DRenderer(this::refreshDone)
     val viewBoundsState: StateFlow<ViewBounds> = this.renderer.viewBoundsState
@@ -71,8 +65,7 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         this.setRenderer(this.renderer)
         // Render the view only when there is a change
         this.renderMode = RENDERMODE_WHEN_DIRTY
-        this.scope.launch {
-            delay(1024)
+        TaskType.SHORT_TASK.delay(1024L) {
             this@View3D.refreshScene()
         }
     }
@@ -203,8 +196,7 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         }
 
         val timeLeft = max(1L, 32L - SystemClock.elapsedRealtime() + this.startRefreshTime)
-        this.scope.launch {
-            delay(timeLeft)
+        TaskType.SHORT_TASK.delay(timeLeft) {
             this@View3D.refreshScene()
         }
     }

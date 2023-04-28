@@ -1,19 +1,18 @@
 package fr.jhelp.compose.animations
 
+import fr.jhelp.tasks.TaskType
 import java.util.concurrent.atomic.AtomicBoolean
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 /**
  * Launch function as animation
  */
-fun animationTask(coroutineScope: CoroutineScope, task: () -> Unit) =
-    AnimationTask(coroutineScope, Unit) { task() }
+fun animationTask(taskType: TaskType, task: () -> Unit) =
+    AnimationTask(taskType, Unit) { task() }
 
 /**
  * Create animation that launch a task
  */
-class AnimationTask<P>(private val coroutineScope: CoroutineScope, private val parameter: P,
+class AnimationTask<P>(private val taskType: TaskType, private val parameter: P,
                        private val task: (P) -> Unit) : Animation(25)
 {
     private val played = AtomicBoolean(false)
@@ -27,7 +26,7 @@ class AnimationTask<P>(private val coroutineScope: CoroutineScope, private val p
     {
         if (!this.played.getAndSet(true))
         {
-            this.coroutineScope.launch { this@AnimationTask.task(this@AnimationTask.parameter) }
+            this.taskType.launch { this@AnimationTask.task(this@AnimationTask.parameter) }
         }
 
         return false
