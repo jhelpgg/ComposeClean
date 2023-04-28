@@ -50,17 +50,21 @@ class MainActivityComposable
     {
         val textChoice = this.mainModel.textChoiceState
         val view3DComposable = View3DComposable()
-        val (textureBox, textureSphere) = textureReferences()
+
+        val (textureBox, textureSphere, textureBear) = textureReferences()
         texture(textureBox, R.drawable.default_screen)
         texture(textureSphere, R.drawable.floor)
-        val (materialBox, materialSphere) = materialReferences()
+        texture(textureBear, fr.jhelp.compose.engine.R.drawable.toybear_default_color)
+        val (materialBox, materialSphere, materialBear) = materialReferences()
         material(materialBox) {
             textureReference = textureBox
         }
         material(materialSphere) {
             textureReference = textureSphere
         }
-
+        material(materialBear) {
+            textureReference = textureBear
+        }
         val centerReference = nodeReference()
         val animationCenter = animationNodeReference(centerReference)
 
@@ -106,18 +110,12 @@ class MainActivityComposable
                 root {
                     node(centerReference) {
                         children {
-                            box {
-                                material(materialBox)
+                            load(name = "bear",
+                                 rawID = fr.jhelp.compose.engine.R.raw.toybear,
+                                 loader = ObjLoader,
+                                 material = materialBear) {
                                 position {
-                                    x = -0.5f
-                                    scale(0.5f)
-                                }
-                            }
-                            sphere {
-                                material(materialSphere)
-                                position {
-                                    x = 0.5f
-                                    scale(0.5f)
+                                    scale(0.01f)
                                 }
                             }
                         }
