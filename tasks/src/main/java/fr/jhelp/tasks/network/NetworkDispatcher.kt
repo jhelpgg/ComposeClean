@@ -44,6 +44,7 @@ object NetworkDispatcher : CoroutineDispatcher()
     {
         this.futureNetworkStatus.cancel("Stop")
         this.job?.cancel()
+        this.playing.set(false)
     }
 
     private fun networkAvailable(networkAvailable: Boolean)
@@ -73,7 +74,7 @@ object NetworkDispatcher : CoroutineDispatcher()
                 }
 
 
-            if (block != null)
+            if (block != null && this.job?.isCancelled == false)
             {
                 if (!this.networkAvailable)
                 {
@@ -81,23 +82,36 @@ object NetworkDispatcher : CoroutineDispatcher()
                     this.locker.lock()
                 }
 
-                try
+                if (this.job?.isCancelled == false)
                 {
-                    block.run()
-                }
-                catch (exception: Exception)
-                {
-                    // If fails and no network,
-                    // we suppose that's because there no Internet
-                    // So we try to do the task later when network comes back
-                    if (!this.networkAvailable)
+                    try
                     {
-                        this.queue.enqueue(block)
+                        block.run()
+                    }
+                    catch (exception: Exception)
+                    {
+                        // If fails and no network,
+                        // we suppose that's because there no Internet
+                        // So we try to do the task later when network comes back
+                        if (!this.networkAvailable)
+                        {
+                            this.queue.enqueue(block)
+                        }
                     }
                 }
+                else
+                {
+                    // Job is cancelled, re-inject the task to do it later
+                    this.queue.enqueue(block)
+                }
+            }
+            else if (block != null)
+            {
+                // Job is cancelled, re-inject the task to do it later
+                this.queue.enqueue(block)
             }
         }
-        while (block != null)
+        while (block != null && this.job?.isCancelled == false)
 
         this.playing.set(false)
     }
