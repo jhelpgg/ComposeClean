@@ -18,7 +18,7 @@ internal class View3DRenderer(private val refreshDone: () -> Unit) : GLSurfaceVi
     private val viewBoundsMutableState: MutableStateFlow<ViewBounds> =
         MutableStateFlow<ViewBounds>(ViewBounds())
     val viewBoundsState: StateFlow<ViewBounds> = this.viewBoundsMutableState.asStateFlow()
-    val scene3D = Scene3D()
+    val scene3D = Scene3D(this.viewBoundsState)
 
     override fun onDrawFrame(gl: GL10)
     {

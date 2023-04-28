@@ -36,4 +36,24 @@ class SceneCreator internal constructor(private val view3D: View3D)
 
     fun player(particleEffectReference: ParticleEffectReference): ParticlePlayer =
         ParticlePlayer(this.scene3D, particleEffectReference)
+
+    fun backgroundTexture(textureReference: TextureReference)
+    {
+        this.scene3D.textureBackground = textureReference.textureSource.texture
+    }
+
+    fun noBackgroundTexture()
+    {
+        this.scene3D.textureBackground = null
+    }
+
+    fun over3DTexture(textureReference: TextureReference)
+    {
+        this.scene3D.textureOver3D = textureReference.textureSource.texture
+    }
+
+    fun noOver3DTexture()
+    {
+        this.scene3D.textureOver3D = null
+    }
 }
