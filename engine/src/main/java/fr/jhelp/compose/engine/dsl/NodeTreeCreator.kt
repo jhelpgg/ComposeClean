@@ -10,6 +10,9 @@ import fr.jhelp.compose.engine.scene.Object3D
 import fr.jhelp.compose.engine.scene.geometry.Box
 import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Sphere
+import fr.jhelp.tasks.TaskType
+import fr.jhelp.tasks.extensions.parallel
+import java.io.InputStream
 
 class NodeTreeCreator internal constructor(private val root: Node3D)
 {
@@ -89,6 +92,40 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         val nodeParent = Node3D()
         reference.node = nodeParent
         ResourcesAccess.loadNode(name, rawID, loader)
+            .and { nodeLoaded ->
+                nodeLoaded.applyMaterialHierarchically(material.material)
+                nodeParent.add(nodeLoaded)
+                Log.d("NodeTreeCreator", "$name loaded !")
+            }
+        node(nodeParent)
+        this.root.add(nodeParent)
+    }
+
+    fun load(reference: NodeReference = junkReference,
+             name: String, assetPath: String, loader: NodeLoader,
+             material: MaterialReference = MaterialReference(),
+             node: Node3D.() -> Unit)
+    {
+        val nodeParent = Node3D()
+        reference.node = nodeParent
+        ResourcesAccess.loadNode(name, assetPath, loader)
+            .and { nodeLoaded ->
+                nodeLoaded.applyMaterialHierarchically(material.material)
+                nodeParent.add(nodeLoaded)
+                Log.d("NodeTreeCreator", "$name loaded !")
+            }
+        node(nodeParent)
+        this.root.add(nodeParent)
+    }
+
+    fun load(reference: NodeReference = junkReference,
+             name: String, inputStream: InputStream, loader: NodeLoader,
+             material: MaterialReference = MaterialReference(),
+             node: Node3D.() -> Unit)
+    {
+        val nodeParent = Node3D()
+        reference.node = nodeParent
+        ({ loader.load(name, inputStream, true) }).parallel(TaskType.IO)
             .and { nodeLoaded ->
                 nodeLoaded.applyMaterialHierarchically(material.material)
                 nodeParent.add(nodeLoaded)
