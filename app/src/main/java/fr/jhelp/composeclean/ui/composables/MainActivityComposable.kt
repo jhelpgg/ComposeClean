@@ -2,6 +2,7 @@ package fr.jhelp.composeclean.ui.composables
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,8 +24,11 @@ import fr.jhelp.compose.engine.dsl.nodeReference
 import fr.jhelp.compose.engine.dsl.texture
 import fr.jhelp.compose.engine.dsl.textureReferences
 import fr.jhelp.compose.engine.extensions.children
-import fr.jhelp.compose.engine.extensions.material
 import fr.jhelp.compose.engine.extensions.position
+import fr.jhelp.compose.engine.loaders.objLoader.ObjLoader
+import fr.jhelp.compose.engine.view.joystick.VirtualJoystick
+import fr.jhelp.compose.engine.view.joystick.VirtualJoystickType
+import fr.jhelp.compose.engine.view.touch.View3DTouchOverSensitive
 import fr.jhelp.compose.math.extensions.seconds
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
@@ -35,6 +39,7 @@ import fr.jhelp.composeclean.models.shared.preview.MainModelPreview
 import fr.jhelp.composeclean.ui.activities.ContactListActivity
 import fr.jhelp.composeclean.ui.extensions.stringResource
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
+import fr.jhelp.tasks.extensions.observedBy
 
 /**
  * Main activity composable
@@ -125,6 +130,12 @@ class MainActivityComposable
                 this@MainActivityComposable.animationPlayer = player(animationCenter)
             }
         }
+
+        val joystick = VirtualJoystick(VirtualJoystickType.GREEN)
+
+        joystick.direction.observedBy { action -> Log.d("REMOVE_ME", "ACTION=$action") }
+        joystick.click = { Log.d("REMOVE_ME", "CLICK") }
+        view3DComposable.view3DTouchAction = View3DTouchOverSensitive(joystick)
     }
 
     @Preview(showBackground = true)
