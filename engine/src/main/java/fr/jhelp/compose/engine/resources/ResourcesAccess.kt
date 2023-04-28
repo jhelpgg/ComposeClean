@@ -7,9 +7,16 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.annotation.DrawableRes
+import androidx.annotation.RawRes
+import fr.jhelp.compose.engine.loaders.NodeLoader
+import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Texture
 import fr.jhelp.compose.provider.isProvided
 import fr.jhelp.compose.provider.provided
+import fr.jhelp.tasks.TaskType
+import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.tasks.future.futureError
 
 object ResourcesAccess
 {
@@ -89,4 +96,56 @@ object ResourcesAccess
 
         return bitmap
     }
+
+    fun obtainBitmap(assetPath: String): Bitmap
+    {
+        val options = BitmapFactory.Options()
+        options.inScaled = false
+        val inputStream = this.assetManager.open(assetPath)
+        val bitmap = BitmapFactory.decodeStream(inputStream, null, options)
+        inputStream.close()
+        return bitmap ?: this.defaultBitmap()
+    }
+
+    fun obtainBitmap(assetPath: String, width: Int, height: Int): Bitmap
+    {
+        val bitmap = this.obtainBitmap(assetPath)
+
+        if (bitmap.width != width || bitmap.height != height)
+        {
+            val scaled = Bitmap.createScaledBitmap(bitmap, width, height, false)
+            bitmap.recycle()
+            return scaled
+        }
+
+        return bitmap
+    }
+
+    fun loadNode(name: String,
+                 @RawRes rawID: Int,
+                 loader: NodeLoader,
+                 seal: Boolean = true): FutureResult<Node3D> =
+        try
+        {
+            val inputStream = this.resources.openRawResource(rawID)
+            ({ loader.load(name, inputStream, seal) }).parallel(TaskType.IO)
+        }
+        catch (exception: Exception)
+        {
+            exception.futureError()
+        }
+
+    fun loadNode(name: String,
+                 assetPath: String,
+                 loader: NodeLoader,
+                 seal: Boolean = true): FutureResult<Node3D> =
+        try
+        {
+            val inputStream = this.assetManager.open(assetPath)
+            ({ loader.load(name, inputStream, seal) }).parallel(TaskType.IO)
+        }
+        catch (exception: Exception)
+        {
+            exception.futureError()
+        }
 }
