@@ -13,19 +13,30 @@ import java.util.regex.Pattern
 
 private var SPACES = Pattern.compile("\\s+")
 
+/**
+ * Loader of file in `obj` format
+ */
 object ObjLoader : NodeLoader
 {
+    /**
+     * Load nodes and object inside the stream
+     *
+     * @param name Name to give to the node that will contains all nodes and objects
+     * @param inputStream Stream to parse
+     * @param seal Indicates if seal extracted object
+     * @return Nodes with inside the stream content
+     */
     override fun load(name: String, inputStream: InputStream, seal: Boolean): Node3D
     {
         val objRoot = Node3D()
         objRoot.name = name
-        val description = createObjDescription(name, inputStream)
+        val description = this.createObjDescription(name, inputStream)
 
         for (objObject in description.objects)
         {
             val object3D = Object3D()
             object3D.name = objObject.name
-            fillMesh(object3D, objObject)
+            this.fillMesh(object3D, objObject)
 
             if (seal)
             {

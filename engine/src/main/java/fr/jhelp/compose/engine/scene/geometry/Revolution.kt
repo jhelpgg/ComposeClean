@@ -11,6 +11,10 @@ package fr.jhelp.compose.engine.scene.geometry
 import fr.jhelp.compose.engine.scene.Object3D
 import fr.jhelp.compose.images.path.Path
 import fr.jhelp.compose.math.extensions.bounds
+import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 /**
  * A revolution is a path draw in (X, Y) plane and rotate around Y axis.
@@ -114,8 +118,8 @@ class Revolution(path: Path, angle: Float = 360f,
             vx = x1 - x0
             vy = y1 - y0
 
-            length = Math.sqrt(vx * vx + vy * vy)
-            if (Math.abs(length) >= 1e-5)
+            length = sqrt(vx * vx + vy * vy)
+            if (abs(length) >= 1e-5)
             {
                 vx /= length
                 vy /= length
@@ -133,10 +137,10 @@ class Revolution(path: Path, angle: Float = 360f,
                 angle = radian * an / rotationPrecision
                 angleFuture = radian * (an + 1) / rotationPrecision
 
-                cos = Math.cos(angle)
-                sin = Math.sin(angle)
-                cosFuture = Math.cos(angleFuture)
-                sinFuture = Math.sin(angleFuture)
+                cos = cos(angle)
+                sin = sin(angle)
+                cosFuture = cos(angleFuture)
+                sinFuture = sin(angleFuture)
 
                 // Compute each vertex
                 xAA = (cos * x0).toFloat()

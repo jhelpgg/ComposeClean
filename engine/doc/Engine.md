@@ -61,7 +61,7 @@ class MyActivity : AppCaompatActivity()
 
 `````
 
-**Note** : The `tree` extension call the code in the lamda in a separate thread, so no need to use a scope explicitly.
+**Note** : The `tree` extension call the code in the lambda in a separate thread, so no need to use a scope explicitly.
 
 ## The scene
 

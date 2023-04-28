@@ -20,8 +20,15 @@ object ContactListModelPreview : ContactListModel
     private lateinit var recyclerModel: RecyclerModel<Contact>
     private val sortTypeMutableState: MutableState<SortType> =
         mutableStateOf(SortType.SORT_BY_FIRST_NAME)
+
+    /**
+     * Contact sort type observable to have current sort and/or to observe the sort change
+     */
     override val sortTypeState: State<SortType> get() = this.sortTypeMutableState
 
+    /**
+     * Called on initialization to fill some contact in preview
+     */
     override fun initialize(recyclerModel: RecyclerModel<Contact>)
     {
         this.recyclerModel = recyclerModel
@@ -32,7 +39,7 @@ object ContactListModelPreview : ContactListModel
         }
 
         // Preview names
-        recyclerModel += ContactPerson("Jhon", "Doe")
+        recyclerModel += ContactPerson("John", "Doe")
         recyclerModel += ContactPerson("Dandy", "Space")
         recyclerModel += ContactPerson("Arthur", "Dent")
         recyclerModel += ContactPerson("Diego", "Vega", "Zorro")
@@ -54,6 +61,9 @@ object ContactListModelPreview : ContactListModel
         }
     }
 
+    /**
+     * Change the sort type
+     */
     override fun toggleSort()
     {
         // Here if we set the holder and just after get the value we have a great chance to have the previous value.
@@ -72,6 +82,9 @@ object ContactListModelPreview : ContactListModel
         this.sortTypeMutableState.value = newSortType
     }
 
+    /**
+     * Change the filter
+     */
     override fun filter(filter: String)
     {
         val safeFilter = filter.trim()

@@ -50,6 +50,9 @@ class MainActivityComposable
     private val mainModel: MainModel by provided<MainModel>()
     private lateinit var animationPlayer: AnimationPlayer
 
+    /**
+     * Show the main activity
+     */
     @Composable
     fun Show()
     {
@@ -62,33 +65,33 @@ class MainActivityComposable
         texture(textureBear, fr.jhelp.compose.engine.R.drawable.toybear_default_color)
         val (materialBox, materialSphere, materialBear) = materialReferences()
         material(materialBox) {
-            textureReference = textureBox
+            this.textureReference = textureBox
         }
         material(materialSphere) {
-            textureReference = textureSphere
+            this.textureReference = textureSphere
         }
         material(materialBear) {
-            textureReference = textureBear
+            this.textureReference = textureBear
         }
         val centerReference = nodeReference()
         val animationCenter = animationNodeReference(centerReference)
 
         animationNode(animationCenter) {
-            atTime(1.seconds, AccelerationInterpolation(2f)) {
-                x = 0.5f
-                y = 1f
-                angleY = 180f
+            this.atTime(1.seconds, AccelerationInterpolation(2f)) {
+                this.x = 0.5f
+                this.y = 1f
+                this.angleY = 180f
             }
 
-            atTime(3.seconds, AnticipateOvershootInterpolation(5f)) {
-                x = -0.5f
-                y = -1f
-                angleY = -180f
+            this.atTime(3.seconds, AnticipateOvershootInterpolation(5f)) {
+                this.x = -0.5f
+                this.y = -1f
+                this.angleY = -180f
             }
 
-            atTime(4.seconds + 500, BounceInterpolation) {
-                x = 0f
-                y = 0f
+            this.atTime(4.seconds + 500, BounceInterpolation) {
+                this.x = 0f
+                this.y = 0f
             }
         }
 
@@ -111,23 +114,23 @@ class MainActivityComposable
             view3DComposable.Draw(modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()) {
-                scenePosition { z = -2f }
-                root {
-                    node(centerReference) {
-                        children {
-                            load(name = "bear",
-                                 rawID = fr.jhelp.compose.engine.R.raw.toybear,
-                                 loader = ObjLoader,
-                                 material = materialBear) {
-                                position {
-                                    scale(0.01f)
+                this.scenePosition { this.z = -2f }
+                this.root {
+                    this.node(centerReference) {
+                        this.children {
+                            this.load(name = "bear",
+                                      rawID = fr.jhelp.compose.engine.R.raw.toybear,
+                                      loader = ObjLoader,
+                                      material = materialBear) {
+                                this.position {
+                                    this.scale(0.01f)
                                 }
                             }
                         }
                     }
                 }
 
-                this@MainActivityComposable.animationPlayer = player(animationCenter)
+                this@MainActivityComposable.animationPlayer = this.player(animationCenter)
             }
         }
 
@@ -138,6 +141,9 @@ class MainActivityComposable
         view3DComposable.view3DTouchAction = View3DTouchOverSensitive(joystick)
     }
 
+    /**
+     * Composable preview of main activity
+     */
     @Preview(showBackground = true)
     @Composable
     fun Preview()

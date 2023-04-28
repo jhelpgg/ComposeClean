@@ -341,7 +341,9 @@ class ParticleNode(private val numberParticle: Int,
             for (number in this.alreadyEmited until this.numberParticle)
             {
                 particle = Particle(this.stopEmissionFrame,
-                                    randomPosition(), randomSpeed(), randomAcceleration(),
+                                    this.randomPosition(),
+                                    this.randomSpeed(),
+                                    this.randomAcceleration(),
                                     this.lifeTimeInFrame)
                 particle.material.texture = this.texture
                 particle.alphaStart = this.alphaStart
@@ -361,7 +363,9 @@ class ParticleNode(private val numberParticle: Int,
             while (emissionFrame <= frame && this.alreadyEmited < this.numberParticle)
             {
                 collector(Particle(emissionFrame,
-                                   randomPosition(), randomSpeed(), randomAcceleration(),
+                                   this.randomPosition(),
+                                   this.randomSpeed(),
+                                   this.randomAcceleration(),
                                    this.lifeTimeInFrame))
                 this.alreadyEmited++
                 emissionFrame += this.stepFrameEmission

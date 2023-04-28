@@ -16,7 +16,8 @@ import java.util.concurrent.atomic.AtomicReference
  * * If result fail, then do this
  * * ...
  */
-class FutureResult<R : Any> internal constructor(private val promise: Promise<R>) {
+class FutureResult<R : Any> internal constructor(private val promise: Promise<R>)
+{
     private val status = AtomicReference<FutureResultStatus>(FutureResultStatus.COMPUTING)
     private val lock = Object()
     private lateinit var result: R
@@ -24,10 +25,12 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
     private lateinit var error: Exception
     private val listeners = ArrayList<Pair<(FutureResult<R>) -> Unit, TaskType>>()
 
-    internal fun result(result: R) {
+    internal fun result(result: R)
+    {
         synchronized(this.lock)
         {
-            if (this.status.compareAndSet(FutureResultStatus.COMPUTING, FutureResultStatus.SUCCEED)) {
+            if (this.status.compareAndSet(FutureResultStatus.COMPUTING, FutureResultStatus.SUCCEED))
+            {
                 this.result = result
                 this.lock.notifyAll()
             }
@@ -36,10 +39,12 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
         this.fireListeners()
     }
 
-    internal fun error(error: Exception) {
+    internal fun error(error: Exception)
+    {
         synchronized(this.lock)
         {
-            if (this.status.compareAndSet(FutureResultStatus.COMPUTING, FutureResultStatus.FAILED)) {
+            if (this.status.compareAndSet(FutureResultStatus.COMPUTING, FutureResultStatus.FAILED))
+            {
                 this.error = error
                 this.lock.notifyAll()
             }
@@ -48,9 +53,11 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
         this.fireListeners()
     }
 
-    private fun fireListeners() {
+    private fun fireListeners()
+    {
         synchronized(this.listeners) {
-            for (pair in this.listeners) {
+            for (pair in this.listeners)
+            {
                 pair.second.launch { pair.first(this) }
             }
 
@@ -60,66 +67,84 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
     }
 
     private fun <R1 : Any> andListener(continuation: (R) -> R1, promise: Promise<R1>) =
-            this.andListener(continuation, promise) { true }
+        this.andListener(continuation, promise) { true }
 
     private fun <R1 : Any> andListener(continuation: (R) -> R1, promise: Promise<R1>,
                                        condition: (R) -> Boolean) =
-            { future: FutureResult<R> ->
-                when (future.status()) {
-                    FutureResultStatus.SUCCEED ->
-                        try {
-                            val result = future()
+        { future: FutureResult<R> ->
+            when (future.status())
+            {
+                FutureResultStatus.SUCCEED  ->
+                    try
+                    {
+                        val result = future.invoke()
 
-                            if (condition(result)) {
-                                promise.result(continuation(result))
-                            } else {
-                                promise.error(Exception("Not matching condition"))
-                            }
-                        } catch (exception: Exception) {
-                            promise.error(exception)
+                        if (condition(result))
+                        {
+                            promise.result(continuation(result))
                         }
-                    FutureResultStatus.FAILED ->
-                        promise.error(future.error)
-                    FutureResultStatus.CANCELED ->
-                        promise.error(CancellationException(this.cancelReason))
-                    else -> Unit
-                }
+                        else
+                        {
+                            promise.error(Exception("Not matching condition"))
+                        }
+                    }
+                    catch (exception: Exception)
+                    {
+                        promise.error(exception)
+                    }
+
+                FutureResultStatus.FAILED   ->
+                    promise.error(future.error)
+
+                FutureResultStatus.CANCELED ->
+                    promise.error(CancellationException(this.cancelReason))
+
+                else                        -> Unit
             }
+        }
 
     private fun <R1 : Any> thenListener(continuation: (FutureResult<R>) -> R1,
                                         promise: Promise<R1>) =
-            { future: FutureResult<R> ->
-                try {
-                    promise.result(continuation(future))
-                } catch (exception: Exception) {
-                    promise.error(exception)
-                }
+        { future: FutureResult<R> ->
+            try
+            {
+                promise.result(continuation(future))
             }
+            catch (exception: Exception)
+            {
+                promise.error(exception)
+            }
+        }
 
     private fun errorListener(errorListener: (Exception) -> Unit,
-                              taskType: TaskType): (FutureResult<R>) -> Unit {
+                              taskType: TaskType): (FutureResult<R>) -> Unit
+    {
         return { future: FutureResult<R> ->
-            when (future.status()) {
-                FutureResultStatus.FAILED ->
+            when (future.status())
+            {
+                FutureResultStatus.FAILED   ->
                     taskType.launch { errorListener(future.error) }
+
                 FutureResultStatus.CANCELED ->
                     taskType.launch { errorListener(CancellationException(this.cancelReason)) }
-                else -> Unit
+
+                else                        -> Unit
             }
         }
     }
 
     private fun cancelListener(cancelListener: (String) -> Unit, taskType: TaskType) =
-            { future: FutureResult<R> ->
-                if (future.status() == FutureResultStatus.CANCELED) {
-                    taskType.launch { cancelListener(this.cancelReason) }
-                }
+        { future: FutureResult<R> ->
+            if (future.status() == FutureResultStatus.CANCELED)
+            {
+                taskType.launch { cancelListener(this.cancelReason) }
             }
+        }
 
     /**
      * Current future status.
      */
-    fun status() = this.status.get()
+    fun status(): FutureResultStatus = this.status.get()
 
     /**
      * Register listener called when result is known. If already know, listener is callback immediately
@@ -127,10 +152,12 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @param listener Listener to register
      * @param taskType : Thread type where execute the listener
      */
-    fun register(taskType: TaskType = TaskType.SHORT_TASK, listener: (FutureResult<R>) -> Unit) {
+    fun register(taskType: TaskType = TaskType.SHORT_TASK, listener: (FutureResult<R>) -> Unit)
+    {
         synchronized(this.lock)
         {
-            if (this.status.get() != FutureResultStatus.COMPUTING) {
+            if (this.status.get() != FutureResultStatus.COMPUTING)
+            {
                 taskType.launch { listener(this) }
                 return@register
             }
@@ -149,19 +176,22 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return The result
      * @throws Exception if computation failed or cancel happen
      */
-    operator fun invoke(): R {
+    operator fun invoke(): R
+    {
         synchronized(this.lock)
         {
-            if (this.status.get() == FutureResultStatus.COMPUTING) {
+            if (this.status.get() == FutureResultStatus.COMPUTING)
+            {
                 this.lock.wait()
             }
         }
 
-        when (this.status.get()) {
-            FutureResultStatus.SUCCEED -> return this.result
-            FutureResultStatus.FAILED -> throw this.error
+        when (this.status.get())
+        {
+            FutureResultStatus.SUCCEED  -> return this.result
+            FutureResultStatus.FAILED   -> throw this.error
             FutureResultStatus.CANCELED -> throw CancellationException(this.cancelReason)
-            else ->
+            else                        ->
                 throw RuntimeException("Should no goes here : ${this.status.get()}")
         }
     }
@@ -172,10 +202,12 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      *
      * @return Future complete status
      */
-    fun waitComplete(): FutureResultStatus {
+    fun waitComplete(): FutureResultStatus
+    {
         synchronized(this.lock)
         {
-            if (this.status.get() == FutureResultStatus.COMPUTING) {
+            if (this.status.get() == FutureResultStatus.COMPUTING)
+            {
                 this.lock.wait()
             }
         }
@@ -189,10 +221,10 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * If future still computing, there no actually an error, but may will have on the end
      */
     fun error() =
-            synchronized(this.lock)
-            {
-                if (this.status.get() == FutureResultStatus.FAILED) this.error else null
-            }
+        synchronized(this.lock)
+        {
+            if (this.status.get() == FutureResultStatus.FAILED) this.error else null
+        }
 
     /**
      * Cancellation reason.
@@ -202,10 +234,10 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * If future still computing, there no actually a cancel reason, but may will have on the end
      */
     fun cancelReason() =
-            synchronized(this.lock)
-            {
-                if (this.status.get() == FutureResultStatus.CANCELED) this.cancelReason else null
-            }
+        synchronized(this.lock)
+        {
+            if (this.status.get() == FutureResultStatus.CANCELED) this.cancelReason else null
+        }
 
     /**
      * Try to cancel task associated to the thread
@@ -213,21 +245,26 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return `true` if cancel request is propagate to current task.
      * Else it means the future is already complete, so too late for cancel
      */
-    fun cancel(reason: String): Boolean {
+    fun cancel(reason: String): Boolean
+    {
         val canceled =
-                synchronized(this.lock)
+            synchronized(this.lock)
+            {
+                if (this.status.compareAndSet(FutureResultStatus.COMPUTING,
+                                              FutureResultStatus.CANCELED))
                 {
-                    if (this.status.compareAndSet(FutureResultStatus.COMPUTING,
-                                    FutureResultStatus.CANCELED)) {
-                        this.cancelReason = reason
-                        this.promise::cancel.parallel(reason)
-                        true
-                    } else {
-                        false
-                    }
+                    this.cancelReason = reason
+                    this.promise::cancel.parallel(reason)
+                    true
                 }
+                else
+                {
+                    false
+                }
+            }
 
-        if (canceled) {
+        if (canceled)
+        {
             this.fireListeners()
         }
 
@@ -240,7 +277,8 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return Future result represents the combination of the result follow by the task
      */
     fun <R1 : Any> and(taskType: TaskType = TaskType.SHORT_TASK,
-                       continuation: (R) -> R1): FutureResult<R1> {
+                       continuation: (R) -> R1): FutureResult<R1>
+    {
         val promise = Promise<R1>()
         promise.onCancel { reason -> this.cancel(reason) }
         this.register(taskType, this.andListener(continuation, promise))
@@ -251,7 +289,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * Do task, in [TaskType.SHORT_TASK], when result complete and if succeed to compute and result match given condition
      */
     fun <R1 : Any> andIf(condition: (R) -> Boolean, continuation: (R) -> R1) =
-            this.andIf(TaskType.SHORT_TASK, condition, continuation)
+        this.andIf(TaskType.SHORT_TASK, condition, continuation)
 
     /**
      * Do task, in specified thread type, when result complete and if succeed to compute and result match given condition
@@ -260,7 +298,8 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     fun <R1 : Any> andIf(taskType: TaskType,
                          condition: (R) -> Boolean,
-                         continuation: (R) -> R1): FutureResult<R1> {
+                         continuation: (R) -> R1): FutureResult<R1>
+    {
         val promise = Promise<R1>()
         promise.onCancel { reason -> this.cancel(reason) }
         this.register(taskType, this.andListener(continuation, promise, condition))
@@ -273,7 +312,8 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return Future result represents the combination of the result follow by the task
      */
     fun <R1 : Any> then(taskType: TaskType = TaskType.SHORT_TASK,
-                        continuation: (FutureResult<R>) -> R1): FutureResult<R1> {
+                        continuation: (FutureResult<R>) -> R1): FutureResult<R1>
+    {
         val promise = Promise<R1>()
         promise.onCancel { reason -> this.cancel(reason) }
         this.register(taskType, this.thenListener(continuation, promise))
@@ -287,7 +327,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     fun <R1 : Any> andUnwrap(taskType: TaskType = TaskType.SHORT_TASK,
                              continuation: (R) -> FutureResult<R1>): FutureResult<R1> =
-            this.and(taskType, continuation).unwrap()
+        this.and(taskType, continuation).unwrap()
 
     /**
      * Do task, in [TaskType.SHORT_TASK], when result complete and if succeed to compute and result match given condition
@@ -295,7 +335,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return Future result represents the combination of the result follow by the task
      */
     fun <R1 : Any> andIfUnwrap(condition: (R) -> Boolean, continuation: (R) -> FutureResult<R1>) =
-            this.andIfUnwrap(TaskType.SHORT_TASK, condition, continuation)
+        this.andIfUnwrap(TaskType.SHORT_TASK, condition, continuation)
 
     /**
      * Do task, in specified thread type, when result complete and if succeed to compute and result match given condition
@@ -305,7 +345,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
     fun <R1 : Any> andIfUnwrap(taskType: TaskType,
                                condition: (R) -> Boolean,
                                continuation: (R) -> FutureResult<R1>): FutureResult<R1> =
-            this.andIf(taskType, condition, continuation).unwrap()
+        this.andIf(taskType, condition, continuation).unwrap()
 
     /**
      * Do task, in specified thread type, when result complete
@@ -314,7 +354,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     fun <R1 : Any> thenUnwrap(taskType: TaskType = TaskType.SHORT_TASK,
                               continuation: (FutureResult<R>) -> FutureResult<R1>): FutureResult<R1> =
-            this.then(taskType, continuation).unwrap()
+        this.then(taskType, continuation).unwrap()
 
     /**
      * Do task, in specified thread type, when result failed
@@ -322,7 +362,8 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return This future result. Convenient for chaining
      */
     fun onError(taskType: TaskType = TaskType.SHORT_TASK,
-                errorListener: (Exception) -> Unit): FutureResult<R> {
+                errorListener: (Exception) -> Unit): FutureResult<R>
+    {
         this.register(TaskType.SHORT_TASK, this.errorListener(errorListener, taskType))
         return this
     }
@@ -333,7 +374,8 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * @return This future result. Convenient for chaining
      */
     fun onCancel(taskType: TaskType = TaskType.SHORT_TASK,
-                 cancelListener: (String) -> Unit): FutureResult<R> {
+                 cancelListener: (String) -> Unit): FutureResult<R>
+    {
         this.register(TaskType.SHORT_TASK, this.cancelListener(cancelListener, taskType))
         return this
     }
@@ -342,14 +384,15 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      * String representation
      */
     override fun toString() =
-            synchronized(this.lock)
+        synchronized(this.lock)
+        {
+            when (this.status.get())
             {
-                when (this.status.get()) {
-                    FutureResultStatus.SUCCEED -> "Succeed : ${this.result}"
-                    FutureResultStatus.FAILED -> "Error : ${this.error}"
-                    FutureResultStatus.CANCELED -> "Canceled because : ${this.cancelReason}"
-                    FutureResultStatus.COMPUTING -> "Computing ..."
-                    else -> "Why am I there ? : ${this.status.get()}"
-                }
+                FutureResultStatus.SUCCEED   -> "Succeed : ${this.result}"
+                FutureResultStatus.FAILED    -> "Error : ${this.error}"
+                FutureResultStatus.CANCELED  -> "Canceled because : ${this.cancelReason}"
+                FutureResultStatus.COMPUTING -> "Computing ..."
+                else                         -> "Why am I there ? : ${this.status.get()}"
             }
+        }
 }

@@ -17,6 +17,9 @@ class ParticleEffect
     private val aliveParticles = ArrayList<Particle>()
     private var statTime: Long = 0L
 
+    /**
+     * Add a particle node generation in the particle effect
+     */
     fun addParticleNode(particleNode: ParticleNode)
     {
         synchronized(this.particleNodes)
@@ -34,7 +37,7 @@ class ParticleEffect
 
         synchronized(this.particleNodes)
         {
-            for (particleNode in particleNodes)
+            for (particleNode in this.particleNodes)
             {
                 particleNode.resetEmission()
             }

@@ -39,6 +39,9 @@ class ContactListActivityComposable
 {
     private val contactListModel: ContactListModel by provided<ContactListModel>()
 
+    /**
+     * Show the contact list
+     */
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun Show()
@@ -51,7 +54,7 @@ class ContactListActivityComposable
         var filtered: String by remember { mutableStateOf("") }
 
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-            val (filter, contactList, buttonFirstName, buttonLastName) = createRefs()
+            val (filter, contactList, buttonFirstName, buttonLastName) = this.createRefs()
 
             TextField(
                 value = filtered,
@@ -67,33 +70,33 @@ class ContactListActivityComposable
                 },
                 label = { Text(stringResource(R.string.hintFilter)) },
                 modifier = Modifier.constrainAs(filter) {
-                    width = Dimension.fillToConstraints
-                    height = Dimension.wrapContent
-                    topParent
-                    startParent
-                    endParent
+                    this.width = Dimension.fillToConstraints
+                    this.height = Dimension.wrapContent
+                    this.topParent
+                    this.startParent
+                    this.endParent
                 })
 
             recyclerView.Draw(Modifier.constrainAs(contactList) {
-                width = Dimension.fillToConstraints
-                height = Dimension.fillToConstraints
-                top near filter.bottom
-                bottom next buttonFirstName.top
-                startParent
-                endParent
+                this.width = Dimension.fillToConstraints
+                this.height = Dimension.fillToConstraints
+                this.top near filter.bottom
+                this.bottom next buttonFirstName.top
+                this.startParent
+                this.endParent
             })
 
-            val buttonGuideline = createGuidelineFromStart(0.5f)
+            val buttonGuideline = this.createGuidelineFromStart(0.5f)
 
             // Same remarks as above about recycler compose model
             Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
                    enabled = sortType.value == SortType.SORT_BY_LAST_NAME,
                    modifier = Modifier.constrainAs(buttonFirstName) {
-                       width = Dimension.wrapContent
-                       height = Dimension.wrapContent
-                       bottomParent
-                       startParent
-                       end near buttonGuideline
+                       this.width = Dimension.wrapContent
+                       this.height = Dimension.wrapContent
+                       this.bottomParent
+                       this.startParent
+                       this.end near buttonGuideline
                    }) {
                 Text(text = stringResource(R.string.buttonFirstName))
             }
@@ -102,17 +105,20 @@ class ContactListActivityComposable
             Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
                    enabled = sortType.value == SortType.SORT_BY_FIRST_NAME,
                    modifier = Modifier.constrainAs(buttonLastName) {
-                       width = Dimension.wrapContent
-                       height = Dimension.wrapContent
-                       bottomParent
-                       start near buttonGuideline
-                       endParent
+                       this.width = Dimension.wrapContent
+                       this.height = Dimension.wrapContent
+                       this.bottomParent
+                       this.start near buttonGuideline
+                       this.endParent
                    }) {
                 Text(text = stringResource(R.string.buttonLastName))
             }
         }
     }
 
+    /**
+     * Composable preview of contact list
+     */
     @Preview(showBackground = true)
     @Composable
     fun Preview()

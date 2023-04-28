@@ -6,7 +6,7 @@ Common generic objects shared between application modules.
 Represents a modifiable value.
 
 In compose it will be used to crete a handler in composable view but need to be manipulate by the
-model. Those values must be create in composable method from same module, tah's why we use this to
+model. Those values must be create in composable method from same module, that's why we use this to
 create them and give the hand to the model.
 
 [RecyclerModel](../src/main/java/fr/jhelp/compose/ui/recycler/RecyclerModel.kt)

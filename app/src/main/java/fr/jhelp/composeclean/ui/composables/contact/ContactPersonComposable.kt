@@ -13,39 +13,45 @@ import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.composeclean.models.contact.ContactPerson
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
+/**
+ * Draw a contact
+ */
 @Composable
 fun DrawContactPerson(contactPerson: ContactPerson)
 {
     ConstraintLayout(Modifier
                          .fillMaxWidth()
                          .wrapContentHeight()) {
-        val (firstName, lastName) = createRefs()
+        val (firstName, lastName) = this.createRefs()
 
         Text(text = contactPerson.firstName,
              Modifier.constrainAs(firstName) {
-                 width = Dimension.wrapContent
-                 height = Dimension.wrapContent
-                 top.linkTo(parent.top)
-                 bottom.linkTo(parent.bottom)
-                 startParent
+                 this.width = Dimension.wrapContent
+                 this.height = Dimension.wrapContent
+                 this.top.linkTo(this.parent.top)
+                 this.bottom.linkTo(this.parent.bottom)
+                 this.startParent
              })
 
         Text(text = contactPerson.lastName,
              Modifier.constrainAs(lastName) {
-                 width = Dimension.wrapContent
-                 height = Dimension.wrapContent
-                 top.linkTo(parent.top)
-                 bottom.linkTo(parent.bottom)
-                 start far firstName.end
+                 this.width = Dimension.wrapContent
+                 this.height = Dimension.wrapContent
+                 this.top.linkTo(this.parent.top)
+                 this.bottom.linkTo(this.parent.bottom)
+                 this.start far firstName.end
              })
     }
 }
 
+/**
+ * Composable preview of [DrawContactPerson]
+ */
 @Preview(showBackground = true)
 @Composable
 fun DrawContactPersonPreview()
 {
     ComposeCleanTheme {
-        DrawContactPerson(ContactPerson("Jhon", "Doe"))
+        DrawContactPerson(ContactPerson("John", "Doe"))
     }
 }

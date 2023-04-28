@@ -39,7 +39,6 @@ internal class ContactListModelImplementation : ContactListModel
      * Initialize the model
      *
      * @param recyclerModel Recycler model of contact list to manipulate it
-     * @param sortType Holder of sort type to able get/change it
      */
     override fun initialize(recyclerModel: RecyclerModel<Contact>)
     {
@@ -117,7 +116,7 @@ internal class ContactListModelImplementation : ContactListModel
     private fun fillContact()
     {
         // NOTE : In real application we will get te real contact here, for the demo, we just provide some contacts
-        this.recyclerModel += ContactPerson("Jhon", "Doe")
+        this.recyclerModel += ContactPerson("John", "Doe")
         this.recyclerModel += ContactPerson("Dandy", "Space")
         this.recyclerModel += ContactPerson("Arthur", "Dent")
         this.recyclerModel += ContactPerson("Diego", "Vega", "Zorro")
@@ -137,7 +136,8 @@ internal class ContactListModelImplementation : ContactListModel
         {
             for (lastCharacter in 'A'..'Z')
             {
-                this.recyclerModel += ContactPerson(name(firstCharacter), name(lastCharacter))
+                this.recyclerModel += ContactPerson(this.name(firstCharacter),
+                                                    this.name(lastCharacter))
                 Thread.sleep(1)
             }
         }

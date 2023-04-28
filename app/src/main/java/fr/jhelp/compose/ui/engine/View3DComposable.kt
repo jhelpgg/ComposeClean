@@ -10,12 +10,20 @@ import fr.jhelp.compose.engine.view.touch.View3DTouchAction
 import fr.jhelp.compose.engine.view.touch.View3DTouchManipulation
 import java.util.concurrent.atomic.AtomicBoolean
 
+/**
+ * Composable with [View3D] inside.
+ *
+ * Convenient to have 3D inside compose UI
+ */
 class View3DComposable
 {
     private val viewCreated = AtomicBoolean(false)
     private var action: View3DTouchAction = View3DTouchManipulation
     private lateinit var view: View3D
 
+    /**
+     * Describes how to react to touch the 3D view
+     */
     var view3DTouchAction: View3DTouchAction
         get() =
             if (this.viewCreated.get())
@@ -38,11 +46,17 @@ class View3DComposable
             }
         }
 
+    /**
+     * Call in composable context to draw the 3D
+     *
+     * @param modifier : Modifier used to layout the 3D view
+     * @param scene : Describe how to create the 3D view
+     */
     @Composable
     fun Draw(modifier: Modifier = Modifier,
              scene: SceneCreator.() -> Unit = {
-                 scenePosition { z = -2f }
-                 root { box {} }
+                 this.scenePosition { this.z = -2f }
+                 this.root { this.box {} }
              })
     {
         AndroidView<View3D>(

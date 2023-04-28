@@ -98,11 +98,9 @@ internal class EllipticArcCrawler(private val startX: Float, private val startY:
         val uy = (y1 - cy1) / radiusY
         val vx = (-x1 - cx1) / radiusX
         val vy = (-y1 - cy1) / radiusY
-        var p: Float
-        var n: Float
         // Compute the angle start
-        n = sqrt(ux * ux + uy * uy)
-        p = ux // (1 * ux) + (0 * uy)
+        var n: Float = sqrt(ux * ux + uy * uy)
+        var p: Float = ux // (1 * ux) + (0 * uy)
         sign = uy.sign().toFloat()
         angleStart = sign * acos(p / n)
 

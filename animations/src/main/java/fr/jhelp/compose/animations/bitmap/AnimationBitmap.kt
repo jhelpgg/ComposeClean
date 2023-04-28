@@ -31,7 +31,7 @@ class AnimationBitmap(bitmapAtStart: Bitmap, width: Int, height: Int, fps: Int,
     internal var firstElement: BitmapAnimationElement? = null
 
     /**Bitmap result with the animation*/
-    val resultBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+    val resultBitmap: Bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
 
     /** Embed bitmap animation */
     private val bitmapAnimation = BitmapAnimation(this, this.fps)
