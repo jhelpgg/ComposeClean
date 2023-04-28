@@ -64,7 +64,7 @@ class GUI : View3DTouchOverListener
         synchronized(this.components)
         {
             this.components.forEachReversed { component ->
-                if (x >= component.x && y >= component.y && x < component.x + component.width && y < component.y + component.height)
+                if (component.visible && x >= component.x && y >= component.y && x < component.x + component.width && y < component.y + component.height)
                 {
                     return component
                 }
