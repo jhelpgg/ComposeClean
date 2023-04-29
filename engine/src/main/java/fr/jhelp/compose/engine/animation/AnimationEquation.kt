@@ -19,7 +19,7 @@ fun animationEquation(node: Node3D,
                       functionY: MathFunction<*>,
                       functionZ: MathFunction<*>,
                       tStart: Double, tEnd: Double,
-                      milliseconds: Int, fps: Int = 25) =
+                      milliseconds: Int, fps: Int = 25) : AnimationEquation =
     AnimationEquation(node,
                       functionX, functionY, functionZ,
                       tStart, tEnd,

@@ -4,6 +4,9 @@ import androidx.annotation.DrawableRes
 import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.engine.scene.Texture
 
+/**
+ * Texture from drawable resources
+ */
 class TextureSourceDrawable(@DrawableRes private val resource: Int) : TextureSource()
 {
     override fun createTexture(): Texture =

@@ -6,6 +6,12 @@ import fr.jhelp.compose.math.Point2D
 
 /**
  * Represents a segments with associated value at start and at end
+ * @property startX Start point X
+ * @property startY Start point Y
+ * @property startValue Value at start position
+ * @property endX End point X
+ * @property endY End point Y
+ * @property endValue Value at end position
  */
 class Segment(val startX: Float, val startY: Float, var startValue: Float,
               val endX: Float, val endY: Float, var endValue: Float)

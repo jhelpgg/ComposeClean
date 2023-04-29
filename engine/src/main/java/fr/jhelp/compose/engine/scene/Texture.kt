@@ -22,7 +22,11 @@ class Texture internal constructor(bitmap: Bitmap, sealed: Boolean) : Object()
     private val sealed = AtomicBoolean(false)
     private var pixels: ByteBuffer? = null
     private var bitmap: Bitmap? = null
+
+    /** Texture width */
     val width: Int
+
+    /** Texture height */
     val height: Int
     private var videoMemoryId = -1
     private var dirty = true
@@ -66,7 +70,7 @@ class Texture internal constructor(bitmap: Bitmap, sealed: Boolean) : Object()
     /**
      * Indicates if texture is sealed
      */
-    fun sealed() =
+    fun sealed(): Boolean =
         this.sealed.get()
 
     /**
@@ -189,6 +193,9 @@ class Texture internal constructor(bitmap: Bitmap, sealed: Boolean) : Object()
         this.dirty = false
     }
 
+    /**
+     * Trick to try save memory when object collect by garbage collector
+     */
     override fun finalize()
     {
         this.bitmap?.recycle()

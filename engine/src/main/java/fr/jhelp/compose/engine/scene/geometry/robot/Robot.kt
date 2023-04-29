@@ -34,11 +34,12 @@ private fun createCylinder(): Revolution
 
 /**
  * A robot
+ * @property headTexture Robot head description
  */
 class Robot(val headTexture: Head = Head())
 {
     /**Node that contains the whole robot. Use it to place robot in scene*/
-    val mainNode = Node3D()
+    val mainNode: Node3D = Node3D()
 
     /**Head object*/
     private val head = Sphere()
@@ -250,21 +251,33 @@ class Robot(val headTexture: Head = Head())
         this.materialBody.texture = texture
     }
 
+    /**
+     * Change right arm color
+     */
     fun rightArmColor(color: Color3D = Color3D(0xFF828105.toInt()))
     {
         this.materialRightArm.diffuse = color
     }
 
+    /**
+     * Change left arm color
+     */
     fun leftArmColor(color: Color3D = Color3D(0xFF828105.toInt()))
     {
         this.materialLeftArm.diffuse = color
     }
 
+    /**
+     * Change right leg color
+     */
     fun rightLegColor(color: Color3D = Color3D(0xFF020260.toInt()))
     {
         this.materialRightLeg.diffuse = color
     }
 
+    /**
+     * Change left leg color
+     */
     fun leftLegColor(color: Color3D = Color3D(0xFF020260.toInt()))
     {
         this.materialLeftLeg.diffuse = color
@@ -460,7 +473,7 @@ class Robot(val headTexture: Head = Head())
      * Current robot position
      * @return Current robot position
      */
-    fun robotPosition() =
+    fun robotPosition(): RobotPosition =
         RobotPosition(this.neck.position.angleX, this.neck.position.angleY,
                       this.neck.position.angleZ,
                       this.rightShoulder.position.angleX, this.rightShoulder.position.angleZ,
@@ -506,7 +519,7 @@ class Robot(val headTexture: Head = Head())
     /**
      * Remove any object in the right hand
      */
-    fun freeRightHand() = this.rightHand.removeAllChildren()
+    fun freeRightHand(): Unit = this.rightHand.removeAllChildren()
 
     /**
      * Put something in the right hand
@@ -521,7 +534,7 @@ class Robot(val headTexture: Head = Head())
     /**
      * Remove any object in the left hand
      */
-    fun freeLeftHand() = this.leftHand.removeAllChildren()
+    fun freeLeftHand(): Unit = this.leftHand.removeAllChildren()
 
     /**
      * Put something in the left hand
@@ -536,7 +549,7 @@ class Robot(val headTexture: Head = Head())
     /**
      * Remove any object attach on the back
      */
-    fun freeBack() = this.backAttach.removeAllChildren()
+    fun freeBack(): Unit = this.backAttach.removeAllChildren()
 
     /**
      * Attach something in the back

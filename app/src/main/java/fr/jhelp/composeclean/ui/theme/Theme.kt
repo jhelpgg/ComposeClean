@@ -37,6 +37,9 @@ private val LightColorScheme = lightColorScheme(
     */
                                                )
 
+/**
+ * Theme used by compose for render the application
+ */
 @Composable
 fun ComposeCleanTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

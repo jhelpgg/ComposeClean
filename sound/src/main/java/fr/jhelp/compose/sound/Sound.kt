@@ -20,11 +20,11 @@ class Sound(@RawRes internal val resource: Int, leftVolume: Float = 1f, rightVol
             val loop: Int = 0)
 {
     /**Current left volume*/
-    var leftVolume = leftVolume.bounds(0f, 1f)
+    var leftVolume: Float = leftVolume.bounds(0f, 1f)
         private set
 
     /**Current right volume*/
-    var rightVolume = rightVolume.bounds(0f, 1f)
+    var rightVolume: Float = rightVolume.bounds(0f, 1f)
         private set
     internal var soundId = -1
     internal var streamId = -1

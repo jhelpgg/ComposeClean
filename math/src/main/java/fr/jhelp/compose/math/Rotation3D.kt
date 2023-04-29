@@ -163,6 +163,9 @@ class Rotation3D()
         this.z = rotation.z
     }
 
+    /**
+     * Change to a rotation around given axis vector with given angle
+     */
     fun set(axis: Vector3D, angle: AngleFloat)
     {
         val semiAngle = angle / 2.0f
@@ -174,6 +177,9 @@ class Rotation3D()
         this.z = (axis.z * sinus) / size
     }
 
+    /**
+     * Change to rotation that transform a vector to an other
+     */
     fun set(source: Vector3D, destination: Vector3D)
     {
         val axis = source.cross(destination)

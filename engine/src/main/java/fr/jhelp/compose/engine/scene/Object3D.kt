@@ -15,6 +15,7 @@ import fr.jhelp.compose.engine.math.BoundingBox
 import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.images.clear
+import fr.jhelp.compose.math.Point3D
 import javax.microedition.khronos.opengles.GL10
 
 /**
@@ -31,30 +32,34 @@ open class Object3D : NodeWithBoundingBox()
     private val points = BufferFloat()
     private val uvs = BufferFloat()
     private val boundingBox = BoundingBox()
+
     /**Number of triangles in mesh*/
-    var numberTriangle = 0
+    var numberTriangle: Int = 0
         private set
+
     /**Material used to render the object*/
-    var material = Material()
+    var material: Material = Material()
+
     /**Indicates if object is double face*/
-    var doubleFace = false
+    var doubleFace: Boolean = false
+
     /**Current seal states*/
-    val sealed get() = this.points.sealed
+    val sealed: Boolean get() = this.points.sealed
 
     /**
      * Object current center
      */
-    final override fun center() = this.boundingBox.center()
+    final override fun center(): Point3D = this.boundingBox.center()
 
     /**
      * Object current bounding box
      */
-    final override fun boundingBox() = this.boundingBox.copy()
+    final override fun boundingBox(): BoundingBox = this.boundingBox.copy()
 
     /**
      * Indicates if object has something to draw (at least one triangle)
      */
-    final override fun hasSomethingToDraw() = this.numberTriangle > 0
+    final override fun hasSomethingToDraw(): Boolean = this.numberTriangle > 0
 
     /**
      * Change material
@@ -64,6 +69,9 @@ open class Object3D : NodeWithBoundingBox()
         this.material = material
     }
 
+    /**
+     * Create a copy of the object 3D
+     */
     final override fun internalCopy(): Node3D
     {
         val copy = Clone3D(this)

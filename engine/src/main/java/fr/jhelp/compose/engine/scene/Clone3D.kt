@@ -21,16 +21,16 @@ import javax.microedition.khronos.opengles.GL10
 class Clone3D(internal val object3D: Object3D) : NodeWithBoundingBox()
 {
     /**Clone material*/
-    var material = Material()
+    var material: Material = Material()
 
     /**
      * Clone bounding box limits
      */
-    override fun boundingBox() : BoundingBox = this.object3D.boundingBox()
+    override fun boundingBox(): BoundingBox = this.object3D.boundingBox()
 
-    override fun hasSomethingToDraw() : Boolean = this.object3D.numberTriangle > 0
+    override fun hasSomethingToDraw(): Boolean = this.object3D.numberTriangle > 0
 
-    override fun center() : Point3D = this.object3D.center()
+    override fun center(): Point3D = this.object3D.center()
 
     /**
      * Copy the clone

@@ -3,21 +3,21 @@ package fr.jhelp.compose.math.formal
 /**
  * Transform a Double to constant
  */
-val Double.const
+val Double.const: Constant
     get() =
         Constant(this).simplify() as Constant
 
 /**
  * Transform a Number to constant
  */
-val Number.const
+val Number.const: Constant
     get() =
         this.toDouble().const
 
 /**
  * Transform a String to variable
  */
-val String.variable
+val String.variable: Variable
     get() =
         Variable(this)
 

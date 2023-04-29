@@ -175,13 +175,13 @@ abstract class MathFunction<MF : MathFunction<MF>> internal constructor() :
     /**
      * Replace a variable by a value
      */
-    fun replace(variable: Variable, number: Number) =
+    fun replace(variable: Variable, number: Number): MathFunction<*> =
         this.replace(variable, number.const)
 
     /**
      * Collect all used variables
      */
-    open fun collectVariables(collector: TreeSet<Variable>) = Unit
+    open fun collectVariables(collector: TreeSet<Variable>): Unit = Unit
 
     /**
      * Indicates if given function equals.

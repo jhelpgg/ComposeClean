@@ -16,13 +16,19 @@ import fr.jhelp.tasks.extensions.parallel
 import fr.jhelp.tasks.future.FutureResult
 import kotlin.math.sqrt
 
+/**
+ * Touch action with an overlay draw over the 3D
+ */
 class View3DTouchOverSensitive(private val view3DTouchOverListener: View3DTouchOverListener) :
         View3DTouchAction()
 {
     companion object
     {
-        const val WIDTH = 512
-        const val HEIGHT = 512
+        /** Overlay virtual width */
+        const val WIDTH: Int = 512
+
+        /** Overlay virtual height */
+        const val HEIGHT: Int = 512
     }
 
     private var future: FutureResult<Unit>? = null
@@ -90,13 +96,14 @@ class View3DTouchOverSensitive(private val view3DTouchOverListener: View3DTouchO
     }
 
     override fun twoFingersDown(x1: Float, y1: Float,
-                                x2: Float, y2: Float) = Unit
+                                x2: Float, y2: Float): Unit = Unit
 
     override fun twoFingersUp(x1: Float, y1: Float,
-                              x2: Float, y2: Float) = Unit
+                              x2: Float, y2: Float): Unit = Unit
 
     override fun twoFingersMove(previousX1: Float, previousY1: Float, x1: Float, y1: Float,
-                                previousX2: Float, previousY2: Float, x2: Float, y2: Float) = Unit
+                                previousX2: Float, previousY2: Float, x2: Float, y2: Float): Unit =
+        Unit
 
     private fun convertTouchPositionToTexturePosition(x: Float, y: Float): Point
     {

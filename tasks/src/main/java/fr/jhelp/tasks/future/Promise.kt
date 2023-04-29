@@ -8,12 +8,13 @@ import fr.jhelp.tasks.TaskType
  * This object represents the prmise. Generally, the promise is created privately by the task
  * who do the computing and share the associated [FutureResult] to every process interest by the result
  */
-class Promise<R : Any> {
+class Promise<R : Any>
+{
     /**Future associated to the promise. Give it to any one want follow the process result*/
-    val future = FutureResult<R>(this)
+    val future: FutureResult<R> = FutureResult<R>(this)
 
     /**Current cancel status*/
-    var canceled = false
+    var canceled: Boolean = false
         private set
     private lateinit var cancelReason: String
     private val listeners = ArrayList<Pair<TaskType, (String) -> Unit>>()
@@ -22,7 +23,8 @@ class Promise<R : Any> {
     /**
      * For internal use : signal that cancel happen
      */
-    internal fun cancel(reason: String) {
+    internal fun cancel(reason: String)
+    {
         this.resolvedd = true
         this.canceled = true
         this.cancelReason = reason
@@ -36,7 +38,8 @@ class Promise<R : Any> {
     /**
      * Publish the result
      */
-    fun result(result: R) {
+    fun result(result: R)
+    {
         this.resolvedd = true
         this.future.result(result)
     }
@@ -44,7 +47,8 @@ class Promise<R : Any> {
     /**
      * Publish a task error, result will never arrive
      */
-    fun error(error: Exception) {
+    fun error(error: Exception)
+    {
         this.resolvedd = true
         this.future.error(error)
     }
@@ -52,13 +56,16 @@ class Promise<R : Any> {
     /**
      * register to cancel event
      */
-    fun onCancel(taskType: TaskType = TaskType.SHORT_TASK, cancelListener: (String) -> Unit) {
-        if (this.canceled) {
+    fun onCancel(taskType: TaskType = TaskType.SHORT_TASK, cancelListener: (String) -> Unit)
+    {
+        if (this.canceled)
+        {
             taskType.launch { cancelListener(this.cancelReason) }
             return
         }
 
-        if (!this.resolvedd) {
+        if (!this.resolvedd)
+        {
             synchronized(this.listeners)
             {
                 this.listeners.add(Pair(taskType, cancelListener))

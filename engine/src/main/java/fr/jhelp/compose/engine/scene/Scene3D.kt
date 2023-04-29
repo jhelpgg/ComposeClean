@@ -41,14 +41,17 @@ class Scene3D internal constructor(viewBoundsState: StateFlow<ViewBounds>)
      *
      * The alpha part is ignored
      */
-    var backgroundColor = WHITE
+    var backgroundColor: Color3D = WHITE
 
     /**
      * Main node of the scene
      */
-    var root = Node3D()
+    var root: Node3D = Node3D()
 
+    /** Texture applied on background */
     var textureBackground: Texture? = null
+
+    /** Texture draw over the 3D */
     var textureOver3D: Texture? = null
 
     init
@@ -97,6 +100,9 @@ class Scene3D internal constructor(viewBoundsState: StateFlow<ViewBounds>)
         return animationFunction
     }
 
+    /**
+     * Launch a particle effect
+     */
     fun play(particleEffect: ParticleEffect)
     {
         this.scope.launch {
@@ -125,6 +131,9 @@ class Scene3D internal constructor(viewBoundsState: StateFlow<ViewBounds>)
         }
     }
 
+    /**
+     * Stop a particle effect
+     */
     fun stop(particleEffect: ParticleEffect)
     {
         this.scope.launch {
@@ -242,7 +251,10 @@ class Scene3D internal constructor(viewBoundsState: StateFlow<ViewBounds>)
         // DeleteTexture.freeNext(gl)
     }
 
-    operator fun Node3D.unaryPlus() = this@Scene3D.root.add(this)
+    /**
+     * Add a node to th scene
+     */
+    operator fun Node3D.unaryPlus(): Unit = this@Scene3D.root.add(this)
 
     /**
      * Search node by it's ID

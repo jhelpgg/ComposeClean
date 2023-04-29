@@ -41,6 +41,9 @@ open class Node3D : Iterable<Node3D>
     @OpenGLThread
     internal open fun render(gl: GL10) = Unit
 
+    /**
+     * Make a copy of the node
+     */
     protected open fun internalCopy(): Node3D = Node3D()
 
     internal open fun hasSomethingToDraw() = false

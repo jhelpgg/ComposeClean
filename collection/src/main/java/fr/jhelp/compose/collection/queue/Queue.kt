@@ -1,14 +1,26 @@
 package fr.jhelp.compose.collection.queue
 
+/**
+ * Linked queue of elements
+ */
 class Queue<E : Any>
 {
     private var head: QueueElement<E>? = null
     private var tail: QueueElement<E>? = null
-    var size = 0
+
+    /** Queue size */
+    var size: Int = 0
         private set
+
+    /** Indicates if queue is empty */
     val empty: Boolean get() = this.size == 0
+
+    /** Indicates if queue is not empty */
     val notEmpty: Boolean get() = this.size != 0
 
+    /**
+     * Enqueue an element at the end of the queue
+     */
     fun enqueue(element: E)
     {
         if (this.head == null)
@@ -25,10 +37,16 @@ class Queue<E : Any>
         this.size++
     }
 
+    /**
+     * Dequeue element from the start of the queue.
+     * I read it, remove it form the queue and returned the read value.
+     *
+     * @throws IllegalStateException If queue is empty
+     */
     @Throws(IllegalStateException::class)
     fun dequeue(): E
     {
-        val head = this.head ?: throw  IllegalStateException("The queue is empty")
+        val head = this.head ?: throw IllegalStateException("The queue is empty")
         val element = head.element
         this.head = head.next
         this.size--

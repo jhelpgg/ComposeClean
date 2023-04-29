@@ -209,6 +209,12 @@ class Path
         return lines
     }
 
+    /**
+     * Transform this path to a path of a polygon understandable by android Canvas
+     *
+     * @param percent Percentage of this path to convert
+     * @param precision Precision to use for approximate curves by list of lines
+     */
     fun toAndroidPolygon(percent: Int = 100, precision: Int = 16): android.graphics.Path
     {
         val androidPath = android.graphics.Path()
@@ -288,6 +294,11 @@ class Path
         return androidPath
     }
 
+    /**
+     *  Transform this path to a path understandable by android Canvas
+     *
+     *  @param ellipseArcPrecision Precision use to approximate ellipse arcs. (Ellipse arc not exists in Android Path)
+     */
     fun toAndroidPath(ellipseArcPrecision: Int = 16): android.graphics.Path
     {
         val precision = max(2, ellipseArcPrecision)

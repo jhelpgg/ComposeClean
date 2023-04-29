@@ -14,7 +14,7 @@ import kotlin.math.sin
 class AngleFloat(value: Float, val unit: AngleUnit) : Comparable<AngleFloat>
 {
     /**Angle value in its unit*/
-    val value = this.unit.modularize(value)
+    val value : Float = this.unit.modularize(value)
 
     /**
      * Add an angle to this angle

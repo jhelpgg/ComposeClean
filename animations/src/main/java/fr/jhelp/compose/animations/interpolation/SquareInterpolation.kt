@@ -13,5 +13,5 @@ object SquareInterpolation : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) = percent * percent
+    override operator fun invoke(percent: Float): Float = percent * percent
 }

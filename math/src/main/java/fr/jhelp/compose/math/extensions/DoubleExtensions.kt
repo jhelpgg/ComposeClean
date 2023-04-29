@@ -14,7 +14,7 @@ fun Double.bounds(value1: Double, value2: Double): Double =
 /**
  * Indicates if Double can be assimilate to zero
  */
-val Double.nul get() = abs(this) <= EPSILON
+val Double.nul: Boolean get() = abs(this) <= EPSILON
 
 /**
  * Double sign
@@ -31,12 +31,12 @@ fun Double.sign(): Int =
 /**
  * Compare with an other Double
  */
-fun Double.compare(real: Double) =
+fun Double.compare(real: Double): Int =
     (this - real).sign()
 
 
 /**
  * Indicates if other Double is same aas this one
  */
-fun Double.same(real: Double) =
+fun Double.same(real: Double): Boolean =
     abs(this - real).nul

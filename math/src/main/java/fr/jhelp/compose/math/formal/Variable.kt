@@ -10,9 +10,10 @@ class Variable(name: String) : MathFunction<Variable>()
 {
     companion object
     {
-        val VARIABLE_NAME_REGEX: Pattern = Pattern.compile("[a-zA-Z][a-zA-Z0-9_]*")
+        private val VARIABLE_NAME_REGEX: Pattern = Pattern.compile("[a-zA-Z][a-zA-Z0-9_]*")
     }
 
+    /** Variable name */
     val name: String
 
     init
@@ -31,10 +32,14 @@ class Variable(name: String) : MathFunction<Variable>()
      */
     override fun simple(): MathFunction<*> = this
 
-    override fun equalsIntern(mathFunction: Variable) =
+    /**
+     * Indicates if a function equals to this one
+     */
+    override fun equalsIntern(mathFunction: Variable): Boolean =
         this.name == mathFunction.name
 
-    override fun hash() =
+    /** Hash code */
+    override fun hash(): Int =
         this.name.hashCode()
 
     /**

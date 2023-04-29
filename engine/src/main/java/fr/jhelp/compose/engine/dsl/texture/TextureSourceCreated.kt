@@ -7,6 +7,9 @@ import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.engine.scene.Texture
 
+/**
+ * Texture draw by developer
+ */
 class TextureSourceCreated(private val width: Int,
                            private val height: Int,
                            private val draw: (Bitmap, Canvas, Paint) -> Unit) : TextureSource()

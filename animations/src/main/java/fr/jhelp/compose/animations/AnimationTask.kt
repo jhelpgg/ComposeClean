@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 /**
  * Launch function as animation
  */
-fun animationTask(taskType: TaskType, task: () -> Unit) =
+fun animationTask(taskType: TaskType, task: () -> Unit): Animation =
     AnimationTask(taskType, Unit) { task() }
 
 /**

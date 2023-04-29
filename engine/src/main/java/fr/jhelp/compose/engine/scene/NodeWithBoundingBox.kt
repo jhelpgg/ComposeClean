@@ -10,7 +10,13 @@ package fr.jhelp.compose.engine.scene
 
 import fr.jhelp.compose.engine.math.BoundingBox
 
+/**
+ * Generic class for node with a bounding box
+ */
 abstract class NodeWithBoundingBox : Node3D()
 {
+    /**
+     * Node's bounding box
+     */
     abstract fun boundingBox(): BoundingBox
 }

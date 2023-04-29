@@ -20,6 +20,6 @@ class AnticipateInterpolation(tension: Float = 1f) : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         (this.tension + 1f) * percent * percent * percent - this.tension * percent * percent
 }

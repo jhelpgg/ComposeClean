@@ -27,8 +27,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
 
     internal fun result(result: R)
     {
-        synchronized(this.lock)
-        {
+        synchronized(this.lock) {
             if (this.status.compareAndSet(FutureResultStatus.COMPUTING, FutureResultStatus.SUCCEED))
             {
                 this.result = result
@@ -41,8 +40,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
 
     internal fun error(error: Exception)
     {
-        synchronized(this.lock)
-        {
+        synchronized(this.lock) {
             if (this.status.compareAndSet(FutureResultStatus.COMPUTING, FutureResultStatus.FAILED))
             {
                 this.error = error
@@ -69,52 +67,48 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
     private fun <R1 : Any> andListener(continuation: (R) -> R1, promise: Promise<R1>) =
         this.andListener(continuation, promise) { true }
 
-    private fun <R1 : Any> andListener(continuation: (R) -> R1, promise: Promise<R1>,
-                                       condition: (R) -> Boolean) =
-        { future: FutureResult<R> ->
-            when (future.status())
+    private fun <R1 : Any> andListener(continuation: (R) -> R1,
+                                       promise: Promise<R1>,
+                                       condition: (R) -> Boolean) = { future: FutureResult<R> ->
+        when (future.status())
+        {
+            FutureResultStatus.SUCCEED  -> try
             {
-                FutureResultStatus.SUCCEED  ->
-                    try
-                    {
-                        val result = future.invoke()
+                val result = future.invoke()
 
-                        if (condition(result))
-                        {
-                            promise.result(continuation(result))
-                        }
-                        else
-                        {
-                            promise.error(Exception("Not matching condition"))
-                        }
-                    }
-                    catch (exception: Exception)
-                    {
-                        promise.error(exception)
-                    }
-
-                FutureResultStatus.FAILED   ->
-                    promise.error(future.error)
-
-                FutureResultStatus.CANCELED ->
-                    promise.error(CancellationException(this.cancelReason))
-
-                else                        -> Unit
-            }
-        }
-
-    private fun <R1 : Any> thenListener(continuation: (FutureResult<R>) -> R1,
-                                        promise: Promise<R1>) =
-        { future: FutureResult<R> ->
-            try
-            {
-                promise.result(continuation(future))
+                if (condition(result))
+                {
+                    promise.result(continuation(result))
+                }
+                else
+                {
+                    promise.error(Exception("Not matching condition"))
+                }
             }
             catch (exception: Exception)
             {
                 promise.error(exception)
             }
+
+            FutureResultStatus.FAILED   -> promise.error(future.error)
+
+            FutureResultStatus.CANCELED -> promise.error(CancellationException(this.cancelReason))
+
+            else                        -> Unit
         }
+    }
+
+    private fun <R1 : Any> thenListener(continuation: (FutureResult<R>) -> R1,
+                                        promise: Promise<R1>) = { future: FutureResult<R> ->
+        try
+        {
+            promise.result(continuation(future))
+        }
+        catch (exception: Exception)
+        {
+            promise.error(exception)
+        }
+    }
 
     private fun errorListener(errorListener: (Exception) -> Unit,
                               taskType: TaskType): (FutureResult<R>) -> Unit
@@ -122,11 +116,11 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
         return { future: FutureResult<R> ->
             when (future.status())
             {
-                FutureResultStatus.FAILED   ->
-                    taskType.launch { errorListener(future.error) }
+                FutureResultStatus.FAILED   -> taskType.launch { errorListener(future.error) }
 
-                FutureResultStatus.CANCELED ->
-                    taskType.launch { errorListener(CancellationException(this.cancelReason)) }
+                FutureResultStatus.CANCELED -> taskType.launch {
+                    errorListener(CancellationException(this.cancelReason))
+                }
 
                 else                        -> Unit
             }
@@ -154,16 +148,14 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     fun register(taskType: TaskType = TaskType.SHORT_TASK, listener: (FutureResult<R>) -> Unit)
     {
-        synchronized(this.lock)
-        {
+        synchronized(this.lock) {
             if (this.status.get() != FutureResultStatus.COMPUTING)
             {
                 taskType.launch { listener(this) }
                 return@register
             }
 
-            synchronized(this.listeners)
-            {
+            synchronized(this.listeners) {
                 this.listeners.add(Pair(listener, taskType))
             }
         }
@@ -178,8 +170,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     operator fun invoke(): R
     {
-        synchronized(this.lock)
-        {
+        synchronized(this.lock) {
             if (this.status.get() == FutureResultStatus.COMPUTING)
             {
                 this.lock.wait()
@@ -191,8 +182,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
             FutureResultStatus.SUCCEED  -> return this.result
             FutureResultStatus.FAILED   -> throw this.error
             FutureResultStatus.CANCELED -> throw CancellationException(this.cancelReason)
-            else                        ->
-                throw RuntimeException("Should no goes here : ${this.status.get()}")
+            else                        -> throw RuntimeException("Should no goes here : ${this.status.get()}")
         }
     }
 
@@ -204,8 +194,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     fun waitComplete(): FutureResultStatus
     {
-        synchronized(this.lock)
-        {
+        synchronized(this.lock) {
             if (this.status.get() == FutureResultStatus.COMPUTING)
             {
                 this.lock.wait()
@@ -220,11 +209,9 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      *
      * If future still computing, there no actually an error, but may will have on the end
      */
-    fun error() =
-        synchronized(this.lock)
-        {
-            if (this.status.get() == FutureResultStatus.FAILED) this.error else null
-        }
+    fun error(): Exception? = synchronized(this.lock) {
+        if (this.status.get() == FutureResultStatus.FAILED) this.error else null
+    }
 
     /**
      * Cancellation reason.
@@ -233,11 +220,9 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      *
      * If future still computing, there no actually a cancel reason, but may will have on the end
      */
-    fun cancelReason() =
-        synchronized(this.lock)
-        {
-            if (this.status.get() == FutureResultStatus.CANCELED) this.cancelReason else null
-        }
+    fun cancelReason(): String? = synchronized(this.lock) {
+        if (this.status.get() == FutureResultStatus.CANCELED) this.cancelReason else null
+    }
 
     /**
      * Try to cancel task associated to the thread
@@ -247,21 +232,19 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      */
     fun cancel(reason: String): Boolean
     {
-        val canceled =
-            synchronized(this.lock)
+        val canceled = synchronized(this.lock) {
+            if (this.status.compareAndSet(FutureResultStatus.COMPUTING,
+                                          FutureResultStatus.CANCELED))
             {
-                if (this.status.compareAndSet(FutureResultStatus.COMPUTING,
-                                              FutureResultStatus.CANCELED))
-                {
-                    this.cancelReason = reason
-                    this.promise::cancel.parallel(reason)
-                    true
-                }
-                else
-                {
-                    false
-                }
+                this.cancelReason = reason
+                this.promise::cancel.parallel(reason)
+                true
             }
+            else
+            {
+                false
+            }
+        }
 
         if (canceled)
         {
@@ -288,7 +271,7 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
     /**
      * Do task, in [TaskType.SHORT_TASK], when result complete and if succeed to compute and result match given condition
      */
-    fun <R1 : Any> andIf(condition: (R) -> Boolean, continuation: (R) -> R1) =
+    fun <R1 : Any> andIf(condition: (R) -> Boolean, continuation: (R) -> R1): FutureResult<R1> =
         this.andIf(TaskType.SHORT_TASK, condition, continuation)
 
     /**
@@ -334,7 +317,8 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
      *
      * @return Future result represents the combination of the result follow by the task
      */
-    fun <R1 : Any> andIfUnwrap(condition: (R) -> Boolean, continuation: (R) -> FutureResult<R1>) =
+    fun <R1 : Any> andIfUnwrap(condition: (R) -> Boolean,
+                               continuation: (R) -> FutureResult<R1>): FutureResult<R1> =
         this.andIfUnwrap(TaskType.SHORT_TASK, condition, continuation)
 
     /**
@@ -383,16 +367,14 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
     /**
      * String representation
      */
-    override fun toString() =
-        synchronized(this.lock)
+    override fun toString(): String = synchronized(this.lock) {
+        when (this.status.get())
         {
-            when (this.status.get())
-            {
-                FutureResultStatus.SUCCEED   -> "Succeed : ${this.result}"
-                FutureResultStatus.FAILED    -> "Error : ${this.error}"
-                FutureResultStatus.CANCELED  -> "Canceled because : ${this.cancelReason}"
-                FutureResultStatus.COMPUTING -> "Computing ..."
-                else                         -> "Why am I there ? : ${this.status.get()}"
-            }
+            FutureResultStatus.SUCCEED   -> "Succeed : ${this.result}"
+            FutureResultStatus.FAILED    -> "Error : ${this.error}"
+            FutureResultStatus.CANCELED  -> "Canceled because : ${this.cancelReason}"
+            FutureResultStatus.COMPUTING -> "Computing ..."
+            else                         -> "Why am I there ? : ${this.status.get()}"
         }
+    }
 }

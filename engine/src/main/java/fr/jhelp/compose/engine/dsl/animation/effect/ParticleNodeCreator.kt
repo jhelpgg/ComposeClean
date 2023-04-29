@@ -5,28 +5,39 @@ import fr.jhelp.compose.animations.interpolation.LinearInterpolation
 import fr.jhelp.compose.engine.animation.effect.Particle
 import fr.jhelp.compose.engine.animation.effect.ParticleNode
 import fr.jhelp.compose.engine.dsl.TextureReference
+import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.GREY
 import fr.jhelp.compose.math.extensions.bounds
 import kotlin.math.max
 
+/**
+ * Creator of particle node source
+ */
 class ParticleNodeCreator
 {
+    /** Number of particle to create */
     var numberParticle: Int = 1
         set(value)
         {
             field = max(value, 1)
         }
+
+    /** Each particle life time in frame duration */
     var lifeTimeInFrame: Float = 25.0f
         set(value)
         {
             field = max(1.0f, value)
         }
+
+    /** Frame where start particle emission */
     var startEmissionFrame: Float = 0f
         set(value)
         {
             field = max(0f, value)
-            this.stopEmissionFrame = max(value, this.stopEmissionFrame)
+            this.stopEmissionFrame = max(field, this.stopEmissionFrame)
         }
+
+    /** Frame of the last emitted particle */
     var stopEmissionFrame: Float = 0f
         set(value)
         {
@@ -42,147 +53,226 @@ class ParticleNodeCreator
     /**Way diffuse color evolve during animation*/
     var diffuseInterpolation: Interpolation = LinearInterpolation
 
-    var firstStartPositionX = 0f
-    var firstStartPositionY = 0f
-    var firstStartPositionZ = 0f
+    /** X of the first corner of start particles box */
+    var firstStartPositionX: Float = 0f
 
-    var secondStartPositionX = 0f
-    var secondStartPositionY = 0f
-    var secondStartPositionZ = 0f
+    /** Y of the first corner of start particles box */
+    var firstStartPositionY: Float = 0f
 
-    var firstStartAngle = 0f
-    var secondStartAngle = 0f
+    /** Z of the first corner of start particles box */
+    var firstStartPositionZ: Float = 0f
 
-    var firstStartScaleX = 1f
-        set(value)
-        {
-            field = max(0.01f, value)
-        }
-    var firstStartScaleY = 1f
-        set(value)
-        {
-            field = max(0.01f, value)
-        }
-    var firstStartScaleZ = 1f
-        set(value)
-        {
-            field = max(0.01f, value)
-        }
+    /** X of the second corner of start particles box */
+    var secondStartPositionX: Float = 0f
 
-    var secondStartScaleX = 1f
-        set(value)
-        {
-            field = max(0.01f, value)
-        }
-    var secondStartScaleY = 1f
-        set(value)
-        {
-            field = max(0.01f, value)
-        }
-    var secondStartScaleZ = 1f
+    /** Y of the second corner of start particles box */
+    var secondStartPositionY: Float = 0f
+
+    /** Z of the second corner of start particles box */
+    var secondStartPositionZ: Float = 0f
+
+    /** First start angle limit */
+    var firstStartAngle: Float = 0f
+
+    /** Second start angle limit */
+    var secondStartAngle: Float = 0f
+
+    /** First start scale limit on X */
+    var firstStartScaleX: Float = 1f
         set(value)
         {
             field = max(0.01f, value)
         }
 
-    var firstSpeedDirectionX = 0f
-    var firstSpeedDirectionY = 0f
-    var firstSpeedDirectionZ = 0f
-
-    var secondSpeedDirectionX = 0f
-    var secondSpeedDirectionY = 0f
-    var secondSpeedDirectionZ = 0f
-
-    var firstSpeedAngle = 0f
-    var secondSpeedAngle = 0f
-
-    var firstSpeedScaleX = 0f
+    /** First start scale limit on Y */
+    var firstStartScaleY: Float = 1f
         set(value)
         {
-            field = max(0f, value)
-        }
-    var firstSpeedScaleY = 0f
-        set(value)
-        {
-            field = max(0f, value)
-        }
-    var firstSpeedScaleZ = 0f
-        set(value)
-        {
-            field = max(0f, value)
+            field = max(0.01f, value)
         }
 
-    var secondSpeedScaleX = 0f
+    /** First start scale limit on Z */
+    var firstStartScaleZ: Float = 1f
         set(value)
         {
-            field = max(0f, value)
+            field = max(0.01f, value)
         }
-    var secondSpeedScaleY = 0f
+
+    /** Second start scale limit on X */
+    var secondStartScaleX: Float = 1f
         set(value)
         {
-            field = max(0f, value)
+            field = max(0.01f, value)
         }
-    var secondSpeedScaleZ = 0f
+
+    /** Second start scale limit on Y */
+    var secondStartScaleY: Float = 1f
         set(value)
         {
-            field = max(0f, value)
+            field = max(0.01f, value)
         }
 
-
-    var firstAccelerationDirectionX = 0f
-    var firstAccelerationDirectionY = 0f
-    var firstAccelerationDirectionZ = 0f
-
-    var secondAccelerationDirectionX = 0f
-    var secondAccelerationDirectionY = 0f
-    var secondAccelerationDirectionZ = 0f
-
-    var firstAccelerationAngle = 0f
-    var secondAccelerationAngle = 0f
-
-    var firstAccelerationScaleX = 0f
+    /** Second start scale limit on Z */
+    var secondStartScaleZ: Float = 1f
         set(value)
         {
-            field = max(0f, value)
+            field = max(0.01f, value)
         }
-    var firstAccelerationScaleY = 0f
-        set(value)
-        {
-            field = max(0f, value)
-        }
-    var firstAccelerationScaleZ = 0f
+
+    /** X of first speed direction */
+    var firstSpeedDirectionX: Float = 0f
+
+    /** Y of first speed direction */
+    var firstSpeedDirectionY: Float = 0f
+
+    /** Z of first speed direction */
+    var firstSpeedDirectionZ: Float = 0f
+
+    /** X of second speed direction */
+    var secondSpeedDirectionX: Float = 0f
+
+    /** Y of second speed direction */
+    var secondSpeedDirectionY: Float = 0f
+
+    /** Z of second speed direction */
+    var secondSpeedDirectionZ: Float = 0f
+
+    /** First speed angle */
+    var firstSpeedAngle: Float = 0f
+
+    /** Second speed angle */
+    var secondSpeedAngle: Float = 0f
+
+    /** First speed scale on X */
+    var firstSpeedScaleX: Float = 0f
         set(value)
         {
             field = max(0f, value)
         }
 
-    var secondAccelerationScaleX = 0f
-        set(value)
-        {
-            field = max(0f, value)
-        }
-    var secondAccelerationScaleY = 0f
-        set(value)
-        {
-            field = max(0f, value)
-        }
-    var secondAccelerationScaleZ = 0f
+    /** First speed scale on Y */
+    var firstSpeedScaleY: Float = 0f
         set(value)
         {
             field = max(0f, value)
         }
 
-    var firstStartDiffuseColor = GREY
-    var secondStartDiffuseColor = GREY
-    var firstEndDiffuseColor = GREY
-    var secondEndDiffuseColor = GREY
+    /** First speed scale on Z */
+    var firstSpeedScaleZ: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
 
-    var alphaStart = 1.0f
+    /** Second speed scale on X */
+    var secondSpeedScaleX: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** Second speed scale on Y */
+    var secondSpeedScaleY: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** Second speed scale on Z */
+    var secondSpeedScaleZ: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+
+    /** X of first acceleration vector  */
+    var firstAccelerationDirectionX: Float = 0f
+
+    /** Y of first acceleration vector  */
+    var firstAccelerationDirectionY: Float = 0f
+
+    /** Z of first acceleration vector  */
+    var firstAccelerationDirectionZ: Float = 0f
+
+    /** X of second acceleration vector  */
+    var secondAccelerationDirectionX: Float = 0f
+
+    /** Y of second acceleration vector  */
+    var secondAccelerationDirectionY: Float = 0f
+
+    /** Z of second acceleration vector  */
+    var secondAccelerationDirectionZ: Float = 0f
+
+    /** First acceleration angle */
+    var firstAccelerationAngle: Float = 0f
+
+    /** Second acceleration angle */
+    var secondAccelerationAngle: Float = 0f
+
+    /** First acceleration scale on X */
+    var firstAccelerationScaleX: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** First acceleration scale on Y */
+    var firstAccelerationScaleY: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** First acceleration scale on Z */
+    var firstAccelerationScaleZ: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** Second acceleration scale on X */
+    var secondAccelerationScaleX: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** Second acceleration scale on Y */
+    var secondAccelerationScaleY: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** Second acceleration scale on Z */
+    var secondAccelerationScaleZ: Float = 0f
+        set(value)
+        {
+            field = max(0f, value)
+        }
+
+    /** First particle diffuse limit on start of particle life */
+    var firstStartDiffuseColor: Color3D = GREY
+
+    /** Second particle diffuse limit on start of particle life  */
+    var secondStartDiffuseColor: Color3D = GREY
+
+    /** First particle diffuse limit on end of particle life */
+    var firstEndDiffuseColor: Color3D = GREY
+
+    /** Second particle diffuse limit on end of particle life  */
+    var secondEndDiffuseColor: Color3D = GREY
+
+    /** Particle opacity/aplha at start of particle life */
+    var alphaStart: Float = 1.0f
         set(value)
         {
             field = value.bounds(0f, 1.0f)
         }
-    var alphaEnd = 1.0f
+
+    /** Particle opacity/aplha at end of particle life */
+    var alphaEnd: Float = 1.0f
         set(value)
         {
             field = value.bounds(0f, 1.0f)

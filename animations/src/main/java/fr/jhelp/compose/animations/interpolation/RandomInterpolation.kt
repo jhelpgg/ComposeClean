@@ -15,7 +15,7 @@ object RandomInterpolation : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         when
         {
             percent.nul || percent.same(1f) -> percent

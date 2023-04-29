@@ -18,6 +18,6 @@ object SinusInterpolation : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         ((1.0 + sin(percent.toDouble() * PI - PI / 2.0)) / 2.0).toFloat()
 }

@@ -14,8 +14,14 @@ import fr.jhelp.tasks.TaskType
 import fr.jhelp.tasks.extensions.parallel
 import java.io.InputStream
 
+/**
+ * Create a node tree
+ */
 class NodeTreeCreator internal constructor(private val root: Node3D)
 {
+    /**
+     * Add node to the node tree
+     */
     fun node(reference: NodeReference = junkReference, node: Node3D.() -> Unit)
     {
         val node3D = Node3D()
@@ -24,6 +30,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(node3D)
     }
 
+    /**
+     * Add an object 3D to the tree
+     */
     fun object3D(reference: NodeReference = junkReference,
                  object3D: Object3D.() -> Unit)
     {
@@ -33,6 +42,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(object3DReal)
     }
 
+    /**
+     * Add a clone to the node tree
+     */
     fun clone(reference: NodeReference = junkReference,
               referenceObjectOrClone: NodeReference,
               clone3D: Clone3D.() -> Unit)
@@ -51,6 +63,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(clone)
     }
 
+    /**
+     * Add plane to the node tree
+     */
     fun plane(reference: NodeReference = junkReference,
               startU: Float = 0f, endU: Float = 1f,
               startV: Float = 0f, endV: Float = 1f,
@@ -62,6 +77,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(planeReal)
     }
 
+    /**
+     * Add a box to the node tree
+     */
     fun box(reference: NodeReference = junkReference,
             boxUV: BoxUVCreator.() -> Unit = {},
             box: Box.() -> Unit)
@@ -74,6 +92,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(boxReal)
     }
 
+    /**
+     * Add a sphere to the node tree
+     */
     fun sphere(reference: NodeReference = junkReference,
                multiplierU: Float = 1f, multiplierV: Float = 1f, slice: Int = 16, slack: Int = 16,
                sphere: Sphere.() -> Unit)
@@ -84,6 +105,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(sphereReal)
     }
 
+    /**
+     * Load a node hierarchy from raw resource and add it to the node tree
+     */
     fun load(reference: NodeReference = junkReference,
              name: String, @RawRes rawID: Int, loader: NodeLoader,
              material: MaterialReference = MaterialReference(),
@@ -101,6 +125,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(nodeParent)
     }
 
+    /**
+     * Load a node hierarchy from assets and add it to the node tree
+     */
     fun load(reference: NodeReference = junkReference,
              name: String, assetPath: String, loader: NodeLoader,
              material: MaterialReference = MaterialReference(),
@@ -118,6 +145,9 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         this.root.add(nodeParent)
     }
 
+    /**
+     * Load a node hierarchy from a stream and add it to the node tree
+     */
     fun load(reference: NodeReference = junkReference,
              name: String, inputStream: InputStream, loader: NodeLoader,
              material: MaterialReference = MaterialReference(),

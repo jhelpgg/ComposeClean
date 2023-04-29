@@ -19,5 +19,5 @@ class AccelerationInterpolation(factor: Float = 1f) : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) = percent.toDouble().pow(this.factor).toFloat()
+    override operator fun invoke(percent: Float) : Float = percent.toDouble().pow(this.factor).toFloat()
 }

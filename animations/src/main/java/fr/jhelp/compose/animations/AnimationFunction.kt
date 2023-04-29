@@ -11,5 +11,5 @@ class AnimationFunction(fps: Int, private val function: (Float) -> Boolean) : An
 {
     constructor(function: (Float) -> Boolean) : this(25, function)
 
-    override fun animate(frame: Float) = this.function(frame)
+    override fun animate(frame: Float) : Boolean = this.function(frame)
 }

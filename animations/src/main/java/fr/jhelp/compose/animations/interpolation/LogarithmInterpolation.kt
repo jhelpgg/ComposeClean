@@ -18,6 +18,6 @@ object LogarithmInterpolation : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         (ln1p(percent.toDouble()) / ln(2.0)).toFloat()
 }

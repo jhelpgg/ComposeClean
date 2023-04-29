@@ -9,7 +9,7 @@ import fr.jhelp.compose.math.Point3D
  * Animation move a 3D sound
  */
 class AnimationSound3D(sound: Sound3D, fps: Int = 25) :
-    AnimationKeyFrame<Sound3D, Point3D>(sound, fps)
+        AnimationKeyFrame<Sound3D, Point3D>(sound, fps)
 {
     @OpenGLThread
     override fun interpolateValue(animated: Sound3D, before: Point3D, after: Point3D,
@@ -23,7 +23,7 @@ class AnimationSound3D(sound: Sound3D, fps: Int = 25) :
     }
 
     @OpenGLThread
-    override fun obtainValue(animated: Sound3D) =
+    override fun obtainValue(animated: Sound3D): Point3D =
         Point3D(animated.x, animated.y, animated.z)
 
     @OpenGLThread

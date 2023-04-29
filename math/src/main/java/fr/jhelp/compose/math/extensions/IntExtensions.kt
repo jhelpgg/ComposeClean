@@ -15,7 +15,7 @@ fun Int.bounds(value1: Int, value2: Int): Int =
 /**
  * Apply an alpha to a color
  */
-fun Int.useAlpha(colorAlpha: Int) = (this and COLOR_MASK) or colorAlpha
+fun Int.useAlpha(colorAlpha: Int): Int = (this and COLOR_MASK) or colorAlpha
 
 /**
  * Greatest Common Divider

@@ -14,23 +14,38 @@ object View3DTouchManipulation : View3DTouchAction()
     private var lastDownTime = 0L
     private lateinit var view3D: View3D
 
+    /**
+     * Called when reaction to touch is attach to the view 3D
+     */
     override fun attachTo(view3D: View3D)
     {
         this.view3D = view3D
     }
 
-    override fun detachFrom(view3D: View3D) = Unit
+    /**
+     * Called when reaction to touch is detach from the view 3D
+     */
+    override fun detachFrom(view3D: View3D): Unit = Unit
 
+    /**
+     * Called when one finger touch the 3D view
+     */
     override fun oneFingerDown(x: Float, y: Float)
     {
         this.lastDownTime = SystemClock.elapsedRealtime()
     }
 
+    /**
+     * Returned boolean indicates if have to simulate click if available
+     */
     override fun oneFingerUp(x: Float, y: Float): Boolean
     {
         return SystemClock.elapsedRealtime() - this.lastDownTime <= CLICK_TIME
     }
 
+    /**
+     * Called when on finger slide on 3D view
+     */
     override fun oneFingerMove(previousX: Float, previousY: Float, x: Float, y: Float)
     {
         this.view3D.manipulateNode.position.angleY =
@@ -41,12 +56,21 @@ object View3DTouchManipulation : View3DTouchAction()
                 .bounds(this.view3D.minimumAngleX, this.view3D.maximumAngleX)
     }
 
+    /**
+     * Called when two finger are down in 3D view
+     */
     override fun twoFingersDown(x1: Float, y1: Float,
-                                x2: Float, y2: Float) = Unit
+                                x2: Float, y2: Float): Unit = Unit
 
+    /**
+     * Called when two finger removed from 3D view
+     */
     override fun twoFingersUp(x1: Float, y1: Float,
-                              x2: Float, y2: Float) = Unit
+                              x2: Float, y2: Float): Unit = Unit
 
+    /**
+     * Called when two fingers slides on 3D view
+     */
     override fun twoFingersMove(previousX1: Float, previousY1: Float, x1: Float, y1: Float,
                                 previousX2: Float, previousY2: Float, x2: Float, y2: Float)
     {

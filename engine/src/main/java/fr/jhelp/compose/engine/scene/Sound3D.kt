@@ -22,14 +22,22 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sqrt
 
+/**
+ * Sound with 3D effect
+ */
 class Sound3D(@RawRes soundResource: Int, x: Float = 0f, y: Float = 0f, z: Float = 1f,
               loop: Int = 0)
 {
-    var x = x
+    /** Sound 3D position X */
+    var x: Float = x
         private set
-    var y = y
+
+    /** Sound 3D position Y */
+    var y: Float = y
         private set
-    var z = z
+
+    /** Sound 3D position Z */
+    var z: Float = z
         private set
 
     private val sound = Sound(soundResource, 1f, 1f, loop)
@@ -39,6 +47,9 @@ class Sound3D(@RawRes soundResource: Int, x: Float = 0f, y: Float = 0f, z: Float
         this.updateVolume()
     }
 
+    /**
+     * Change sound position
+     */
     fun position(x: Float, y: Float, z: Float)
     {
         this.x = x
@@ -47,6 +58,9 @@ class Sound3D(@RawRes soundResource: Int, x: Float = 0f, y: Float = 0f, z: Float
         this.updateVolume()
     }
 
+    /**
+     * Translate the sound
+     */
     fun translate(x: Float, y: Float, z: Float)
     {
         this.x += x
@@ -55,21 +69,33 @@ class Sound3D(@RawRes soundResource: Int, x: Float = 0f, y: Float = 0f, z: Float
         this.updateVolume()
     }
 
+    /**
+     * Launch the sound
+     */
     fun play()
     {
         this.sound.play()
     }
 
+    /**
+     * Pause the sound
+     */
     fun pause()
     {
         this.sound.pause()
     }
 
+    /**
+     * Resume the paused sound
+     */
     fun resume()
     {
         this.sound.resume()
     }
 
+    /**
+     * Stop the sound
+     */
     fun stop()
     {
         this.sound.stop()

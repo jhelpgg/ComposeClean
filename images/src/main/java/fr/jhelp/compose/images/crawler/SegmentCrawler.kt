@@ -25,7 +25,7 @@ class SegmentCrawler(startX: Int, startY: Int,
     constructor(point1: Point, point2: Point) : this(point1.x, point2.y, point2.x, point2.y)
 
     /**Indicates if their a next step*/
-    var hasNext = true
+    var hasNext: Boolean = true
         private set
     private var moreStepToDo = true
     private var x = startX

@@ -4,9 +4,10 @@ import java.util.TreeSet
 
 /**
  * Generic mathematical function with one parameter
+ * @property parameter Unary operator parameter
  */
-abstract class UnaryOperator<UO : UnaryOperator<UO>>
-internal constructor(val parameter: MathFunction<*>) : MathFunction<UO>()
+abstract class UnaryOperator<UO : UnaryOperator<UO>> internal constructor(val parameter: MathFunction<*>) :
+        MathFunction<UO>()
 {
     /**
      * Create specific type new instance with given parameter
@@ -26,10 +27,10 @@ internal constructor(val parameter: MathFunction<*>) : MathFunction<UO>()
      * Indicates if given function equals.
      * The given function is guarantee to have the same type
      */
-    final override fun equalsIntern(mathFunction: UO) =
+    final override fun equalsIntern(mathFunction: UO): Boolean =
         this.parameter == mathFunction.parameter
 
-    final override fun hash() =
+    final override fun hash(): Int =
         this.parameter.hashCode()
 
     /**

@@ -14,7 +14,7 @@ object BounceInterpolation : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         when
         {
             percent.compare(0.31489f) < 0 -> 8f * square(1.1226f * percent)

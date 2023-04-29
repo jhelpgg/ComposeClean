@@ -467,7 +467,7 @@ fun quadratic(cp: Float, p1: Float, p2: Float, precision: Int,
  * @param modulo Modulo to use
  * @return Result
  */
-fun modulo(real: Double, modulo: Double) = moduloInterval(real, 0.0, modulo)
+fun modulo(real: Double, modulo: Double): Double = moduloInterval(real, 0.0, modulo)
 
 /**
  * Compute the modulo of a real
@@ -476,7 +476,7 @@ fun modulo(real: Double, modulo: Double) = moduloInterval(real, 0.0, modulo)
  * @param modulo Modulo to use
  * @return Result
  */
-fun modulo(real: Float, modulo: Float) = moduloInterval(real, 0f, modulo)
+fun modulo(real: Float, modulo: Float): Float = moduloInterval(real, 0f, modulo)
 
 /**
  * Mathematical modulo.
@@ -508,7 +508,8 @@ fun modulo(integer: Int, modulo: Int): Int
  * @param max  Maximum of interval
  * @return Modulated value
  */
-fun moduloInterval(integer: Int, min: Int, max: Int) = min + modulo(integer - min, max - min + 1)
+fun moduloInterval(integer: Int, min: Int, max: Int): Int =
+    min + modulo(integer - min, max - min + 1)
 
 /**
  * Modulate an integer inside an interval
@@ -518,7 +519,7 @@ fun moduloInterval(integer: Int, min: Int, max: Int) = min + modulo(integer - mi
  * @param max  Maximum of interval
  * @return Modulated value
  */
-fun moduloInterval(integer: Long, min: Long, max: Long) =
+fun moduloInterval(integer: Long, min: Long, max: Long): Long =
     min + modulo(integer - min, max - min + 1L)
 
 /**

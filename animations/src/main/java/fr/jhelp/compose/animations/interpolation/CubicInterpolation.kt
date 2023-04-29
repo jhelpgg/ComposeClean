@@ -16,7 +16,7 @@ class CubicInterpolation(private val firstControl: Float = 0.1f,
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         cubic(0.0,
               this.firstControl.toDouble(),
               this.secondControl.toDouble(),

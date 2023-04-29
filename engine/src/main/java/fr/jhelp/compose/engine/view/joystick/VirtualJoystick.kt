@@ -11,15 +11,23 @@ import fr.jhelp.tasks.TaskType
 import fr.jhelp.tasks.future.FutureResult
 import kotlin.math.atan2
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+/**
+ * Virtual joystick
+ * @property type Virtual joystick type
+ */
 class VirtualJoystick(val type: VirtualJoystickType) : View3DTouchOverListener
 {
     companion object
     {
-        const val BASE_SIZE = 128
-        const val BUTTON_SIZE = VirtualJoystick.BASE_SIZE / 2
-        const val VISIBILITY_TIME = 512L
+        /** Size of joystick base */
+        const val BASE_SIZE : Int = 128
+        /** Size of joystick button */
+        const val BUTTON_SIZE : Int = VirtualJoystick.BASE_SIZE / 2
+        /** Time left joystick visible after finger up the overlay */
+        const val VISIBILITY_TIME : Long = 512L
     }
 
     private var x = 0
@@ -32,7 +40,9 @@ class VirtualJoystick(val type: VirtualJoystickType) : View3DTouchOverListener
     private val directionMutableState =
         MutableStateFlow<VirtualJoystickDirection>(VirtualJoystickDirection.NONE)
 
-    val direction = this.directionMutableState.asStateFlow()
+    /** Observable of direction change */
+    val direction : StateFlow<VirtualJoystickDirection> = this.directionMutableState.asStateFlow()
+    /** Action do on click */
     var click: () -> Unit = {}
 
     override fun dirtyListener(dirty: () -> Unit)

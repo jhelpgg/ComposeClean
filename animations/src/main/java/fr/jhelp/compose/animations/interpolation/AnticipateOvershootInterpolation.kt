@@ -23,7 +23,7 @@ class AnticipateOvershootInterpolation(tension: Float = 1f) : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         when
         {
             percent.compare(0.5f) < 0 ->
@@ -31,6 +31,7 @@ class AnticipateOvershootInterpolation(tension: Float = 1f) : Interpolation
                 val value = 2f * percent
                 0.5f * ((this.tension + 1f) * value * value * value - this.tension * value * value)
             }
+
             else                      ->
             {
                 val value = 2f * percent - 2f

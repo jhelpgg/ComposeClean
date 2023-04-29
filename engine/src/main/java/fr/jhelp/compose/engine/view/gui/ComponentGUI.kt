@@ -11,16 +11,21 @@ abstract class ComponentGUI
 {
     /** Define the action when click on component */
     var click: (ComponentGUI) -> Unit = {}
-/** X location on parent */
+
+    /** X location on parent */
     var x: Int = 0
+
     /** Y location on parent */
     var y: Int = 0
+
     /** Component's width */
     var width: Int = 16
+
     /** Component's height */
     var height: Int = 16
+
     /** Indicates if component is visible */
-    var visible = true
+    var visible: Boolean = true
 
     /**
      * Draw the component

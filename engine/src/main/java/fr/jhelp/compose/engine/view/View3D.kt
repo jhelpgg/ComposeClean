@@ -7,6 +7,7 @@ import android.os.SystemClock
 import android.util.AttributeSet
 import android.view.MotionEvent
 import fr.jhelp.compose.engine.scene.Node3D
+import fr.jhelp.compose.engine.scene.Scene3D
 import fr.jhelp.compose.engine.view.touch.View3DTouchAction
 import fr.jhelp.compose.engine.view.touch.View3DTouchManipulation
 import fr.jhelp.compose.math.Point3D
@@ -25,14 +26,30 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
 {
     private val alive = AtomicBoolean(true)
     private val renderer = View3DRenderer(this::refreshDone)
+
+    /** Observable on view bounds change */
     val viewBoundsState: StateFlow<ViewBounds> = this.renderer.viewBoundsState
     private var startRefreshTime = 0L
-    var minimumAngleY = Float.NEGATIVE_INFINITY
-    var maximumAngleY = Float.POSITIVE_INFINITY
-    var minimumAngleX = Float.NEGATIVE_INFINITY
-    var maximumAngleX = Float.POSITIVE_INFINITY
-    var minimumZ = -9f
-    var maximumZ = -1f
+
+    /** Minimum angle possible around Y axis */
+    var minimumAngleY: Float = Float.NEGATIVE_INFINITY
+
+    /** Maximum angle possible around Y axis */
+    var maximumAngleY: Float = Float.POSITIVE_INFINITY
+
+    /** Minimum angle possible around X axis */
+    var minimumAngleX: Float = Float.NEGATIVE_INFINITY
+
+    /** Maximum angle possible around X axis */
+    var maximumAngleX: Float = Float.POSITIVE_INFINITY
+
+    /** Minimum value possible for z */
+    var minimumZ: Float = -9f
+
+    /** Maximum value possible for z */
+    var maximumZ: Float = -1f
+
+    /** Reaction to touch */
     var view3DTouchAction: View3DTouchAction = View3DTouchManipulation
         set(value)
         {
@@ -60,7 +77,7 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
     /**
      * Scene draw on the view
      */
-    val scene3D = this.renderer.scene3D
+    val scene3D: Scene3D = this.renderer.scene3D
 
     /**
      * Current manipulated node
@@ -79,6 +96,9 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         this.view3DTouchAction.attachTo(this)
     }
 
+    /**
+     * Called when view detached from it parent
+     */
     override fun onDetachedFromWindow()
     {
         this.alive.set(false)
@@ -103,7 +123,7 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
         val bounds = this.viewBoundsState.value
         val topLeftNear = bounds.topLeftNear
         val bottomRightFar = bounds.bottomRightFar
-        val topLeft = bounds.topLet
+        val topLeft = bounds.topLeft
         val bottomRight = bounds.bottomRight
         val width3D: Float = bottomRightFar.x - topLeftNear.x
         val height3D: Float = bottomRightFar.y - topLeftNear.y
@@ -114,6 +134,9 @@ class View3D(context: Context, attributes: AttributeSet? = null) :
                        zFix)
     }
 
+    /**
+     * Called when user touch the 3D view
+     */
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean
     {

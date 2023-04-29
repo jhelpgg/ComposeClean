@@ -53,6 +53,9 @@ class RecyclerComposable<T : Any>(drawItem: @Composable (T) -> Unit)
             }
         }
 
+    /**
+     * Draw the recycle view in composable
+     */
     @Composable
     fun Draw(modifier: Modifier = Modifier)
     {

@@ -14,6 +14,6 @@ class QuadraticInterpolation(private val control: Float = 0.25f) : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) =
+    override operator fun invoke(percent: Float): Float =
         quadratic(0.0f, this.control, 1.0f, percent)
 }

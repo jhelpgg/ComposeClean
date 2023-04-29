@@ -119,9 +119,10 @@ class Matrix
     /**
      * Transform a point with the matrix
      */
-    fun transform(x: Float, y: Float) = Point2D(
-        (this.matrix00 * x) + (this.matrix10 * y) + this.matrix20,
-        (this.matrix01 * x) + (this.matrix11 * y) + this.matrix21)
+    fun transform(x: Float, y: Float): Point2D =
+        Point2D(
+            (this.matrix00 * x) + (this.matrix10 * y) + this.matrix20,
+            (this.matrix01 * x) + (this.matrix11 * y) + this.matrix21)
 
 }
 

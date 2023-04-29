@@ -16,5 +16,5 @@ object SquareRootInterpolation : Interpolation
      * @param percent Value to interpolate
      * @return Interpolate value
      */
-    override operator fun invoke(percent: Float) = sqrt(percent)
+    override operator fun invoke(percent: Float): Float = sqrt(percent)
 }

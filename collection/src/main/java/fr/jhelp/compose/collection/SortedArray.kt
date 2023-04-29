@@ -3,7 +3,7 @@ package fr.jhelp.compose.collection
 /**
  * Create a sorted array for comparable, order based on their "natural order"
  */
-fun <C : Comparable<C>> sortedArray(unique: Boolean = false) =
+fun <C : Comparable<C>> sortedArray(unique: Boolean = false): SortedArray<C> =
     SortedArray<C>(NaturalComparator(), unique)
 
 /**
@@ -11,17 +11,21 @@ fun <C : Comparable<C>> sortedArray(unique: Boolean = false) =
  *
  * It can be creates in unique, mode, that is to say, two elements consider equals with given comparator can't be stored.
  * If try add an already present element in unique mode, the add is ignored
+ * @property unique Indicates if we are in unique mode
  */
 class SortedArray<T>(private val comparator: Comparator<T>, val unique: Boolean = false) :
-    Iterable<T>
+        Iterable<T>
 {
     private val array = ArrayList<T>()
 
-    val size get() = this.array.size
+    /** Array size */
+    val size: Int get() = this.array.size
 
-    val empty get() = this.array.isEmpty()
+    /** Indicates if array is empty */
+    val empty: Boolean get() = this.array.isEmpty()
 
-    val notEmpty get() = this.array.isNotEmpty()
+    /** Indicates if array is not empty */
+    val notEmpty: Boolean get() = this.array.isNotEmpty()
 
     /**
      * Add an element to the array
@@ -36,8 +40,10 @@ class SortedArray<T>(private val comparator: Comparator<T>, val unique: Boolean 
         {
             index >= this.array.size                                                ->
                 this.array.add(element)
+
             this.unique && this.comparator.compare(this.array[index], element) == 0 ->
                 false
+
             else                                                                    ->
             {
                 this.array.add(index, element)
@@ -60,13 +66,13 @@ class SortedArray<T>(private val comparator: Comparator<T>, val unique: Boolean 
     /**
      * Obtain element at given index
      */
-    operator fun get(index: Int) =
+    operator fun get(index: Int): T =
         this.array[index]
 
     /**
      * Indicates if an element present in the array
      */
-    operator fun contains(element: T) =
+    operator fun contains(element: T): Boolean =
         this.indexOf(element) >= 0
 
     /**
@@ -121,7 +127,7 @@ class SortedArray<T>(private val comparator: Comparator<T>, val unique: Boolean 
     /**
      * Remove element at given position
      */
-    fun removeAt(index: Int) =
+    fun removeAt(index: Int): T =
         this.array.removeAt(index)
 
     /**

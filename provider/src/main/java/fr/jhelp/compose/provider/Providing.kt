@@ -16,7 +16,7 @@ package fr.jhelp.compose.provider
  * provideSingle { createMyInstance() as MyInterface }
  * ````
  */
-inline fun <reified T : Any> provideSingle(noinline producer: () -> T) =
+inline fun <reified T : Any> provideSingle(noinline producer: () -> T): Unit =
     provideSingle("", producer)
 
 /**
@@ -58,7 +58,7 @@ inline fun <reified T : Any> provideSingle(qualifier: String, noinline producer:
  * provideMultiple { createMyInstance() as MyInterface }
  * ````
  */
-inline fun <reified T : Any> provideMultiple(noinline producer: () -> T) =
+inline fun <reified T : Any> provideMultiple(noinline producer: () -> T): Unit =
     provideMultiple("", producer)
 
 
@@ -120,11 +120,11 @@ inline fun <reified T : Any> forget(qualifier: String = "")
  * provideSingle<MyInterface>{ MyInstance() }
  * ````
  */
-inline fun <reified T> provided(qualifier: String = "") =
+inline fun <reified T> provided(qualifier: String = ""): Provided<T> =
     Provided<T>("${T::class.qualifiedName}:$qualifier")
 
 /**
  * Indicate if something is provided for the class, and qualifier
  */
-inline fun <reified T> isProvided(qualifier: String = "") =
+inline fun <reified T> isProvided(qualifier: String = ""): Boolean =
     ProviderManager.isProvided("${T::class.qualifiedName}:$qualifier")
