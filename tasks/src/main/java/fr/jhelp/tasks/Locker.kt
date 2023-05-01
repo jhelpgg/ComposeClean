@@ -23,7 +23,7 @@ class Locker
     /**
      * If their available key, it consumes one and let current thread continues
      *
-     * If no available key, if makes current thread sleep utnil an available key
+     * If no available key, if makes current thread sleep until an available key
      */
     fun lock()
     {
@@ -33,7 +33,7 @@ class Locker
     /**
      * Provide a key to open a door
      *
-     * If their at least one waiting thread, first of hem is wake up and key is consumed
+     * If their at least one waiting thread, first of them is wake up and key is consumed
      *
      * If their no waiting thread, the key is stored and will be consumed in a call of [lock]
      */

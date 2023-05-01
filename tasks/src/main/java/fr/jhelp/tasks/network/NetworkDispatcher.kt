@@ -1,6 +1,6 @@
 package fr.jhelp.tasks.network
 
-import fr.jhelp.tasks.LockerSuspend
+import fr.jhelp.tasks.Locker
 import fr.jhelp.tasks.ThreadSafeQueue
 import fr.jhelp.tasks.extensions.observedBy
 import fr.jhelp.tasks.future.FutureResult
@@ -25,7 +25,7 @@ object NetworkDispatcher : CoroutineDispatcher()
     private val playing = AtomicBoolean(false)
     private val queue = ThreadSafeQueue<Runnable>()
     private val locked = AtomicBoolean(false)
-    private val locker = LockerSuspend()
+    private val locker = Locker()
 
     init
     {
@@ -60,7 +60,7 @@ object NetworkDispatcher : CoroutineDispatcher()
         }
     }
 
-    private suspend fun play()
+    private fun play()
     {
         var block: Runnable?
 
