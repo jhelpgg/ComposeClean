@@ -58,7 +58,7 @@ One of method is called first, but can be interrupt by any moment by the other t
 later.
 
 A bad scenario can be : (T1) (T2) (R1) (R2) (R3) (R4) (T3) (T4)
-If things happen in this order it is a ba new for Petter. It is like he never received his pay.
+If things happen in this order it is a bad new for Peter. It is like he never received his pay.
 
 Explanation on imagine he have at start 500, want buy something at 100 and should receive 1000. We
 expect to have at end 1400.
@@ -109,3 +109,6 @@ class BankAccount
 When a thread enter in the `Mutex` open curly it lock the mutex,
 so that other thread that what to enter have to wait that the thread finish its work and pass by the
 close curly to un lock the door for the next thread.
+
+Just remember not to do long operation in critical section. 
+Make it shorter as possible to not experiment some slowdown or in worst scenario memory full. 
