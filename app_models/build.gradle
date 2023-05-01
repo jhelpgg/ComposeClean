@@ -38,7 +38,9 @@ dependencies {
 
     implementation(project(":provider"))
     implementation(project(":collection"))
-    implementation implementation(project(':common'))
+    implementation(project(':common'))
+    implementation(project(':sound'))
+    implementation(project(':math'))
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

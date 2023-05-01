@@ -10,12 +10,22 @@ import androidx.compose.runtime.State
  */
 interface NavigationModel
 {
-   /** Observable on current screen */
-   val screen : State<Screens>
+    /** Observable on current screen */
+    val screen: State<Screens>
 
     /**
      * Called when user press back button
      * @return `true` if have to exit application
      */
-   fun back() : Boolean
+    fun back(): Boolean
+
+    /**
+     * Called each time application pause
+     */
+    fun pause()
+
+    /**
+     * Called each time application resume
+     */
+    fun resume()
 }

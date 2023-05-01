@@ -7,4 +7,17 @@
     <string name="buttonFirstName">First name</string>
     <string name="buttonLastName">Last name</string>
     <string name="hintFilter">--- filter ---</string>
+    <string name="soundBackgroundTitle">Background</string>
+    <string name="soundBackground1">Introduction normal speed</string>
+    <string name="soundBackground2">Introduction slow speed</string>
+    <string name="soundBackground3">Dynamic music</string>
+    <string name="soundEffectTitle">Effects</string>
+    <string name="soundEffect1">Tingle</string>
+    <string name="soundEffect2">Result win</string>
+    <string name="soundEffect3">Strange</string>
+    <string name="soundControlledTitle">Controlled</string>
+    <string name="soundControlled1">Carillon</string>
+    <string name="soundControlled2">Sadness</string>
+    <string name="soundControlledLeft">Left</string>
+    <string name="soundControlledRight">Right</string>
 </resources>

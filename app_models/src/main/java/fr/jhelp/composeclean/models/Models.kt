@@ -4,9 +4,11 @@ import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.composeclean.models.implementation.ContactListModelImplementation
 import fr.jhelp.composeclean.models.implementation.MainPresentationModelImplementation
 import fr.jhelp.composeclean.models.implementation.NavigationModelImplementation
+import fr.jhelp.composeclean.models.implementation.SoundManagerExampleModelImplementation
 import fr.jhelp.composeclean.models.shared.ContactListModel
 import fr.jhelp.composeclean.models.shared.MainPresentationModel
 import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.composeclean.models.shared.SoundManagerExampleModel
 
 /**
  * Inject models implementations to share them
@@ -16,4 +18,5 @@ fun injectModels()
     provideSingle<NavigationModel> { NavigationModelImplementation() }
     provideSingle<MainPresentationModel> { MainPresentationModelImplementation() }
     provideSingle<ContactListModel> { ContactListModelImplementation() }
+    provideSingle<SoundManagerExampleModel> { SoundManagerExampleModelImplementation() }
 }

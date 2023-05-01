@@ -22,11 +22,10 @@ class MainPresentationComposable
     @Composable
     fun Show()
     {
+        val select = this.mainPresentationModel::select
         val recyclerView =
             RecyclerComposable<Presentation> { presentation ->
-                DrawPresentation(presentation) { presentationElement ->
-                    this.mainPresentationModel.select(presentationElement)
-                }
+                DrawPresentation(presentation, select)
             }
         this.mainPresentationModel.initialize(recyclerView.recyclerModel)
         // TODO : Add button(s) for filter

@@ -46,4 +46,22 @@ class MainActivity : ComponentActivity()
             }
         }
     }
+
+    /**
+     * Called when application is paused
+     */
+    override fun onPause()
+    {
+        this.navigationModel.pause()
+        super.onPause()
+    }
+
+    /**
+     * Called when application resumed
+     */
+    override fun onResume()
+    {
+        super.onResume()
+        this.navigationModel.resume()
+    }
 }
