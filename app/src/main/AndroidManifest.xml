@@ -23,9 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activities.ContactListActivity"
-            android:theme="@style/Theme.ComposeClean" />
     </application>
 
 </manifest>

@@ -34,7 +34,7 @@ import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 /**
  * Contact list activity composable
  */
-class ContactListActivityComposable
+class ContactListComposable
 {
     private val contactListModel: ContactListModel by provided<ContactListModel>()
 
@@ -63,7 +63,7 @@ class ContactListActivityComposable
                     // composable form here.
                     // But this not respect our good practice, we delegate the filter to the model,
                     // because it is model side the "intelligence" should be
-                    this@ContactListActivityComposable.contactListModel
+                    this@ContactListComposable.contactListModel
                         .filter(filterTyped)
                 },
                 label = { Text(stringResource(R.string.hintFilter)) },
@@ -87,7 +87,7 @@ class ContactListActivityComposable
             val buttonGuideline = this.createGuidelineFromStart(0.5f)
 
             // Same remarks as above about recycler compose model
-            Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
+            Button(onClick = { this@ContactListComposable.contactListModel.toggleSort() },
                    enabled = sortType.value == SortType.SORT_BY_LAST_NAME,
                    modifier = Modifier.constrainAs(buttonFirstName) {
                        this.width = Dimension.wrapContent
@@ -100,7 +100,7 @@ class ContactListActivityComposable
             }
 
             // Same remarks as above about recycler compose model
-            Button(onClick = { this@ContactListActivityComposable.contactListModel.toggleSort() },
+            Button(onClick = { this@ContactListComposable.contactListModel.toggleSort() },
                    enabled = sortType.value == SortType.SORT_BY_FIRST_NAME,
                    modifier = Modifier.constrainAs(buttonLastName) {
                        this.width = Dimension.wrapContent

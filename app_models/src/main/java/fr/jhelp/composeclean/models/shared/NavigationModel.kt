@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.shared
 
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+
+import androidx.compose.runtime.State
 
 /***
  * Model for navigation between view.
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 interface NavigationModel
 {
    /** Observable on current screen */
-   val screen : StateFlow<Screens>
+   val screen : State<Screens>
 
     /**
      * Called when user press back button

@@ -4,12 +4,12 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import fr.jhelp.composeclean.models.TextChoice
-import fr.jhelp.composeclean.models.shared.MainModel
+import fr.jhelp.composeclean.models.shared.MainPresentationModel
 
 /**
  * Main activity model implementation
  */
-internal class MainModelImplementation : MainModel
+internal class MainPresentationModelImplementation : MainPresentationModel
 {
     /** Holder for get/change the text choice */
     private val textChoiceMutableState: MutableState<TextChoice> =

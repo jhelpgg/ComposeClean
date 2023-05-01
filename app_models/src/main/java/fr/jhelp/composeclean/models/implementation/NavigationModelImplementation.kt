@@ -1,15 +1,14 @@
 package fr.jhelp.composeclean.models.implementation
 
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 internal class NavigationModelImplementation : NavigationModel
 {
-    private val screenMutable = MutableStateFlow<Screens>(Screens.MAIN_PRESENTATION)
-    override val screen: StateFlow<Screens> = this.screenMutable.asStateFlow()
+    private val screenMutable = mutableStateOf<Screens>(Screens.MAIN_PRESENTATION)
+    override val screen: State<Screens> = this.screenMutable
 
     override fun back(): Boolean
     {
