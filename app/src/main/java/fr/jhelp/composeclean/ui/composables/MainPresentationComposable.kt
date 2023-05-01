@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import fr.jhelp.compose.animations.interpolation.AccelerationInterpolation
 import fr.jhelp.compose.animations.interpolation.AnticipateOvershootInterpolation
 import fr.jhelp.compose.animations.interpolation.BounceInterpolation
@@ -29,15 +28,11 @@ import fr.jhelp.compose.engine.view.joystick.VirtualJoystick
 import fr.jhelp.compose.engine.view.joystick.VirtualJoystickType
 import fr.jhelp.compose.engine.view.touch.View3DTouchOverSensitive
 import fr.jhelp.compose.math.extensions.seconds
-import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.models.shared.MainPresentationModel
-import fr.jhelp.composeclean.models.shared.NavigationModel
-import fr.jhelp.composeclean.models.shared.preview.MainPresentationModelPreview
 import fr.jhelp.composeclean.ui.extensions.stringResource
-import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 import fr.jhelp.tasks.extensions.observedBy
 
 /**
@@ -45,7 +40,6 @@ import fr.jhelp.tasks.extensions.observedBy
  */
 class MainPresentationComposable
 {
-    private val navigationModel : NavigationModel by provided<NavigationModel>()
     private val applicationContext: Context by provided<Context>()
     private val mainPresentationModel: MainPresentationModel by provided<MainPresentationModel>()
     private lateinit var animationPlayer: AnimationPlayer
@@ -139,18 +133,5 @@ class MainPresentationComposable
         joystick.direction.observedBy { action -> Log.d("REMOVE_ME", "ACTION=$action") }
         joystick.click = { Log.d("REMOVE_ME", "CLICK") }
         view3DComposable.view3DTouchAction = View3DTouchOverSensitive(joystick)
-    }
-
-    /**
-     * Composable preview of main activity
-     */
-    @Preview(showBackground = true)
-    @Composable
-    fun Preview()
-    {
-        provideSingle<MainPresentationModel> { MainPresentationModelPreview }
-        ComposeCleanTheme {
-            this.Show()
-        }
     }
 }

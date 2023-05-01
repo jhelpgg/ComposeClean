@@ -5,13 +5,11 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import fr.jhelp.compose.constraint.extensions.far
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.composeclean.models.contact.ContactPerson
-import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
 /**
  * Draw a contact that represents a person
@@ -41,17 +39,5 @@ fun DrawContactPerson(contactPerson: ContactPerson)
                  this.bottom.linkTo(this.parent.bottom)
                  this.start far firstName.end
              })
-    }
-}
-
-/**
- * Composable preview of [DrawContactPerson]
- */
-@Preview(showBackground = true)
-@Composable
-fun DrawContactPersonPreview()
-{
-    ComposeCleanTheme {
-        DrawContactPerson(ContactPerson("John", "Doe"))
     }
 }

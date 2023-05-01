@@ -11,7 +11,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import fr.jhelp.compose.constraint.extensions.bottomParent
@@ -20,16 +19,13 @@ import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.next
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.models.SortType
 import fr.jhelp.composeclean.models.contact.Contact
 import fr.jhelp.composeclean.models.shared.ContactListModel
-import fr.jhelp.composeclean.models.shared.preview.ContactListModelPreview
 import fr.jhelp.composeclean.ui.composables.contact.DrawContact
-import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 
 /**
  * Contact list activity composable
@@ -111,19 +107,6 @@ class ContactListComposable
                    }) {
                 Text(text = stringResource(R.string.buttonLastName))
             }
-        }
-    }
-
-    /**
-     * Composable preview of contact list
-     */
-    @Preview(showBackground = true)
-    @Composable
-    fun Preview()
-    {
-        provideSingle<ContactListModel> { ContactListModelPreview }
-        ComposeCleanTheme {
-            this.Show()
         }
     }
 }
