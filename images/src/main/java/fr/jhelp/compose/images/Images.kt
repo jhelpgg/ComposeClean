@@ -258,7 +258,7 @@ fun Bitmap.shift(x: Int, y: Int)
 }
 
 /**
- * Copy a othe bitmap.
+ * Copy a other bitmap.
  *
  * The bitmap must have same dimensions as this bitmap
  */
