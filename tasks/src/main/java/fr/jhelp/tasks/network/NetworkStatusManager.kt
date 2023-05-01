@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  *
  * To start the management, call [initialize], to stop it call [destroy]
  */
-internal object NetworkStatusManager
+object NetworkStatusManager
 {
     private val context: Context by provided<Context>()
     private val initialized = AtomicBoolean(false)

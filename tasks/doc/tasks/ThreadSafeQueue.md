@@ -1,6 +1,6 @@
 # ThreadSafeQueue
 
-The class [ThreadSafeQueue](../../src/main/java/fr/jhelp/tasks/ThreadSafeQueue.kt)
+The class [fr.jhelp.tasks.ThreadSafeQueue](../../src/main/java/fr/jhelp/tasks/ThreadSafeQueue.kt)
 
 Its a queue , its stores elements in FIFO (First In First Out) algorithm.
 Like a queue in supermarket, the first arrive, the first served.
