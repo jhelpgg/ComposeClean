@@ -14,7 +14,7 @@ import java.util.concurrent.Semaphore
  *
  * [lock] can be sees as a door, locked, until a key is available
  *
- * [unlock] provides a key to open one door, the key break once use, need one more key to open another door
+ * [unlock] provides a key to open one door, the key break once use, need one more key to open the door again
  */
 class Locker
 {
