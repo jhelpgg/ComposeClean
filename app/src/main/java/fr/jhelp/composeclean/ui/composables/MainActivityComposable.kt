@@ -1,5 +1,6 @@
 package fr.jhelp.composeclean.ui.composables
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.models.shared.NavigationModel
@@ -23,7 +24,7 @@ class MainActivityComposable
         {
             Screens.MAIN_PRESENTATION -> this.mainPresentation.Show()
             Screens.CONTACT_LIST      -> this.contactList.Show()
-            else                      -> Unit
+            else                      -> Text(text = "Not implemented screen : $screen")
         }
     }
 }

@@ -1,33 +1,54 @@
 package fr.jhelp.composeclean.models.implementation
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import fr.jhelp.composeclean.models.TextChoice
+import fr.jhelp.compose.provider.provided
+import fr.jhelp.compose.ui.recycler.RecyclerModel
+import fr.jhelp.composeclean.models.presentation.Presentation
+import fr.jhelp.composeclean.models.presentation.PresentationElement
+import fr.jhelp.composeclean.models.presentation.PresentationSeparator
+import fr.jhelp.composeclean.models.presentation.PresentationType
+import fr.jhelp.composeclean.models.presentation.type
 import fr.jhelp.composeclean.models.shared.MainPresentationModel
+import fr.jhelp.composeclean.models.shared.NavigationModel
 
 /**
  * Main activity model implementation
  */
 internal class MainPresentationModelImplementation : MainPresentationModel
 {
-    /** Holder for get/change the text choice */
-    private val textChoiceMutableState: MutableState<TextChoice> =
-        mutableStateOf(TextChoice.CHOICE1)
-    override val textChoiceState: State<TextChoice> get() = this.textChoiceMutableState
+    private val navigationModel: NavigationModel by provided<NavigationModel>()
+    private lateinit var recyclerModel: RecyclerModel<Presentation>
 
-    /**
-     * Change the text action
-     */
-    override fun changeText()
+    override fun initialize(recyclerModel: RecyclerModel<Presentation>)
     {
-        // Use in this order work because we get before we set
-        // See issue described in contact list model implementation for the other order
-        this.textChoiceMutableState.value =
-            when (this.textChoiceMutableState.value)
+        this.recyclerModel = recyclerModel
+        recyclerModel.clear()
+
+        for (type in PresentationType.values())
+        {
+            recyclerModel += PresentationSeparator(type)
+
+            for (element in PresentationElement.values())
             {
-                TextChoice.CHOICE1 -> TextChoice.CHOICE2
-                TextChoice.CHOICE2 -> TextChoice.CHOICE1
+                if (element.type == type)
+                {
+                    recyclerModel += element
+                }
             }
+        }
+    }
+
+    override fun showAll()
+    {
+        this.recyclerModel.removeFilter()
+    }
+
+    override fun showType(presentationType: PresentationType)
+    {
+        this.recyclerModel.filter { presentation -> presentation.type == presentationType }
+    }
+
+    override fun select(presentationElement: PresentationElement)
+    {
+        (this.navigationModel as NavigationModelImplementation).chooseScreen(presentationElement.screen)
     }
 }
