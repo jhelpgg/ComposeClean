@@ -7,6 +7,44 @@
     <string name="buttonFirstName">First name</string>
     <string name="buttonLastName">Last name</string>
     <string name="hintFilter">--- filter ---</string>
+
+    <!-- Screens description -->
+    <string name="contactList">List of contacts.\nShows Recycler composable in action.</string>
+    <string name="soundManager">Play sounds.\nSoundManager in action.\nRecommend to use a stereo speaker/headphone</string>
+    <string name="greyImage">Grey effect on image.\nExample of possible image manipulation.</string>
+    <string name="tintImage">Tint effect on image.\nExample of possible image manipulation.</string>
+    <string name="maskImage">Apply mask on image.\nExample of possible image manipulation.</string>
+    <string name="shiftImage">Shift/scroll an image.\nExample of possible image manipulation.</string>
+    <string name="contrastImage">Contrast on image.\nExample of possible image manipulation.</string>
+    <string name="multiplyImage">Multiply two images.\nExample of possible image manipulation.</string>
+    <string name="addImage">Add two images.\nExample of possible image manipulation.</string>
+    <string name="darkerImage">Make an image darker.\nExample of possible image manipulation.</string>
+    <string name="invertColorImage">Invert image\'s colors.\nExample of possible image manipulation.</string>
+    <string name="bumpImage">Bump map effect on image.\nExample of possible image manipulation.</string>
+    <string name="neonLinesDraw">Draw neon lines.\nExample draw on image.</string>
+    <string name="repeatOnLineDraw">Repeat pattern along a line.\nExample draw on image.</string>
+    <string name="helloWord3D">Example of hello world for 3D.\nShow 3D engine capacity.</string>
+    <string name="material3D">Material change on 3D object.\nShow 3D engine capacity.</string>
+    <string name="crossTexture">Apply cross texture on box.\nShow 3D engine capacity.</string>
+    <string name="transparency">Transparency effect.\nShow 3D engine capacity.</string>
+    <string name="sphere">Show a sphere.\nShow 3D engine capacity.</string>
+    <string name="plane">Show a plane.\nShow 3D engine capacity.</string>
+    <string name="revolution">Show a revolution.\nShow 3D engine capacity.</string>
+    <string name="field">Show a field.\nShow 3D engine capacity.</string>
+    <string name="dice">Pre-build object dice.\nShow 3D engine capacity.</string>
+    <string name="robot">Pre-build object robot.\nShow 3D engine capacity.</string>
+    <string name="teddyBear">Load an obj file.\nShow 3D engine capacity.</string>
+    <string name="animationAndInterpolation">Interpolation effects on animations.\nShow 3D engine capacity.</string>
+    <string name="backgroundForegroundIn3D">Apply background/foreground in 3D.\nShow 3D engine capacity.</string>
+    <string name="sound3D">Sound 3D effect.\nShow 3D engine capacity.\nRecommended to use stereo speaker/headphone to ear the effect</string>
+    <string name="particleEffectExplosion">Particle effect : Explosion.\nShow 3D engine capacity.</string>
+    <string name="particleEffectSwordSlash">Particle effect : Sword slash.\nShow 3D engine capacity.</string>
+    <string name="overGUI">GUI over the 3D.\nShow 3D engine capacity.</string>
+    <string name="virtualJoystick">Virtual joystick.\nShow 3D engine capacity.</string>
+    <string name="miniRPG">Mini RPG game to show engine in complete action.\nShow 3D engine capacity.</string>
+
+    <!-- Sound manager UI -->
+
     <string name="soundBackgroundTitle">Background</string>
     <string name="soundBackground1">Introduction normal speed</string>
     <string name="soundBackground2">Introduction slow speed</string>
