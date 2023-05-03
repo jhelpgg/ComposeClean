@@ -2,6 +2,7 @@ package fr.jhelp.composeclean.models.shared
 
 
 import androidx.compose.runtime.State
+import fr.jhelp.tasks.future.FutureResult
 
 /***
  * Model for navigation between view.
@@ -28,4 +29,9 @@ interface NavigationModel
      * Called each time application resume
      */
     fun resume()
+
+    /**
+     * Choose an image
+     */
+    fun chooseImage()
 }

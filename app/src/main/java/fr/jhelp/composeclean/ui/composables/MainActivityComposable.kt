@@ -10,6 +10,7 @@ class MainActivityComposable
 {
     private val navigationModel: NavigationModel by provided<NavigationModel>()
     private val mainPresentation: MainPresentationComposable by lazy { MainPresentationComposable() }
+    private val imageChooser: ImageChooserComposable by lazy { ImageChooserComposable() }
     private val contactList: ContactListComposable by lazy { ContactListComposable() }
     private val soundManager: SoundManagerExampleComposable by lazy { SoundManagerExampleComposable() }
 
@@ -24,6 +25,7 @@ class MainActivityComposable
         when (screen)
         {
             Screens.MAIN_PRESENTATION -> this.mainPresentation.Show()
+            Screens.IMAGE_CHOOSER     -> this.imageChooser.Show()
             Screens.CONTACT_LIST      -> this.contactList.Show()
             Screens.SOUNDS            -> this.soundManager.Show()
             else                      -> Text(text = "Not implemented screen : $screen")

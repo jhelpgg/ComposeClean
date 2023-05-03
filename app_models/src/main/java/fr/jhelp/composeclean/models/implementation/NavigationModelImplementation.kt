@@ -9,6 +9,7 @@ import fr.jhelp.composeclean.models.shared.Screens
 internal class NavigationModelImplementation : NavigationModel
 {
     private val screenMutable = mutableStateOf<Screens>(Screens.MAIN_PRESENTATION)
+    private var previousScreen = Screens.MAIN_PRESENTATION
     override val screen: State<Screens> = this.screenMutable
 
     override fun back(): Boolean
@@ -20,7 +21,8 @@ internal class NavigationModelImplementation : NavigationModel
             return true
         }
 
-        this.screenMutable.value = Screens.MAIN_PRESENTATION
+        this.screenMutable.value = this.previousScreen
+        this.previousScreen = Screens.MAIN_PRESENTATION
         return false
     }
 
@@ -31,6 +33,12 @@ internal class NavigationModelImplementation : NavigationModel
         {
             this.screenMutable.value = screen
         }
+    }
+
+    override fun chooseImage()
+    {
+        this.previousScreen = this.screenMutable.value
+        this.screenMutable.value = Screens.IMAGE_CHOOSER
     }
 
     override fun pause()
