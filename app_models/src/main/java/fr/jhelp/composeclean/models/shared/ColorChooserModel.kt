@@ -1,5 +1,6 @@
 package fr.jhelp.composeclean.models.shared
 
+import androidx.annotation.ColorInt
 import androidx.compose.runtime.State
 
 /**
@@ -7,6 +8,9 @@ import androidx.compose.runtime.State
  */
 interface ColorChooserModel
 {
+    /** Called when current color changed */
+    var colorChangeListener: (Int) -> Unit
+
     /** Current color */
     val color: State<Int>
 
@@ -18,6 +22,9 @@ interface ColorChooserModel
 
     /** Red color part */
     val blue: State<Int>
+
+    /** Change the color */
+    fun color(@ColorInt color: Int)
 
     /**
      * Change red part.

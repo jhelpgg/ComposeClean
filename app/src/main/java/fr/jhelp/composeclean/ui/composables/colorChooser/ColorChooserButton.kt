@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
@@ -21,9 +22,10 @@ class ColorChooserButton
 {
     private val navigationModel: NavigationModel by provided<NavigationModel>()
     private val colorChooserModel: ColorChooserModel by provided<ColorChooserModel>()
+    private val currentColorMutable = mutableStateOf<Int>(0xFF_CA_FE_00.toInt())
 
     /** Current select color */
-    val currentColor: State<Int> = this.colorChooserModel.color
+    val currentColor: State<Int> = this.currentColorMutable
 
     /**
      * Show the color chooser button
@@ -31,9 +33,15 @@ class ColorChooserButton
     @Composable
     fun Show(modifier: Modifier)
     {
-        Button(onClick = this.navigationModel::chooseColor,
+        Button(onClick = {
+            this.colorChooserModel.colorChangeListener =
+                { color -> this.currentColorMutable.value = color }
+
+            this.colorChooserModel.color(this.currentColorMutable.value)
+            this.navigationModel.chooseColor()
+        },
                modifier = modifier.wrapContentSize()) {
-            Image(painter = ColorPainter(Color(this@ColorChooserButton.colorChooserModel.color.value)),
+            Image(painter = ColorPainter(Color(this@ColorChooserButton.currentColorMutable.value)),
                   contentDescription = "Color choose",
                   modifier = Modifier.size(64.dp))
         }

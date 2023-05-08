@@ -36,7 +36,7 @@ class ImageChooserButton
         Button(onClick = {
             val previousListener = this.imageChooserModel.selectImageListener
             this.imageChooserModel.selectImageListener = { image ->
-                this@ImageChooserButton.currentSelectedImageMutable.value = image
+                this.currentSelectedImageMutable.value = image
                 this.imageChooserModel.selectImageListener = previousListener
             }
             this.navigationModel.chooseImage()
