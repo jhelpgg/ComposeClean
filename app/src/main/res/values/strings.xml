@@ -8,6 +8,11 @@
     <string name="buttonLastName">Last name</string>
     <string name="hintFilter">--- filter ---</string>
 
+    <!-- Color chooser -->
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+
     <!-- Screens description -->
     <string name="contactList">List of contacts.\nShows Recycler composable in action.</string>
     <string name="soundManager">Play sounds.\nSoundManager in action.\nRecommend to use a stereo speaker/headphone</string>

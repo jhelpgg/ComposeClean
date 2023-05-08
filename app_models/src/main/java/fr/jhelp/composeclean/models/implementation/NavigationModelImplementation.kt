@@ -41,6 +41,12 @@ internal class NavigationModelImplementation : NavigationModel
         this.screenMutable.value = Screens.IMAGE_CHOOSER
     }
 
+    override fun chooseColor()
+    {
+        this.previousScreen = this.screenMutable.value
+        this.screenMutable.value = Screens.COLOR_CHOOSER
+    }
+
     override fun pause()
     {
         SoundManager.pause()

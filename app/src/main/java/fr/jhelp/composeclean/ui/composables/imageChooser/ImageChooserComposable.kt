@@ -1,4 +1,4 @@
-package fr.jhelp.composeclean.ui.composables
+package fr.jhelp.composeclean.ui.composables.imageChooser
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -7,7 +7,6 @@ import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.models.shared.ImageChooserModel
-import fr.jhelp.composeclean.ui.composables.imageChooser.DrawImageChooserElement
 
 /**
  * Main activity composable

@@ -34,4 +34,9 @@ interface NavigationModel
      * Choose an image
      */
     fun chooseImage()
+
+    /**
+     * Choose a color
+     */
+    fun chooseColor()
 }
