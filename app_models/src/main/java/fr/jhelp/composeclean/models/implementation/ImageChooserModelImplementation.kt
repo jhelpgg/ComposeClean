@@ -10,7 +10,7 @@ import fr.jhelp.composeclean.models.shared.NavigationModel
 internal class ImageChooserModelImplementation : ImageChooserModel
 {
     private val navigationModel: NavigationModel by provided<NavigationModel>()
-    private var currentSelectedImageMutable = mutableStateOf(android.R.drawable.ic_delete)
+    private var currentSelectedImageMutable = mutableStateOf<Int>(android.R.drawable.ic_delete)
     override val currentSelectedImage: State<Int> = this.currentSelectedImageMutable
 
     override fun initialize(recyclerModel: RecyclerModel<Int>, vararg images: Int)

@@ -13,6 +13,7 @@ class MainActivityComposable
     private val imageChooser: ImageChooserComposable by lazy { ImageChooserComposable() }
     private val contactList: ContactListComposable by lazy { ContactListComposable() }
     private val soundManager: SoundManagerExampleComposable by lazy { SoundManagerExampleComposable() }
+    private val imageGrey: ImageGreyComposable by lazy { ImageGreyComposable() }
 
     /**
      * Show the main activity
@@ -28,6 +29,7 @@ class MainActivityComposable
             Screens.IMAGE_CHOOSER     -> this.imageChooser.Show()
             Screens.CONTACT_LIST      -> this.contactList.Show()
             Screens.SOUNDS            -> this.soundManager.Show()
+            Screens.GREY_IMAGE        -> this.imageGrey.Show()
             else                      -> Text(text = "Not implemented screen : $screen")
         }
     }

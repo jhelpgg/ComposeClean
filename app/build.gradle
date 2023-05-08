@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":math"))
     implementation(project(":app_models"))
     implementation(project(":tasks"))
+    implementation(project(":images"))
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
