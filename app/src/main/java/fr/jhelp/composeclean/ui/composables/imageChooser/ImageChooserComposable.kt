@@ -9,7 +9,7 @@ import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.models.shared.ImageChooserModel
 
 /**
- * Main activity composable
+ * Choose an image composable
  */
 class ImageChooserComposable
 {

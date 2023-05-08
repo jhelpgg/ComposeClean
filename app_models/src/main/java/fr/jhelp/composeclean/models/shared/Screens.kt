@@ -14,6 +14,9 @@ enum class Screens
     /** Color chooser */
     COLOR_CHOOSER,
 
+    /** Mask chooser */
+    MASK_CHOOSER,
+
     // **********
     // *** UI ***
     // **********

@@ -2,7 +2,6 @@ package fr.jhelp.composeclean.models.shared
 
 
 import androidx.compose.runtime.State
-import fr.jhelp.tasks.future.FutureResult
 
 /***
  * Model for navigation between view.
@@ -39,4 +38,9 @@ interface NavigationModel
      * Choose a color
      */
     fun chooseColor()
+
+    /**
+     * Choose a mask
+     */
+    fun chooseMask()
 }

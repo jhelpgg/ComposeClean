@@ -2,6 +2,7 @@ package fr.jhelp.compose.images
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Paint
 import fr.jhelp.compose.math.extensions.bounds
 import fr.jhelp.compose.math.minimum
 import kotlin.math.max
@@ -198,8 +199,8 @@ fun Bitmap.mask(mask: Bitmap, x: Int, y: Int, width: Int, height: Int)
         yy = 0
     }
 
-    w = minimum(w, width - xx, sourceWidth - xx, maskWidth - xx)
-    h = minimum(h, height - yy, sourceHeight - yy, maskHeight - yy)
+    w = minimum(w, sourceWidth - xx, maskWidth - xx)
+    h = minimum(h, sourceHeight - yy, maskHeight - yy)
 
     if (w <= 0 || h <= 0)
     {
@@ -517,6 +518,18 @@ fun createBumped(source: Bitmap, bump: Bitmap,
 
     temp.recycle()
     return bumped
+}
+
+/**
+ * Create a bitmap and specify what to draw on it
+ */
+fun createBitmap(width: Int, height: Int, draw: (Bitmap, Canvas, Paint) -> Unit): Bitmap
+{
+    val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    draw(bitmap, canvas, paint)
+    return bitmap
 }
 
 internal fun mixParts(under: Int, over: Int, alpha: Int, ahpla: Int) =
