@@ -61,5 +61,6 @@ val PresentationElement.resourceImage: Int
             PresentationElement.SHIFT_IMAGE    -> R.drawable.image_shift
             PresentationElement.CONTRAST_IMAGE -> R.drawable.image_contrast
             PresentationElement.MULTIPLY_IMAGE -> R.drawable.image_multiply
+            PresentationElement.ADD_IMAGE      -> R.drawable.image_add
             else                               -> android.R.drawable.ic_delete
         }

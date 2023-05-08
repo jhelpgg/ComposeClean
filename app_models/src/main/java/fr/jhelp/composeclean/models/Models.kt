@@ -3,6 +3,7 @@ package fr.jhelp.composeclean.models
 import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.composeclean.models.implementation.ColorChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ContactListModelImplementation
+import fr.jhelp.composeclean.models.implementation.ImageAddModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageContrastModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageGreyModelImplementation
@@ -16,6 +17,7 @@ import fr.jhelp.composeclean.models.implementation.NavigationModelImplementation
 import fr.jhelp.composeclean.models.implementation.SoundManagerExampleModelImplementation
 import fr.jhelp.composeclean.models.shared.ColorChooserModel
 import fr.jhelp.composeclean.models.shared.ContactListModel
+import fr.jhelp.composeclean.models.shared.ImageAddModel
 import fr.jhelp.composeclean.models.shared.ImageChooserModel
 import fr.jhelp.composeclean.models.shared.ImageContrastModel
 import fr.jhelp.composeclean.models.shared.ImageGreyModel
@@ -48,4 +50,5 @@ fun injectModels()
     provideSingle<ImageShiftModel> { ImageShiftModelImplementation() }
     provideSingle<ImageContrastModel> { ImageContrastModelImplementation() }
     provideSingle<ImageMultiplyModel> { ImageMultiplyModelImplementation() }
+    provideSingle<ImageAddModel> { ImageAddModelImplementation() }
 }
