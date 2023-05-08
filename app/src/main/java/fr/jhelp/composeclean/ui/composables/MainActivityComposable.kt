@@ -25,6 +25,7 @@ class MainActivityComposable
     private val imageTint: ImageTintComposable by lazy { ImageTintComposable() }
     private val imageMask: ImageMaskComposable by lazy { ImageMaskComposable() }
     private val imageShift: ImageShiftComposable by lazy { ImageShiftComposable() }
+    private val imageContrast: ImageContrastComposable by lazy { ImageContrastComposable() }
 
     /**
      * Show the main activity
@@ -46,6 +47,7 @@ class MainActivityComposable
             Screens.TINT_IMAGE        -> this.imageTint.Show()
             Screens.MASK_IMAGE        -> this.imageMask.Show()
             Screens.SHIFT_IMAGE       -> this.imageShift.Show()
+            Screens.CONTRAST_IMAGE    -> this.imageContrast.Show()
             else                      -> Text(text = "Not implemented screen : $screen")
         }
     }

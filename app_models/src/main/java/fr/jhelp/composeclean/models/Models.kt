@@ -4,6 +4,7 @@ import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.composeclean.models.implementation.ColorChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ContactListModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageChooserModelImplementation
+import fr.jhelp.composeclean.models.implementation.ImageContrastModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageGreyModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageMaskModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageShiftModelImplementation
@@ -15,6 +16,7 @@ import fr.jhelp.composeclean.models.implementation.SoundManagerExampleModelImple
 import fr.jhelp.composeclean.models.shared.ColorChooserModel
 import fr.jhelp.composeclean.models.shared.ContactListModel
 import fr.jhelp.composeclean.models.shared.ImageChooserModel
+import fr.jhelp.composeclean.models.shared.ImageContrastModel
 import fr.jhelp.composeclean.models.shared.ImageGreyModel
 import fr.jhelp.composeclean.models.shared.ImageMaskModel
 import fr.jhelp.composeclean.models.shared.ImageShiftModel
@@ -42,4 +44,5 @@ fun injectModels()
     provideSingle<ImageTintModel> { ImageTintModelImplementation() }
     provideSingle<ImageMaskModel> { ImageMaskModelImplementation() }
     provideSingle<ImageShiftModel> { ImageShiftModelImplementation() }
+    provideSingle<ImageContrastModel> { ImageContrastModelImplementation() }
 }
