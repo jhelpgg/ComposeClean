@@ -60,5 +60,6 @@ val PresentationElement.resourceImage: Int
             PresentationElement.MASK_IMAGE     -> R.drawable.image_mask
             PresentationElement.SHIFT_IMAGE    -> R.drawable.image_shift
             PresentationElement.CONTRAST_IMAGE -> R.drawable.image_contrast
+            PresentationElement.MULTIPLY_IMAGE -> R.drawable.image_multiply
             else                               -> android.R.drawable.ic_delete
         }
