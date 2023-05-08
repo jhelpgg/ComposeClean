@@ -58,5 +58,6 @@ val PresentationElement.resourceImage: Int
             PresentationElement.GREY_IMAGE   -> R.drawable.image_grey
             PresentationElement.TINT_IMAGE   -> R.drawable.image_tint
             PresentationElement.MASK_IMAGE   -> R.drawable.image_mask
+            PresentationElement.SHIFT_IMAGE  -> R.drawable.image_shift
             else                             -> android.R.drawable.ic_delete
         }
