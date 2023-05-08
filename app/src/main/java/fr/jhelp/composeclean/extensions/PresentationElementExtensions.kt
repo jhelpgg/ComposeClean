@@ -57,5 +57,6 @@ val PresentationElement.resourceImage: Int
             PresentationElement.SOUNDS       -> R.drawable.sound_manager_ui
             PresentationElement.GREY_IMAGE   -> R.drawable.image_grey
             PresentationElement.TINT_IMAGE   -> R.drawable.image_tint
+            PresentationElement.MASK_IMAGE   -> R.drawable.image_mask
             else                             -> android.R.drawable.ic_delete
         }

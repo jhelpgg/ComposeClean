@@ -23,6 +23,7 @@ class MainActivityComposable
     private val soundManager: SoundManagerExampleComposable by lazy { SoundManagerExampleComposable() }
     private val imageGrey: ImageGreyComposable by lazy { ImageGreyComposable() }
     private val imageTint: ImageTintComposable by lazy { ImageTintComposable() }
+    private val imageMask: ImageMaskComposable by lazy { ImageMaskComposable() }
 
     /**
      * Show the main activity
@@ -42,6 +43,7 @@ class MainActivityComposable
             Screens.SOUNDS            -> this.soundManager.Show()
             Screens.GREY_IMAGE        -> this.imageGrey.Show()
             Screens.TINT_IMAGE        -> this.imageTint.Show()
+            Screens.MASK_IMAGE        -> this.imageMask.Show()
             else                      -> Text(text = "Not implemented screen : $screen")
         }
     }
