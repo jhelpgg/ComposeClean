@@ -1,7 +1,6 @@
 package fr.jhelp.composeclean.models.shared
 
 import androidx.annotation.DrawableRes
-import androidx.compose.runtime.State
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 
 /**
@@ -9,8 +8,8 @@ import fr.jhelp.compose.ui.recycler.RecyclerModel
  */
 interface ImageChooserModel
 {
-    /** Current selected image */
-    val currentSelectedImage: State<Int>
+    /** Called when image choose */
+    var selectImageListener: (Int) -> Unit
 
     /**
      * Initialize the model
