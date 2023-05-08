@@ -33,14 +33,14 @@ fun DrawPresentationElement(presentationElement: PresentationElement,
         .padding(top = NEAR / 2, bottom = NEAR / 2, start = START_END / 2, end = START_END / 2)
         .border(2.dp, Color.LightGray)
         .fillMaxWidth()
-        .wrapContentHeight()) {
+        .wrapContentHeight()
+        .clickable { onClick(presentationElement) }) {
         Image(painter = painterResource(id = presentationElement.resourceImage),
               contentDescription = text)
         Text(text = text,
              modifier = Modifier
                  .fillMaxWidth()
-                 .wrapContentHeight()
-                 .clickable { onClick(presentationElement) },
+                 .wrapContentHeight(),
              textAlign = TextAlign.Left)
     }
 }
