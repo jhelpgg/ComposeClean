@@ -1,6 +1,5 @@
 package fr.jhelp.composeclean.models.shared
 
-import androidx.compose.runtime.State
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 
 /**
@@ -8,8 +7,8 @@ import fr.jhelp.compose.ui.recycler.RecyclerModel
  */
 interface MaskChooserModel
 {
-    /** Current selected mask */
-    val currentSelectedMask: State<ImageMasks>
+    /** Called when image choose  */
+    var selectedMaskListener: (ImageMasks) -> Unit
 
     /**
      * Initialize the model

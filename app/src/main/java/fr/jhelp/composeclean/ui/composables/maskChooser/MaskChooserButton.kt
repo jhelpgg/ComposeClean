@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
@@ -21,9 +22,10 @@ class MaskChooserButton
 {
     private val navigationModel: NavigationModel by provided<NavigationModel>()
     private val maskChooserModel: MaskChooserModel by provided<MaskChooserModel>()
+    private val currentMaskMutable = mutableStateOf<ImageMasks>(ImageMasks.SMALL_CIRCLE)
 
     /** Current selected mask */
-    val currentMask: State<ImageMasks> = this.maskChooserModel.currentSelectedMask
+    val currentMask: State<ImageMasks> = this.currentMaskMutable
 
     /**
      * Show the mask chooser button
@@ -31,10 +33,17 @@ class MaskChooserButton
     @Composable
     fun Show(modifier: Modifier)
     {
-        Button(onClick = this.navigationModel::chooseMask,
+        Button(onClick = {
+            val previousListener = this.maskChooserModel.selectedMaskListener
+            this.maskChooserModel.selectedMaskListener = { mask ->
+                this.currentMaskMutable.value = mask
+                this.maskChooserModel.selectedMaskListener = previousListener
+            }
+            this.navigationModel.chooseMask()
+        },
                modifier = modifier
                    .wrapContentSize()) {
-            Image(bitmap = this@MaskChooserButton.maskChooserModel.currentSelectedMask.value.preview.asImageBitmap(),
+            Image(bitmap = this@MaskChooserButton.currentMaskMutable.value.preview.asImageBitmap(),
                   contentDescription = "Mask",
                   modifier = Modifier.size(64.dp))
         }
