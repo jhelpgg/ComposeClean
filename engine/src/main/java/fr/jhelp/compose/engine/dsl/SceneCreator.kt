@@ -13,10 +13,13 @@ import fr.jhelp.compose.engine.view.View3D
 
 /**
  * Create a 3D scene
+ *
+ * @property view3D View that show the 3D
  */
-class SceneCreator internal constructor(private val view3D: View3D)
+class SceneCreator internal constructor(val view3D: View3D)
 {
-    private val scene3D: Scene3D = this.view3D.scene3D
+    /** The 3D scene */
+    val scene3D: Scene3D = this.view3D.scene3D
 
     /** Background color */
     var backgroundColor: Color3D

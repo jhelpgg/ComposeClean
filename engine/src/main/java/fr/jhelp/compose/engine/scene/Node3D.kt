@@ -17,26 +17,32 @@ open class Node3D : Iterable<Node3D>
     }
 
     /**Node name*/
-    var name :String= ""
+    var name: String = ""
+
     /**Node unique ID*/
-    val id :Int= Node3D.NEXT_ID.incrementAndGet()
+    val id: Int = Node3D.NEXT_ID.incrementAndGet()
     private val children = ArrayList<Node3D>()
+
     /**Node position relative to it parent*/
-    var position:Position3D = Position3D()
+    var position: Position3D = Position3D()
+
     /**Node parent*/
     var parent: Node3D? = null
         private set
+
     /**Current Z*/
     internal var zOrder = 0f
+
     /** Indicates if node is visible */
-    var visible : Boolean = true
+    var visible: Boolean = true
+
     /** Sound 3D attached to the node */
-    var sound3D : Sound3D? = null
+    var sound3D: Sound3D? = null
 
     /**
      * Node center
      */
-    open fun center() : Point3D = Point3D(this.position.x, this.position.y, this.position.z)
+    open fun center(): Point3D = Point3D(this.position.x, this.position.y, this.position.z)
 
     @OpenGLThread
     internal open fun render(gl: GL10) = Unit
@@ -132,9 +138,20 @@ open class Node3D : Iterable<Node3D>
     }
 
     /**
+     * Number of children
+     */
+    fun childrenCount(): Int = this.children.size
+
+    /**
+     * Get a children
+     */
+    fun children(index: Int): Node3D = this.children[index]
+
+
+    /**
      * Aply material to the node
      */
-    protected open fun material(material: Material) : Unit = Unit
+    protected open fun material(material: Material): Unit = Unit
 
     /**
      * Apply given material to all it's hierarchy

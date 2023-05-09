@@ -29,6 +29,9 @@ class MainActivityComposable
     private val imageMultiply: ImageMultiplyComposable by lazy { ImageMultiplyComposable() }
     private val imageAdd: ImageAddComposable by lazy { ImageAddComposable() }
 
+
+    private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
+
     /**
      * Show the main activity
      */
@@ -39,20 +42,23 @@ class MainActivityComposable
 
         when (screen)
         {
-            Screens.MAIN_PRESENTATION -> this.mainPresentation.Show()
-            Screens.IMAGE_CHOOSER     -> this.imageChooser.Show()
-            Screens.COLOR_CHOOSER     -> this.colorChooser.Show()
-            Screens.MASK_CHOOSER      -> this.maskChooser.Show()
-            Screens.CONTACT_LIST      -> this.contactList.Show()
-            Screens.SOUNDS            -> this.soundManager.Show()
-            Screens.GREY_IMAGE        -> this.imageGrey.Show()
-            Screens.TINT_IMAGE        -> this.imageTint.Show()
-            Screens.MASK_IMAGE        -> this.imageMask.Show()
-            Screens.SHIFT_IMAGE       -> this.imageShift.Show()
-            Screens.CONTRAST_IMAGE    -> this.imageContrast.Show()
-            Screens.MULTIPLY_IMAGE    -> this.imageMultiply.Show()
-            Screens.ADD_IMAGE         -> this.imageAdd.Show()
-            else                      -> Text(text = "Not implemented screen : $screen")
+            Screens.MAIN_PRESENTATION          -> this.mainPresentation.Show()
+            Screens.IMAGE_CHOOSER              -> this.imageChooser.Show()
+            Screens.COLOR_CHOOSER              -> this.colorChooser.Show()
+            Screens.MASK_CHOOSER               -> this.maskChooser.Show()
+            Screens.CONTACT_LIST               -> this.contactList.Show()
+            Screens.SOUNDS                     -> this.soundManager.Show()
+            Screens.GREY_IMAGE                 -> this.imageGrey.Show()
+            Screens.TINT_IMAGE                 -> this.imageTint.Show()
+            Screens.MASK_IMAGE                 -> this.imageMask.Show()
+            Screens.SHIFT_IMAGE                -> this.imageShift.Show()
+            Screens.CONTRAST_IMAGE             -> this.imageContrast.Show()
+            Screens.MULTIPLY_IMAGE             -> this.imageMultiply.Show()
+            Screens.ADD_IMAGE                  -> this.imageAdd.Show()
+
+            Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
+
+            else                               -> Text(text = "Not implemented screen : $screen")
         }
     }
 }

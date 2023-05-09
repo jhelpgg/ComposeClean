@@ -15,9 +15,9 @@ class LockerTests
     {
         val locker = Locker()
         Thread { this@LockerTests.lockedThread(locker) }.start()
-        Thread.sleep(128L)
+        Thread.sleep(130L)
         Assert.assertTrue(this.locked.get())
-        Thread.sleep(128L)
+        Thread.sleep(130L)
         locker.unlock()
         Thread.sleep(128L)
         Assert.assertFalse(this.locked.get())

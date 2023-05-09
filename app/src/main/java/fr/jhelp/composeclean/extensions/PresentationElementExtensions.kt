@@ -53,14 +53,17 @@ val PresentationElement.resourceImage: Int
     get() =
         when (this)
         {
-            PresentationElement.CONTACT_LIST   -> R.drawable.contact_list_ui
-            PresentationElement.SOUNDS         -> R.drawable.sound_manager_ui
-            PresentationElement.GREY_IMAGE     -> R.drawable.image_grey
-            PresentationElement.TINT_IMAGE     -> R.drawable.image_tint
-            PresentationElement.MASK_IMAGE     -> R.drawable.image_mask
-            PresentationElement.SHIFT_IMAGE    -> R.drawable.image_shift
-            PresentationElement.CONTRAST_IMAGE -> R.drawable.image_contrast
-            PresentationElement.MULTIPLY_IMAGE -> R.drawable.image_multiply
-            PresentationElement.ADD_IMAGE      -> R.drawable.image_add
-            else                               -> android.R.drawable.ic_delete
+            PresentationElement.CONTACT_LIST               -> R.drawable.contact_list_ui
+            PresentationElement.SOUNDS                     -> R.drawable.sound_manager_ui
+            PresentationElement.GREY_IMAGE                 -> R.drawable.image_grey
+            PresentationElement.TINT_IMAGE                 -> R.drawable.image_tint
+            PresentationElement.MASK_IMAGE                 -> R.drawable.image_mask
+            PresentationElement.SHIFT_IMAGE                -> R.drawable.image_shift
+            PresentationElement.CONTRAST_IMAGE             -> R.drawable.image_contrast
+            PresentationElement.MULTIPLY_IMAGE             -> R.drawable.image_multiply
+            PresentationElement.ADD_IMAGE                  -> R.drawable.image_add
+
+            PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
+
+            else                                           -> android.R.drawable.ic_delete
         }

@@ -2,19 +2,27 @@ package fr.jhelp.composeclean.models.implementation
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import fr.jhelp.compose.provider.provided
 import fr.jhelp.compose.sound.SoundManager
+import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
 
 internal class NavigationModelImplementation : NavigationModel
 {
     private val screenMutable = mutableStateOf<Screens>(Screens.MAIN_PRESENTATION)
+    private val engineInterpolationModel: EngineInterpolationModel by provided<EngineInterpolationModel>()
     private var previousScreen = Screens.MAIN_PRESENTATION
     override val screen: State<Screens> = this.screenMutable
 
     override fun back(): Boolean
     {
         SoundManager.stopSounds()
+
+        if (this.screenMutable.value == Screens.ANIMATION_INTERPOLATION_3D)
+        {
+            this.engineInterpolationModel.stopAnimation()
+        }
 
         if (this.screenMutable.value == Screens.MAIN_PRESENTATION)
         {
