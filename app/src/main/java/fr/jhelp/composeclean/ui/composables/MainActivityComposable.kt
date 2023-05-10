@@ -28,7 +28,7 @@ class MainActivityComposable
     private val imageContrast: ImageContrastComposable by lazy { ImageContrastComposable() }
     private val imageMultiply: ImageMultiplyComposable by lazy { ImageMultiplyComposable() }
     private val imageAdd: ImageAddComposable by lazy { ImageAddComposable() }
-
+    private val imageDarker: ImageDarkerComposable by lazy { ImageDarkerComposable() }
 
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
 
@@ -55,6 +55,7 @@ class MainActivityComposable
             Screens.CONTRAST_IMAGE             -> this.imageContrast.Show()
             Screens.MULTIPLY_IMAGE             -> this.imageMultiply.Show()
             Screens.ADD_IMAGE                  -> this.imageAdd.Show()
+            Screens.DARKER_IMAGE               -> this.imageDarker.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 

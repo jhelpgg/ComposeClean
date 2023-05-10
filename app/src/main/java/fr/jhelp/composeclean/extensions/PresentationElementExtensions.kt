@@ -62,6 +62,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.CONTRAST_IMAGE             -> R.drawable.image_contrast
             PresentationElement.MULTIPLY_IMAGE             -> R.drawable.image_multiply
             PresentationElement.ADD_IMAGE                  -> R.drawable.image_add
+            PresentationElement.DARKER_IMAGE               -> R.drawable.image_darker
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 
