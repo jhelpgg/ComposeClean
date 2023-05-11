@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import androidx.annotation.DrawableRes
 
 /**
- * Image in grey model
+ * Image with invert colors
  */
-interface ImageGreyModel
+interface ImageInvertColorsModel
 {
     /**
      * Image to draw result

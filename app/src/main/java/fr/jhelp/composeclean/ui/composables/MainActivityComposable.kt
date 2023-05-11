@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
+import fr.jhelp.composeclean.ui.ImageInvertColorsComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.maskChooser.MaskChooserComposable
@@ -29,6 +30,7 @@ class MainActivityComposable
     private val imageMultiply: ImageMultiplyComposable by lazy { ImageMultiplyComposable() }
     private val imageAdd: ImageAddComposable by lazy { ImageAddComposable() }
     private val imageDarker: ImageDarkerComposable by lazy { ImageDarkerComposable() }
+    private val imageInvertColors: ImageInvertColorsComposable by lazy { ImageInvertColorsComposable() }
 
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
 
@@ -56,6 +58,7 @@ class MainActivityComposable
             Screens.MULTIPLY_IMAGE             -> this.imageMultiply.Show()
             Screens.ADD_IMAGE                  -> this.imageAdd.Show()
             Screens.DARKER_IMAGE               -> this.imageDarker.Show()
+            Screens.INVERT_COLORS_IMAGE        -> this.imageInvertColors.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 

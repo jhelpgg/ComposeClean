@@ -9,6 +9,7 @@ import fr.jhelp.composeclean.models.implementation.ImageChooserModelImplementati
 import fr.jhelp.composeclean.models.implementation.ImageContrastModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageDarkerModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageGreyModelImplementation
+import fr.jhelp.composeclean.models.implementation.ImageInvertColorsModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageMaskModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageMultiplyModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageShiftModelImplementation
@@ -25,6 +26,7 @@ import fr.jhelp.composeclean.models.shared.ImageChooserModel
 import fr.jhelp.composeclean.models.shared.ImageContrastModel
 import fr.jhelp.composeclean.models.shared.ImageDarkerModel
 import fr.jhelp.composeclean.models.shared.ImageGreyModel
+import fr.jhelp.composeclean.models.shared.ImageInvertColorsModel
 import fr.jhelp.composeclean.models.shared.ImageMaskModel
 import fr.jhelp.composeclean.models.shared.ImageMultiplyModel
 import fr.jhelp.composeclean.models.shared.ImageShiftModel
@@ -56,6 +58,7 @@ fun injectModels()
     provideSingle<ImageMultiplyModel> { ImageMultiplyModelImplementation() }
     provideSingle<ImageAddModel> { ImageAddModelImplementation() }
     provideSingle<ImageDarkerModel> { ImageDarkerModelImplementation() }
+    provideSingle<ImageInvertColorsModel> { ImageInvertColorsModelImplementation() }
 
     provideSingle<EngineInterpolationModel> { EngineInterpolationModelImplementation() }
 }
