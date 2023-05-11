@@ -43,4 +43,9 @@ interface NavigationModel
      * Choose a mask
      */
     fun chooseMask()
+
+    /**
+     * Choose a bump image
+     */
+    fun chooseBumpImage()
 }

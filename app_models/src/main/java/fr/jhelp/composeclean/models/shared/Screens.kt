@@ -17,6 +17,9 @@ enum class Screens
     /** Mask chooser */
     MASK_CHOOSER,
 
+    /** Bump image chooser */
+    BUMP_IMAGE_CHOOSER,
+
     // **********
     // *** UI ***
     // **********

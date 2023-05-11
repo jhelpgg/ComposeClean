@@ -6,6 +6,7 @@ import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
 import fr.jhelp.composeclean.ui.ImageInvertColorsComposable
+import fr.jhelp.composeclean.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.maskChooser.MaskChooserComposable
@@ -20,6 +21,7 @@ class MainActivityComposable
     private val imageChooser: ImageChooserComposable by lazy { ImageChooserComposable() }
     private val colorChooser: ColorChooserComposable by lazy { ColorChooserComposable() }
     private val maskChooser: MaskChooserComposable by lazy { MaskChooserComposable() }
+    private val bumpImageChooser: BumpImageChooserComposable by lazy { BumpImageChooserComposable() }
     private val contactList: ContactListComposable by lazy { ContactListComposable() }
     private val soundManager: SoundManagerExampleComposable by lazy { SoundManagerExampleComposable() }
     private val imageGrey: ImageGreyComposable by lazy { ImageGreyComposable() }
@@ -31,6 +33,7 @@ class MainActivityComposable
     private val imageAdd: ImageAddComposable by lazy { ImageAddComposable() }
     private val imageDarker: ImageDarkerComposable by lazy { ImageDarkerComposable() }
     private val imageInvertColors: ImageInvertColorsComposable by lazy { ImageInvertColorsComposable() }
+    private val imageBumpMap: ImageBumpMapComposable by lazy { ImageBumpMapComposable() }
 
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
 
@@ -48,6 +51,7 @@ class MainActivityComposable
             Screens.IMAGE_CHOOSER              -> this.imageChooser.Show()
             Screens.COLOR_CHOOSER              -> this.colorChooser.Show()
             Screens.MASK_CHOOSER               -> this.maskChooser.Show()
+            Screens.BUMP_IMAGE_CHOOSER         -> this.bumpImageChooser.Show()
             Screens.CONTACT_LIST               -> this.contactList.Show()
             Screens.SOUNDS                     -> this.soundManager.Show()
             Screens.GREY_IMAGE                 -> this.imageGrey.Show()
@@ -59,6 +63,7 @@ class MainActivityComposable
             Screens.ADD_IMAGE                  -> this.imageAdd.Show()
             Screens.DARKER_IMAGE               -> this.imageDarker.Show()
             Screens.INVERT_COLORS_IMAGE        -> this.imageInvertColors.Show()
+            Screens.BUMP_MAP_IMAGE             -> this.imageBumpMap.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 

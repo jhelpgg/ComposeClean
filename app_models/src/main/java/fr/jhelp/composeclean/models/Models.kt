@@ -5,6 +5,7 @@ import fr.jhelp.composeclean.models.implementation.ColorChooserModelImplementati
 import fr.jhelp.composeclean.models.implementation.ContactListModelImplementation
 import fr.jhelp.composeclean.models.implementation.EngineInterpolationModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageAddModelImplementation
+import fr.jhelp.composeclean.models.implementation.ImageBumpMapModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageContrastModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageDarkerModelImplementation
@@ -22,6 +23,7 @@ import fr.jhelp.composeclean.models.shared.ColorChooserModel
 import fr.jhelp.composeclean.models.shared.ContactListModel
 import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
 import fr.jhelp.composeclean.models.shared.ImageAddModel
+import fr.jhelp.composeclean.models.shared.ImageBumpMapModel
 import fr.jhelp.composeclean.models.shared.ImageChooserModel
 import fr.jhelp.composeclean.models.shared.ImageContrastModel
 import fr.jhelp.composeclean.models.shared.ImageDarkerModel
@@ -59,6 +61,7 @@ fun injectModels()
     provideSingle<ImageAddModel> { ImageAddModelImplementation() }
     provideSingle<ImageDarkerModel> { ImageDarkerModelImplementation() }
     provideSingle<ImageInvertColorsModel> { ImageInvertColorsModelImplementation() }
+    provideSingle<ImageBumpMapModel> { ImageBumpMapModelImplementation() }
 
     provideSingle<EngineInterpolationModel> { EngineInterpolationModelImplementation() }
 }

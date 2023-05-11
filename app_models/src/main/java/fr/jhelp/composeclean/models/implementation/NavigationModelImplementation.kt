@@ -61,6 +61,12 @@ internal class NavigationModelImplementation : NavigationModel
         this.screenMutable.value = Screens.MASK_CHOOSER
     }
 
+    override fun chooseBumpImage()
+    {
+        this.previousScreen = this.screenMutable.value
+        this.screenMutable.value = Screens.BUMP_IMAGE_CHOOSER
+    }
+
     override fun pause()
     {
         SoundManager.pause()

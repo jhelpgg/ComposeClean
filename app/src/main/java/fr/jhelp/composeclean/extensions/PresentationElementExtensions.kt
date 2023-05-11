@@ -64,6 +64,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.ADD_IMAGE                  -> R.drawable.image_add
             PresentationElement.DARKER_IMAGE               -> R.drawable.image_darker
             PresentationElement.INVERT_COLORS_IMAGE        -> R.drawable.image_invert_colors
+            PresentationElement.BUMP_MAP_IMAGE             -> R.drawable.image_bump_map
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 
