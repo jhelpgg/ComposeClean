@@ -69,6 +69,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.REPEAT_ON_LINE_DRAW        -> R.drawable.image_repeat_on_line
             PresentationElement.HELLO_WORLD_3D             -> R.drawable.engine_hello_world
             PresentationElement.MATERIAL_COLOR_3D          -> R.drawable.engine_material_color
+            PresentationElement.MATERIAL_TEXTURE_3D        -> R.drawable.engine_material_texture
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 
