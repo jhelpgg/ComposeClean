@@ -36,7 +36,7 @@ class MainActivityComposable
     private val imageBumpMap: ImageBumpMapComposable by lazy { ImageBumpMapComposable() }
     private val imageNeonLines: ImageNeonLinesComposable by lazy { ImageNeonLinesComposable() }
     private val imageRepeatOnLine: ImageRepeatOnLineComposable by lazy { ImageRepeatOnLineComposable() }
-
+    private val engineHelloWorld: EngineHelloWorldComposable by lazy { EngineHelloWorldComposable() }
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
 
     /**
@@ -68,6 +68,7 @@ class MainActivityComposable
             Screens.BUMP_MAP_IMAGE             -> this.imageBumpMap.Show()
             Screens.NEON_LINES_DRAW            -> this.imageNeonLines.Show()
             Screens.REPEAT_ON_LINE_DRAW        -> this.imageRepeatOnLine.Show()
+            Screens.HELLO_WORLD_3D             -> this.engineHelloWorld.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 
