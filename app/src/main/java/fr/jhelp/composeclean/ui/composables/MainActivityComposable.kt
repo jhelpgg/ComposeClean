@@ -38,6 +38,7 @@ class MainActivityComposable
     private val imageRepeatOnLine: ImageRepeatOnLineComposable by lazy { ImageRepeatOnLineComposable() }
     private val engineHelloWorld: EngineHelloWorldComposable by lazy { EngineHelloWorldComposable() }
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
+    private val engineMaterialColor: EngineMaterialColorComposable by lazy { EngineMaterialColorComposable() }
 
     /**
      * Show the main activity
@@ -69,6 +70,7 @@ class MainActivityComposable
             Screens.NEON_LINES_DRAW            -> this.imageNeonLines.Show()
             Screens.REPEAT_ON_LINE_DRAW        -> this.imageRepeatOnLine.Show()
             Screens.HELLO_WORLD_3D             -> this.engineHelloWorld.Show()
+            Screens.MATERIAL_COLOR_3D          -> this.engineMaterialColor.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 

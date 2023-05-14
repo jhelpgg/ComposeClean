@@ -15,7 +15,6 @@ import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
 class EngineInterpolationComposable
 {
     private val engineInterpolationModel: EngineInterpolationModel by provided<EngineInterpolationModel>()
-    private val view3D = View3DComposable()
 
     /**
      * Show interpolation show case
@@ -23,8 +22,9 @@ class EngineInterpolationComposable
     @Composable
     fun Show()
     {
-        this.view3D.view3DTouchAction = View3DTouchNothing
-        this.view3D.Draw(modifier = Modifier.fillMaxSize()) {
+        val view3D = View3DComposable()
+        view3D.view3DTouchAction = View3DTouchNothing
+        view3D.Draw(modifier = Modifier.fillMaxSize()) {
             this@EngineInterpolationComposable.engineInterpolationModel.scene(this.scene3D,
                                                                               R.drawable.floor)
         }

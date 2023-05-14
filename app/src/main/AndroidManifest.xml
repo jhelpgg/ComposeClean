@@ -16,8 +16,7 @@
         <activity
             android:name=".ui.activities.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ComposeClean"
-            android:screenOrientation="locked">
+            android:theme="@style/Theme.ComposeClean">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
