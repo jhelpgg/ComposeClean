@@ -7,6 +7,7 @@ import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.fitSpace
 import fr.jhelp.compose.images.tint
+import fr.jhelp.composeclean.models.DEFAULT_COLOR
 import fr.jhelp.composeclean.models.shared.ImageTintModel
 
 internal class ImageTintModelImplementation : ImageTintModel
@@ -15,7 +16,7 @@ internal class ImageTintModelImplementation : ImageTintModel
     private var imageResource: Int = android.R.drawable.ic_delete
 
     @ColorInt
-    private var colorTint: Int = 0xFF_CA_FE_00.toInt()
+    private var colorTint: Int = DEFAULT_COLOR
 
     override val image: Bitmap = Bitmap.createBitmap(512, 512, Bitmap.Config.ARGB_8888)
 

@@ -13,6 +13,7 @@ import fr.jhelp.composeclean.models.implementation.ImageGreyModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageInvertColorsModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageMaskModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageMultiplyModelImplementation
+import fr.jhelp.composeclean.models.implementation.ImageNeonLinesModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageShiftModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageTintModelImplementation
 import fr.jhelp.composeclean.models.implementation.MainPresentationModelImplementation
@@ -31,6 +32,7 @@ import fr.jhelp.composeclean.models.shared.ImageGreyModel
 import fr.jhelp.composeclean.models.shared.ImageInvertColorsModel
 import fr.jhelp.composeclean.models.shared.ImageMaskModel
 import fr.jhelp.composeclean.models.shared.ImageMultiplyModel
+import fr.jhelp.composeclean.models.shared.ImageNeonLinesModel
 import fr.jhelp.composeclean.models.shared.ImageShiftModel
 import fr.jhelp.composeclean.models.shared.ImageTintModel
 import fr.jhelp.composeclean.models.shared.MainPresentationModel
@@ -62,6 +64,7 @@ fun injectModels()
     provideSingle<ImageDarkerModel> { ImageDarkerModelImplementation() }
     provideSingle<ImageInvertColorsModel> { ImageInvertColorsModelImplementation() }
     provideSingle<ImageBumpMapModel> { ImageBumpMapModelImplementation() }
+    provideSingle<ImageNeonLinesModel> { ImageNeonLinesModelImplementation() }
 
     provideSingle<EngineInterpolationModel> { EngineInterpolationModelImplementation() }
 }

@@ -532,6 +532,16 @@ fun createBitmap(width: Int, height: Int, draw: (Bitmap, Canvas, Paint) -> Unit)
     return bitmap
 }
 
+/**
+ * Draw on bitmap
+ */
+fun Bitmap.draw(draw: (Canvas, Paint) -> Unit)
+{
+    val canvas = Canvas(this)
+    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    draw(canvas, paint)
+}
+
 internal fun mixParts(under: Int, over: Int, alpha: Int, ahpla: Int) =
     (under * ahpla + over * alpha) shr 8
 

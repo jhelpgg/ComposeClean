@@ -2,13 +2,14 @@ package fr.jhelp.composeclean.models.implementation
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import fr.jhelp.composeclean.models.DEFAULT_COLOR
 import fr.jhelp.composeclean.models.shared.ColorChooserModel
 
 internal class ColorChooserModelImplementation : ColorChooserModel
 {
-    private var colorSelected = 0xFF_CA_FE_00.toInt()
+    private var colorSelected = DEFAULT_COLOR
     override var colorChangeListener: (Int) -> Unit = {}
-    private val colorMutable = mutableStateOf<Int>(0xFF_CA_FE_00.toInt())
+    private val colorMutable = mutableStateOf<Int>(DEFAULT_COLOR)
     override val color: State<Int> = this.colorMutable
     private val redMutable = mutableStateOf<Int>(0xCA)
     override val red: State<Int> = this.redMutable

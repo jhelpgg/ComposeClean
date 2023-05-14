@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.unit.dp
 import fr.jhelp.compose.provider.provided
+import fr.jhelp.composeclean.models.DEFAULT_COLOR
 import fr.jhelp.composeclean.models.shared.ColorChooserModel
 import fr.jhelp.composeclean.models.shared.NavigationModel
 
@@ -22,7 +23,7 @@ class ColorChooserButton
 {
     private val navigationModel: NavigationModel by provided<NavigationModel>()
     private val colorChooserModel: ColorChooserModel by provided<ColorChooserModel>()
-    private val currentColorMutable = mutableStateOf<Int>(0xFF_CA_FE_00.toInt())
+    private val currentColorMutable = mutableStateOf<Int>(DEFAULT_COLOR)
 
     /** Current select color */
     val currentColor: State<Int> = this.currentColorMutable
