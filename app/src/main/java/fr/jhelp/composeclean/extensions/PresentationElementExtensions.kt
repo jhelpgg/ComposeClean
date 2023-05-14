@@ -70,6 +70,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.HELLO_WORLD_3D             -> R.drawable.engine_hello_world
             PresentationElement.MATERIAL_COLOR_3D          -> R.drawable.engine_material_color
             PresentationElement.MATERIAL_TEXTURE_3D        -> R.drawable.engine_material_texture
+            PresentationElement.CROSS_TEXTURE_3D           -> R.drawable.engine_cross_texture
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 
