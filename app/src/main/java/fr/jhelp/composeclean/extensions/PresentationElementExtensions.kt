@@ -72,6 +72,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.MATERIAL_TEXTURE_3D        -> R.drawable.engine_material_texture
             PresentationElement.CROSS_TEXTURE_3D           -> R.drawable.engine_cross_texture
             PresentationElement.TRANSPARENCY_3D            -> R.drawable.engine_transparency
+            PresentationElement.SPHERE_3D                  -> R.drawable.engine_sphere
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 
