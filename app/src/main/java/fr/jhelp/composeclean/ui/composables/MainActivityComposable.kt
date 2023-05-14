@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
-import fr.jhelp.composeclean.ui.ImageInvertColorsComposable
 import fr.jhelp.composeclean.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserComposable
@@ -43,6 +42,7 @@ class MainActivityComposable
     private val engineCrossTexture: EngineTextureCrossComposable by lazy { EngineTextureCrossComposable() }
     private val engineTransparency: EngineTransparencyComposable by lazy { EngineTransparencyComposable() }
     private val engineSphere: EngineSphereComposable by lazy { EngineSphereComposable() }
+    private val enginePlane: EnginePlaneComposable by lazy { EnginePlaneComposable() }
 
     /**
      * Show the main activity
@@ -79,6 +79,7 @@ class MainActivityComposable
             Screens.CROSS_TEXTURE_3D           -> this.engineCrossTexture.Show()
             Screens.TRANSPARENCY_3D            -> this.engineTransparency.Show()
             Screens.SPHERE_3D                  -> this.engineSphere.Show()
+            Screens.PLANE_3D                   -> this.enginePlane.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 

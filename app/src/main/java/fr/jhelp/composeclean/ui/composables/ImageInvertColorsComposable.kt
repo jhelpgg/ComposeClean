@@ -1,4 +1,4 @@
-package fr.jhelp.composeclean.ui
+package fr.jhelp.composeclean.ui.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
