@@ -8,10 +8,12 @@ import fr.jhelp.compose.engine.scene.Clone3D
 import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Object3D
 import fr.jhelp.compose.engine.scene.geometry.Box
+import fr.jhelp.compose.engine.scene.geometry.Field3D
 import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.engine.scene.geometry.Sphere
 import fr.jhelp.compose.images.path.Path
+import fr.jhelp.compose.math.formal.MathFunction
 import fr.jhelp.tasks.TaskType
 import fr.jhelp.tasks.extensions.parallel
 import java.io.InputStream
@@ -146,6 +148,27 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
             }
         node(nodeParent)
         this.root.add(nodeParent)
+    }
+
+    /**
+     * Add a 3D filed
+     */
+    fun field(reference: NodeReference = junkReference,
+              functionZ: MathFunction<*>,
+              xStart: Float, xEnd: Float, numberPartX: Int,
+              yStart: Float, yEnd: Float, numberPartY: Int,
+              uStart: Float = 0f, uEnd: Float = 1f,
+              vStart: Float = 0f, vEnd: Float = 1f,
+              field: Field3D.() -> Unit)
+    {
+        val fieldReal = Field3D(functionZ,
+                                xStart, xEnd, numberPartX,
+                                yStart, yEnd, numberPartY,
+                                uStart, uEnd,
+                                vStart, vEnd)
+        reference.node = fieldReal
+        field(fieldReal)
+        this.root.add(fieldReal)
     }
 
     /**
