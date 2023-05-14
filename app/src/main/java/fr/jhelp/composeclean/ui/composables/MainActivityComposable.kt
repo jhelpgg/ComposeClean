@@ -41,6 +41,7 @@ class MainActivityComposable
     private val engineMaterialColor: EngineMaterialColorComposable by lazy { EngineMaterialColorComposable() }
     private val engineMaterialTexture: EngineMaterialTextureComposable by lazy { EngineMaterialTextureComposable() }
     private val engineCrossTexture: EngineTextureCrossComposable by lazy { EngineTextureCrossComposable() }
+    private val engineTransparency: EngineTransparencyComposable by lazy { EngineTransparencyComposable() }
 
     /**
      * Show the main activity
@@ -75,6 +76,7 @@ class MainActivityComposable
             Screens.MATERIAL_COLOR_3D          -> this.engineMaterialColor.Show()
             Screens.MATERIAL_TEXTURE_3D        -> this.engineMaterialTexture.Show()
             Screens.CROSS_TEXTURE_3D           -> this.engineCrossTexture.Show()
+            Screens.TRANSPARENCY_3D            -> this.engineTransparency.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 
