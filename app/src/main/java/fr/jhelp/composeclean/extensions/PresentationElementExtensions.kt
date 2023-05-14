@@ -66,6 +66,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.INVERT_COLORS_IMAGE        -> R.drawable.image_invert_colors
             PresentationElement.BUMP_MAP_IMAGE             -> R.drawable.image_bump_map
             PresentationElement.NEON_LINES_DRAW            -> R.drawable.image_neon_lines
+            PresentationElement.REPEAT_ON_LINE_DRAW        -> R.drawable.image_repeat_on_line
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 

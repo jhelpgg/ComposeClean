@@ -35,6 +35,7 @@ class MainActivityComposable
     private val imageInvertColors: ImageInvertColorsComposable by lazy { ImageInvertColorsComposable() }
     private val imageBumpMap: ImageBumpMapComposable by lazy { ImageBumpMapComposable() }
     private val imageNeonLines: ImageNeonLinesComposable by lazy { ImageNeonLinesComposable() }
+    private val imageRepeatOnLine: ImageRepeatOnLineComposable by lazy { ImageRepeatOnLineComposable() }
 
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
 
@@ -66,6 +67,7 @@ class MainActivityComposable
             Screens.INVERT_COLORS_IMAGE        -> this.imageInvertColors.Show()
             Screens.BUMP_MAP_IMAGE             -> this.imageBumpMap.Show()
             Screens.NEON_LINES_DRAW            -> this.imageNeonLines.Show()
+            Screens.REPEAT_ON_LINE_DRAW        -> this.imageRepeatOnLine.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 
