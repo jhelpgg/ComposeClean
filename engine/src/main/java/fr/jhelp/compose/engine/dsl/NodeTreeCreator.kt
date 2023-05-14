@@ -9,7 +9,9 @@ import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Object3D
 import fr.jhelp.compose.engine.scene.geometry.Box
 import fr.jhelp.compose.engine.scene.geometry.Plane
+import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.engine.scene.geometry.Sphere
+import fr.jhelp.compose.images.path.Path
 import fr.jhelp.tasks.TaskType
 import fr.jhelp.tasks.extensions.parallel
 import java.io.InputStream
@@ -90,6 +92,27 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         reference.node = boxReal
         box(boxReal)
         this.root.add(boxReal)
+    }
+
+    /**
+     * Add a revolution
+     */
+    fun revolution(reference: NodeReference = junkReference,
+                   angle: Float = 360f,
+                   multiplierU: Float = 1f, startV: Float = 0f, endV: Float = 1f,
+                   pathPrecision: Int = 5, rotationPrecision: Int = 12,
+                   path: Path.() -> Unit,
+                   revolution: Revolution.() -> Unit)
+    {
+        val pathReal = Path()
+        path(pathReal)
+        val revolutionReal = Revolution(pathReal,
+                                        angle,
+                                        multiplierU, startV, endV,
+                                        pathPrecision, rotationPrecision)
+        reference.node = revolutionReal
+        revolution(revolutionReal)
+        this.root.add(revolutionReal)
     }
 
     /**
