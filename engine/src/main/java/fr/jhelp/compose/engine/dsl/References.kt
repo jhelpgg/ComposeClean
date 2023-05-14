@@ -14,6 +14,8 @@ import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeReferenceCreator
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceAsset
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceCreated
 import fr.jhelp.compose.engine.dsl.texture.TextureSourceDrawable
+import fr.jhelp.compose.engine.scene.geometry.dice.DiceInfo
+import kotlinx.coroutines.flow.StateFlow
 
 internal val junkReference = NodeReference()
 
@@ -173,3 +175,10 @@ fun particleNode(particleNodeReference: ParticleNodeReference,
     particleNode(particleNodeReference.particleNodeCreator)
 }
 
+/**
+ * Roll a dice
+ */
+fun roll(dice: DiceReference)
+{
+    dice.scene.play(dice.dice.roll())
+}

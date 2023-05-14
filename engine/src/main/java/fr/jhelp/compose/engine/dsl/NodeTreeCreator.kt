@@ -12,6 +12,7 @@ import fr.jhelp.compose.engine.scene.geometry.Field3D
 import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.engine.scene.geometry.Sphere
+import fr.jhelp.compose.engine.scene.geometry.dice.Dice
 import fr.jhelp.compose.images.path.Path
 import fr.jhelp.compose.math.formal.MathFunction
 import fr.jhelp.tasks.TaskType
@@ -128,6 +129,16 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         reference.node = sphereReal
         sphere(sphereReal)
         this.root.add(sphereReal)
+    }
+
+    /**
+     * Add a dice
+     */
+    fun dice(diceReference: DiceReference,
+             dice: Dice.() -> Unit)
+    {
+        dice(diceReference.dice)
+        this.root.add(diceReference.dice)
     }
 
     /**

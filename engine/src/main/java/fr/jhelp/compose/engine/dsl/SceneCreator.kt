@@ -46,6 +46,12 @@ class SceneCreator internal constructor(val view3D: View3D)
     }
 
     /**
+     * Create a dice reference
+     */
+    fun dice(): DiceReference =
+        DiceReference(this.scene3D)
+
+    /**
      * Create an animation player
      */
     fun player(animationNodeReference: AnimationNodeReference): AnimationPlayer =

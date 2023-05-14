@@ -63,4 +63,8 @@
     <string name="soundControlled2">Sadness</string>
     <string name="soundControlledLeft">Left</string>
     <string name="soundControlledRight">Right</string>
+
+    <!-- Dice animation -->
+
+    <string name="rollDice">Roll</string>
 </resources>
