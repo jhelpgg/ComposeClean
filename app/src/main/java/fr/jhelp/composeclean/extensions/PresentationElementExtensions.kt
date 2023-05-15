@@ -84,6 +84,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.SOUND_3D                    -> R.drawable.engine_sound_3d
             PresentationElement.PARTICLE_EFFECT_EXPLOSION   -> R.drawable.engine_explode
             PresentationElement.PARTICLE_EFFECT_SWORD_SLASH -> R.drawable.engine_sword
+            PresentationElement.OVER_GUI_3D                 -> R.drawable.engine_gui
 
             else                                            -> android.R.drawable.ic_delete
         }

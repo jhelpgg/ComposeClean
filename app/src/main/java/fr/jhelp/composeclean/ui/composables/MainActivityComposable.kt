@@ -56,6 +56,7 @@ class MainActivityComposable
     private val engineSound3D: EngineSound3DComposable by lazy { EngineSound3DComposable() }
     private val engineExplosion: EngineParticleExplodeComposable by lazy { EngineParticleExplodeComposable() }
     private val engineSword: EngineParticleSwordComposable by lazy { EngineParticleSwordComposable() }
+    private val engineGUI: EngineGUIComposable by lazy { EngineGUIComposable() }
 
     /**
      * Show the main activity
@@ -105,6 +106,7 @@ class MainActivityComposable
             Screens.SOUND_3D                    -> this.engineSound3D.Show()
             Screens.PARTICLE_EFFECT_EXPLOSION   -> this.engineExplosion.Show()
             Screens.PARTICLE_EFFECT_SWORD_SLASH -> this.engineSword.Show()
+            Screens.OVER_GUI_3D                 -> this.engineGUI.Show()
 
             else                                -> Text(text = "Not implemented screen : $screen")
         }
