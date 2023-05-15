@@ -82,6 +82,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
             PresentationElement.BACKGROUND_FOREGROUND_3D   -> R.drawable.engine_background_foreground
             PresentationElement.SOUND_3D                   -> R.drawable.engine_sound_3d
+            PresentationElement.PARTICLE_EFFECT_EXPLOSION  -> R.drawable.engine_explode
 
             else                                           -> android.R.drawable.ic_delete
         }

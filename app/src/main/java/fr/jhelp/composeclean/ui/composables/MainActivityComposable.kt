@@ -54,6 +54,7 @@ class MainActivityComposable
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
     private val engineBackgroundForeground: EngineBackgroundForegroundComposable by lazy { EngineBackgroundForegroundComposable() }
     private val engineSound3D: EngineSound3DComposable by lazy { EngineSound3DComposable() }
+    private val engineExplosion: EngineParticleExplodeComposable by lazy { EngineParticleExplodeComposable() }
 
     /**
      * Show the main activity
@@ -101,6 +102,7 @@ class MainActivityComposable
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
             Screens.BACKGROUND_FOREGROUND_3D   -> this.engineBackgroundForeground.Show()
             Screens.SOUND_3D                   -> this.engineSound3D.Show()
+            Screens.PARTICLE_EFFECT_EXPLOSION  -> this.engineExplosion.Show()
 
             else                               -> Text(text = "Not implemented screen : $screen")
         }

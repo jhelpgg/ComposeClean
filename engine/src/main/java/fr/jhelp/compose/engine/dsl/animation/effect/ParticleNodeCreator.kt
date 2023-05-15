@@ -278,6 +278,128 @@ class ParticleNodeCreator
             field = value.bounds(0f, 1.0f)
         }
 
+    /**
+     * Put first and second position at same value
+     */
+    fun positionFirstSecond(x: Float, y: Float, z: Float)
+    {
+        this.firstStartPositionX = x
+        this.firstStartPositionY = y
+        this.firstStartPositionZ = z
+
+        this.secondStartPositionX = x
+        this.secondStartPositionY = y
+        this.secondStartPositionZ = z
+    }
+
+    /**
+     * Scale uniform for first
+     */
+    fun scaleFirst(scale: Float)
+    {
+        this.firstStartScaleX = scale
+        this.firstStartScaleY = scale
+        this.firstStartScaleZ = scale
+    }
+
+    /**
+     * Scale uniform for second
+     */
+    fun scaleSecond(scale: Float)
+    {
+        this.secondStartScaleX = scale
+        this.secondStartScaleY = scale
+        this.secondStartScaleZ = scale
+    }
+
+    /**
+     * Put first and second scale at same value
+     */
+    fun scaleFirstSecond(x: Float, y: Float, z: Float)
+    {
+        this.firstStartScaleX = x
+        this.firstStartScaleY = y
+        this.firstStartScaleZ = z
+
+        this.secondStartScaleX = x
+        this.secondStartScaleY = y
+        this.secondStartScaleZ = z
+    }
+
+    /**
+     * Put first and second scale at same value uniform
+     */
+    fun scaleFirstSecond(scale: Float)
+    {
+        this.firstStartScaleX = scale
+        this.firstStartScaleY = scale
+        this.firstStartScaleZ = scale
+
+        this.secondStartScaleX = scale
+        this.secondStartScaleY = scale
+        this.secondStartScaleZ = scale
+    }
+
+    /**
+     * Acceleration scale uniform for first
+     */
+    fun accelerationScaleFirst(scale: Float)
+    {
+        this.firstAccelerationScaleX = scale
+        this.firstAccelerationScaleY = scale
+        this.firstAccelerationScaleZ = scale
+    }
+
+    /**
+     * Acceleration scale uniform for second
+     */
+    fun accelerationScaleSecond(scale: Float)
+    {
+        this.secondAccelerationScaleX = scale
+        this.secondAccelerationScaleY = scale
+        this.secondAccelerationScaleZ = scale
+    }
+
+    /**
+     * Put first and second acceleration scale at same value
+     */
+    fun accelerationScaleFirstSecond(x: Float, y: Float, z: Float)
+    {
+        this.firstAccelerationScaleX = x
+        this.firstAccelerationScaleY = y
+        this.firstAccelerationScaleZ = z
+
+        this.secondAccelerationScaleX = x
+        this.secondAccelerationScaleY = y
+        this.secondAccelerationScaleZ = z
+    }
+
+    /**
+     * Put first and second acceleration scale at same value uniform
+     */
+    fun accelerationScaleFirstSecond(scale: Float)
+    {
+        this.firstAccelerationScaleX = scale
+        this.firstAccelerationScaleY = scale
+        this.firstAccelerationScaleZ = scale
+
+        this.secondAccelerationScaleX = scale
+        this.secondAccelerationScaleY = scale
+        this.secondAccelerationScaleZ = scale
+    }
+
+    /**
+     * Pout first start and second start and end at same diffuse color
+     */
+    fun constantDiffuse(color: Color3D)
+    {
+        this.firstStartDiffuseColor = color
+        this.firstEndDiffuseColor = color
+
+        this.secondStartDiffuseColor = color
+        this.secondEndDiffuseColor = color
+    }
+
     internal fun particleNode(): ParticleNode
     {
         val particleNode = ParticleNode(this.numberParticle,

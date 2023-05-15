@@ -76,4 +76,7 @@
 
     <!-- Background/foreground -->
     <string name="showForeground">Foreground</string>
+
+    <!-- Explosion -->
+    <string name="playExplosion">BOOM !</string>
 </resources>
