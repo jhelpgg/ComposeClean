@@ -52,6 +52,7 @@ class MainActivityComposable
     private val engineRobot: EngineRobotComposable by lazy { EngineRobotComposable() }
     private val engineLoadObj: EngineLoadObjComposable by lazy { EngineLoadObjComposable() }
     private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
+    private val engineBackgroundForeground: EngineBackgroundForegroundComposable by lazy { EngineBackgroundForegroundComposable() }
 
     /**
      * Show the main activity
@@ -97,6 +98,7 @@ class MainActivityComposable
             Screens.ROBOT_3D                   -> this.engineRobot.Show()
             Screens.TEDDY_BEAR_3D              -> this.engineLoadObj.Show()
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
+            Screens.BACKGROUND_FOREGROUND_3D   -> this.engineBackgroundForeground.Show()
 
             else                               -> Text(text = "Not implemented screen : $screen")
         }

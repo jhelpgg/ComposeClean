@@ -73,4 +73,7 @@
     <string name="robotSayNo">No</string>
     <string name="robotWalk">Walk</string>
     <string name="robotRun">Run</string>
+
+    <!-- Background/foreground -->
+    <string name="showForeground">Foreground</string>
 </resources>
