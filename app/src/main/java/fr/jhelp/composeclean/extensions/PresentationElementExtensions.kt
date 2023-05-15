@@ -81,6 +81,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.TEDDY_BEAR_3D              -> R.drawable.engine_load_obj
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
             PresentationElement.BACKGROUND_FOREGROUND_3D   -> R.drawable.engine_background_foreground
+            PresentationElement.SOUND_3D                   -> R.drawable.engine_sound_3d
 
             else                                           -> android.R.drawable.ic_delete
         }
