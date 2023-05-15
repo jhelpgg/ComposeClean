@@ -23,11 +23,13 @@ class VirtualJoystick(val type: VirtualJoystickType) : View3DTouchOverListener
     companion object
     {
         /** Size of joystick base */
-        const val BASE_SIZE : Int = 128
+        const val BASE_SIZE: Int = 128
+
         /** Size of joystick button */
-        const val BUTTON_SIZE : Int = VirtualJoystick.BASE_SIZE / 2
+        const val BUTTON_SIZE: Int = VirtualJoystick.BASE_SIZE / 2
+
         /** Time left joystick visible after finger up the overlay */
-        const val VISIBILITY_TIME : Long = 512L
+        const val VISIBILITY_TIME: Long = 512L
     }
 
     private var x = 0
@@ -41,7 +43,8 @@ class VirtualJoystick(val type: VirtualJoystickType) : View3DTouchOverListener
         MutableStateFlow<VirtualJoystickDirection>(VirtualJoystickDirection.NONE)
 
     /** Observable of direction change */
-    val direction : StateFlow<VirtualJoystickDirection> = this.directionMutableState.asStateFlow()
+    val direction: StateFlow<VirtualJoystickDirection> = this.directionMutableState.asStateFlow()
+
     /** Action do on click */
     var click: () -> Unit = {}
 
