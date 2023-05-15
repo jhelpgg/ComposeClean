@@ -48,6 +48,12 @@
     <string name="virtualJoystick">Virtual joystick.\nShow 3D engine capacity.</string>
     <string name="miniRPG">Mini RPG game to show engine in complete action.\nShow 3D engine capacity.</string>
 
+    <!-- Presentation list -->
+    <string name="presentationAll">All</string>
+    <string name="presentationUI" translatable="false">UI</string>
+    <string name="presentation2D" translatable="false">2D</string>
+    <string name="presentation3D" translatable="false">3D</string>
+
     <!-- Sound manager UI -->
 
     <string name="soundBackgroundTitle">Background</string>
