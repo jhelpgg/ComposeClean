@@ -40,7 +40,6 @@ class MainActivityComposable
     private val imageNeonLines: ImageNeonLinesComposable by lazy { ImageNeonLinesComposable() }
     private val imageRepeatOnLine: ImageRepeatOnLineComposable by lazy { ImageRepeatOnLineComposable() }
     private val engineHelloWorld: EngineHelloWorldComposable by lazy { EngineHelloWorldComposable() }
-    private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
     private val engineMaterialColor: EngineMaterialColorComposable by lazy { EngineMaterialColorComposable() }
     private val engineMaterialTexture: EngineMaterialTextureComposable by lazy { EngineMaterialTextureComposable() }
     private val engineCrossTexture: EngineTextureCrossComposable by lazy { EngineTextureCrossComposable() }
@@ -51,6 +50,8 @@ class MainActivityComposable
     private val engineField: EngineFieldComposable by lazy { EngineFieldComposable() }
     private val engineDice: EngineDiceComposable by lazy { EngineDiceComposable() }
     private val engineRobot: EngineRobotComposable by lazy { EngineRobotComposable() }
+    private val engineLoadObj: EngineLoadObjComposable by lazy { EngineLoadObjComposable() }
+    private val engineInterpolation: EngineInterpolationComposable by lazy { EngineInterpolationComposable() }
 
     /**
      * Show the main activity
@@ -94,7 +95,7 @@ class MainActivityComposable
             Screens.FIELD_3D                   -> this.engineField.Show()
             Screens.DICE_3D                    -> this.engineDice.Show()
             Screens.ROBOT_3D                   -> this.engineRobot.Show()
-
+            Screens.TEDDY_BEAR_3D              -> this.engineLoadObj.Show()
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 
             else                               -> Text(text = "Not implemented screen : $screen")

@@ -78,7 +78,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.FIELD_3D                   -> R.drawable.engine_field
             PresentationElement.DICE_3D                    -> R.drawable.engine_dice
             PresentationElement.ROBOT_3D                   -> R.drawable.engine_robot
-
+            PresentationElement.TEDDY_BEAR_3D              -> R.drawable.engine_load_obj
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 
             else                                           -> android.R.drawable.ic_delete
