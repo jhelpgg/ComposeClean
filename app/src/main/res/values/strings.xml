@@ -79,4 +79,7 @@
 
     <!-- Explosion -->
     <string name="playExplosion">BOOM !</string>
+
+    <!-- Sword -->
+    <string name="playSword">Attack</string>
 </resources>
