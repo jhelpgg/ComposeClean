@@ -4,6 +4,7 @@ import fr.jhelp.compose.provider.provideSingle
 import fr.jhelp.composeclean.models.implementation.ColorChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ContactListModelImplementation
 import fr.jhelp.composeclean.models.implementation.EngineInterpolationModelImplementation
+import fr.jhelp.composeclean.models.implementation.EyeChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageAddModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageBumpMapModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageChooserModelImplementation
@@ -19,11 +20,13 @@ import fr.jhelp.composeclean.models.implementation.ImageShiftModelImplementation
 import fr.jhelp.composeclean.models.implementation.ImageTintModelImplementation
 import fr.jhelp.composeclean.models.implementation.MainPresentationModelImplementation
 import fr.jhelp.composeclean.models.implementation.MaskChooserModelImplementation
+import fr.jhelp.composeclean.models.implementation.MouthChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.NavigationModelImplementation
 import fr.jhelp.composeclean.models.implementation.SoundManagerExampleModelImplementation
 import fr.jhelp.composeclean.models.shared.ColorChooserModel
 import fr.jhelp.composeclean.models.shared.ContactListModel
 import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
+import fr.jhelp.composeclean.models.shared.EyeChooserModel
 import fr.jhelp.composeclean.models.shared.ImageAddModel
 import fr.jhelp.composeclean.models.shared.ImageBumpMapModel
 import fr.jhelp.composeclean.models.shared.ImageChooserModel
@@ -39,6 +42,7 @@ import fr.jhelp.composeclean.models.shared.ImageShiftModel
 import fr.jhelp.composeclean.models.shared.ImageTintModel
 import fr.jhelp.composeclean.models.shared.MainPresentationModel
 import fr.jhelp.composeclean.models.shared.MaskChooserModel
+import fr.jhelp.composeclean.models.shared.MouthChooserModel
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.SoundManagerExampleModel
 
@@ -53,6 +57,8 @@ fun injectModels()
     provideSingle<ImageChooserModel> { ImageChooserModelImplementation() }
     provideSingle<ColorChooserModel> { ColorChooserModelImplementation() }
     provideSingle<MaskChooserModel> { MaskChooserModelImplementation() }
+    provideSingle<EyeChooserModel> { EyeChooserModelImplementation() }
+    provideSingle<MouthChooserModel> { MouthChooserModelImplementation() }
 
     provideSingle<ContactListModel> { ContactListModelImplementation() }
     provideSingle<SoundManagerExampleModel> { SoundManagerExampleModelImplementation() }

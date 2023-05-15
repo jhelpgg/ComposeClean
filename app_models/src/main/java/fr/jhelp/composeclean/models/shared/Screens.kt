@@ -20,6 +20,12 @@ enum class Screens
     /** Bump image chooser */
     BUMP_IMAGE_CHOOSER,
 
+    /** Eye chooser */
+    EYE_CHOOSER,
+
+    /** Mouth chooser */
+    MOUTH_CHOOSER,
+
     // **********
     // *** UI ***
     // **********

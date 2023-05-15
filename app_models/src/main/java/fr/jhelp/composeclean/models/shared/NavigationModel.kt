@@ -48,4 +48,14 @@ interface NavigationModel
      * Choose a bump image
      */
     fun chooseBumpImage()
+
+    /**
+     * Choose an ete
+     */
+    fun chooseEye()
+
+    /**
+     * Choose a mouth
+     */
+    fun chooseMouth()
 }

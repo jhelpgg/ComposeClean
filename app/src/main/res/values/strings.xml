@@ -67,4 +67,10 @@
     <!-- Dice animation -->
 
     <string name="rollDice">Roll</string>
+
+    <!-- Robot sample -->
+    <string name="robotSayYes">Yes</string>
+    <string name="robotSayNo">No</string>
+    <string name="robotWalk">Walk</string>
+    <string name="robotRun">Run</string>
 </resources>

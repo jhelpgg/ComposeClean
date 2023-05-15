@@ -77,6 +77,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.REVOLUTION_3D              -> R.drawable.engine_revolution
             PresentationElement.FIELD_3D                   -> R.drawable.engine_field
             PresentationElement.DICE_3D                    -> R.drawable.engine_dice
+            PresentationElement.ROBOT_3D                   -> R.drawable.engine_robot
 
             PresentationElement.ANIMATION_INTERPOLATION_3D -> R.drawable.engine_interpolation
 

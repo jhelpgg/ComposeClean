@@ -7,8 +7,10 @@ import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
 import fr.jhelp.composeclean.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserComposable
+import fr.jhelp.composeclean.ui.composables.eyeChooser.EyeChooserComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.maskChooser.MaskChooserComposable
+import fr.jhelp.composeclean.ui.composables.mouthChooser.MouthChooserComposable
 
 /**
  * Main activity that show the current screen
@@ -20,6 +22,8 @@ class MainActivityComposable
     private val imageChooser: ImageChooserComposable by lazy { ImageChooserComposable() }
     private val colorChooser: ColorChooserComposable by lazy { ColorChooserComposable() }
     private val maskChooser: MaskChooserComposable by lazy { MaskChooserComposable() }
+    private val eyeChooser: EyeChooserComposable by lazy { EyeChooserComposable() }
+    private val mouthChooser: MouthChooserComposable by lazy { MouthChooserComposable() }
     private val bumpImageChooser: BumpImageChooserComposable by lazy { BumpImageChooserComposable() }
     private val contactList: ContactListComposable by lazy { ContactListComposable() }
     private val soundManager: SoundManagerExampleComposable by lazy { SoundManagerExampleComposable() }
@@ -46,6 +50,7 @@ class MainActivityComposable
     private val engineRevolution: EngineRevolutionComposable by lazy { EngineRevolutionComposable() }
     private val engineField: EngineFieldComposable by lazy { EngineFieldComposable() }
     private val engineDice: EngineDiceComposable by lazy { EngineDiceComposable() }
+    private val engineRobot: EngineRobotComposable by lazy { EngineRobotComposable() }
 
     /**
      * Show the main activity
@@ -62,6 +67,8 @@ class MainActivityComposable
             Screens.COLOR_CHOOSER              -> this.colorChooser.Show()
             Screens.MASK_CHOOSER               -> this.maskChooser.Show()
             Screens.BUMP_IMAGE_CHOOSER         -> this.bumpImageChooser.Show()
+            Screens.EYE_CHOOSER                -> this.eyeChooser.Show()
+            Screens.MOUTH_CHOOSER              -> this.mouthChooser.Show()
             Screens.CONTACT_LIST               -> this.contactList.Show()
             Screens.SOUNDS                     -> this.soundManager.Show()
             Screens.GREY_IMAGE                 -> this.imageGrey.Show()
@@ -86,6 +93,7 @@ class MainActivityComposable
             Screens.REVOLUTION_3D              -> this.engineRevolution.Show()
             Screens.FIELD_3D                   -> this.engineField.Show()
             Screens.DICE_3D                    -> this.engineDice.Show()
+            Screens.ROBOT_3D                   -> this.engineRobot.Show()
 
             Screens.ANIMATION_INTERPOLATION_3D -> this.engineInterpolation.Show()
 
