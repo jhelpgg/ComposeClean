@@ -4,16 +4,20 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.os.SystemClock
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import fr.jhelp.compose.engine.view.CLICK_TIME
 import fr.jhelp.compose.images.bitmap
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.draw
 import fr.jhelp.compose.images.fitRectangle
+import fr.jhelp.compose.math.square
 import fr.jhelp.tasks.TaskType
 import fr.jhelp.tasks.extensions.parallel
 import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.math.sqrt
 
 
 /**
@@ -29,6 +33,9 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
     private val refreshing = AtomicBoolean(false)
     private val shouldRefreshAgain = AtomicBoolean(false)
     private val refreshListener: () -> Unit = { this.refreshRequest(false) }
+    private var touchX = 0f
+    private var touchY = 0f
+    private var lastTouchTime = 0L
 
     /**
      * Called when view is draw
@@ -57,6 +64,37 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean
     {
+        var clicked = false
+        val x = event.x
+        val y = event.y
+
+        when (event.action)
+        {
+            MotionEvent.ACTION_DOWN ->
+            {
+                this.lastTouchTime = SystemClock.elapsedRealtime()
+                this.overlayScreen.touchDown(x, y)
+            }
+
+            MotionEvent.ACTION_MOVE ->
+                this.overlayScreen.touchMove(this.touchX, this.touchY, x, y)
+
+            MotionEvent.ACTION_UP   ->
+            {
+                clicked = (SystemClock.elapsedRealtime() - this.lastTouchTime) <= CLICK_TIME
+                        && sqrt(square(x - this.touchX) + square(y - this.touchY)) <= event.size
+                this.overlayScreen.touchUp(x, y)
+            }
+        }
+
+        this.touchX = x
+        this.touchY = y
+
+        if (clicked)
+        {
+            this.overlayScreen.touchClick(x, y)
+        }
+
         return true
     }
 
@@ -107,7 +145,7 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
 
         if (this.shouldRefreshAgain.compareAndSet(true, false))
         {
-            TaskType.SHORT_TASK.delay(32L) { this.refreshRequest(false) }
+            TaskType.SHORT_TASK.delay(32L) { this.refresh(false) }
             return
         }
 

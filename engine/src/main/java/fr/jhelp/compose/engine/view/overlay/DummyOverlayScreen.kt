@@ -28,7 +28,7 @@ object DummyOverlayScreen : OverlayScreen
     {
     }
 
-    override fun touchMove(xStart: Float, yStart: Float, xEnd: Float, yEnd: Float)
+    override fun touchMove(xPrevious: Float, yPrevious: Float, x: Float, y: Float)
     {
     }
 

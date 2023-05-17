@@ -36,7 +36,7 @@ interface OverlayScreen
     /**
      * Called when user move/slide finger on overlay
      */
-    fun touchMove(xStart: Float, yStart: Float, xEnd: Float, yEnd: Float)
+    fun touchMove(xPrevious: Float, yPrevious: Float, x: Float, y: Float)
 
     /**
      * Called when user click on overlay (Touch then release in short time)
