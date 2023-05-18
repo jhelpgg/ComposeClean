@@ -178,7 +178,7 @@ class Alphabet(val characterWidth: Int,
         val yy = (characterOffset / this.numberCharactersPerLine) * this.characterHeight
 
         canvas.drawBitmap(baseImage,
-                          Rect(xx, yy,
+                          Rect(xx, yy + 1,
                                xx + this.characterWidth,
                                yy + this.characterHeight),
                           RectF(x, y + deltaY,

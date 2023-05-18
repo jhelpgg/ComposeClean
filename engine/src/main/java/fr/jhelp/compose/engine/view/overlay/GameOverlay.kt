@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.SystemClock
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import fr.jhelp.compose.engine.view.CLICK_TIME
@@ -36,6 +37,7 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
     private var touchX = 0f
     private var touchY = 0f
     private var lastTouchTime = 0L
+    private val shouldResize = AtomicBoolean(false)
 
     /**
      * Called when view is draw
@@ -102,6 +104,7 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
     {
         this.overlayScreen = overlayScreen
         overlayScreen.registerRefresh(this.refreshListener)
+        overlayScreen.size(this.overlayWidth, this.overlayHeight)
         this.refreshRequest(true)
     }
 
@@ -125,6 +128,11 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
         }
         else
         {
+            if (resized)
+            {
+                this.shouldResize.set(true)
+            }
+
             this.shouldRefreshAgain.set(true)
         }
     }
@@ -134,6 +142,7 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
         if (resized)
         {
             this.overlayScreen.size(this.overlayWidth, this.overlayHeight)
+            this.shouldResize.set(false)
         }
 
         this.bitmap.clear(0)
@@ -145,7 +154,7 @@ class GameOverlay(context: Context, attributes: AttributeSet? = null) :
 
         if (this.shouldRefreshAgain.compareAndSet(true, false))
         {
-            TaskType.SHORT_TASK.delay(32L) { this.refresh(false) }
+            TaskType.SHORT_TASK.delay(32L) { this.refresh(this.shouldResize.get()) }
             return
         }
 
