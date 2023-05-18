@@ -106,22 +106,6 @@ class IntList(initialCapacity: Int = 1024)
     }
 
     /**
-     * Add one element to the end of list
-     *
-     * Allows `+=` syntax
-     *
-     * ```kotlin
-     * intList += 56
-     * ```
-     */
-    operator fun plusAssign(value: Int)
-    {
-        this.expandIfNeed(1)
-        this.list[this.size] = value
-        this.size++
-    }
-
-    /**
      * Add one int list to the end of list and return the list to able to chain
      *
      * Allows `+` syntax
@@ -137,22 +121,6 @@ class IntList(initialCapacity: Int = 1024)
         System.arraycopy(intList.list, 0, this.list, this.size, intList.size)
         this.size += intList.size
         return this
-    }
-
-    /**
-     * Add one int list to the end of list
-     *
-     * Allows `+=` syntax
-     *
-     * ```kotlin
-     * intList += intList2
-     * ```
-     */
-    operator fun plusAssign(intList: IntList)
-    {
-        this.expandIfNeed(intList.size)
-        System.arraycopy(intList.list, 0, this.list, this.size, intList.size)
-        this.size += intList.size
     }
 
     /**

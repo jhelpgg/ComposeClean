@@ -59,4 +59,12 @@ class Queue<E : Any>
 
         return element
     }
+
+    /**
+     * Look the element in the head of the queue without remove it
+     *
+     * @throws IllegalStateException If queue is empty
+     */
+    @Throws(IllegalStateException::class)
+    fun peek(): E = this.head?.element ?: throw IllegalStateException("The queue is empty")
 }

@@ -24,7 +24,7 @@ internal class RecyclerAdapter<T : Any>(private val drawItem: @Composable (T) ->
     private val mainScope = MainScope()
     private var filter: (T) -> Boolean = { true }
     private val completeList = ArrayList<T>()
-    private val visibleIndices = IntList()
+    private var visibleIndices = IntList()
     private var attached = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerItemHolder<T> =
