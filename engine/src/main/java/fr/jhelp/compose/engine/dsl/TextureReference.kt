@@ -1,7 +1,7 @@
 package fr.jhelp.compose.engine.dsl
 
-import fr.jhelp.compose.engine.dsl.texture.TextureSource
-import fr.jhelp.compose.engine.dsl.texture.TextureSourceDefault
+import fr.jhelp.compose.engine.resources.texture.TextureSource
+import fr.jhelp.compose.engine.resources.texture.TextureSourceDefault
 
 /**
  * Reference of texture

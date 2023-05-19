@@ -1,4 +1,4 @@
-package fr.jhelp.compose.engine.dsl.texture
+package fr.jhelp.compose.engine.resources.texture
 
 import fr.jhelp.compose.engine.scene.Texture
 

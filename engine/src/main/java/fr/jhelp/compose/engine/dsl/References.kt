@@ -11,11 +11,9 @@ import fr.jhelp.compose.engine.dsl.animation.effect.ParticleEffectReferencesCrea
 import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeCreator
 import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeReference
 import fr.jhelp.compose.engine.dsl.animation.effect.ParticleNodeReferenceCreator
-import fr.jhelp.compose.engine.dsl.texture.TextureSourceAsset
-import fr.jhelp.compose.engine.dsl.texture.TextureSourceCreated
-import fr.jhelp.compose.engine.dsl.texture.TextureSourceDrawable
-import fr.jhelp.compose.engine.scene.geometry.dice.DiceInfo
-import kotlinx.coroutines.flow.StateFlow
+import fr.jhelp.compose.engine.resources.texture.TextureSourceAsset
+import fr.jhelp.compose.engine.resources.texture.TextureSourceCreated
+import fr.jhelp.compose.engine.resources.texture.TextureSourceDrawable
 
 internal val junkReference = NodeReference()
 
