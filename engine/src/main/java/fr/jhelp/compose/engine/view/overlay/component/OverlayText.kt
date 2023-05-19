@@ -2,7 +2,6 @@ package fr.jhelp.compose.engine.view.overlay.component
 
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.util.Log
 import fr.jhelp.compose.engine.view.overlay.font.Alphabet
 import fr.jhelp.compose.engine.view.overlay.font.DEFAULT_ALPHABET
 import fr.jhelp.compose.images.Point
@@ -61,29 +60,41 @@ class OverlayText(text: String = "", alphabet: Alphabet = DEFAULT_ALPHABET, fact
         val maxX = this.width - this.margin.right
         var y = this.margin.top.toFloat()
         val maxY = this.height - this.margin.bottom
-        val iterator = this.alphabet.convert(this.text, this.factor)
 
-        while (iterator.hasNext())
+        for (line in this.text.split('\n'))
         {
-            val character = iterator.next()
-            character.draw(x, y, canvas, paint)
-            x += iterator.characterWidth
+            val iterator = this.alphabet.convert(line, this.factor)
 
-            if (character.endOfWorld && x + character.widthWorld >= maxX)
+            while (iterator.hasNext())
             {
-                x = this.margin.left.toFloat()
-                y += iterator.characterHeight
+                val character = iterator.next()
+                character.draw(x, y, canvas, paint)
+                x += iterator.characterWidth
 
-                if (y >= maxY)
+                if (character.endOfWorld && x + character.widthWorld >= maxX)
                 {
-                    return
-                }
+                    x = this.margin.left.toFloat()
+                    y += iterator.characterHeight
 
-                // Ignore space since we return line
-                if (iterator.hasNext())
-                {
-                    iterator.next()
+                    if (y >= maxY)
+                    {
+                        return
+                    }
+
+                    // Ignore space since we return line
+                    if (iterator.hasNext())
+                    {
+                        iterator.next()
+                    }
                 }
+            }
+
+            x = this.margin.left.toFloat()
+            y += iterator.characterHeight
+
+            if (y >= maxY)
+            {
+                return
             }
         }
     }

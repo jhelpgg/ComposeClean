@@ -1,6 +1,5 @@
 package fr.jhelp.composeclean.game
 
-import android.util.Log
 import fr.jhelp.compose.engine.scene.Scene3D
 import fr.jhelp.compose.engine.scene.geometry.Sphere
 import fr.jhelp.compose.engine.view.overlay.OverlayScreen
@@ -21,9 +20,10 @@ class GameScreenUI(scene3D: Scene3D) : GameScreen(scene3D)
     override fun attached()
     {
         val tableLayout = OverlayTableLayout()
-        tableLayout.add(OverlayText("Hello to every body !", factor = 6), OverlayTableLayoutConstraint(0, 0, 30))
-        tableLayout.add(OverlayText("World !", factor = 6), OverlayTableLayoutConstraint(0, 1,10))
-        tableLayout.add(OverlayText("Side", factor = 6), OverlayTableLayoutConstraint(10, 1,10))
+        tableLayout.add(OverlayText("Hello to every body !\nNew line a little long for it return in this test. Hope it is long enough.\nOther new line.",
+                                    factor = 6), OverlayTableLayoutConstraint(0, 0, 2, 2))
+        tableLayout.add(OverlayText("World !", factor = 6), OverlayTableLayoutConstraint(0, 2, 1))
+        tableLayout.add(OverlayText("Side", factor = 6), OverlayTableLayoutConstraint(1, 2, 1))
         this.overlayScreen.mainComponent = tableLayout
         this.scene.root.position.z = -3f
         this.scene.root.add(this.sphere)
