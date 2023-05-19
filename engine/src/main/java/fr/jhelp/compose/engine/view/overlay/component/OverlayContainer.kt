@@ -3,7 +3,6 @@ package fr.jhelp.compose.engine.view.overlay.component
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import android.util.Log
 import fr.jhelp.compose.images.Point
 
 /**
@@ -12,12 +11,14 @@ import fr.jhelp.compose.images.Point
 abstract class OverlayContainer<CONSTRAINT : OverlayConstraint> : OverlayComponent()
 {
     private val components = ArrayList<Pair<OverlayComponent, CONSTRAINT>>()
+    private val refreshListener: () -> Unit = { this.refresh() }
 
     /**
      * Add component to layout
      */
     fun add(component: OverlayComponent, constraint: CONSTRAINT)
     {
+        component.refresh = this.refreshListener
         this.components.add(Pair<OverlayComponent, CONSTRAINT>(component, constraint))
         this.layout()
     }

@@ -281,6 +281,13 @@ fun Bitmap.copy(bitmap: Bitmap)
 }
 
 /**
+ * Create a copy of the bitmap
+ */
+fun Bitmap.copy(): Bitmap =
+    this.copy(Bitmap.Config.ARGB_8888, true)
+
+
+/**
  * Make the bitmap mutable.
  *
  * If the bitmap already mutable, it is return.

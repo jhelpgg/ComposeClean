@@ -3,6 +3,7 @@ package fr.jhelp.compose.engine.view.overlay.component
 import android.graphics.Canvas
 import android.graphics.Paint
 import fr.jhelp.compose.images.Point
+import fr.jhelp.tasks.extensions.parallel
 
 /**
  * Generic overlay UI component
@@ -101,6 +102,6 @@ abstract class OverlayComponent
      */
     open fun doClick(x: Float, y: Float)
     {
-        this.click(this, x, y)
+        { this.click(this, x, y) }.parallel()
     }
 }

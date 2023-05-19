@@ -11,18 +11,21 @@ import kotlin.math.min
 /**
  * Overly component fro draw an image
  */
-class OverlayImage(imageSource: ImageSource = ImageSourceDefault,
+class OverlayImage(imageSource: ImageSource<*> = ImageSourceDefault,
                    horizontalAlignment: HorizontalAlignment = HorizontalAlignment.CENTER,
                    verticalAlignment: VerticalAlignment = VerticalAlignment.CENTER,
                    imageAdjustment: ImageAdjustment = ImageAdjustment.FIT)
     : OverlayComponent()
 {
     /** Image source to draw */
-    var imageSource: ImageSource = imageSource
+    var imageSource: ImageSource<*> = imageSource
         set(value)
         {
-            field = value
-            this.refresh()
+            if (field != value)
+            {
+                field = value
+                this.refresh()
+            }
         }
 
     /** Image horizontal alignment */

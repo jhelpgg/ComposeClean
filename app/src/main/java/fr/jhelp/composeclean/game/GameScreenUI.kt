@@ -1,13 +1,12 @@
 package fr.jhelp.composeclean.game
 
+import android.util.Log
 import fr.jhelp.compose.engine.resources.image.ImageSourceDrawable
 import fr.jhelp.compose.engine.scene.Scene3D
 import fr.jhelp.compose.engine.scene.geometry.Sphere
 import fr.jhelp.compose.engine.view.overlay.OverlayScreen
 import fr.jhelp.compose.engine.view.overlay.OverlayScreenUI
-import fr.jhelp.compose.engine.view.overlay.component.ImageAdjustment
-import fr.jhelp.compose.engine.view.overlay.component.OverlayImage
-import fr.jhelp.compose.engine.view.overlay.component.OverlayText
+import fr.jhelp.compose.engine.view.overlay.component.OverlayButtonImage
 import fr.jhelp.compose.engine.view.overlay.component.layout.OverlayTableLayout
 import fr.jhelp.compose.engine.view.overlay.component.layout.OverlayTableLayoutConstraint
 import fr.jhelp.composeclean.R
@@ -24,12 +23,21 @@ class GameScreenUI(scene3D: Scene3D) : GameScreen(scene3D)
     override fun attached()
     {
         val tableLayout = OverlayTableLayout()
-        tableLayout.add(OverlayText("Hello to every body !\nNew line a little long for it return in this test. Hope it is long enough.\nOther new line.",
-                                    factor = 6), OverlayTableLayoutConstraint(0, 0, 2, 2))
-        tableLayout.add(OverlayText("World !", factor = 6), OverlayTableLayoutConstraint(0, 2, 1))
-        tableLayout.add(OverlayImage(ImageSourceDrawable(R.drawable.default_screen),
-                                    imageAdjustment = ImageAdjustment.FIT_PROPORTION),
-                        OverlayTableLayoutConstraint(1, 2, 1))
+
+        val buttonNormal = OverlayButtonImage(ImageSourceDrawable(R.drawable.default_screen))
+        buttonNormal.click = { _, _, _ -> Log.d("REMOVE_ME", "Normal button") }
+
+        val buttonToggle = OverlayButtonImage(ImageSourceDrawable(R.drawable.floor),
+                                              toggleBehavior = true)
+        buttonToggle.selectListener = { selected ->
+            Log.d("REMOVE_ME", "Toggle button : selected = $selected")
+            buttonNormal.enabled = !selected
+        }
+
+        tableLayout.add(buttonNormal,
+                        OverlayTableLayoutConstraint(0, 0))
+        tableLayout.add(buttonToggle,
+                        OverlayTableLayoutConstraint(1, 0))
         this.overlayScreen.mainComponent = tableLayout
         this.scene.root.position.z = -3f
         this.scene.root.add(this.sphere)

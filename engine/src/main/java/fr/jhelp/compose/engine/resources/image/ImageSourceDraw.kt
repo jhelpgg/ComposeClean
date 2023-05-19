@@ -9,11 +9,16 @@ import kotlin.math.max
  * Image obtain by a draw on it
  */
 class ImageSourceDraw(width: Int, height: Int, private val draw: (Bitmap, Canvas, Paint) -> Unit) :
-        ImageSource()
+        ImageSource<ImageSourceDraw>()
 {
     private val width: Int = max(1, width)
     private val height: Int = max(1, height)
 
     override fun createBitmap(): Bitmap =
         fr.jhelp.compose.images.createBitmap(this.width, this.height, this.draw)
+
+    override fun hash(): Int = System.identityHashCode(this)
+
+    override fun equalsSource(source: ImageSourceDraw): Boolean =
+        this === source
 }
