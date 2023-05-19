@@ -145,6 +145,7 @@ class OverlayButtonImage(imageUp: ImageSource<*> = ImageSourceDefault,
         }
 
     private var down: Boolean = false
+    internal var insideGroup = false
 
     override fun draw(canvas: Canvas, paint: Paint)
     {
@@ -236,6 +237,10 @@ class OverlayButtonImage(imageUp: ImageSource<*> = ImageSourceDefault,
 
         if (this.toggleBehavior)
         {
+            if(this.insideGroup && this.selected) {
+                return
+            }
+
             this.selected = !this.selected
             this.selectListener.parallel(this.selected)
             return
