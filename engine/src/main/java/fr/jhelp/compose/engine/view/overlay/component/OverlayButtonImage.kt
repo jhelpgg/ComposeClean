@@ -237,7 +237,8 @@ class OverlayButtonImage(imageUp: ImageSource<*> = ImageSourceDefault,
 
         if (this.toggleBehavior)
         {
-            if(this.insideGroup && this.selected) {
+            if (this.insideGroup && this.selected)
+            {
                 return
             }
 

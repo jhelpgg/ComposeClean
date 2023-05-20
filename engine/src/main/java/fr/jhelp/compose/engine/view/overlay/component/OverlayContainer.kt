@@ -117,7 +117,7 @@ abstract class OverlayContainer<CONSTRAINT : OverlayConstraint> : OverlayCompone
                 val xx = x - component.x
                 val yy = y - component.y
 
-                if (xx >= 0f && xx < component.width && yy >= 0f && y < component.height)
+                if (xx >= 0f && xx < component.width && yy >= 0f && yy < component.height)
                 {
                     return Pair<OverlayComponent, PointF>(component, PointF(xx, yy))
                 }
