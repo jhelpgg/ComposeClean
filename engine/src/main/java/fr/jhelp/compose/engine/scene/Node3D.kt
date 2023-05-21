@@ -70,11 +70,39 @@ open class Node3D : Iterable<Node3D>
     }
 
     /**
+     * Search node by name. If two or more nodes have the requested name, it gives the first found
+     */
+    fun firstChildByName(name: String): Node3D?
+    {
+        val stack = Stack<Node3D>()
+        stack.push(this)
+        var current: Node3D
+
+        while (stack.isNotEmpty())
+        {
+            current = stack.pop()
+
+            if (current.name == name)
+            {
+                return current
+            }
+
+            for (child in current)
+            {
+                stack.push(child)
+            }
+        }
+
+        return null
+    }
+
+    /**
      * Copy the node
      */
     fun copy(): Node3D
     {
         val copy = this.internalCopy()
+        copy.name = this.name
         copy.position = this.position.copy()
 
         for (child in this.children)

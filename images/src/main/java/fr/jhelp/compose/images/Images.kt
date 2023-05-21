@@ -443,6 +443,26 @@ fun Bitmap.darker(darkerFactor: Int)
 }
 
 /**
+ * Make the image lighter
+ */
+fun Bitmap.lighter(lighterFactor: Int)
+{
+    val factor = lighterFactor.bounds(0, 255)
+
+    this.pixelsOperation { pixels ->
+        var color: Int
+
+        pixels.indices.forEach {
+            color = pixels[it]
+            pixels[it] = color and ALPHA_MASK or
+                    (limitPart(color.red + factor) shl 16) or
+                    (limitPart(color.green + factor) shl 8) or
+                    limitPart(color.blue + factor)
+        }
+    }
+}
+
+/**
  * Invert bitmap colors
  */
 fun Bitmap.invertColors()

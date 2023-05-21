@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
  */
 class GameManager(private val scene: Scene3D)
 {
-    private val gameScreenMove = GameScreenUI(this.scene)
+    private val gameScreenMove = GameScreenMove(this.scene)
     private var currentScreen: GameScreen = this.gameScreenMove
     private val overlayScreenMutable = MutableStateFlow<OverlayScreen>(this.currentScreen.overlay)
 
