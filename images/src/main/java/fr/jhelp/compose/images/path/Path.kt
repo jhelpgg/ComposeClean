@@ -13,6 +13,7 @@ import fr.jhelp.compose.math.distance
 import fr.jhelp.compose.math.extensions.bounds
 import fr.jhelp.compose.math.extensions.nul
 import fr.jhelp.compose.math.extensions.same
+import java.util.Objects
 import kotlin.math.max
 
 /**
@@ -24,7 +25,7 @@ import kotlin.math.max
  */
 class Path
 {
-    private val path = ArrayList<PathElement>()
+    private val path = ArrayList<PathElement<*>>()
     private var startX = 0f
     private var startY = 0f
     private var x = 0f
@@ -238,11 +239,13 @@ class Path
                 {
                     segmentOrPointInfo.add(PointInfo(element.startX, element.startY))
                 }
+
                 is CloseElement  ->
                 {
                     segmentOrPointInfo.add(CloseInfo)
                     ignoreNext = element.ignoreNext
                 }
+
                 else             ->
                 {
                     lines.clear()
@@ -273,11 +276,13 @@ class Path
                     open = false
                     androidPath.close()
                 }
+
                 is PointInfo   ->
                 {
                     open = true
                     androidPath.moveTo(segmentPointClose.x, segmentPointClose.y)
                 }
+
                 is SegmentInfo ->
                 {
                     segment = segmentPointClose.segment
@@ -320,13 +325,16 @@ class Path
                     androidPath.close()
                     ignoreNext = element.ignoreNext
                 }
+
                 is MoveToElement      -> androidPath.moveTo(element.startX, element.startY)
                 is LineElement        -> androidPath.lineTo(element.endX, element.endY)
                 is QuadraticElement   -> androidPath.quadTo(element.controlX, element.controlY,
                                                             element.endX, element.endY)
+
                 is CubicElement       -> androidPath.cubicTo(element.control1X, element.control1Y,
                                                              element.control2X, element.control2Y,
                                                              element.endX, element.endY)
+
                 is EllipticArcElement ->
                 {
                     val segments = ArrayList<Segment>()
@@ -342,4 +350,34 @@ class Path
 
         return androidPath
     }
+
+    override fun equals(other: Any?): Boolean
+    {
+        if (this === other)
+        {
+            return true
+        }
+
+        if (other == null || other !is Path)
+        {
+            return false
+        }
+
+        if (this.path.size != other.path.size)
+        {
+            return false
+        }
+
+        for ((index, pathElement) in this.path.withIndex())
+        {
+            if (pathElement != other.path[index])
+            {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    override fun hashCode(): Int= this.path.hashCode()
 }

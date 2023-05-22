@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.DrawableRes
 import fr.jhelp.compose.engine.annotations.TextureSize
+import fr.jhelp.compose.engine.resources.image.ImageSource
 import fr.jhelp.compose.engine.scene.Texture
 import fr.jhelp.compose.math.log2
 import java.io.InputStream
@@ -115,3 +116,26 @@ fun Texture?.draw(draw: (Bitmap, Canvas, Paint) -> Unit): Texture?
 
     return this
 }
+
+/**
+ * Create texture from image source
+ */
+fun texture(imageSource: ImageSource<*>, sealed: Boolean = true): Texture
+{
+    val bitmap = imageSource.image
+    val width = bitmap.width
+    val height = bitmap.height
+    val goodWidth = 1 shl min(9, log2(width))
+    val goodHeight = 1 shl min(9, log2(height))
+
+    return if (width != goodWidth || height != goodHeight)
+    {
+        val resized = Bitmap.createScaledBitmap(bitmap, goodWidth, goodHeight, false)
+        Texture(resized, sealed)
+    }
+    else
+    {
+        Texture(bitmap, sealed)
+    }
+}
+

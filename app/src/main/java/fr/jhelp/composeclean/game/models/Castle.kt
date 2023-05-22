@@ -7,7 +7,9 @@ import fr.jhelp.compose.animations.interpolation.DecelerationInterpolation
 import fr.jhelp.compose.engine.animation.keyFrame.AnimationNode3D
 import fr.jhelp.compose.engine.extensions.position
 import fr.jhelp.compose.engine.resources.ResourcesAccess
-import fr.jhelp.compose.engine.resources.draw
+import fr.jhelp.compose.engine.resources.image.ImageSource
+import fr.jhelp.compose.engine.resources.image.ImageSourceAsset
+import fr.jhelp.compose.engine.resources.image.ImageSourceCutWithPath
 import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.engine.scene.Material
 import fr.jhelp.compose.engine.scene.Node3D
@@ -18,7 +20,6 @@ import fr.jhelp.compose.engine.scene.WHITE
 import fr.jhelp.compose.engine.scene.geometry.ObjectPath
 import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Revolution
-import fr.jhelp.compose.images.fitRectangle
 import fr.jhelp.compose.images.lighter
 import fr.jhelp.compose.images.path.Path
 import fr.jhelp.compose.math.AngleFloat
@@ -37,10 +38,9 @@ import kotlinx.coroutines.flow.asStateFlow
  */
 object Castle : Model3D()
 {
-    private val wallTexture: Texture by lazy {
-        ResourcesAccess.obtainTexture("game/images/textures/WallColorfulD.jpg",
-                                      false)
-    }
+    private val wallImageSource: ImageSource<*> =
+        ImageSourceAsset("game/images/textures/WallColorfulD.jpg")
+    private val wallTexture: Texture by lazy { texture(this.wallImageSource) }
     private val bridgeTexture: Texture by lazy {
         val texture = ResourcesAccess.obtainTexture("game/images/textures/Wood_Planks.png",
                                                     false)
@@ -165,28 +165,7 @@ object Castle : Model3D()
         }
         node.add(objectPath)
 
-        val texture = texture(512, 512)
-        texture.draw { _, canvas, _ ->
-            val androidPath = android.graphics.Path()
-            val segments = mainPath.path(5, 0f, 1f)
-
-            androidPath.moveTo(256f + segments[0].startX * 256f,
-                               256f - segments[0].startY * 256f)
-
-            for (segment in segments)
-            {
-                androidPath.lineTo(256f + segment.endX * 256f,
-                                   256f - segment.endY * 256f)
-            }
-
-            androidPath.close()
-
-            canvas.clipPath(androidPath)
-            this.wallTexture.bitmap()?.let { bitmap ->
-                canvas.fitRectangle(bitmap, 0, 0, 512, 512)
-            }
-        }
-
+        val texture = texture(ImageSourceCutWithPath(this.wallImageSource, mainPath))
         val materialFace = Material()
         materialFace.diffuse = WHITE
         materialFace.texture = texture
@@ -195,7 +174,8 @@ object Castle : Model3D()
         faceBack.applyMaterialHierarchically(materialFace)
         faceBack.position {
             this.scaleX = 2f
-            this.scaleY = 2f
+            this.scaleY = 1.8f
+            this.y = -0.1f
             this.z = 0.9f
         }
         node.add(faceBack)
@@ -203,12 +183,11 @@ object Castle : Model3D()
         val faceFace = faceBack.copy()
         faceFace.position {
             this.scaleX = 2f
-            this.scaleY = 2f
+            this.scaleY = 1.8f
+            this.y = -0.1f
             this.z = 1.1f
         }
         node.add(faceFace)
-
-        this.wallTexture.seal()
 
         // Bridge
         this.bridge = this.createBridge()
@@ -268,7 +247,7 @@ object Castle : Model3D()
                              Position3D(y = -1f,
                                         z = 1f,
                                         angleX = 90f),
-                            AccelerationInterpolation(2f))
+                             AccelerationInterpolation(2f))
         animation.add(animationBridge)
         animation.add(animationTask(TaskType.SHORT_TASK) {
             this.bridgeStateMutable.value = CastleBridgeState.OPENED
@@ -313,7 +292,7 @@ object Castle : Model3D()
                              Position3D(y = -1f,
                                         z = 1.11f,
                                         angleX = 0f),
-                            DecelerationInterpolation(2f))
+                             DecelerationInterpolation(2f))
         animation.add(animationBridge)
         animation.add(animationTask(TaskType.SHORT_TASK) {
             this.bridgeStateMutable.value = CastleBridgeState.CLOSED
@@ -474,7 +453,8 @@ object Castle : Model3D()
         val plank = this.plane.copy()
         plank.applyMaterialHierarchically(this.bridgeMaterial)
         plank.position {
-            this.y = 0.5f
+            this.y = 0.55f
+            this.scaleY = 1.1f
             this.scaleX = 0.8f
         }
         bridge.add(plank)
