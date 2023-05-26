@@ -14,7 +14,7 @@ fun <R : Any> (() -> R).parallel(taskType: TaskType = TaskType.SHORT_TASK): Futu
 /**
  * Launch the function/lambda in parallel thread
  *
- *@param parameter Parmeter give at action when its effectively executed
+ *@param parameter Parameter give at action when its effectively executed
  * @return Future to be able to react on completion (success, failure or cancel)
  */
 fun <P : Any, R : Any> ((P) -> R).parallel(parameter: P,

@@ -14,4 +14,6 @@ Set of tools and utilities for simplify thread manipulation
       * [Simplify FutureResult<FutureResult<R>>](tasks/future/FutureResult.md#simplify-futureresultfutureresultr)
       * [Wait that several future complete before react](tasks/future/FutureResult.md#wait-that-several-future-complete-before-react)
       * [Short cut when response already known](tasks/future/FutureResult.md#short-cut-when-response-already-known)
+* [Flow extensions](tasks/extensions/FlowExtensions.md) Some coroutines' flow extensions.
+
 
