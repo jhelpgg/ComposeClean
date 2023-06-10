@@ -1,16 +1,25 @@
 package fr.jhelp.composeclean.ui.composables
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.ColorPainter
 import fr.jhelp.compose.provider.provided
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
+import fr.jhelp.composeclean.models.shared.dialogs.DialogMessage
+import fr.jhelp.composeclean.models.shared.dialogs.NoDialog
 import fr.jhelp.composeclean.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.composeclean.ui.composables.eyeChooser.EyeChooserComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.maskChooser.MaskChooserComposable
 import fr.jhelp.composeclean.ui.composables.mouthChooser.MouthChooserComposable
+import fr.jhelp.composeclean.ui.extensions.dialog
 
 /**
  * Main activity that show the current screen
@@ -59,6 +68,10 @@ class MainActivityComposable
     private val engineGUI: EngineGUIComposable by lazy { EngineGUIComposable() }
     private val engineVirtualJoystick: EngineVirtualJoystickComposable by lazy { EngineVirtualJoystickComposable() }
     private val game: GameComposable by lazy { GameComposable() }
+
+    // Dialogs
+
+    private val dialogMessage: DialogMessageComposable by lazy { DialogMessageComposable() }
 
     /**
      * Show the main activity
@@ -112,6 +125,28 @@ class MainActivityComposable
             Screens.VIRTUAL_JOYSTICK            -> this.engineVirtualJoystick.Show()
             Screens.MINI_RPG                    -> this.game.Show()
             else                                -> Text(text = "Not implemented screen : $screen")
+        }
+
+        val dialog = this.navigationModel.dialog.value
+
+        if (dialog == NoDialog)
+        {
+            return
+        }
+
+
+        Image(painter = ColorPainter(Color(64, 64, 64, 192)),
+              contentDescription = "",
+              modifier = Modifier
+                  .fillMaxSize()
+                  .clickable(enabled = dialog.closeWhenClickOutside) { this.navigationModel.closeDialog() })
+
+        when (dialog)
+        {
+            is DialogMessage -> this.dialogMessage.Show(dialogMessage = dialog,
+                                                        modifier = Modifier.dialog(align = dialog.alignment))
+
+            else             -> Unit
         }
     }
 }

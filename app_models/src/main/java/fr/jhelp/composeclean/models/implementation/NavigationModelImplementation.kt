@@ -7,13 +7,24 @@ import fr.jhelp.compose.sound.SoundManager
 import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
+import fr.jhelp.composeclean.models.shared.dialogs.DialogMessage
+import fr.jhelp.composeclean.models.shared.dialogs.DialogMessageOptionButton
+import fr.jhelp.composeclean.models.shared.dialogs.DialogMessageOptions
+import fr.jhelp.composeclean.models.shared.dialogs.DialogModel
+import fr.jhelp.composeclean.models.shared.dialogs.NoDialog
+import fr.jhelp.composeclean.models.source.text.TextResource
+import fr.jhelp.composeclean.models.source.text.TextSource
+import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.tasks.future.Promise
 
 internal class NavigationModelImplementation : NavigationModel
 {
     private val screenMutable = mutableStateOf<Screens>(Screens.MAIN_PRESENTATION)
+    private val dialogMutable = mutableStateOf<DialogModel>(NoDialog)
     private val engineInterpolationModel: EngineInterpolationModel by provided<EngineInterpolationModel>()
     private var previousScreen = Screens.MAIN_PRESENTATION
     override val screen: State<Screens> = this.screenMutable
+    override val dialog: State<DialogModel> = this.dialogMutable
 
     override fun back(): Boolean
     {
@@ -92,5 +103,26 @@ internal class NavigationModelImplementation : NavigationModel
         {
             SoundManager.resume()
         }
+    }
+
+    override fun closeDialog()
+    {
+        this.dialogMutable.value = NoDialog
+    }
+
+    override fun dialogOption(title: TextSource,
+                              message: TextSource,
+                              options: DialogMessageOptions): FutureResult<DialogMessageOptionButton>
+    {
+        val promise = Promise<DialogMessageOptionButton>()
+        promise.onCancel { this.closeDialog() }
+        val messageButtons =
+            Array<TextSource>(options.options.size) { index -> TextResource(options.options[index].string) }
+        this.dialogMutable.value =
+            DialogMessage(title, message, messageButtons, horizontalButtons = true) { index ->
+                this.closeDialog()
+                promise.result(options.options[index])
+            }
+        return promise.future
     }
 }

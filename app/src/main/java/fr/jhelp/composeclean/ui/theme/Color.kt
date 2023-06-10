@@ -19,3 +19,13 @@ val PurpleGrey40: Color = Color(0xFF625b71)
 
 /** Pink dark */
 val Pink40: Color = Color(0xFF7D5260)
+
+/**
+ *  Dialog background color
+ */
+val DIALOG_BACKGROUND: Color = Color.White
+
+/**
+ * Dialog text color
+ */
+val DIALOG_TEXT_COLOR : Color= Color.Black
