@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.models
 
-import fr.jhelp.compose.provider.provideSingle
+import fr.jhelp.android.library.provider.provideSingle
 import fr.jhelp.composeclean.models.implementation.ColorChooserModelImplementation
 import fr.jhelp.composeclean.models.implementation.ContactListModelImplementation
 import fr.jhelp.composeclean.models.implementation.EngineInterpolationModelImplementation

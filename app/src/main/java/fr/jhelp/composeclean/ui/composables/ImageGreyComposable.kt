@@ -12,7 +12,7 @@ import fr.jhelp.compose.constraint.extensions.endParent
 import fr.jhelp.compose.constraint.extensions.next
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.models.shared.ImageGreyModel
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 

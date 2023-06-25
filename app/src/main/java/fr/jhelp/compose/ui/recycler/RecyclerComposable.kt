@@ -7,9 +7,9 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import fr.jhelp.compose.provider.isProvided
-import fr.jhelp.compose.provider.provideSingle
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.isProvided
+import fr.jhelp.android.library.provider.provideSingle
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.adapter.RecyclerAdapter
 import kotlin.math.max
 

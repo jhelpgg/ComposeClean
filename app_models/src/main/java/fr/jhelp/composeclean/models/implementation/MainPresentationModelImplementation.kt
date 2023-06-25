@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.models.implementation
 
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.presentation.Presentation
 import fr.jhelp.composeclean.models.presentation.PresentationElement

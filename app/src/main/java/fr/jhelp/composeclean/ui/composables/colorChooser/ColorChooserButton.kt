@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.unit.dp
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.models.DEFAULT_COLOR
 import fr.jhelp.composeclean.models.shared.ColorChooserModel
 import fr.jhelp.composeclean.models.shared.NavigationModel

@@ -11,8 +11,8 @@ import androidx.annotation.RawRes
 import fr.jhelp.compose.engine.loaders.NodeLoader
 import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Texture
-import fr.jhelp.compose.provider.isProvided
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.isProvided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.parallel
 import fr.jhelp.android.library.tasks.future.FutureResult

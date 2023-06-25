@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.composeclean.models.shared.Screens
 import fr.jhelp.composeclean.models.shared.dialogs.DialogMessage

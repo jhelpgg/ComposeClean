@@ -1,4 +1,4 @@
-package fr.jhelp.compose.provider
+package fr.jhelp.android.library.provider
 
 import java.util.concurrent.atomic.AtomicBoolean
 

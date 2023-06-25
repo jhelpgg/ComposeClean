@@ -2,7 +2,7 @@ package fr.jhelp.composeclean.models.implementation
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.sound.SoundManager
 import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
 import fr.jhelp.composeclean.models.shared.NavigationModel

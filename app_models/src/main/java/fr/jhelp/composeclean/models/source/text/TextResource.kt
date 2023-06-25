@@ -2,7 +2,7 @@ package fr.jhelp.composeclean.models.source.text
 
 import android.content.Context
 import androidx.annotation.StringRes
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 
 /**
  * Text from String resource

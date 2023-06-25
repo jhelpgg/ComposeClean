@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.implementation
 
 import fr.jhelp.compose.engine.resources.Mouths
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.shared.MouthChooserModel
 import fr.jhelp.composeclean.models.shared.NavigationModel

@@ -19,7 +19,7 @@ import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.next
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.models.SortType

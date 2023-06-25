@@ -3,7 +3,7 @@ package fr.jhelp.composeclean.ui.activities
 import androidx.activity.addCallback
 import fr.jhelp.compose.engine.view.GameActivity
 import fr.jhelp.compose.engine.view.View3D
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.game.GameManager
 import fr.jhelp.composeclean.models.shared.NavigationModel
 import fr.jhelp.android.library.tasks.extensions.observedBy

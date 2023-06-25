@@ -1,4 +1,4 @@
-package fr.jhelp.compose.provider
+package fr.jhelp.android.library.provider
 
 /**
  * Provide/Change an instance producer for every code interested by an instance.

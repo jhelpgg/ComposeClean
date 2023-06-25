@@ -13,7 +13,7 @@ import android.media.AudioAttributes
 import android.media.SoundPool
 import android.util.SparseIntArray
 import androidx.annotation.RawRes
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.sound.SoundManager.background
 import fr.jhelp.android.library.sound.SoundManager.effect
 import fr.jhelp.android.library.sound.SoundManager.pause
@@ -38,7 +38,7 @@ import kotlinx.coroutines.launch
  * Its recommended to call [stopSounds] when no sounds are need, so in [android.app.Activity.onDestroy]
  * is a good place
  *
- * It supposes that the application context is provided by [fr.jhelp.compose.provider.provideSingle] or [fr.jhelp.compose.provider.provideMultiple] before call [sound], [background] or [effect]
+ * It supposes that the application context is provided by [fr.jhelp.android.library.provider.provideSingle] or [fr.jhelp.android.library.provider.provideMultiple] before call [sound], [background] or [effect]
  */
 object SoundManager
 {
@@ -64,7 +64,7 @@ object SoundManager
      *
      * If a background sound playing, it stops and the given one starts
      *
-     * It supposes that the application context is provided by [fr.jhelp.compose.provider.provideSingle] or [fr.jhelp.compose.provider.provideMultiple] before call it
+     * It supposes that the application context is provided by [fr.jhelp.android.library.provider.provideSingle] or [fr.jhelp.android.library.provider.provideMultiple] before call it
      */
     fun background(@RawRes soundResource: Int)
     {
@@ -76,7 +76,7 @@ object SoundManager
      *
      * If an effect sound playing, it stops and the given one starts
      *
-     * It supposes that the application context is provided by [fr.jhelp.compose.provider.provideSingle] or [fr.jhelp.compose.provider.provideMultiple] before call it
+     * It supposes that the application context is provided by [fr.jhelp.android.library.provider.provideSingle] or [fr.jhelp.android.library.provider.provideMultiple] before call it
      */
     fun effect(@RawRes soundResource: Int)
     {
@@ -88,7 +88,7 @@ object SoundManager
      *
      * If a volume control sound playing, it stops and the given one starts
      *
-     * It supposes that the application context is provided by [fr.jhelp.compose.provider.provideSingle] or [fr.jhelp.compose.provider.provideMultiple] before call it
+     * It supposes that the application context is provided by [fr.jhelp.android.library.provider.provideSingle] or [fr.jhelp.android.library.provider.provideMultiple] before call it
      */
     fun sound(sound: Sound)
     {
@@ -181,7 +181,7 @@ object SoundManager
     }
 
     /**
-     * It supposes that the application context is provided by [fr.jhelp.compose.provider.provideSingle] or [fr.jhelp.compose.provider.provideMultiple] before call it
+     * It supposes that the application context is provided by [fr.jhelp.android.library.provider.provideSingle] or [fr.jhelp.android.library.provider.provideMultiple] before call it
      */
     private fun play(@RawRes soundResource: Int, background: Boolean)
     {

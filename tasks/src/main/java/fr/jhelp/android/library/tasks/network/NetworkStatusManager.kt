@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.annotation.RequiresPermission
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**

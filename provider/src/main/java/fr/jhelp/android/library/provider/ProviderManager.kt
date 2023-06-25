@@ -1,4 +1,4 @@
-package fr.jhelp.compose.provider
+package fr.jhelp.android.library.provider
 
 import kotlin.reflect.KClass
 
@@ -13,18 +13,18 @@ object ProviderManager
      * Register a provided instance
      */
     @Synchronized
-    fun <T : Any> provide(producer: () -> T, kclass: KClass<T>, qualifier: String, single: Boolean)
+    fun <T : Any> provide(producer: () -> T, kClass: KClass<T>, qualifier: String, single: Boolean)
     {
-        this.providedProducers["${kclass.qualifiedName}:$qualifier"] = Producer(single, producer)
+        this.providedProducers["${kClass.qualifiedName}:$qualifier"] = Producer(single, producer)
     }
 
     /**
      * Forget a previous provided instance
      */
     @Synchronized
-    fun <T : Any> forget(kclass: KClass<T>, qualifier: String)
+    fun <T : Any> forget(kClass: KClass<T>, qualifier: String)
     {
-        this.providedProducers.remove("${kclass.qualifiedName}:$qualifier")
+        this.providedProducers.remove("${kClass.qualifiedName}:$qualifier")
     }
 
     @Synchronized

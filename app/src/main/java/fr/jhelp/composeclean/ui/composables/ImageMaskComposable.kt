@@ -13,7 +13,7 @@ import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.next
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.models.shared.ImageMaskModel
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 import fr.jhelp.composeclean.ui.composables.maskChooser.MaskChooserButton

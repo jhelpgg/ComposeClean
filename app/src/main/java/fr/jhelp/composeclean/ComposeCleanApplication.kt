@@ -3,7 +3,7 @@ package fr.jhelp.composeclean
 import android.app.Application
 import android.content.Context
 import androidx.annotation.MainThread
-import fr.jhelp.compose.provider.provideSingle
+import fr.jhelp.android.library.provider.provideSingle
 import fr.jhelp.composeclean.models.injectModels
 
 /**

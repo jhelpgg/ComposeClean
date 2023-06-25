@@ -3,7 +3,7 @@ package fr.jhelp.composeclean.ui.composables
 import android.content.Context
 import android.content.Intent
 import androidx.compose.runtime.Composable
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.ui.activities.MiniRPGActivity
 
 /**
