@@ -1,11 +1,11 @@
 package fr.jhelp.android.library.engine.animation.keyFrame
 
 import androidx.annotation.DrawableRes
-import fr.jhelp.compose.animations.Animation
-import fr.jhelp.compose.animations.bitmap.AnimationBitmap
-import fr.jhelp.compose.animations.bitmap.AnimationBitmapTransition
-import fr.jhelp.compose.animations.interpolation.Interpolation
-import fr.jhelp.compose.animations.interpolation.LinearInterpolation
+import fr.jhelp.android.library.animations.Animation
+import fr.jhelp.android.library.animations.bitmap.AnimationBitmap
+import fr.jhelp.android.library.animations.bitmap.AnimationBitmapTransition
+import fr.jhelp.android.library.animations.interpolation.Interpolation
+import fr.jhelp.android.library.animations.interpolation.LinearInterpolation
 import fr.jhelp.android.library.engine.resources.ResourcesAccess
 import fr.jhelp.android.library.engine.resources.texture
 import fr.jhelp.android.library.engine.scene.Texture

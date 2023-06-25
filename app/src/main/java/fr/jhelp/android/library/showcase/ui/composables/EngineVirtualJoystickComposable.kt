@@ -3,7 +3,7 @@ package fr.jhelp.android.library.showcase.ui.composables
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import fr.jhelp.compose.animations.AnimationFunction
+import fr.jhelp.android.library.animations.AnimationFunction
 import fr.jhelp.android.library.engine.resources.ResourcesAccess
 import fr.jhelp.android.library.engine.scene.Scene3D
 import fr.jhelp.android.library.engine.scene.WHITE

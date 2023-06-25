@@ -8,8 +8,8 @@ import fr.jhelp.android.library.engine.view.ViewBounds
 import fr.jhelp.android.library.math.Point3D
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.observedBy
-import fr.jhelp.compose.animations.Animation
-import fr.jhelp.compose.animations.AnimationFunction
+import fr.jhelp.android.library.animations.Animation
+import fr.jhelp.android.library.animations.AnimationFunction
 import fr.jhelp.android.library.collection.SortedArray
 import java.util.Stack
 import javax.microedition.khronos.opengles.GL10

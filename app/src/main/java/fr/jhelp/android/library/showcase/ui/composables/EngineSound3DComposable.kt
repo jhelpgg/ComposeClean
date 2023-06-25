@@ -3,11 +3,11 @@ package fr.jhelp.android.library.showcase.ui.composables
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import fr.jhelp.compose.animations.interpolation.AccelerationInterpolation
-import fr.jhelp.compose.animations.interpolation.AnticipateOvershootInterpolation
-import fr.jhelp.compose.animations.interpolation.DecelerationInterpolation
-import fr.jhelp.compose.animations.interpolation.HesitateInterpolation
-import fr.jhelp.compose.animations.interpolation.SinusInterpolation
+import fr.jhelp.android.library.animations.interpolation.AccelerationInterpolation
+import fr.jhelp.android.library.animations.interpolation.AnticipateOvershootInterpolation
+import fr.jhelp.android.library.animations.interpolation.DecelerationInterpolation
+import fr.jhelp.android.library.animations.interpolation.HesitateInterpolation
+import fr.jhelp.android.library.animations.interpolation.SinusInterpolation
 import fr.jhelp.android.library.engine.dsl.animationNode
 import fr.jhelp.android.library.engine.dsl.animationNodeReference
 import fr.jhelp.android.library.engine.dsl.material

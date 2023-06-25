@@ -5,8 +5,8 @@ import fr.jhelp.android.library.engine.scene.GREY
 import fr.jhelp.android.library.engine.scene.Position3D
 import fr.jhelp.android.library.engine.scene.Texture
 import fr.jhelp.android.library.math.random
-import fr.jhelp.compose.animations.interpolation.Interpolation
-import fr.jhelp.compose.animations.interpolation.LinearInterpolation
+import fr.jhelp.android.library.animations.interpolation.Interpolation
+import fr.jhelp.android.library.animations.interpolation.LinearInterpolation
 import kotlin.math.max
 
 /**

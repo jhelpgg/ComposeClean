@@ -1,7 +1,7 @@
 package fr.jhelp.android.library.engine.animation.effect
 
-import fr.jhelp.compose.animations.interpolation.Interpolation
-import fr.jhelp.compose.animations.interpolation.LinearInterpolation
+import fr.jhelp.android.library.animations.interpolation.Interpolation
+import fr.jhelp.android.library.animations.interpolation.LinearInterpolation
 import fr.jhelp.android.library.engine.annotations.OpenGLThread
 import fr.jhelp.android.library.engine.extensions.times
 import fr.jhelp.android.library.engine.scene.Clone3D

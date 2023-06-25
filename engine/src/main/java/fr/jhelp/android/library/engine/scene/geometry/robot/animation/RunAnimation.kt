@@ -1,7 +1,7 @@
 package fr.jhelp.android.library.engine.scene.geometry.robot.animation
 
-import fr.jhelp.compose.animations.Animation
-import fr.jhelp.compose.animations.interpolation.DecelerationInterpolation
+import fr.jhelp.android.library.animations.Animation
+import fr.jhelp.android.library.animations.interpolation.DecelerationInterpolation
 import fr.jhelp.android.library.engine.scene.geometry.robot.Robot
 import fr.jhelp.android.library.engine.scene.geometry.robot.RobotAnimation
 import fr.jhelp.android.library.engine.scene.geometry.robot.RobotPosition

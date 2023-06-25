@@ -1,6 +1,6 @@
 package fr.jhelp.android.library.engine.dsl.animation.player
 
-import fr.jhelp.compose.animations.Animation
+import fr.jhelp.android.library.animations.Animation
 import fr.jhelp.android.library.engine.scene.Scene3D
 
 /**

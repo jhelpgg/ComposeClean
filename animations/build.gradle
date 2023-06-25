@@ -4,11 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.animations'
+group = 'fr.jhelp.android.library.animations'
 version = '1.0.0'
 
 android {
-    namespace 'fr.jhelp.compose.animations'
+    namespace 'fr.jhelp.android.library.animations'
     compileSdk 34
 
     defaultConfig {
@@ -55,7 +55,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.animations'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'animations'
                 version = '1.0.0'
             }

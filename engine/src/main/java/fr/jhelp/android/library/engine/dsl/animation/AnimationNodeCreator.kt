@@ -1,7 +1,7 @@
 package fr.jhelp.android.library.engine.dsl.animation
 
-import fr.jhelp.compose.animations.interpolation.Interpolation
-import fr.jhelp.compose.animations.interpolation.LinearInterpolation
+import fr.jhelp.android.library.animations.interpolation.Interpolation
+import fr.jhelp.android.library.animations.interpolation.LinearInterpolation
 import fr.jhelp.android.library.collection.sortedArray
 import fr.jhelp.android.library.engine.animation.keyFrame.AnimationNode3D
 import fr.jhelp.android.library.engine.dsl.NodeReference

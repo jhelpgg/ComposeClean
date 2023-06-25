@@ -1,9 +1,9 @@
 package fr.jhelp.android.library.showcase.game.models
 
-import fr.jhelp.compose.animations.AnimationList
-import fr.jhelp.compose.animations.animationTask
-import fr.jhelp.compose.animations.interpolation.AccelerationInterpolation
-import fr.jhelp.compose.animations.interpolation.DecelerationInterpolation
+import fr.jhelp.android.library.animations.AnimationList
+import fr.jhelp.android.library.animations.animationTask
+import fr.jhelp.android.library.animations.interpolation.AccelerationInterpolation
+import fr.jhelp.android.library.animations.interpolation.DecelerationInterpolation
 import fr.jhelp.android.library.engine.animation.keyFrame.AnimationNode3D
 import fr.jhelp.android.library.engine.extensions.position
 import fr.jhelp.android.library.engine.resources.ResourcesAccess

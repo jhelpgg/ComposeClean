@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import fr.jhelp.compose.animations.interpolation.AccelerationInterpolation
-import fr.jhelp.compose.animations.interpolation.DecelerationInterpolation
+import fr.jhelp.android.library.animations.interpolation.AccelerationInterpolation
+import fr.jhelp.android.library.animations.interpolation.DecelerationInterpolation
 import fr.jhelp.android.library.constraint.extensions.bottomParent
 import fr.jhelp.android.library.constraint.extensions.endParent
 import fr.jhelp.android.library.constraint.extensions.near

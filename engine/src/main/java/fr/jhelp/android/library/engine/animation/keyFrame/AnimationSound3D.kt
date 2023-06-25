@@ -1,6 +1,6 @@
 package fr.jhelp.android.library.engine.animation.keyFrame
 
-import fr.jhelp.compose.animations.keyFrame.AnimationKeyFrame
+import fr.jhelp.android.library.animations.keyFrame.AnimationKeyFrame
 import fr.jhelp.android.library.engine.annotations.OpenGLThread
 import fr.jhelp.android.library.engine.scene.Sound3D
 import fr.jhelp.android.library.math.Point3D

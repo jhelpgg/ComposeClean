@@ -5,7 +5,7 @@ import fr.jhelp.android.library.math.formal.Constant
 import fr.jhelp.android.library.math.formal.MathFunction
 import fr.jhelp.android.library.math.formal.T
 import fr.jhelp.android.library.math.formal.Variable
-import fr.jhelp.compose.animations.Animation
+import fr.jhelp.android.library.animations.Animation
 import java.util.TreeSet
 import kotlin.math.max
 

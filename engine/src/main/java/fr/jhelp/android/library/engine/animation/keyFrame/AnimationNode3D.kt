@@ -1,6 +1,6 @@
 package fr.jhelp.android.library.engine.animation.keyFrame
 
-import fr.jhelp.compose.animations.keyFrame.AnimationKeyFrame
+import fr.jhelp.android.library.animations.keyFrame.AnimationKeyFrame
 import fr.jhelp.android.library.engine.annotations.OpenGLThread
 import fr.jhelp.android.library.engine.scene.Node3D
 import fr.jhelp.android.library.engine.scene.Position3D
@@ -9,7 +9,7 @@ import fr.jhelp.android.library.engine.scene.Position3D
  * Animation that move a 3D Node
  */
 class AnimationNode3D(node: Node3D, fps: Int = 25) :
-    AnimationKeyFrame<Node3D, Position3D>(node, fps)
+        AnimationKeyFrame<Node3D, Position3D>(node, fps)
 {
     @OpenGLThread
     override fun interpolateValue(animated: Node3D, before: Position3D, after: Position3D,

@@ -20,9 +20,9 @@ import fr.jhelp.android.library.engine.scene.geometry.CrossUV
 import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.android.library.math.random
 import fr.jhelp.android.library.tasks.TaskType
-import fr.jhelp.compose.animations.Animation
-import fr.jhelp.compose.animations.AnimationList
-import fr.jhelp.compose.animations.AnimationTask
+import fr.jhelp.android.library.animations.Animation
+import fr.jhelp.android.library.animations.AnimationList
+import fr.jhelp.android.library.animations.AnimationTask
 import kotlin.math.max
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

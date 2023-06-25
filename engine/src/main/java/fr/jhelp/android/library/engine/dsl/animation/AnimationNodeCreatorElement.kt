@@ -1,6 +1,6 @@
 package fr.jhelp.android.library.engine.dsl.animation
 
-import fr.jhelp.compose.animations.interpolation.Interpolation
+import fr.jhelp.android.library.animations.interpolation.Interpolation
 import fr.jhelp.android.library.engine.scene.Position3D
 
 internal class AnimationNodeCreatorElement(val timeMilliseconds: Int,

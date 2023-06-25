@@ -8,14 +8,14 @@
 
 package fr.jhelp.android.library.engine.scene.geometry.robot
 
-import fr.jhelp.compose.animations.keyFrame.AnimationKeyFrame
+import fr.jhelp.android.library.animations.keyFrame.AnimationKeyFrame
 
 
 /**
  * Animation for robot
  */
 class RobotAnimation(robot: Robot, fps: Int = 25) :
-    AnimationKeyFrame<Robot, RobotPosition>(robot, fps)
+        AnimationKeyFrame<Robot, RobotPosition>(robot, fps)
 {
     override fun interpolateValue(animated: Robot, before: RobotPosition, after: RobotPosition,
                                   percent: Float)

@@ -1,7 +1,7 @@
 package fr.jhelp.android.library.engine.dsl.animation.effect
 
-import fr.jhelp.compose.animations.interpolation.Interpolation
-import fr.jhelp.compose.animations.interpolation.LinearInterpolation
+import fr.jhelp.android.library.animations.interpolation.Interpolation
+import fr.jhelp.android.library.animations.interpolation.LinearInterpolation
 import fr.jhelp.android.library.engine.animation.effect.Particle
 import fr.jhelp.android.library.engine.animation.effect.ParticleNode
 import fr.jhelp.android.library.engine.dsl.TextureReference

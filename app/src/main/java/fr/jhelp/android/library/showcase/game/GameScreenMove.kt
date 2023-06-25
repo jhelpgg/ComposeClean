@@ -1,7 +1,7 @@
 package fr.jhelp.android.library.showcase.game
 
-import fr.jhelp.compose.animations.Animation
-import fr.jhelp.compose.animations.AnimationFunction
+import fr.jhelp.android.library.animations.Animation
+import fr.jhelp.android.library.animations.AnimationFunction
 import fr.jhelp.android.library.engine.scene.Scene3D
 import fr.jhelp.android.library.engine.view.joystick.VirtualJoystickDirection
 import fr.jhelp.android.library.engine.view.joystick.VirtualJoystickType
