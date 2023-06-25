@@ -2,10 +2,10 @@
 
 Set of additional collections and tools to manipulate them.
 
-[IntList](../src/main/java/fr/jhelp/compose/collection/IntList.kt)
+[IntList](../src/main/java/fr/jhelp/android/library/collection/IntList.kt)
 list of `Int`, more efficient in memory and rapidity than `ArrayList<Int>`
 
-[IterableExtensions](../src/main/java/fr/jhelp/compose/collection/extensions/IterableExtensions.kt)
+[IterableExtensions](../src/main/java/fr/jhelp/android/library/collection/extensions/IterableExtensions.kt)
 extensions for `Iterable`
 
 `select` : Creates iterable with elements filtered by a given criteria
@@ -35,7 +35,7 @@ for (firstName in list.transfrom { contact -> contact.firstName })
 }
 ```
 
-[IteratorExtensions](../src/main/java/fr/jhelp/compose/collection/extensions/IteratorExtensions.kt)
+[IteratorExtensions](../src/main/java/fr/jhelp/android/library/collection/extensions/IteratorExtensions.kt)
 extensions for `Iterable`
 
 `select` : Creates iterator with elements filtered by a given criteria

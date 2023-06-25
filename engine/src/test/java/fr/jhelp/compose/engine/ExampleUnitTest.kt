@@ -1,4 +1,4 @@
-package fr.jhelp.compose.engine
+package fr.jhelp.android.library.engine
 
 import org.junit.Test
 

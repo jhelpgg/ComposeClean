@@ -37,7 +37,7 @@ class ObjectInstance : ObjectInterface
         private val nextId = AtomicInteger(0)
     }
 
-    val id = ObjectInstance.nextId.getAndIncrement()
+    val id : Int = ObjectInstance.nextId.getAndIncrement()
 
     override fun method()
     {
@@ -58,7 +58,7 @@ class ObjectInstance2 : ObjectInterface
         private val nextId = AtomicInteger(0)
     }
 
-    val id = ObjectInstance2.nextId.getAndIncrement()
+    val id : Int = ObjectInstance2.nextId.getAndIncrement()
 
     override fun method()
     {
@@ -69,15 +69,15 @@ class ObjectInstance2 : ObjectInterface
 
 ## Provide an object instance
 
-To provide an object instance, just call `fr.jhelp.compose.provider.provideSingle` and when to use
-it `fr.jhelp.compose.provider.provided`
+To provide an object instance, just call `fr.jhelp.android.library.provider.provideSingle` and when to use
+it `fr.jhelp.android.library.provider.provided`
 
 By example :
 
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provideSingle
+import fr.jhelp.android.library.provider.provideSingle
 
 class Provider
 {
@@ -91,7 +91,7 @@ class Provider
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 
 class UsageObject
 {
@@ -115,7 +115,7 @@ before call `methodThatUseObjectProvided`
 of `UsageObject` the method `provideInstance` of `Provider` should be called before .
 
 Since we provide a single instance the message print by `methodThatUseObjectProvided` will be always
-the same and if an other class get the provided instance, the message will stil the same, since the
+the same and if an other class get the provided instance, the message will still the same, since the
 instance is the same.
 
 ## Provide an interface implementation
@@ -126,7 +126,7 @@ real object through an interface. For this just do some little change :
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provideSingle
+import fr.jhelp.android.library.provider.provideSingle
 
 class Provider
 {
@@ -140,7 +140,7 @@ class Provider
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 
 class UsageObject
 {
@@ -161,7 +161,7 @@ class UsageObject
 You notice that in providing we specify the interface we want to share and the implementation. It
 must be explicit, it can guess that you want expose it as an interface by itself
 
-In usage, we just the type we request by the interface since now it is an interface implentation it
+In usage, we just the type we request by the interface since now it is an interface implementation it
 is shared.
 
 ## Provide with a label
@@ -172,7 +172,7 @@ case can use the labelling
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provideSingle
+import fr.jhelp.android.library.provider.provideSingle
 
 class Provider
 {
@@ -187,7 +187,7 @@ class Provider
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 
 class UsageObject
 {
@@ -208,7 +208,7 @@ class UsageObject
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 
 class UsageObject2
 {
@@ -236,7 +236,7 @@ It is also possible to provide a different instance each time the provided value
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provideMultiple
+import fr.jhelp.android.library.provider.provideMultiple
 
 class Provider
 {
@@ -250,7 +250,7 @@ class Provider
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provided
+import fr.jhelp.android.library.provider.provided
 
 class UsageObject
 {
@@ -295,13 +295,13 @@ ObjectInstance # 4
 
 ## Provide different instance with labeling
 
-Like before its possbile to provide a label, here we will provide two different ways to create an
+Like before its possible to provide a label, here we will provide two different ways to create an
 instance
 
 ```kotlin
 package sample
 
-import fr.jhelp.compose.provider.provideMultiple
+import fr.jhelp.android.library.provider.provideMultiple
 
 class Provider
 {
@@ -318,7 +318,7 @@ class Provider
 Just use `isProvided` method
 
 ```kotlin
-import fr.jhelp.compose.provider.isProvided
+import fr.jhelp.android.library.provider.isProvided
 
 // ...
 
@@ -333,7 +333,7 @@ if (!isProvided<ObjectInterface>("case1"))
 }
 ```
 
-The first if check if instance without label is provided, the second chaeck if instance with label
+The first if check if instance without label is provided, the second check if instance with label
 is provided
 
 ## Forget association
@@ -342,7 +342,7 @@ In some case it good for memory to forget instances if we will no more need of t
 use `forget method`
 
 ```kotlin
-import fr.jhelp.compose.provider.forget
+import fr.jhelp.android.library.provider.forget
 
 //...
 

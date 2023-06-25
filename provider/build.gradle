@@ -1,14 +1,18 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
+group = 'fr.jhelp.android.library.provider'
+version = '1.0.0'
+
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -27,12 +31,25 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'fr.jhelp.compose.provider'
+    namespace 'fr.jhelp.android.library.provider'
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'fr.jhelp.android.library'
+                artifactId = 'provider'
+                version = '1.0.0'
+            }
+        }
+    }
 }

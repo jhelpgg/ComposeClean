@@ -3,12 +3,12 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <fr.jhelp.compose.engine.view.View3D
+    <fr.jhelp.android.library.engine.view.View3D
         android:id="@+id/view3D"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <fr.jhelp.compose.engine.view.overlay.GameOverlay
+    <fr.jhelp.android.library.engine.view.overlay.GameOverlay
         android:id="@+id/overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

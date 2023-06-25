@@ -1,6 +1,6 @@
 # TaskType
 
-The enumeration [fr.jhelp.tasks.TaskType](../../src/main/java/fr/jhelp/tasks/TaskType.kt)
+The enumeration [fr.jhelp.android.library.tasks.TaskType](../../src/main/java/fr/jhelp/android/library/tasks/TaskType.kt)
 
 Tasks could be launch in a different depends what they are doing.
 To this `TaskType` represents the environment/context/condition where task is played.

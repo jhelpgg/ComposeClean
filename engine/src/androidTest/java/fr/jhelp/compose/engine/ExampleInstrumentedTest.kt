@@ -1,4 +1,4 @@
-package fr.jhelp.compose.engine
+package fr.jhelp.android.library.engine
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -21,6 +21,6 @@ class ExampleInstrumentedTest
     {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("fr.jhelp.compose.engine.test", appContext.packageName)
+        assertEquals("fr.jhelp.android.library.engine.test", appContext.packageName)
     }
 }
