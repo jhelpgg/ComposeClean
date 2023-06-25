@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.shared
 
 import androidx.annotation.DrawableRes
-import fr.jhelp.compose.ui.recycler.RecyclerModel
+import fr.jhelp.android.library.common.ui.recycler.RecyclerModel
 
 /**
  * Model for choose an image

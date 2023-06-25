@@ -4,7 +4,7 @@ import android.os.SystemClock
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import fr.jhelp.compose.ui.recycler.RecyclerModel
+import fr.jhelp.android.library.common.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.SortType
 import fr.jhelp.composeclean.models.contact.Contact
 import fr.jhelp.composeclean.models.contact.ContactFirstNameComparator

@@ -1,4 +1,4 @@
-package fr.jhelp.compose.ui.recycler
+package fr.jhelp.android.library.common.ui.recycler
 
 /**
  * Represents a recycler model.

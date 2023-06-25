@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.models.shared
 
-import fr.jhelp.compose.ui.recycler.RecyclerModel
+import fr.jhelp.android.library.common.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.presentation.Presentation
 import fr.jhelp.composeclean.models.presentation.PresentationElement
 import fr.jhelp.composeclean.models.presentation.PresentationType

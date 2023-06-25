@@ -7,6 +7,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import fr.jhelp.android.library.common.ui.recycler.RecyclerModel
 import fr.jhelp.android.library.provider.isProvided
 import fr.jhelp.android.library.provider.provideSingle
 import fr.jhelp.android.library.provider.provided

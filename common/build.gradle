@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.common'
+group = 'fr.jhelp.android.library.common'
 version = '1.0.0'
 
 android {
@@ -31,7 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'fr.jhelp.compose.mutable'
+    namespace 'fr.jhelp.android.library.commone'
 }
 
 dependencies {
@@ -49,7 +49,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.common'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'common'
                 version = '1.0.0'
             }

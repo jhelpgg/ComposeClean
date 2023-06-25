@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.shared
 
 import androidx.compose.runtime.State
-import fr.jhelp.compose.ui.recycler.RecyclerModel
+import fr.jhelp.android.library.common.ui.recycler.RecyclerModel
 import fr.jhelp.composeclean.models.SortType
 import fr.jhelp.composeclean.models.contact.Contact
 
