@@ -20,7 +20,7 @@ import fr.jhelp.compose.engine.scene.geometry.Box
 import fr.jhelp.compose.engine.scene.geometry.CrossUV
 import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.engine.scene.geometry.Sphere
-import fr.jhelp.compose.images.path.Path
+import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.android.library.math.moduloInterval
 

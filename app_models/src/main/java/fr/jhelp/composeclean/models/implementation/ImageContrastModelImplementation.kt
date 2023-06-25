@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import fr.jhelp.compose.engine.resources.ResourcesAccess
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.contrast
-import fr.jhelp.compose.images.fitSpace
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.contrast
+import fr.jhelp.android.library.images.fitSpace
 import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.composeclean.models.shared.ImageContrastModel
 

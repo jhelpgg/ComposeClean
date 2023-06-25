@@ -1,7 +1,7 @@
 package fr.jhelp.compose.engine.scene.geometry
 
 import fr.jhelp.compose.engine.scene.Object3D
-import fr.jhelp.compose.images.path.Path
+import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.android.library.math.extensions.nul
 import kotlin.math.sqrt

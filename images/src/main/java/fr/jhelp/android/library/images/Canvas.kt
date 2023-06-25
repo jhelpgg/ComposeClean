@@ -1,11 +1,11 @@
-package fr.jhelp.compose.images
+package fr.jhelp.android.library.images
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
-import fr.jhelp.compose.images.crawler.SegmentCrawler
+import fr.jhelp.android.library.images.crawler.SegmentCrawler
 import kotlin.math.min
 
 /**

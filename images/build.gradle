@@ -4,11 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.images'
+group = 'fr.jhelp.android.library.images'
 version = '1.0.0'
 
 android {
-    namespace 'fr.jhelp.compose.images'
+    namespace 'fr.jhelp.android.library.images'
     compileSdk 34
 
     defaultConfig {
@@ -50,7 +50,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.images'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'images'
                 version = '1.0.0'
             }

@@ -2,9 +2,9 @@ package fr.jhelp.composeclean.models.implementation
 
 import android.graphics.Bitmap
 import fr.jhelp.compose.engine.resources.ResourcesAccess
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.createBumped
-import fr.jhelp.compose.images.fitSpace
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.createBumped
+import fr.jhelp.android.library.images.fitSpace
 import fr.jhelp.composeclean.models.shared.ImageBumpMapModel
 
 internal class ImageBumpMapModelImplementation : ImageBumpMapModel

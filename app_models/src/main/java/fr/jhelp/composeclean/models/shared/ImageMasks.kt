@@ -3,9 +3,9 @@ package fr.jhelp.composeclean.models.shared
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.createBitmap
-import fr.jhelp.compose.images.fitSpace
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.createBitmap
+import fr.jhelp.android.library.images.fitSpace
 import fr.jhelp.android.library.math.COLOR_BLACK
 
 /**

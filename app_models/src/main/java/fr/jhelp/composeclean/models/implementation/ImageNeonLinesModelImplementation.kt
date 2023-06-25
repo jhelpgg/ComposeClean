@@ -3,9 +3,9 @@ package fr.jhelp.composeclean.models.implementation
 import android.graphics.Bitmap
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.draw
-import fr.jhelp.compose.images.neonLine
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.draw
+import fr.jhelp.android.library.images.neonLine
 import fr.jhelp.android.library.math.COLOR_WHITE
 import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.composeclean.models.DEFAULT_COLOR

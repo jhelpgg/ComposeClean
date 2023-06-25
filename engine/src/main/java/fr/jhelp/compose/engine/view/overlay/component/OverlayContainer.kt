@@ -3,7 +3,7 @@ package fr.jhelp.compose.engine.view.overlay.component
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import fr.jhelp.compose.images.Point
+import fr.jhelp.android.library.images.Point
 
 /**
  * Container of components

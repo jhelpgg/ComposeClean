@@ -9,10 +9,10 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import fr.jhelp.compose.engine.view.CLICK_TIME
-import fr.jhelp.compose.images.bitmap
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.draw
-import fr.jhelp.compose.images.fitRectangle
+import fr.jhelp.android.library.images.bitmap
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.draw
+import fr.jhelp.android.library.images.fitRectangle
 import fr.jhelp.android.library.math.square
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.parallel

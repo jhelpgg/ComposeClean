@@ -1,8 +1,8 @@
 package fr.jhelp.compose.engine.resources.image
 
 import android.graphics.Bitmap
-import fr.jhelp.compose.images.bitmap
-import fr.jhelp.compose.images.path.Path
+import fr.jhelp.android.library.images.bitmap
+import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.extensions.bounds
 import java.util.Objects
 
@@ -25,8 +25,8 @@ class ImageSourceCutWithPath(private val imageSource: ImageSource<*>,
             return image
         }
 
-        return fr.jhelp.compose.images.createBitmap(image.width,
-                                                    image.height) { bitmap, canvas, _ ->
+        return fr.jhelp.android.library.images.createBitmap(image.width,
+                                                            image.height) { bitmap, canvas, _ ->
             val width = bitmap.width.toFloat()
             val height = bitmap.height.toFloat()
             var minX = Float.POSITIVE_INFINITY

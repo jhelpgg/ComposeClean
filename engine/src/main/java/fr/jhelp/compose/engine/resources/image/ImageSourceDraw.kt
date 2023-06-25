@@ -15,7 +15,7 @@ class ImageSourceDraw(width: Int, height: Int, private val draw: (Bitmap, Canvas
     private val height: Int = max(1, height)
 
     override fun createBitmap(): Bitmap =
-        fr.jhelp.compose.images.createBitmap(this.width, this.height, this.draw)
+        fr.jhelp.android.library.images.createBitmap(this.width, this.height, this.draw)
 
     override fun hash(): Int = System.identityHashCode(this)
 

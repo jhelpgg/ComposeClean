@@ -27,7 +27,7 @@ import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.Scene3D
 import fr.jhelp.compose.engine.scene.WHITE
-import fr.jhelp.compose.images.clear
+import fr.jhelp.android.library.images.clear
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserButton

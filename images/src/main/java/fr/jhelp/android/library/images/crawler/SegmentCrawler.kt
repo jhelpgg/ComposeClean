@@ -6,9 +6,9 @@
  *  The code is free for usage and modification, you can't change that fact.
  */
 
-package fr.jhelp.compose.images.crawler
+package fr.jhelp.android.library.images.crawler
 
-import fr.jhelp.compose.images.Point
+import fr.jhelp.android.library.images.Point
 import kotlin.math.abs
 import kotlin.math.sign
 

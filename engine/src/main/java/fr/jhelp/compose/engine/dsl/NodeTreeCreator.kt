@@ -13,7 +13,7 @@ import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.engine.scene.geometry.Sphere
 import fr.jhelp.compose.engine.scene.geometry.dice.Dice
-import fr.jhelp.compose.images.path.Path
+import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.formal.MathFunction
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.parallel

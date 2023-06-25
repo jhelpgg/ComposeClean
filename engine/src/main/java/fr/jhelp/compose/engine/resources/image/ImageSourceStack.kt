@@ -1,9 +1,9 @@
 package fr.jhelp.compose.engine.resources.image
 
 import android.graphics.Bitmap
-import fr.jhelp.compose.images.bitmap
-import fr.jhelp.compose.images.copy
-import fr.jhelp.compose.images.draw
+import fr.jhelp.android.library.images.bitmap
+import fr.jhelp.android.library.images.copy
+import fr.jhelp.android.library.images.draw
 import java.util.Objects
 
 /**

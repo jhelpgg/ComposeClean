@@ -19,10 +19,10 @@ import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
 import fr.jhelp.compose.engine.scene.Texture
-import fr.jhelp.compose.images.bitmap
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.mask
-import fr.jhelp.compose.images.tint
+import fr.jhelp.android.library.images.bitmap
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.mask
+import fr.jhelp.android.library.images.tint
 import fr.jhelp.android.library.math.COLOR_WHITE
 
 private val hairPath by lazy {

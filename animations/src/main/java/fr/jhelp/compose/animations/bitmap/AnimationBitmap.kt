@@ -8,7 +8,7 @@ import fr.jhelp.compose.animations.bitmap.transition.BitmapMeltTransition
 import fr.jhelp.compose.animations.bitmap.transition.BitmapRandomTransition
 import fr.jhelp.compose.animations.interpolation.Interpolation
 import fr.jhelp.compose.animations.interpolation.LinearInterpolation
-import fr.jhelp.compose.images.fitSpace
+import fr.jhelp.android.library.images.fitSpace
 
 /**
  * Animation that do transition between bitmaps

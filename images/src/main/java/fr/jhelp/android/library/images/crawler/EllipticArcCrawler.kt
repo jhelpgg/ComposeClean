@@ -6,7 +6,7 @@
  *  The code is free for usage and modification, you can't change that fact.
  */
 
-package fr.jhelp.compose.images.crawler
+package fr.jhelp.android.library.images.crawler
 
 import fr.jhelp.android.library.math.AngleFloat
 import fr.jhelp.android.library.math.Matrix

@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import fr.jhelp.compose.engine.resources.ResourcesAccess
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.fitSpace
-import fr.jhelp.compose.images.tint
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.fitSpace
+import fr.jhelp.android.library.images.tint
 import fr.jhelp.composeclean.models.DEFAULT_COLOR
 import fr.jhelp.composeclean.models.shared.ImageTintModel
 

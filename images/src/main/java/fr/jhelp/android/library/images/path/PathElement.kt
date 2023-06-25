@@ -6,9 +6,9 @@
  *  The code is free for usage and modification, you can't change that fact.
  */
 
-package fr.jhelp.compose.images.path
+package fr.jhelp.android.library.images.path
 
-import fr.jhelp.compose.images.crawler.EllipticArcCrawler
+import fr.jhelp.android.library.images.crawler.EllipticArcCrawler
 import fr.jhelp.android.library.math.AngleFloat
 import fr.jhelp.android.library.math.Point2D
 import fr.jhelp.android.library.math.cubic

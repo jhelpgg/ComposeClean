@@ -2,7 +2,7 @@ package fr.jhelp.compose.engine.view.overlay.component.layout
 
 import fr.jhelp.compose.engine.view.overlay.component.OverlayComponent
 import fr.jhelp.compose.engine.view.overlay.component.OverlayContainer
-import fr.jhelp.compose.images.Point
+import fr.jhelp.android.library.images.Point
 import kotlin.math.max
 
 /**

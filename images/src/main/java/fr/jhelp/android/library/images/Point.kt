@@ -1,4 +1,4 @@
-package fr.jhelp.compose.images
+package fr.jhelp.android.library.images
 
 /**
  * A point with integer coordinates

@@ -7,7 +7,7 @@ import fr.jhelp.compose.engine.resources.image.ImageSource
 import fr.jhelp.compose.engine.resources.image.ImageSourceDarker
 import fr.jhelp.compose.engine.resources.image.ImageSourceDefault
 import fr.jhelp.compose.engine.resources.image.ImageSourceGrey
-import fr.jhelp.compose.images.Point
+import fr.jhelp.android.library.images.Point
 import fr.jhelp.android.library.tasks.extensions.parallel
 import kotlin.math.min
 

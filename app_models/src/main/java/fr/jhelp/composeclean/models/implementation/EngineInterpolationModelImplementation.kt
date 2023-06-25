@@ -34,7 +34,7 @@ import fr.jhelp.compose.engine.scene.LIGHT_GREY
 import fr.jhelp.compose.engine.scene.Position3D
 import fr.jhelp.compose.engine.scene.Scene3D
 import fr.jhelp.compose.engine.scene.geometry.Box
-import fr.jhelp.compose.images.clear
+import fr.jhelp.android.library.images.clear
 import fr.jhelp.android.library.math.COLOR_BLACK
 import fr.jhelp.android.library.math.COLOR_BLUE_0400
 import fr.jhelp.android.library.math.COLOR_GREY_0400

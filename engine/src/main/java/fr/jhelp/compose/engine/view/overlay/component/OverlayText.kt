@@ -4,7 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import fr.jhelp.compose.engine.view.overlay.font.Alphabet
 import fr.jhelp.compose.engine.view.overlay.font.DEFAULT_ALPHABET
-import fr.jhelp.compose.images.Point
+import fr.jhelp.android.library.images.Point
 import kotlin.math.max
 
 /**

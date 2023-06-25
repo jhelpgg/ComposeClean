@@ -20,8 +20,8 @@ import fr.jhelp.compose.engine.scene.WHITE
 import fr.jhelp.compose.engine.scene.geometry.ObjectPath
 import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Revolution
-import fr.jhelp.compose.images.lighter
-import fr.jhelp.compose.images.path.Path
+import fr.jhelp.android.library.images.lighter
+import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.AngleFloat
 import fr.jhelp.android.library.math.AngleUnit
 import fr.jhelp.android.library.math.degreeToRadian

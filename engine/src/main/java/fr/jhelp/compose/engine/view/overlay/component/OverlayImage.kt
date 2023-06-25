@@ -5,7 +5,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import fr.jhelp.compose.engine.resources.image.ImageSource
 import fr.jhelp.compose.engine.resources.image.ImageSourceDefault
-import fr.jhelp.compose.images.Point
+import fr.jhelp.android.library.images.Point
 import kotlin.math.min
 
 /**

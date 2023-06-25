@@ -2,9 +2,9 @@ package fr.jhelp.composeclean.models.implementation
 
 import android.graphics.Bitmap
 import fr.jhelp.compose.engine.resources.ResourcesAccess
-import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.images.fitSpace
-import fr.jhelp.compose.images.multiply
+import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.images.fitSpace
+import fr.jhelp.android.library.images.multiply
 import fr.jhelp.composeclean.models.shared.ImageMultiplyModel
 
 internal class ImageMultiplyModelImplementation : ImageMultiplyModel

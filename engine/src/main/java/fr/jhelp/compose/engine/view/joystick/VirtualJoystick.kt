@@ -3,7 +3,7 @@ package fr.jhelp.compose.engine.view.joystick
 import android.graphics.Canvas
 import android.graphics.Paint
 import fr.jhelp.compose.engine.view.touch.View3DTouchOverListener
-import fr.jhelp.compose.images.center
+import fr.jhelp.android.library.images.center
 import fr.jhelp.android.library.math.radianToDegree
 import fr.jhelp.android.library.math.sqrt
 import fr.jhelp.android.library.math.square

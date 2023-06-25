@@ -14,7 +14,7 @@ import fr.jhelp.compose.engine.buffer.BufferFloat
 import fr.jhelp.compose.engine.math.BoundingBox
 import fr.jhelp.compose.engine.resources.draw
 import fr.jhelp.compose.engine.resources.texture
-import fr.jhelp.compose.images.clear
+import fr.jhelp.android.library.images.clear
 import fr.jhelp.android.library.math.Point3D
 import javax.microedition.khronos.opengles.GL10
 

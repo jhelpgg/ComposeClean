@@ -1,5 +1,5 @@
 
-package fr.jhelp.compose.images.path
+package fr.jhelp.android.library.images.path
 
 import fr.jhelp.android.library.math.Point2D
 
