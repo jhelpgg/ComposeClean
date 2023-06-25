@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
+group = 'fr.jhelp.compose.provider'
+version = '1.0.0'
 
 android {
     compileSdk 33
@@ -31,8 +35,21 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.10.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'fr.jhelp.compose.provider'
+                artifactId = 'provider'
+                version = '1.0.0'
+            }
+        }
+    }
 }

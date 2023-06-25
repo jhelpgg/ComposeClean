@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
+group = 'fr.jhelp.tasks'
+version = '1.0.0'
 
 android {
     namespace 'fr.jhelp.tasks'
@@ -43,4 +47,18 @@ dependencies {
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'fr.jhelp.tasks'
+                artifactId = 'tasks'
+                version = '1.0.0'
+            }
+        }
+    }
 }

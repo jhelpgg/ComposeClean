@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
+group = 'fr.jhelp.compose.animations'
+version = '1.0.0'
 
 android {
     namespace 'fr.jhelp.compose.animations'
@@ -43,4 +47,18 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'fr.jhelp.compose.animations'
+                artifactId = 'animations'
+                version = '1.0.0'
+            }
+        }
+    }
 }

@@ -134,7 +134,6 @@ class MainActivityComposable
             return
         }
 
-
         Image(painter = ColorPainter(Color(64, 64, 64, 192)),
               contentDescription = "",
               modifier = Modifier
