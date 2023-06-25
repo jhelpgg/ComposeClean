@@ -3,7 +3,7 @@ package fr.jhelp.compose.engine.resources.image
 import android.graphics.Bitmap
 import fr.jhelp.compose.images.bitmap
 import fr.jhelp.compose.images.path.Path
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import java.util.Objects
 
 /**

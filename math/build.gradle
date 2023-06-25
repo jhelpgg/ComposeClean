@@ -4,11 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.math'
+group = 'fr.jhelp.android.library.math'
 version = '1.0.0'
 
 android {
-    namespace 'fr.jhelp.compose.math'
+    namespace 'fr.jhelp.android.library.math'
     compileSdk 34
 
     defaultConfig {
@@ -48,7 +48,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.math'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'math'
                 version = '1.0.0'
             }

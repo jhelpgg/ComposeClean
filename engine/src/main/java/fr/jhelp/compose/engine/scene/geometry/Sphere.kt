@@ -9,7 +9,7 @@
 package fr.jhelp.compose.engine.scene.geometry
 
 import fr.jhelp.compose.engine.scene.Object3D
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin

@@ -11,12 +11,12 @@ import fr.jhelp.compose.engine.scene.geometry.dice.Dice
 import fr.jhelp.compose.engine.view.gui.ButtonGUI
 import fr.jhelp.compose.engine.view.gui.GUI
 import fr.jhelp.compose.engine.view.touch.View3DTouchOverSensitive
-import fr.jhelp.compose.math.COLOR_BLUE_0300
-import fr.jhelp.compose.math.COLOR_BLUE_0700
-import fr.jhelp.compose.math.COLOR_GREEN_0300
-import fr.jhelp.compose.math.COLOR_GREEN_0700
-import fr.jhelp.compose.math.COLOR_RED_0300
-import fr.jhelp.compose.math.COLOR_RED_0700
+import fr.jhelp.android.library.math.COLOR_BLUE_0300
+import fr.jhelp.android.library.math.COLOR_BLUE_0700
+import fr.jhelp.android.library.math.COLOR_GREEN_0300
+import fr.jhelp.android.library.math.COLOR_GREEN_0700
+import fr.jhelp.android.library.math.COLOR_RED_0300
+import fr.jhelp.android.library.math.COLOR_RED_0700
 import fr.jhelp.compose.ui.engine.View3DComposable
 
 /**

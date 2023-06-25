@@ -3,7 +3,7 @@ package fr.jhelp.compose.engine.math
 import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.NodeWithBoundingBox
 import fr.jhelp.compose.engine.scene.Position3D
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 import java.util.Stack
 
 /**

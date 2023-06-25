@@ -8,7 +8,7 @@
 
 package fr.jhelp.compose.engine.math
 
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 import kotlin.math.max
 import kotlin.math.min
 

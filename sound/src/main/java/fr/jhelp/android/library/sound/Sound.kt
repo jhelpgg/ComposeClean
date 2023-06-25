@@ -9,7 +9,7 @@
 package fr.jhelp.android.library.sound
 
 import androidx.annotation.RawRes
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 
 /**
  * Sound can change volume at any time

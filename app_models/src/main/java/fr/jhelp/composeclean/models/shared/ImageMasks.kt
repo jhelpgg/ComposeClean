@@ -6,7 +6,7 @@ import android.graphics.Paint
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.createBitmap
 import fr.jhelp.compose.images.fitSpace
-import fr.jhelp.compose.math.COLOR_BLACK
+import fr.jhelp.android.library.math.COLOR_BLACK
 
 /**
  * Possible masks
@@ -25,7 +25,7 @@ enum class ImageMasks(private val draw: (Bitmap, Canvas, Paint) -> Unit)
     RECTANGLE_OVAL({ bitmap, canvas, paint ->
                        bitmap.clear(0)
                        paint.style = Paint.Style.FILL
-                       paint.color = fr.jhelp.compose.math.COLOR_BLACK
+                       paint.color = COLOR_BLACK
                        canvas.drawRect(32f, 32f, 300f, 250f, paint)
                        canvas.drawOval(64f, 256f, 500f, 400f, paint)
                    }),
@@ -35,7 +35,7 @@ enum class ImageMasks(private val draw: (Bitmap, Canvas, Paint) -> Unit)
                      bitmap.clear(0)
                      paint.style = Paint.Style.STROKE
                      paint.strokeWidth = 64f
-                     paint.color = fr.jhelp.compose.math.COLOR_BLACK
+                     paint.color = COLOR_BLACK
                      canvas.drawCircle(256f, 256f, 192f, paint)
                  }),
 
@@ -43,7 +43,7 @@ enum class ImageMasks(private val draw: (Bitmap, Canvas, Paint) -> Unit)
     PATH({ bitmap, canvas, paint ->
              bitmap.clear(0)
              paint.style = Paint.Style.FILL
-             paint.color = fr.jhelp.compose.math.COLOR_BLACK
+             paint.color = COLOR_BLACK
              val path = android.graphics.Path()
              path.moveTo(200f, 12f)
              path.lineTo(300f, 256f)

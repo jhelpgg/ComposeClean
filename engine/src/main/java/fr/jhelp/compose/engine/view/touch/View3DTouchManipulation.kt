@@ -3,8 +3,8 @@ package fr.jhelp.compose.engine.view.touch
 import android.os.SystemClock
 import fr.jhelp.compose.engine.view.CLICK_TIME
 import fr.jhelp.compose.engine.view.View3D
-import fr.jhelp.compose.math.distance
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.distance
+import fr.jhelp.android.library.math.extensions.bounds
 
 /**
  * Action to touch on [View3D] for classic manipulation of a node for show case

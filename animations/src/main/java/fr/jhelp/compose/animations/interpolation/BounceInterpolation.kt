@@ -1,7 +1,7 @@
 package fr.jhelp.compose.animations.interpolation
 
-import fr.jhelp.compose.math.extensions.compare
-import fr.jhelp.compose.math.square
+import fr.jhelp.android.library.math.extensions.compare
+import fr.jhelp.android.library.math.square
 
 /**
  * Interpolation that make bounce effect

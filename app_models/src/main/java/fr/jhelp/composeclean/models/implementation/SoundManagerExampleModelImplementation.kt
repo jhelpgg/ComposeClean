@@ -2,7 +2,7 @@ package fr.jhelp.composeclean.models.implementation
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.android.library.sound.Sound
 import fr.jhelp.android.library.sound.SoundManager
 import fr.jhelp.composeclean.models.shared.SoundManagerExampleModel

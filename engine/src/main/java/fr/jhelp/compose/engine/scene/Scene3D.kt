@@ -8,7 +8,7 @@ import fr.jhelp.compose.engine.annotations.OpenGLThread
 import fr.jhelp.compose.engine.buffer.BufferFloat
 import fr.jhelp.compose.engine.math.antiProjection
 import fr.jhelp.compose.engine.view.ViewBounds
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.observedBy
 import java.util.Stack

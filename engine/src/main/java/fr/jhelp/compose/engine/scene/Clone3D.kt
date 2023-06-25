@@ -10,7 +10,7 @@ package fr.jhelp.compose.engine.scene
 
 import fr.jhelp.compose.engine.annotations.OpenGLThread
 import fr.jhelp.compose.engine.math.BoundingBox
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 import javax.microedition.khronos.opengles.GL10
 
 /**

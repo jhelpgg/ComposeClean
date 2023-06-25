@@ -1,6 +1,6 @@
 package fr.jhelp.compose.engine.view.overlay.component
 
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

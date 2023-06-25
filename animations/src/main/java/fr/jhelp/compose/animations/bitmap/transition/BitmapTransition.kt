@@ -1,7 +1,7 @@
 package fr.jhelp.compose.animations.bitmap.transition
 
 import android.graphics.Bitmap
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import kotlin.math.max
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

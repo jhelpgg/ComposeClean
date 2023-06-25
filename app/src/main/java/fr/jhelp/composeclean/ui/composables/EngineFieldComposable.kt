@@ -16,12 +16,12 @@ import fr.jhelp.compose.engine.dsl.texture
 import fr.jhelp.compose.engine.dsl.textureReference
 import fr.jhelp.compose.engine.extensions.material
 import fr.jhelp.compose.engine.scene.WHITE
-import fr.jhelp.compose.math.PI_FLOAT
-import fr.jhelp.compose.math.formal.X
-import fr.jhelp.compose.math.formal.Y
-import fr.jhelp.compose.math.formal.cos
-import fr.jhelp.compose.math.formal.sin
-import fr.jhelp.compose.math.formal.times
+import fr.jhelp.android.library.math.PI_FLOAT
+import fr.jhelp.android.library.math.formal.X
+import fr.jhelp.android.library.math.formal.Y
+import fr.jhelp.android.library.math.formal.cos
+import fr.jhelp.android.library.math.formal.sin
+import fr.jhelp.android.library.math.formal.times
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 

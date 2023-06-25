@@ -20,8 +20,8 @@ import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Position3D
 import fr.jhelp.compose.engine.scene.geometry.Box
 import fr.jhelp.compose.engine.scene.geometry.CrossUV
-import fr.jhelp.compose.math.extensions.bounds
-import fr.jhelp.compose.math.random
+import fr.jhelp.android.library.math.extensions.bounds
+import fr.jhelp.android.library.math.random
 import fr.jhelp.android.library.tasks.TaskType
 import kotlin.math.max
 import kotlinx.coroutines.flow.MutableStateFlow

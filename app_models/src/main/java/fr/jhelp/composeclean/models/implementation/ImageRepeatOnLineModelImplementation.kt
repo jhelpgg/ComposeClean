@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.draw
 import fr.jhelp.compose.images.repeatOnLine
-import fr.jhelp.compose.math.COLOR_WHITE
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.COLOR_WHITE
+import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.composeclean.models.shared.ImageMasks
 import fr.jhelp.composeclean.models.shared.ImageRepeatOnLineModel
 

@@ -3,8 +3,8 @@ package fr.jhelp.compose.images
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
-import fr.jhelp.compose.math.extensions.bounds
-import fr.jhelp.compose.math.minimum
+import fr.jhelp.android.library.math.extensions.bounds
+import fr.jhelp.android.library.math.minimum
 import kotlin.math.max
 import kotlin.math.min
 

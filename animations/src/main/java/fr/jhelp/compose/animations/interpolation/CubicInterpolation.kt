@@ -1,6 +1,6 @@
 package fr.jhelp.compose.animations.interpolation
 
-import fr.jhelp.compose.math.cubic
+import fr.jhelp.android.library.math.cubic
 
 /**
  * Cubic interpolation

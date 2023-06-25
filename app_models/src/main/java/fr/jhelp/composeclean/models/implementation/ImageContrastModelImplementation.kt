@@ -7,7 +7,7 @@ import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.contrast
 import fr.jhelp.compose.images.fitSpace
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.composeclean.models.shared.ImageContrastModel
 
 internal class ImageContrastModelImplementation : ImageContrastModel

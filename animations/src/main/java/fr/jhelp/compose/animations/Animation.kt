@@ -1,7 +1,7 @@
 package fr.jhelp.compose.animations
 
 import android.os.SystemClock
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 
 /**
  * A generic animation

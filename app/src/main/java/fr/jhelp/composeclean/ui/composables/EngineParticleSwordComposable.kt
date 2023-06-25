@@ -26,7 +26,7 @@ import fr.jhelp.compose.engine.extensions.material
 import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.LIGHT_GREEN
 import fr.jhelp.compose.engine.scene.WHITE
-import fr.jhelp.compose.math.COLOR_LIGHT_GREEN_0300
+import fr.jhelp.android.library.math.COLOR_LIGHT_GREEN_0300
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 

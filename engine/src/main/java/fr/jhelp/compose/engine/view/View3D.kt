@@ -10,7 +10,7 @@ import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Scene3D
 import fr.jhelp.compose.engine.view.touch.View3DTouchAction
 import fr.jhelp.compose.engine.view.touch.View3DTouchManipulation
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 import fr.jhelp.android.library.tasks.TaskType
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max

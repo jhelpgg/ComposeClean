@@ -12,7 +12,7 @@ import fr.jhelp.compose.engine.view.joystick.VirtualJoystick
 import fr.jhelp.compose.engine.view.joystick.VirtualJoystickDirection
 import fr.jhelp.compose.engine.view.joystick.VirtualJoystickType
 import fr.jhelp.compose.engine.view.touch.View3DTouchOverSensitive
-import fr.jhelp.compose.math.random
+import fr.jhelp.android.library.math.random
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.android.library.tasks.extensions.observedBy

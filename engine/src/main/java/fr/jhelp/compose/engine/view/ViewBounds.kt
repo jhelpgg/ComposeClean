@@ -1,7 +1,7 @@
 package fr.jhelp.compose.engine.view
 
-import fr.jhelp.compose.math.Point2D
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point2D
+import fr.jhelp.android.library.math.Point3D
 
 /**
  * View bounds in 3D and 2D

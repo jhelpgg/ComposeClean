@@ -4,8 +4,8 @@ import android.util.Log
 import fr.jhelp.compose.engine.loaders.NodeLoader
 import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Object3D
-import fr.jhelp.compose.math.Point2D
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point2D
+import fr.jhelp.android.library.math.Point3D
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader

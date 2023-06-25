@@ -22,9 +22,9 @@ import fr.jhelp.compose.engine.scene.geometry.Plane
 import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.images.lighter
 import fr.jhelp.compose.images.path.Path
-import fr.jhelp.compose.math.AngleFloat
-import fr.jhelp.compose.math.AngleUnit
-import fr.jhelp.compose.math.degreeToRadian
+import fr.jhelp.android.library.math.AngleFloat
+import fr.jhelp.android.library.math.AngleUnit
+import fr.jhelp.android.library.math.degreeToRadian
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.doWhen
 import kotlin.math.cos

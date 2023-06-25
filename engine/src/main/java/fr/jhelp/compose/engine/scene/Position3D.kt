@@ -1,14 +1,14 @@
 package fr.jhelp.compose.engine.scene
 
 import fr.jhelp.compose.engine.annotations.OpenGLThread
-import fr.jhelp.compose.math.AXIS_X
-import fr.jhelp.compose.math.AXIS_Y
-import fr.jhelp.compose.math.AXIS_Z
-import fr.jhelp.compose.math.AngleFloat
-import fr.jhelp.compose.math.AngleUnit
-import fr.jhelp.compose.math.Point3D
-import fr.jhelp.compose.math.Rotation3D
-import fr.jhelp.compose.math.Vector3D
+import fr.jhelp.android.library.math.AXIS_X
+import fr.jhelp.android.library.math.AXIS_Y
+import fr.jhelp.android.library.math.AXIS_Z
+import fr.jhelp.android.library.math.AngleFloat
+import fr.jhelp.android.library.math.AngleUnit
+import fr.jhelp.android.library.math.Point3D
+import fr.jhelp.android.library.math.Rotation3D
+import fr.jhelp.android.library.math.Vector3D
 import javax.microedition.khronos.opengles.GL10
 
 /**

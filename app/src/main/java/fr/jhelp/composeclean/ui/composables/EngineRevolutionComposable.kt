@@ -16,8 +16,8 @@ import fr.jhelp.compose.engine.dsl.texture
 import fr.jhelp.compose.engine.dsl.textureReference
 import fr.jhelp.compose.engine.extensions.material
 import fr.jhelp.compose.engine.scene.WHITE
-import fr.jhelp.compose.math.AngleFloat
-import fr.jhelp.compose.math.AngleUnit
+import fr.jhelp.android.library.math.AngleFloat
+import fr.jhelp.android.library.math.AngleUnit
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 
@@ -61,7 +61,7 @@ class EngineRevolutionComposable
                     this.revolution(path = {
                         this.moveTo(0.2f, 1f)
                         this.lineTo(0.22f, 0f)
-                        this.ellipticArcTo(0.5f, 0.5f, AngleFloat(90f, AngleUnit.DEGREE),true,false,0f,-1f)
+                        this.ellipticArcTo(0.5f, 0.5f, AngleFloat(90f, AngleUnit.DEGREE), true, false, 0f, -1f)
                     }) {
                         this.doubleFace = true
                         this.material(material)

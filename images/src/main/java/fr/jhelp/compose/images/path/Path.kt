@@ -8,12 +8,11 @@
 
 package fr.jhelp.compose.images.path
 
-import fr.jhelp.compose.math.AngleFloat
-import fr.jhelp.compose.math.distance
-import fr.jhelp.compose.math.extensions.bounds
-import fr.jhelp.compose.math.extensions.nul
-import fr.jhelp.compose.math.extensions.same
-import java.util.Objects
+import fr.jhelp.android.library.math.AngleFloat
+import fr.jhelp.android.library.math.distance
+import fr.jhelp.android.library.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.nul
+import fr.jhelp.android.library.math.extensions.same
 import kotlin.math.max
 
 /**

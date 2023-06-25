@@ -21,8 +21,8 @@ import fr.jhelp.compose.engine.scene.geometry.CrossUV
 import fr.jhelp.compose.engine.scene.geometry.Revolution
 import fr.jhelp.compose.engine.scene.geometry.Sphere
 import fr.jhelp.compose.images.path.Path
-import fr.jhelp.compose.math.extensions.bounds
-import fr.jhelp.compose.math.moduloInterval
+import fr.jhelp.android.library.math.extensions.bounds
+import fr.jhelp.android.library.math.moduloInterval
 
 private fun createCylinder(): Revolution
 {

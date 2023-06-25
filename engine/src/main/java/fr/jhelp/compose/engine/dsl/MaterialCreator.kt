@@ -2,7 +2,7 @@ package fr.jhelp.compose.engine.dsl
 
 import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.Material
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 
 /**
  * Create a material

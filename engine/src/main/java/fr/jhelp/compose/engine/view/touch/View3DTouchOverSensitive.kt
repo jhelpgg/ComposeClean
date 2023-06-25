@@ -10,7 +10,7 @@ import fr.jhelp.compose.engine.view.DELTA_DISTANCE_BEFORE_CONSIDER_DIFFERENT
 import fr.jhelp.compose.engine.view.View3D
 import fr.jhelp.compose.engine.view.ViewBounds
 import fr.jhelp.compose.images.clear
-import fr.jhelp.compose.math.square
+import fr.jhelp.android.library.math.square
 import fr.jhelp.android.library.tasks.extensions.observedBy
 import fr.jhelp.android.library.tasks.extensions.parallel
 import fr.jhelp.android.library.tasks.future.FutureResult

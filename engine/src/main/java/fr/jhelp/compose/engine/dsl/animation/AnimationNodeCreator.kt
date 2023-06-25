@@ -6,7 +6,7 @@ import fr.jhelp.compose.collection.sortedArray
 import fr.jhelp.compose.engine.animation.keyFrame.AnimationNode3D
 import fr.jhelp.compose.engine.dsl.NodeReference
 import fr.jhelp.compose.engine.scene.Position3D
-import fr.jhelp.compose.math.anotations.Milliseconds
+import fr.jhelp.android.library.math.anotations.Milliseconds
 import kotlin.math.max
 
 /**

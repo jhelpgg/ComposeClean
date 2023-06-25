@@ -1,7 +1,7 @@
 package fr.jhelp.compose.animations.interpolation
 
-import fr.jhelp.compose.math.EPSILON_FLOAT
-import fr.jhelp.compose.math.extensions.compare
+import fr.jhelp.android.library.math.EPSILON_FLOAT
+import fr.jhelp.android.library.math.extensions.compare
 import kotlin.math.max
 
 /**

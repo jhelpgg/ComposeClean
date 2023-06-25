@@ -8,8 +8,8 @@
 
 package fr.jhelp.compose.engine.scene.geometry.robot
 
-import fr.jhelp.compose.math.extensions.bounds
-import fr.jhelp.compose.math.moduloInterval
+import fr.jhelp.android.library.math.extensions.bounds
+import fr.jhelp.android.library.math.moduloInterval
 
 /**
  * Describe [Robot] joints position

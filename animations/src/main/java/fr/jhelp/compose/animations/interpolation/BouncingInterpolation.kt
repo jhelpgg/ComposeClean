@@ -1,8 +1,8 @@
 package fr.jhelp.compose.animations.interpolation
 
-import fr.jhelp.compose.math.extensions.compare
-import fr.jhelp.compose.math.extensions.nul
-import fr.jhelp.compose.math.square
+import fr.jhelp.android.library.math.extensions.compare
+import fr.jhelp.android.library.math.extensions.nul
+import fr.jhelp.android.library.math.square
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sqrt

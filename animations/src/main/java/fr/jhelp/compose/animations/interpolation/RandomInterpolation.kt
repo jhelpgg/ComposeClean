@@ -1,8 +1,8 @@
 package fr.jhelp.compose.animations.interpolation
 
-import fr.jhelp.compose.math.extensions.nul
-import fr.jhelp.compose.math.extensions.same
-import fr.jhelp.compose.math.random
+import fr.jhelp.android.library.math.extensions.nul
+import fr.jhelp.android.library.math.extensions.same
+import fr.jhelp.android.library.math.random
 
 /**
  * Interpolation with random progression

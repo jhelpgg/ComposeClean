@@ -9,7 +9,7 @@ import androidx.annotation.DrawableRes
 import fr.jhelp.compose.engine.annotations.TextureSize
 import fr.jhelp.compose.engine.resources.image.ImageSource
 import fr.jhelp.compose.engine.scene.Texture
-import fr.jhelp.compose.math.log2
+import fr.jhelp.android.library.math.log2
 import java.io.InputStream
 import kotlin.math.max
 import kotlin.math.min

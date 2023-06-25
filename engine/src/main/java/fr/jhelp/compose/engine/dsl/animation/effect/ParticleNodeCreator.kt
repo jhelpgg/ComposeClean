@@ -7,7 +7,7 @@ import fr.jhelp.compose.engine.animation.effect.ParticleNode
 import fr.jhelp.compose.engine.dsl.TextureReference
 import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.GREY
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import kotlin.math.max
 
 /**

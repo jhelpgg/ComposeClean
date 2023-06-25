@@ -2,10 +2,10 @@ package fr.jhelp.compose.engine.animation
 
 import fr.jhelp.compose.animations.Animation
 import fr.jhelp.compose.engine.scene.Node3D
-import fr.jhelp.compose.math.formal.Constant
-import fr.jhelp.compose.math.formal.MathFunction
-import fr.jhelp.compose.math.formal.T
-import fr.jhelp.compose.math.formal.Variable
+import fr.jhelp.android.library.math.formal.Constant
+import fr.jhelp.android.library.math.formal.MathFunction
+import fr.jhelp.android.library.math.formal.T
+import fr.jhelp.android.library.math.formal.Variable
 import java.util.TreeSet
 import kotlin.math.max
 

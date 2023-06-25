@@ -7,7 +7,7 @@ import fr.jhelp.compose.engine.resources.ResourcesAccess
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.fitSpace
 import fr.jhelp.compose.images.shift
-import fr.jhelp.compose.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.bounds
 import fr.jhelp.composeclean.models.shared.ImageShiftModel
 
 internal class ImageShiftModelImplementation : ImageShiftModel

@@ -1,7 +1,7 @@
 package fr.jhelp.compose.engine.scene
 
 import fr.jhelp.compose.engine.annotations.OpenGLThread
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 import java.util.Stack
 import java.util.concurrent.atomic.AtomicInteger
 import javax.microedition.khronos.opengles.GL10

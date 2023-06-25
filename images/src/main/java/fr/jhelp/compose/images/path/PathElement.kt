@@ -9,10 +9,10 @@
 package fr.jhelp.compose.images.path
 
 import fr.jhelp.compose.images.crawler.EllipticArcCrawler
-import fr.jhelp.compose.math.AngleFloat
-import fr.jhelp.compose.math.Point2D
-import fr.jhelp.compose.math.cubic
-import fr.jhelp.compose.math.quadratic
+import fr.jhelp.android.library.math.AngleFloat
+import fr.jhelp.android.library.math.Point2D
+import fr.jhelp.android.library.math.cubic
+import fr.jhelp.android.library.math.quadratic
 import java.util.Objects
 
 

@@ -6,7 +6,7 @@ import fr.jhelp.compose.engine.scene.Color3D
 import fr.jhelp.compose.engine.scene.GREY
 import fr.jhelp.compose.engine.scene.Position3D
 import fr.jhelp.compose.engine.scene.Texture
-import fr.jhelp.compose.math.random
+import fr.jhelp.android.library.math.random
 import kotlin.math.max
 
 /**

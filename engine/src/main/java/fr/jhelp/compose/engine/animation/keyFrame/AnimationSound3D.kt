@@ -3,7 +3,7 @@ package fr.jhelp.compose.engine.animation.keyFrame
 import fr.jhelp.compose.animations.keyFrame.AnimationKeyFrame
 import fr.jhelp.compose.engine.annotations.OpenGLThread
 import fr.jhelp.compose.engine.scene.Sound3D
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point3D
 
 /**
  * Animation move a 3D sound

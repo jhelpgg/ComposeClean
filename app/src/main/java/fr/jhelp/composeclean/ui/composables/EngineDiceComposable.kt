@@ -26,8 +26,8 @@ import fr.jhelp.compose.engine.extensions.position
 import fr.jhelp.compose.engine.scene.LIGHT_GREEN
 import fr.jhelp.compose.engine.scene.LIGHT_RED
 import fr.jhelp.compose.engine.view.touch.View3DTouchNothing
-import fr.jhelp.compose.math.COLOR_GREEN_0300
-import fr.jhelp.compose.math.COLOR_RED_0300
+import fr.jhelp.android.library.math.COLOR_GREEN_0300
+import fr.jhelp.android.library.math.COLOR_RED_0300
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.android.library.tasks.extensions.observedBy

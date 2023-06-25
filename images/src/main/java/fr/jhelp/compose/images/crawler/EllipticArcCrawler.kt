@@ -8,13 +8,13 @@
 
 package fr.jhelp.compose.images.crawler
 
-import fr.jhelp.compose.math.AngleFloat
-import fr.jhelp.compose.math.Matrix
-import fr.jhelp.compose.math.PI_FLOAT
-import fr.jhelp.compose.math.Point2D
-import fr.jhelp.compose.math.TWO_PI_FLOAT
-import fr.jhelp.compose.math.extensions.sign
-import fr.jhelp.compose.math.obtainRotateMatrix
+import fr.jhelp.android.library.math.AngleFloat
+import fr.jhelp.android.library.math.Matrix
+import fr.jhelp.android.library.math.PI_FLOAT
+import fr.jhelp.android.library.math.Point2D
+import fr.jhelp.android.library.math.TWO_PI_FLOAT
+import fr.jhelp.android.library.math.extensions.sign
+import fr.jhelp.android.library.math.obtainRotateMatrix
 import kotlin.math.abs
 import kotlin.math.acos
 import kotlin.math.cos

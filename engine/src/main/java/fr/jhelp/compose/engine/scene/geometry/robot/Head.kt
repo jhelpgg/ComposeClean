@@ -23,7 +23,7 @@ import fr.jhelp.compose.images.bitmap
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.mask
 import fr.jhelp.compose.images.tint
-import fr.jhelp.compose.math.COLOR_WHITE
+import fr.jhelp.android.library.math.COLOR_WHITE
 
 private val hairPath by lazy {
     val path = Path()

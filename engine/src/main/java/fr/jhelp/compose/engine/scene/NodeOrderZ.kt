@@ -1,6 +1,6 @@
 package fr.jhelp.compose.engine.scene
 
-import fr.jhelp.compose.math.extensions.sign
+import fr.jhelp.android.library.math.extensions.sign
 
 
 /**

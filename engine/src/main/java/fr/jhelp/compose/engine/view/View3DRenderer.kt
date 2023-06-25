@@ -2,8 +2,8 @@ package fr.jhelp.compose.engine.view
 
 import android.opengl.GLSurfaceView
 import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.math.Point2D
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point2D
+import fr.jhelp.android.library.math.Point3D
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 import kotlinx.coroutines.flow.MutableStateFlow

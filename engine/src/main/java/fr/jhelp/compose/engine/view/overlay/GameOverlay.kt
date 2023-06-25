@@ -13,7 +13,7 @@ import fr.jhelp.compose.images.bitmap
 import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.draw
 import fr.jhelp.compose.images.fitRectangle
-import fr.jhelp.compose.math.square
+import fr.jhelp.android.library.math.square
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.parallel
 import java.util.concurrent.atomic.AtomicBoolean

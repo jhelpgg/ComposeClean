@@ -1,13 +1,13 @@
 package fr.jhelp.compose.engine.scene.geometry
 
 import fr.jhelp.compose.engine.scene.Object3D
-import fr.jhelp.compose.math.extensions.bounds
-import fr.jhelp.compose.math.extensions.same
-import fr.jhelp.compose.math.formal.Constant
-import fr.jhelp.compose.math.formal.MathFunction
-import fr.jhelp.compose.math.formal.Variable
-import fr.jhelp.compose.math.formal.X
-import fr.jhelp.compose.math.formal.Y
+import fr.jhelp.android.library.math.extensions.bounds
+import fr.jhelp.android.library.math.extensions.same
+import fr.jhelp.android.library.math.formal.Constant
+import fr.jhelp.android.library.math.formal.MathFunction
+import fr.jhelp.android.library.math.formal.Variable
+import fr.jhelp.android.library.math.formal.X
+import fr.jhelp.android.library.math.formal.Y
 import java.util.TreeSet
 
 /**

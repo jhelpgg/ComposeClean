@@ -1,7 +1,7 @@
 package fr.jhelp.compose.engine.loaders.objLoader
 
-import fr.jhelp.compose.math.Point2D
-import fr.jhelp.compose.math.Point3D
+import fr.jhelp.android.library.math.Point2D
+import fr.jhelp.android.library.math.Point3D
 
 internal class ObjObject(var name : String)
 {
