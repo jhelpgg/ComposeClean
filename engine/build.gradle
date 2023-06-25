@@ -4,11 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.engine'
+group = 'fr.jhelp.android.library.engine'
 version = '1.0.0'
 
 android {
-    namespace 'fr.jhelp.compose.engine'
+    namespace 'fr.jhelp.android.library.engine'
     compileSdk 34
 
     defaultConfig {
@@ -59,7 +59,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.engine'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'engine'
                 version = '1.0.0'
             }

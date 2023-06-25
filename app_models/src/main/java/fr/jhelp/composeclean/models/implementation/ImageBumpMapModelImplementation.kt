@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.implementation
 
 import android.graphics.Bitmap
-import fr.jhelp.compose.engine.resources.ResourcesAccess
+import fr.jhelp.android.library.engine.resources.ResourcesAccess
 import fr.jhelp.android.library.images.clear
 import fr.jhelp.android.library.images.createBumped
 import fr.jhelp.android.library.images.fitSpace

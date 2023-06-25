@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.game.ui
 
-import fr.jhelp.compose.engine.view.overlay.component.ImageAdjustment
-import fr.jhelp.compose.engine.view.overlay.component.OverlayButtonImage
+import fr.jhelp.android.library.engine.view.overlay.component.ImageAdjustment
+import fr.jhelp.android.library.engine.view.overlay.component.OverlayButtonImage
 
 /** Fire button */
 val BUTTON_FIRE: OverlayButtonImage = OverlayButtonImage(IMAGE_BUTTON_FIRE_UP,

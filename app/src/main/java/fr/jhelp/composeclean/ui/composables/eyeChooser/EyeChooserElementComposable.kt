@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import fr.jhelp.compose.constraint.theme.NEAR
 import fr.jhelp.compose.constraint.theme.START_END
-import fr.jhelp.compose.engine.resources.Eyes
+import fr.jhelp.android.library.engine.resources.Eyes
 
 /**
  * Draw an eye element in eye chooser

@@ -11,23 +11,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import fr.jhelp.android.library.engine.dsl.material
+import fr.jhelp.android.library.engine.dsl.materialReference
+import fr.jhelp.android.library.engine.dsl.texture
+import fr.jhelp.android.library.engine.dsl.textureReference
+import fr.jhelp.android.library.engine.extensions.material
+import fr.jhelp.android.library.engine.resources.ResourcesAccess
+import fr.jhelp.android.library.engine.resources.draw
+import fr.jhelp.android.library.engine.resources.texture
+import fr.jhelp.android.library.engine.scene.Color3D
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.scene.WHITE
+import fr.jhelp.android.library.images.clear
 import fr.jhelp.compose.constraint.extensions.bottomParent
 import fr.jhelp.compose.constraint.extensions.endParent
 import fr.jhelp.compose.constraint.extensions.far
 import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.engine.dsl.material
-import fr.jhelp.compose.engine.dsl.materialReference
-import fr.jhelp.compose.engine.dsl.textureReference
-import fr.jhelp.compose.engine.extensions.material
-import fr.jhelp.compose.engine.resources.ResourcesAccess
-import fr.jhelp.compose.engine.resources.draw
-import fr.jhelp.compose.engine.resources.texture
-import fr.jhelp.compose.engine.scene.Color3D
-import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.engine.scene.WHITE
-import fr.jhelp.android.library.images.clear
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserButton
@@ -76,7 +77,7 @@ class EngineBackgroundForegroundComposable
         val self = this
         val view3DComposable = View3DComposable()
         val textureBox = textureReference()
-        fr.jhelp.compose.engine.dsl.texture(textureBox, R.drawable.floor)
+        texture(textureBox, R.drawable.floor)
         val materialBox = materialReference()
         material(materialBox) {
             this.diffuse = WHITE

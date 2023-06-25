@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.game
 
-import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.engine.view.overlay.OverlayScreen
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.view.overlay.OverlayScreen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

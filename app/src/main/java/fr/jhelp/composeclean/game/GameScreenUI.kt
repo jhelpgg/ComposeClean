@@ -1,14 +1,14 @@
 package fr.jhelp.composeclean.game
 
-import fr.jhelp.compose.engine.resources.image.ImageSourceDrawable
-import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.engine.scene.geometry.Sphere
-import fr.jhelp.compose.engine.view.overlay.OverlayScreen
-import fr.jhelp.compose.engine.view.overlay.OverlayScreenUI
-import fr.jhelp.compose.engine.view.overlay.component.OverlayButtonImage
-import fr.jhelp.compose.engine.view.overlay.component.OverlayText
-import fr.jhelp.compose.engine.view.overlay.component.layout.OverlayTableLayout
-import fr.jhelp.compose.engine.view.overlay.component.layout.OverlayTableLayoutConstraint
+import fr.jhelp.android.library.engine.resources.image.ImageSourceDrawable
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.scene.geometry.Sphere
+import fr.jhelp.android.library.engine.view.overlay.OverlayScreen
+import fr.jhelp.android.library.engine.view.overlay.OverlayScreenUI
+import fr.jhelp.android.library.engine.view.overlay.component.OverlayButtonImage
+import fr.jhelp.android.library.engine.view.overlay.component.OverlayText
+import fr.jhelp.android.library.engine.view.overlay.component.layout.OverlayTableLayout
+import fr.jhelp.android.library.engine.view.overlay.component.layout.OverlayTableLayoutConstraint
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.game.ui.BUTTON_FIRE
 import fr.jhelp.composeclean.game.ui.BUTTON_ROCK

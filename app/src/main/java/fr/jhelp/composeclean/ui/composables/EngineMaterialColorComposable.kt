@@ -10,10 +10,10 @@ import fr.jhelp.compose.constraint.extensions.endParent
 import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.engine.dsl.material
-import fr.jhelp.compose.engine.dsl.materialReference
-import fr.jhelp.compose.engine.extensions.material
-import fr.jhelp.compose.engine.scene.Color3D
+import fr.jhelp.android.library.engine.dsl.material
+import fr.jhelp.android.library.engine.dsl.materialReference
+import fr.jhelp.android.library.engine.extensions.material
+import fr.jhelp.android.library.engine.scene.Color3D
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserButton
 

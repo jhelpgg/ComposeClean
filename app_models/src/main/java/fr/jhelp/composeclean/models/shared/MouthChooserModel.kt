@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.models.shared
 
-import fr.jhelp.compose.engine.resources.Mouths
+import fr.jhelp.android.library.engine.resources.Mouths
 import fr.jhelp.compose.ui.recycler.RecyclerModel
 
 /**

@@ -3,7 +3,7 @@ package fr.jhelp.composeclean.ui.composables
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import fr.jhelp.compose.engine.view.touch.View3DTouchNothing
+import fr.jhelp.android.library.engine.view.touch.View3DTouchNothing
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R

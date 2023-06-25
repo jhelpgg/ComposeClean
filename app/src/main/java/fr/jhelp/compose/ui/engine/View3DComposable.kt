@@ -3,11 +3,11 @@ package fr.jhelp.compose.ui.engine
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import fr.jhelp.compose.engine.dsl.SceneCreator
-import fr.jhelp.compose.engine.extensions.tree
-import fr.jhelp.compose.engine.view.View3D
-import fr.jhelp.compose.engine.view.touch.View3DTouchAction
-import fr.jhelp.compose.engine.view.touch.View3DTouchManipulation
+import fr.jhelp.android.library.engine.dsl.SceneCreator
+import fr.jhelp.android.library.engine.extensions.tree
+import fr.jhelp.android.library.engine.view.View3D
+import fr.jhelp.android.library.engine.view.touch.View3DTouchAction
+import fr.jhelp.android.library.engine.view.touch.View3DTouchManipulation
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**

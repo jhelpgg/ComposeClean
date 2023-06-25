@@ -2,11 +2,11 @@ package fr.jhelp.composeclean.game
 
 import fr.jhelp.compose.animations.Animation
 import fr.jhelp.compose.animations.AnimationFunction
-import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.engine.view.joystick.VirtualJoystickDirection
-import fr.jhelp.compose.engine.view.joystick.VirtualJoystickType
-import fr.jhelp.compose.engine.view.overlay.OverlayScreen
-import fr.jhelp.compose.engine.view.overlay.OverlayScreenJoystick
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.view.joystick.VirtualJoystickDirection
+import fr.jhelp.android.library.engine.view.joystick.VirtualJoystickType
+import fr.jhelp.android.library.engine.view.overlay.OverlayScreen
+import fr.jhelp.android.library.engine.view.overlay.OverlayScreenJoystick
 import fr.jhelp.composeclean.game.models.Castle
 import fr.jhelp.composeclean.game.models.CastleBridgeState
 import fr.jhelp.android.library.tasks.extensions.observedBy

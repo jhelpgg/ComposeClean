@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.game
 
-import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.engine.view.overlay.OverlayScreen
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.view.overlay.OverlayScreen
 
 /**
  * A game screen type

@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.shared
 
 import androidx.annotation.DrawableRes
-import fr.jhelp.compose.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.scene.Scene3D
 
 /**
  * Interpolations in animation show case

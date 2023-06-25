@@ -27,10 +27,10 @@ class ImageChooserComposable
                 DrawImageChooserElement(image = image, click = select)
             }
         this.imageChooserModel.initialize(recyclerView.recyclerModel,
-                                          fr.jhelp.compose.engine.R.drawable.body_costume,
+                                          fr.jhelp.android.library.engine.R.drawable.body_costume,
                                           R.drawable.floor,
                                           R.drawable.default_screen,
-                                          fr.jhelp.compose.engine.R.drawable.dice)
+                                          fr.jhelp.android.library.engine.R.drawable.dice)
         recyclerView.Draw(Modifier.fillMaxSize())
     }
 }

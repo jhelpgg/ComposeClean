@@ -1,9 +1,9 @@
 package fr.jhelp.composeclean.game.ui
 
-import fr.jhelp.compose.engine.resources.image.ImagePosition
-import fr.jhelp.compose.engine.resources.image.ImageSource
-import fr.jhelp.compose.engine.resources.image.ImageSourceAsset
-import fr.jhelp.compose.engine.resources.image.ImageSourceStack
+import fr.jhelp.android.library.engine.resources.image.ImagePosition
+import fr.jhelp.android.library.engine.resources.image.ImageSource
+import fr.jhelp.android.library.engine.resources.image.ImageSourceAsset
+import fr.jhelp.android.library.engine.resources.image.ImageSourceStack
 
 // *******************
 // *** Base images ***

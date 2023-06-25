@@ -1,6 +1,6 @@
 # 3D engine for Android
 
-`fr.jhelp.compose.engine.view.View3D` is a view where 3D scene can be draw on it.
+`fr.jhelp.android.library.engine.view.View3D` is a view where 3D scene can be draw on it.
 
 It can be used and placed as any other graphics component like `Button`, `TextView`, `ImageView`,
 ...
@@ -16,8 +16,8 @@ To add element oon the 3D it it recommended to do i outside the Main thread.
 Traditional way to manipulate the scene embed :
 
 `````kotlin
-import fr.jhelp.compose.engine.view.View3D
-import fr.jhelp.compose.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.view.View3D
+import fr.jhelp.android.library.engine.scene.Scene3D
 
 // ...
 
@@ -42,9 +42,9 @@ class MyActivity : AppCaompatActivity()
 **DSL** way : 
 
 `````kotlin
-import fr.jhelp.compose.engine.view.View3D
-import fr.jhelp.compose.engine.scene.Scene3D
-import fr.jhelp.compose.engine.extensions.tree
+import fr.jhelp.android.library.engine.view.View3D
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.extensions.tree
 // ...
 
 class MyActivity : AppCaompatActivity()
@@ -65,7 +65,7 @@ class MyActivity : AppCaompatActivity()
 
 ## The scene
 
-`fr.jhelp.compose.engine.scene.Scene3D` describes the scene. 
+`fr.jhelp.android.library.engine.scene.Scene3D` describes the scene. 
 
 The background color cn be changed with the `bckground`field.
 

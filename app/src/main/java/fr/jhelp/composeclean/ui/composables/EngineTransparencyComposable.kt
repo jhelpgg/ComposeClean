@@ -15,13 +15,13 @@ import fr.jhelp.compose.constraint.extensions.endParent
 import fr.jhelp.compose.constraint.extensions.near
 import fr.jhelp.compose.constraint.extensions.startParent
 import fr.jhelp.compose.constraint.extensions.topParent
-import fr.jhelp.compose.engine.dsl.material
-import fr.jhelp.compose.engine.dsl.materialReferences
-import fr.jhelp.compose.engine.dsl.texture
-import fr.jhelp.compose.engine.dsl.textureReferences
-import fr.jhelp.compose.engine.extensions.material
-import fr.jhelp.compose.engine.extensions.position
-import fr.jhelp.compose.engine.scene.WHITE
+import fr.jhelp.android.library.engine.dsl.material
+import fr.jhelp.android.library.engine.dsl.materialReferences
+import fr.jhelp.android.library.engine.dsl.texture
+import fr.jhelp.android.library.engine.dsl.textureReferences
+import fr.jhelp.android.library.engine.extensions.material
+import fr.jhelp.android.library.engine.extensions.position
+import fr.jhelp.android.library.engine.scene.WHITE
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
 

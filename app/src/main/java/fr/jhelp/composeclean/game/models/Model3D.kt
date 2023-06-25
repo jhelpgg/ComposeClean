@@ -1,6 +1,6 @@
 package fr.jhelp.composeclean.game.models
 
-import fr.jhelp.compose.engine.scene.Node3D
+import fr.jhelp.android.library.engine.scene.Node3D
 
 /**
  * Model of 3D object used in game

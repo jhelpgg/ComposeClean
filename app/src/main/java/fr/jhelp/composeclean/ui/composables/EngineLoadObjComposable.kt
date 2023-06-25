@@ -3,14 +3,14 @@ package fr.jhelp.composeclean.ui.composables
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import fr.jhelp.compose.engine.R
-import fr.jhelp.compose.engine.dsl.material
-import fr.jhelp.compose.engine.dsl.materialReference
-import fr.jhelp.compose.engine.dsl.texture
-import fr.jhelp.compose.engine.dsl.textureReference
-import fr.jhelp.compose.engine.extensions.position
-import fr.jhelp.compose.engine.loaders.objLoader.ObjLoader
-import fr.jhelp.compose.engine.scene.WHITE
+import fr.jhelp.android.library.engine.R
+import fr.jhelp.android.library.engine.dsl.material
+import fr.jhelp.android.library.engine.dsl.materialReference
+import fr.jhelp.android.library.engine.dsl.texture
+import fr.jhelp.android.library.engine.dsl.textureReference
+import fr.jhelp.android.library.engine.extensions.position
+import fr.jhelp.android.library.engine.loaders.objLoader.ObjLoader
+import fr.jhelp.android.library.engine.scene.WHITE
 import fr.jhelp.compose.ui.engine.View3DComposable
 
 /**
