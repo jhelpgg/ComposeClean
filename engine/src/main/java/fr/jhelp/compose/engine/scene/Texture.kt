@@ -42,7 +42,7 @@ class Texture internal constructor(bitmap: Bitmap, sealed: Boolean) : Object()
 
         if (sealed)
         {
-            bitmap.copyPixelsToBuffer(this.pixels)
+            bitmap.copyPixelsToBuffer(this.pixels!!)
             this.pixels!!.position(0)
             bitmap.recycle()
         }
@@ -134,7 +134,7 @@ class Texture internal constructor(bitmap: Bitmap, sealed: Boolean) : Object()
     {
         if (!this.sealed.getAndSet(true))
         {
-            this.bitmap!!.copyPixelsToBuffer(this.pixels)
+            this.bitmap!!.copyPixelsToBuffer(this.pixels!!)
             this.pixels!!.position(0)
             this.bitmap!!.recycle()
             this.bitmap = null
