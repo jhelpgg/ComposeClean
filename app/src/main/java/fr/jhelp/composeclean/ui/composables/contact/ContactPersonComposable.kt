@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import fr.jhelp.compose.constraint.extensions.far
-import fr.jhelp.compose.constraint.extensions.startParent
+import fr.jhelp.android.library.constraint.extensions.far
+import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.composeclean.models.contact.ContactPerson
 
 /**

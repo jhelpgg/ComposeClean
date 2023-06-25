@@ -1,10 +1,10 @@
-package fr.jhelp.compose.constraint.extensions
+package fr.jhelp.android.library.constraint.extensions
 
 import androidx.constraintlayout.compose.ConstraintLayoutBaseScope
 import androidx.constraintlayout.compose.VerticalAnchorable
-import fr.jhelp.compose.constraint.theme.FAR
-import fr.jhelp.compose.constraint.theme.NEAR
-import fr.jhelp.compose.constraint.theme.NEXT
+import fr.jhelp.android.library.constraint.theme.FAR
+import fr.jhelp.android.library.constraint.theme.NEAR
+import fr.jhelp.android.library.constraint.theme.NEXT
 
 /** Place component at default distance to other one in vertical */
 infix fun VerticalAnchorable.next(VerticalAnchor: ConstraintLayoutBaseScope.VerticalAnchor): Unit =

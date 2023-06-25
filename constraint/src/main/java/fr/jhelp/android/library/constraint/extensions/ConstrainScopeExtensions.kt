@@ -1,8 +1,8 @@
-package fr.jhelp.compose.constraint.extensions
+package fr.jhelp.android.library.constraint.extensions
 
 import androidx.constraintlayout.compose.ConstrainScope
-import fr.jhelp.compose.constraint.theme.START_END
-import fr.jhelp.compose.constraint.theme.TOP_BOTTOM
+import fr.jhelp.android.library.constraint.theme.START_END
+import fr.jhelp.android.library.constraint.theme.TOP_BOTTOM
 
 /** Attach component top to it's parent top with standard distance */
 val ConstrainScope.topParent: Unit get() = this.top.linkTo(this.parent.top, margin = TOP_BOTTOM)

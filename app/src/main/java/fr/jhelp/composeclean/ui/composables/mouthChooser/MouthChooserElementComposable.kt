@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
-import fr.jhelp.compose.constraint.theme.NEAR
-import fr.jhelp.compose.constraint.theme.START_END
+import fr.jhelp.android.library.constraint.theme.NEAR
+import fr.jhelp.android.library.constraint.theme.START_END
 import fr.jhelp.android.library.engine.resources.Mouths
 
 /**

@@ -15,8 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import fr.jhelp.compose.constraint.theme.NEAR
-import fr.jhelp.compose.constraint.theme.START_END
+import fr.jhelp.android.library.constraint.theme.NEAR
+import fr.jhelp.android.library.constraint.theme.START_END
 import fr.jhelp.composeclean.extensions.resourceImage
 import fr.jhelp.composeclean.extensions.resourceText
 import fr.jhelp.composeclean.models.presentation.PresentationElement

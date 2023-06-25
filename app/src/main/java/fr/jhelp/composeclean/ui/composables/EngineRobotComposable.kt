@@ -8,11 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import fr.jhelp.compose.constraint.extensions.bottomParent
-import fr.jhelp.compose.constraint.extensions.endParent
-import fr.jhelp.compose.constraint.extensions.near
-import fr.jhelp.compose.constraint.extensions.startParent
-import fr.jhelp.compose.constraint.extensions.topParent
+import fr.jhelp.android.library.constraint.extensions.bottomParent
+import fr.jhelp.android.library.constraint.extensions.endParent
+import fr.jhelp.android.library.constraint.extensions.near
+import fr.jhelp.android.library.constraint.extensions.startParent
+import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.engine.scene.Scene3D
 import fr.jhelp.android.library.engine.scene.geometry.robot.Robot
 import fr.jhelp.android.library.engine.scene.geometry.robot.animation.headNoAnimation

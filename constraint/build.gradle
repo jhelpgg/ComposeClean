@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.constraint'
+group = 'fr.jhelp.android.library.constraint'
 version = '1.0.0'
 
 android {
@@ -31,7 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'fr.jhelp.compose.constraint'
+    namespace 'fr.jhelp.android.library.constraint'
 }
 
 dependencies {
@@ -51,7 +51,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.constraint'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'constraint'
                 version = '1.0.0'
             }

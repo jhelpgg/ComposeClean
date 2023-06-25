@@ -18,11 +18,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import fr.jhelp.compose.constraint.theme.FAR
-import fr.jhelp.compose.constraint.theme.NEAR
-import fr.jhelp.compose.constraint.theme.NEXT
-import fr.jhelp.compose.constraint.theme.START_END
-import fr.jhelp.compose.constraint.theme.TOP_BOTTOM
+import fr.jhelp.android.library.constraint.theme.FAR
+import fr.jhelp.android.library.constraint.theme.NEAR
+import fr.jhelp.android.library.constraint.theme.NEXT
+import fr.jhelp.android.library.constraint.theme.START_END
+import fr.jhelp.android.library.constraint.theme.TOP_BOTTOM
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.R
 import fr.jhelp.composeclean.models.shared.SoundManagerExampleModel

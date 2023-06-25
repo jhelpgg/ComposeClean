@@ -5,11 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import fr.jhelp.compose.constraint.extensions.bottomParent
-import fr.jhelp.compose.constraint.extensions.endParent
-import fr.jhelp.compose.constraint.extensions.near
-import fr.jhelp.compose.constraint.extensions.startParent
-import fr.jhelp.compose.constraint.extensions.topParent
+import fr.jhelp.android.library.constraint.extensions.bottomParent
+import fr.jhelp.android.library.constraint.extensions.endParent
+import fr.jhelp.android.library.constraint.extensions.near
+import fr.jhelp.android.library.constraint.extensions.startParent
+import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.engine.dsl.material
 import fr.jhelp.android.library.engine.dsl.materialReference
 import fr.jhelp.android.library.engine.extensions.material

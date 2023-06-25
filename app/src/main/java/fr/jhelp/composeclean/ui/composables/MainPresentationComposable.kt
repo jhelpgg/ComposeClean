@@ -13,10 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import fr.jhelp.compose.constraint.extensions.bottomParent
-import fr.jhelp.compose.constraint.extensions.endParent
-import fr.jhelp.compose.constraint.extensions.near
-import fr.jhelp.compose.constraint.extensions.startParent
+import fr.jhelp.android.library.constraint.extensions.bottomParent
+import fr.jhelp.android.library.constraint.extensions.endParent
+import fr.jhelp.android.library.constraint.extensions.near
+import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
 import fr.jhelp.composeclean.R

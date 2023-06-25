@@ -10,11 +10,11 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import fr.jhelp.compose.animations.interpolation.AccelerationInterpolation
 import fr.jhelp.compose.animations.interpolation.DecelerationInterpolation
-import fr.jhelp.compose.constraint.extensions.bottomParent
-import fr.jhelp.compose.constraint.extensions.endParent
-import fr.jhelp.compose.constraint.extensions.near
-import fr.jhelp.compose.constraint.extensions.startParent
-import fr.jhelp.compose.constraint.extensions.topParent
+import fr.jhelp.android.library.constraint.extensions.bottomParent
+import fr.jhelp.android.library.constraint.extensions.endParent
+import fr.jhelp.android.library.constraint.extensions.near
+import fr.jhelp.android.library.constraint.extensions.startParent
+import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticlePlayer
 import fr.jhelp.android.library.engine.dsl.material
 import fr.jhelp.android.library.engine.dsl.materialReference

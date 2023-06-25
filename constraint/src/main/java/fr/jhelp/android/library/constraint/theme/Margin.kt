@@ -1,4 +1,4 @@
-package fr.jhelp.compose.constraint.theme
+package fr.jhelp.android.library.constraint.theme
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
