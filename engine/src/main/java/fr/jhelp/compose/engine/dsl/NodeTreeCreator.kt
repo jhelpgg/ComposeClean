@@ -15,8 +15,8 @@ import fr.jhelp.compose.engine.scene.geometry.Sphere
 import fr.jhelp.compose.engine.scene.geometry.dice.Dice
 import fr.jhelp.compose.images.path.Path
 import fr.jhelp.compose.math.formal.MathFunction
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.extensions.parallel
 import java.io.InputStream
 
 /**

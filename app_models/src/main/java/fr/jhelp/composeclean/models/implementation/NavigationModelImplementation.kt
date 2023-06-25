@@ -14,8 +14,8 @@ import fr.jhelp.composeclean.models.shared.dialogs.DialogModel
 import fr.jhelp.composeclean.models.shared.dialogs.NoDialog
 import fr.jhelp.composeclean.models.source.text.TextResource
 import fr.jhelp.composeclean.models.source.text.TextSource
-import fr.jhelp.tasks.future.FutureResult
-import fr.jhelp.tasks.future.Promise
+import fr.jhelp.android.library.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.future.Promise
 
 internal class NavigationModelImplementation : NavigationModel
 {

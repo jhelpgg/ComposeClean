@@ -4,11 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.tasks'
+group = 'fr.jhelp.android.library.tasks'
 version = '1.0.0'
 
 android {
-    namespace 'fr.jhelp.tasks'
+    namespace 'fr.jhelp.android.library.tasks'
     compileSdk 34
 
     defaultConfig {
@@ -55,7 +55,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.tasks'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'tasks'
                 version = '1.0.0'
             }

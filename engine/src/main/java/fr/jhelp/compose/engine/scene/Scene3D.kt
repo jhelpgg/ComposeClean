@@ -9,8 +9,8 @@ import fr.jhelp.compose.engine.buffer.BufferFloat
 import fr.jhelp.compose.engine.math.antiProjection
 import fr.jhelp.compose.engine.view.ViewBounds
 import fr.jhelp.compose.math.Point3D
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.extensions.observedBy
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.extensions.observedBy
 import java.util.Stack
 import javax.microedition.khronos.opengles.GL10
 import kotlinx.coroutines.CoroutineScope

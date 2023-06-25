@@ -3,7 +3,7 @@ package fr.jhelp.compose.engine.view.overlay.component
 import android.graphics.Canvas
 import android.graphics.Paint
 import fr.jhelp.compose.images.Point
-import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.extensions.parallel
 
 /**
  * Generic overlay UI component

@@ -6,7 +6,7 @@ import fr.jhelp.composeclean.models.shared.dialogs.DialogMessageOptionButton
 import fr.jhelp.composeclean.models.shared.dialogs.DialogMessageOptions
 import fr.jhelp.composeclean.models.shared.dialogs.DialogModel
 import fr.jhelp.composeclean.models.source.text.TextSource
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.future.FutureResult
 
 /***
  * Model for navigation between view.

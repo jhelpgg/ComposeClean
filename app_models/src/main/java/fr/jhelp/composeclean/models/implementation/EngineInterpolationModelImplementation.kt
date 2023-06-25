@@ -40,7 +40,7 @@ import fr.jhelp.compose.math.COLOR_BLUE_0400
 import fr.jhelp.compose.math.COLOR_GREY_0400
 import fr.jhelp.compose.math.COLOR_WHITE
 import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
-import fr.jhelp.tasks.TaskType
+import fr.jhelp.android.library.tasks.TaskType
 
 internal class EngineInterpolationModelImplementation : EngineInterpolationModel
 {

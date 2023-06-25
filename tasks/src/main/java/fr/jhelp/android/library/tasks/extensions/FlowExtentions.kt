@@ -1,8 +1,8 @@
-package fr.jhelp.tasks.extensions
+package fr.jhelp.android.library.tasks.extensions
 
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.future.FutureResult
-import fr.jhelp.tasks.future.Promise
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.future.Promise
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map

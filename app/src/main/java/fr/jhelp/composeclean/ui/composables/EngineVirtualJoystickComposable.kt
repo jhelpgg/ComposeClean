@@ -15,7 +15,7 @@ import fr.jhelp.compose.engine.view.touch.View3DTouchOverSensitive
 import fr.jhelp.compose.math.random
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
-import fr.jhelp.tasks.extensions.observedBy
+import fr.jhelp.android.library.tasks.extensions.observedBy
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**

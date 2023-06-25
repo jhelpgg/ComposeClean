@@ -8,8 +8,8 @@ import fr.jhelp.compose.engine.view.joystick.VirtualJoystickDirection
 import fr.jhelp.compose.engine.view.joystick.VirtualJoystickType
 import fr.jhelp.compose.math.radianToDegree
 import fr.jhelp.compose.math.square
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.future.FutureResult
 import kotlin.math.atan2
 import kotlin.math.min
 import kotlin.math.sqrt

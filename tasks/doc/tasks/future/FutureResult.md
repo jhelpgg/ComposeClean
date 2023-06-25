@@ -19,10 +19,10 @@ failed or canceled.
 When a task is played in a separate thread, it made a promise that it will have a result in the
 future.
 
-The object [fr.jhelp.tasks.future.Promise](../../../src/main/java/fr/jhelp/tasks/future/Promise.kt)
+The object [fr.jhelp.android.library.tasks.Promise](../../../src/main/java/fr/jhelp/android/library/tasks/future/Promise.kt)
 represents the promise.
 And the
-object [fr.jhelp.tasks.future.FutureResult](../../../src/main/java/fr/jhelp/tasks/future/FutureResult.kt)
+object [fr.jhelp.android.library.tasks.FutureResult](../../../src/main/java/fr/jhelp/android/library/tasks/future/FutureResult.kt)
 the result in the future.
 
 ## Promise
@@ -31,8 +31,8 @@ Usually the task have an instance of `Promise` in private and share the `FutureR
 That is to say something like :
 
 ```kotlin
-import fr.jhelp.tasks.future.Promise
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.Promise
+import fr.jhelp.android.library.tasks.FutureResult
 
 // ...
 
@@ -72,8 +72,8 @@ To react to cancel request, we provided two possible ways (you can use both with
 First possibility is to register a cancel listener with `onCancel` method
 
 ```kotlin
-import fr.jhelp.tasks.future.Promise
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.Promise
+import fr.jhelp.android.library.tasks.FutureResult
 
 // ...
 
@@ -116,8 +116,8 @@ In some advanced usage it may be use-full to have different reaction depends on 
 The other way is to use the field `canceled`, it can be use-full in a loop to stop it :
 
 ```kotlin
-import fr.jhelp.tasks.future.Promise
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.Promise
+import fr.jhelp.android.library.tasks.FutureResult
 
 // ...
 
@@ -163,7 +163,7 @@ The `FutureResult` permits to react when task complete.
 
 It have a status with `status()` method.
 List of status is in the
-enumeration [fr.jhelp.tasks.future.FutureResultStatus](../../../src/main/java/fr/jhelp/tasks/future/FutureResultStatus.kt)
+enumeration [fr.jhelp.android.library.tasks.FutureResultStatus](../../../src/main/java/fr/jhelp/android/library/tasks/future/FutureResultStatus.kt)
 
 By nature the `COMPUTING` status can change at any moment.
 It is discouraged to loop on this status for wait the completion.
@@ -172,7 +172,7 @@ Their other methods for react properly.
 To register with a classic listener, use `register` method.
 The listener will callback when future complete in the specified `TaskType` (
 See [TaskType](../TaskType.md)).
-If the future is already complete, the listner is launched immediately.
+If the future is already complete, the listener is launched immediately.
 
 The `invoke` method will block the thread that invoke it until completing.
 No blocking if already complete.
@@ -203,13 +203,13 @@ catch (exception: Exception)
 
 The method `waitComplete` block current thread until the future complete.
 If already complete, it not blocks.
-It returns the final status, so succeed, failed or cancleed.
+It returns the final status, so succeed, failed or canceled.
 Since future is complete, it will not be computing.
 
 The method `error` returns an exception if future is complete and failed.
 If the future still computing or complete because of success or failure, `null`is returned.
 
-The method `cancelReason` give the cancelation reason if future complete by cancellation.
+The method `cancelReason` give the cancellation reason if future complete by cancellation.
 If the future still compute or complete because of success or failure it returns `null`
 
 The method `cancel` tries to cancel the task. It does nothing if the future already complete
@@ -232,7 +232,7 @@ The result future will :
 By example :
 
 ```kotlin
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.FutureResult
 
 fun add(more: Double, numberInStringFuture: FutureResult<String>): FutureResult<String>
 {
@@ -257,8 +257,8 @@ The result future will :
 * Canceled if the future or the created future is canceled.
 
 ````kotlin
-import fr.jhelp.tasks.future.FutureResult
-import fr.jhelp.tasks.future.FutureResultStatus
+import fr.jhelp.android.library.tasks.FutureResult
+import fr.jhelp.android.library.tasks.FutureResultStatus
 
 fun <R:Any> something(future: FutureResult<R>): FutureResult<Unit>
 {
@@ -320,8 +320,8 @@ It is possible to reduce it to future of something.
 To do it, just use the `unwrap` extension
 
 ```kotlin
-import fr.jhelp.tasks.future.unwrap
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.unwrap
+import fr.jhelp.android.library.tasks.FutureResult
 
 fun <R:Any> receive(futureOfFuture:FutureResult<FutureResult<R>>)
 {
@@ -336,8 +336,8 @@ Sometimes it is useful to be able to wait that several futures are complete befo
 For this use the `join` extension.
 
 ```kotlin
-import fr.jhelp.tasks.future.join
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.join
+import fr.jhelp.android.library.tasks.FutureResult
 
 fun average(futures: List<FutureResult<Double>>): FutureResult<Double>
 {
@@ -368,9 +368,9 @@ Sometimes when want return a future it exists case that we don't need to compute
 `futureError` extension transform an exception on future failed with the exception
 
 ```kotlin
-import fr.jhelp.tasks.future.FutureResult
-import fr.jhelp.tasks.future.future
-import fr.jhelp.tasks.future.futureError
+import fr.jhelp.android.library.tasks.FutureResult
+import fr.jhelp.android.library.tasks.future
+import fr.jhelp.android.library.tasks.futureError
 
 fun multiply(futureResult: FutureResult<Double>, number: Double): FutureResult<Double>
 {

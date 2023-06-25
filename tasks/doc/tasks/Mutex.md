@@ -1,6 +1,6 @@
 # Mutex
 
-The class [fr.jhelp.tasks.Mutex](../../src/main/java/fr/jhelp/tasks/Mutex.kt)
+The class [fr.jhelp.android.library.tasks.Mutex](../../src/main/java/fr/jhelp/android/library/tasks/Mutex.kt)
 
 Permits do do some atomic operations.
 Operations does with same mutex can't be done in same time.
@@ -83,7 +83,7 @@ other one. That's the role of `Mutex`
 In our example :
 
 ```kotlin
-import fr.jhelp.tasks.Mutex
+import fr.jhelp.android.library.tasks.Mutex
 
 class BankAccount
 {

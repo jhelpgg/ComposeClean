@@ -13,10 +13,10 @@ import fr.jhelp.compose.engine.scene.Node3D
 import fr.jhelp.compose.engine.scene.Texture
 import fr.jhelp.compose.provider.isProvided
 import fr.jhelp.compose.provider.provided
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.extensions.parallel
-import fr.jhelp.tasks.future.FutureResult
-import fr.jhelp.tasks.future.futureError
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.future.futureError
 
 /**
  * Access to resources helper

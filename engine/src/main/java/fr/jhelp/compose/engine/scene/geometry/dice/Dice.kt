@@ -22,7 +22,7 @@ import fr.jhelp.compose.engine.scene.geometry.Box
 import fr.jhelp.compose.engine.scene.geometry.CrossUV
 import fr.jhelp.compose.math.extensions.bounds
 import fr.jhelp.compose.math.random
-import fr.jhelp.tasks.TaskType
+import fr.jhelp.android.library.tasks.TaskType
 import kotlin.math.max
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package fr.jhelp.tasks
+package fr.jhelp.android.library.tasks
 
 import org.junit.Assert
 import org.junit.Test

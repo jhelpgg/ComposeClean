@@ -1,4 +1,4 @@
-package fr.jhelp.tasks
+package fr.jhelp.android.library.tasks
 
 import kotlin.math.max
 import org.junit.Assert

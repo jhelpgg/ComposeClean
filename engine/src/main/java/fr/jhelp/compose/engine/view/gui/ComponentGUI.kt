@@ -2,7 +2,7 @@ package fr.jhelp.compose.engine.view.gui
 
 import android.graphics.Canvas
 import android.graphics.Paint
-import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.extensions.parallel
 
 /**
  * Generic component to place on [GUI]

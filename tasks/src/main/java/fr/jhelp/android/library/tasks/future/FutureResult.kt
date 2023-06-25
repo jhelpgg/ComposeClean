@@ -1,7 +1,7 @@
-package fr.jhelp.tasks.future
+package fr.jhelp.android.library.tasks.future
 
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.extensions.parallel
 import java.util.concurrent.atomic.AtomicReference
 
 /**

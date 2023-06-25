@@ -1,4 +1,4 @@
-package fr.jhelp.tasks
+package fr.jhelp.android.library.tasks
 
 import fr.jhelp.compose.collection.queue.Queue
 

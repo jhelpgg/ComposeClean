@@ -7,7 +7,7 @@ import fr.jhelp.compose.engine.R
 import fr.jhelp.compose.engine.view.overlay.GameOverlay
 import fr.jhelp.compose.engine.view.overlay.OverlayScreen
 import fr.jhelp.compose.engine.view.touch.View3DTouchNothing
-import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.extensions.parallel
 
 /**
  * Generic activity for 3D games.

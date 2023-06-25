@@ -1,4 +1,4 @@
-package fr.jhelp.tasks.network
+package fr.jhelp.android.library.tasks.network
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -9,7 +9,7 @@ import fr.jhelp.compose.provider.provided
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
- * Network manager, for make work [fr.jhelp.tasks.TaskType.NETWORK]
+ * Network manager, for make work [fr.jhelp.android.library.tasks.TaskType.NETWORK]
  *
  * It will requires the permissions:
  * * android.Manifest.permission.INTERNET

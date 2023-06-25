@@ -2,7 +2,7 @@ package fr.jhelp.compose.engine.extensions
 
 import fr.jhelp.compose.engine.dsl.SceneCreator
 import fr.jhelp.compose.engine.view.View3D
-import fr.jhelp.tasks.TaskType
+import fr.jhelp.android.library.tasks.TaskType
 
 /**
  * Create scene tree hierarchy for this view 3D

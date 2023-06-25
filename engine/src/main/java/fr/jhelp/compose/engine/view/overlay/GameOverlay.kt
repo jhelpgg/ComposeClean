@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.SystemClock
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import fr.jhelp.compose.engine.view.CLICK_TIME
@@ -15,8 +14,8 @@ import fr.jhelp.compose.images.clear
 import fr.jhelp.compose.images.draw
 import fr.jhelp.compose.images.fitRectangle
 import fr.jhelp.compose.math.square
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.extensions.parallel
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.extensions.parallel
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.sqrt
 

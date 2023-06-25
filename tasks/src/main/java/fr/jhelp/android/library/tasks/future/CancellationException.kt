@@ -1,4 +1,4 @@
-package fr.jhelp.tasks.future
+package fr.jhelp.android.library.tasks.future
 
 /**
  * Exception when future is cancelled

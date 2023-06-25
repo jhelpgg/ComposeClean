@@ -1,4 +1,4 @@
-package fr.jhelp.tasks
+package fr.jhelp.android.library.tasks
 
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicLong

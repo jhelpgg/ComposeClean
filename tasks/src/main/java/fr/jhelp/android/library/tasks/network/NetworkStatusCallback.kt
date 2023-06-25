@@ -1,4 +1,4 @@
-package fr.jhelp.tasks.network
+package fr.jhelp.android.library.tasks.network
 
 import android.net.ConnectivityManager
 import android.net.Network

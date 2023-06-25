@@ -1,9 +1,9 @@
-package fr.jhelp.tasks.network
+package fr.jhelp.android.library.tasks.network
 
-import fr.jhelp.tasks.Locker
-import fr.jhelp.tasks.ThreadSafeQueue
-import fr.jhelp.tasks.extensions.observedBy
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.Locker
+import fr.jhelp.android.library.tasks.ThreadSafeQueue
+import fr.jhelp.android.library.tasks.extensions.observedBy
+import fr.jhelp.android.library.tasks.future.FutureResult
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineDispatcher
@@ -52,7 +52,7 @@ object NetworkDispatcher : CoroutineDispatcher()
 
     private fun networkAvailable(networkAvailable: Boolean)
     {
-        this.networkAvailable = networkAvailable
+        NetworkDispatcher.networkAvailable = networkAvailable
 
         if (networkAvailable && this.locked.compareAndSet(true, false))
         {

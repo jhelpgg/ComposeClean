@@ -25,8 +25,8 @@ import fr.jhelp.compose.images.path.Path
 import fr.jhelp.compose.math.AngleFloat
 import fr.jhelp.compose.math.AngleUnit
 import fr.jhelp.compose.math.degreeToRadian
-import fr.jhelp.tasks.TaskType
-import fr.jhelp.tasks.extensions.doWhen
+import fr.jhelp.android.library.tasks.TaskType
+import fr.jhelp.android.library.tasks.extensions.doWhen
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlinx.coroutines.flow.Flow

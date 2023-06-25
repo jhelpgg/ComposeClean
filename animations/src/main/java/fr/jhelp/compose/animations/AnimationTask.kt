@@ -1,6 +1,6 @@
 package fr.jhelp.compose.animations
 
-import fr.jhelp.tasks.TaskType
+import fr.jhelp.android.library.tasks.TaskType
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**

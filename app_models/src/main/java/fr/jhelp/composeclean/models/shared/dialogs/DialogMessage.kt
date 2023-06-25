@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.models.shared.dialogs
 
 import fr.jhelp.composeclean.models.source.text.TextSource
-import fr.jhelp.tasks.TaskType
+import fr.jhelp.android.library.tasks.TaskType
 
 /**
  * Message dialog

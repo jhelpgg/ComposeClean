@@ -1,6 +1,6 @@
-package fr.jhelp.tasks.future
+package fr.jhelp.android.library.tasks.future
 
-import fr.jhelp.tasks.TaskType
+import fr.jhelp.android.library.tasks.TaskType
 
 /**
  * When a task compute something in background,, it makes a promise do have a result in future.

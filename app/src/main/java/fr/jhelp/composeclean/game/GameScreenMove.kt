@@ -9,8 +9,8 @@ import fr.jhelp.compose.engine.view.overlay.OverlayScreen
 import fr.jhelp.compose.engine.view.overlay.OverlayScreenJoystick
 import fr.jhelp.composeclean.game.models.Castle
 import fr.jhelp.composeclean.game.models.CastleBridgeState
-import fr.jhelp.tasks.extensions.observedBy
-import fr.jhelp.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.extensions.observedBy
+import fr.jhelp.android.library.tasks.future.FutureResult
 
 /**
  * Screen for move hero

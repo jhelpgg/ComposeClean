@@ -30,7 +30,7 @@ import fr.jhelp.compose.math.COLOR_GREEN_0300
 import fr.jhelp.compose.math.COLOR_RED_0300
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
-import fr.jhelp.tasks.extensions.observedBy
+import fr.jhelp.android.library.tasks.extensions.observedBy
 
 /**
  * Show dice animation

@@ -1,8 +1,8 @@
-package fr.jhelp.tasks
+package fr.jhelp.android.library.tasks
 
-import fr.jhelp.tasks.future.FutureResult
-import fr.jhelp.tasks.future.Promise
-import fr.jhelp.tasks.network.NetworkDispatcher
+import fr.jhelp.android.library.tasks.future.FutureResult
+import fr.jhelp.android.library.tasks.future.Promise
+import fr.jhelp.android.library.tasks.network.NetworkDispatcher
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -16,10 +16,10 @@ import kotlinx.coroutines.launch
 enum class TaskType(internal val coroutineScope: CoroutineScope)
 {
     /** For short, not heavy tasks */
-    SHORT_TASK(CoroutineScope(Dispatchers.Default.limitedParallelism(8))),
+    SHORT_TASK(CoroutineScope(Dispatchers.Default)),
 
     /** For long or heavy tasks */
-    HEAVY_TASK(CoroutineScope(Dispatchers.Default.limitedParallelism(4))),
+    HEAVY_TASK(CoroutineScope(Dispatchers.Default)),
 
     /** Play task when network is available */
     NETWORK(CoroutineScope(NetworkDispatcher)),
