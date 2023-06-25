@@ -1,4 +1,4 @@
-package fr.jhelp.compose.collection
+package fr.jhelp.android.library.collection
 
 import kotlin.math.max
 import kotlin.math.min

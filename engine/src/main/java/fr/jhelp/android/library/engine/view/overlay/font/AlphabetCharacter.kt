@@ -2,7 +2,7 @@ package fr.jhelp.android.library.engine.view.overlay.font
 
 import android.graphics.Canvas
 import android.graphics.Paint
-import fr.jhelp.compose.collection.IntList
+import fr.jhelp.android.library.collection.IntList
 
 /**
  * Alphabet character to draw

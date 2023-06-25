@@ -1,6 +1,6 @@
 package fr.jhelp.android.library.tasks
 
-import fr.jhelp.compose.collection.queue.Queue
+import fr.jhelp.android.library.collection.queue.Queue
 
 /**
  * Thread safe queue.

@@ -1,4 +1,4 @@
-package fr.jhelp.compose.collection.queue
+package fr.jhelp.android.library.collection.queue
 
 /**
  * Linked queue of elements

@@ -3,7 +3,7 @@ package fr.jhelp.compose.animations.keyFrame
 import fr.jhelp.compose.animations.Animation
 import fr.jhelp.compose.animations.interpolation.Interpolation
 import fr.jhelp.compose.animations.interpolation.LinearInterpolation
-import fr.jhelp.compose.collection.sortedArray
+import fr.jhelp.android.library.collection.sortedArray
 
 /**
  * Generic animation by key frames

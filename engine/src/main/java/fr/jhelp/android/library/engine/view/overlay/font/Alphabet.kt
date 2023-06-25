@@ -6,8 +6,8 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
 import androidx.annotation.DrawableRes
-import fr.jhelp.compose.collection.IntList
-import fr.jhelp.compose.collection.queue.Queue
+import fr.jhelp.android.library.collection.IntList
+import fr.jhelp.android.library.collection.queue.Queue
 import fr.jhelp.android.library.engine.resources.ResourcesAccess
 import java.text.Normalizer
 import kotlin.math.max

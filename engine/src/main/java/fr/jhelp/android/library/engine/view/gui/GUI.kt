@@ -2,7 +2,7 @@ package fr.jhelp.android.library.engine.view.gui
 
 import android.graphics.Canvas
 import android.graphics.Paint
-import fr.jhelp.compose.collection.extensions.forEachReversed
+import fr.jhelp.android.library.collection.extensions.forEachReversed
 import fr.jhelp.android.library.engine.view.touch.View3DTouchOverListener
 
 /**

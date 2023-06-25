@@ -1,4 +1,4 @@
-package fr.jhelp.compose.collection.extensions
+package fr.jhelp.android.library.collection.extensions
 
 /**
  * Da action on each list's element in reversed order

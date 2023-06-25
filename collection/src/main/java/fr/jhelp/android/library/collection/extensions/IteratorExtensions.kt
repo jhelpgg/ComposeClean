@@ -1,7 +1,7 @@
-package fr.jhelp.compose.collection.extensions
+package fr.jhelp.android.library.collection.extensions
 
-import fr.jhelp.compose.collection.SelectedIterator
-import fr.jhelp.compose.collection.TransformedIterator
+import fr.jhelp.android.library.collection.SelectedIterator
+import fr.jhelp.android.library.collection.TransformedIterator
 
 
 /**

@@ -1,4 +1,4 @@
-package fr.jhelp.compose.collection
+package fr.jhelp.android.library.collection
 
 /**
  * Iterable with filtered values

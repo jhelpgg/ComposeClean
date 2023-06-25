@@ -10,7 +10,7 @@ import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.extensions.observedBy
 import fr.jhelp.compose.animations.Animation
 import fr.jhelp.compose.animations.AnimationFunction
-import fr.jhelp.compose.collection.SortedArray
+import fr.jhelp.android.library.collection.SortedArray
 import java.util.Stack
 import javax.microedition.khronos.opengles.GL10
 import kotlinx.coroutines.CoroutineScope

@@ -1,4 +1,4 @@
-package fr.jhelp.compose.collection
+package fr.jhelp.android.library.collection
 
 /**
  * Comparator for comparable and use their "natural" order

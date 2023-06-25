@@ -1,4 +1,4 @@
-package fr.jhelp.compose.collection
+package fr.jhelp.android.library.collection
 
 /**
  * Create a sorted array for comparable, order based on their "natural order"

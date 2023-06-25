@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
 import androidx.recyclerview.widget.RecyclerView
-import fr.jhelp.compose.collection.IntList
+import fr.jhelp.android.library.collection.IntList
 import fr.jhelp.android.library.common.ui.recycler.RecyclerModel
 import kotlin.math.min
 import kotlinx.coroutines.MainScope

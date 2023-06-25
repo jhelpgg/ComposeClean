@@ -1,7 +1,7 @@
-package fr.jhelp.compose.collection.extensions
+package fr.jhelp.android.library.collection.extensions
 
-import fr.jhelp.compose.collection.SelectedIterable
-import fr.jhelp.compose.collection.TransformedIterable
+import fr.jhelp.android.library.collection.SelectedIterable
+import fr.jhelp.android.library.collection.TransformedIterable
 
 /**
  * Creates iterable with elements filtered by a given criteria
