@@ -4,11 +4,11 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.compose.sound'
+group = 'fr.jhelp.android.library.sound'
 version = '1.0.0'
 
 android {
-    namespace 'fr.jhelp.compose.sound'
+    namespace 'fr.jhelp.android.library.sound'
     compileSdk 34
 
     defaultConfig {
@@ -52,7 +52,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.compose.sound'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'sound'
                 version = '1.0.0'
             }

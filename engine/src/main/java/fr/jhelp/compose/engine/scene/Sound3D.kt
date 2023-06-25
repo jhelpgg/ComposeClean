@@ -17,7 +17,7 @@
 package fr.jhelp.compose.engine.scene
 
 import androidx.annotation.RawRes
-import fr.jhelp.compose.sound.Sound
+import fr.jhelp.android.library.sound.Sound
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.sqrt

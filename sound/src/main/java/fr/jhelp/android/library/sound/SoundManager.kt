@@ -6,7 +6,7 @@
  *  The code is free for usage and modification, you can't change that fact.
  */
 
-package fr.jhelp.compose.sound
+package fr.jhelp.android.library.sound
 
 import android.content.Context
 import android.media.AudioAttributes
@@ -14,12 +14,12 @@ import android.media.SoundPool
 import android.util.SparseIntArray
 import androidx.annotation.RawRes
 import fr.jhelp.compose.provider.provided
-import fr.jhelp.compose.sound.SoundManager.background
-import fr.jhelp.compose.sound.SoundManager.effect
-import fr.jhelp.compose.sound.SoundManager.pause
-import fr.jhelp.compose.sound.SoundManager.resume
-import fr.jhelp.compose.sound.SoundManager.sound
-import fr.jhelp.compose.sound.SoundManager.stopSounds
+import fr.jhelp.android.library.sound.SoundManager.background
+import fr.jhelp.android.library.sound.SoundManager.effect
+import fr.jhelp.android.library.sound.SoundManager.pause
+import fr.jhelp.android.library.sound.SoundManager.resume
+import fr.jhelp.android.library.sound.SoundManager.sound
+import fr.jhelp.android.library.sound.SoundManager.stopSounds
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

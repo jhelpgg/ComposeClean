@@ -6,7 +6,7 @@
  *  The code is free for usage and modification, you can't change that fact.
  */
 
-package fr.jhelp.compose.sound
+package fr.jhelp.android.library.sound
 
 import androidx.annotation.RawRes
 import fr.jhelp.compose.math.extensions.bounds
