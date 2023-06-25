@@ -4,14 +4,14 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.composeclean'
+group = 'fr.jhelp.android.library.showcase'
 version = '1.0.0'
 
 android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "fr.jhelp.composeclean"
+        applicationId "fr.jhelp.android.library.showcase"
         minSdk 26
         targetSdk 34
         versionCode 1
@@ -48,7 +48,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
-    namespace 'fr.jhelp.composeclean'
+    namespace 'fr.jhelp.android.library.showcase'
 }
 
 dependencies {
@@ -86,8 +86,8 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 //from components.release
-                groupId = 'fr.jhelp.composeclean'
-                artifactId = 'composeclean'
+                groupId = 'fr.jhelp.android.library'
+                artifactId = 'showcase'
                 version = '1.0.0'
             }
         }

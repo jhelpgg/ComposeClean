@@ -3,7 +3,7 @@
 The aim is to have list/grid simple without have to manage empty holder and solve sort and filter issue
 in easy way.
 
-To use it creates a [RecyclerComposable](../src/main/java/fr/jhelp/compose/ui/recycler/RecyclerComposable.kt)
+To use it creates a [RecyclerComposable](../src/main/java/fr/jhelp/android/library/showcase/ui/recycler/RecyclerComposable.kt)
 
 It requires a composable function to draw a cell and data element type.
 By example to draw a text with String element :
@@ -46,6 +46,6 @@ class ExampleListComposable()
 
 To have more detail about the model see [Common](../../common/doc/Common.md)
 
-To have a complete list of all available operations on model see [RecyclerModel](../../common/src/main/java/fr/jhelp/compose/ui/recycler/RecyclerModel.kt)
+To have a complete list of all available operations on model see [RecyclerModel](../../common/src/main/java/fr/jhelp/android/library/common/ui/recycler/RecyclerModel.kt)
 
-An other example can be found in [ContactListActivityComposable](../src/main/java/fr/jhelp/composeclean/ui/composables/ContactListActivityComposable.kt)
+An other example can be found in [ContactListComposable](../src/main/java/fr/jhelp/android/library/showcase/ui/composables/ContactListComposable.kt)
