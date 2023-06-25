@@ -12,4 +12,4 @@ it returns a flow.
 `fr.jhelp.android.library.tasks.doWhen` listen the flow emission. And the first time when a given
 condition fulfill,
 an action is played. The action is played only one time.
-The returned future is a way to cancel litening and not do the action before the condition met.
+The returned future is a way to cancel listening and not do the action before the condition met.
