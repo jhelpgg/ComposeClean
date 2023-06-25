@@ -10,7 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.android.library.models.shared.NavigationModel
 import fr.jhelp.composeclean.ui.composables.MainActivityComposable
 import fr.jhelp.composeclean.ui.theme.ComposeCleanTheme
 

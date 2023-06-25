@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import fr.jhelp.android.library.constraint.theme.NEAR
 import fr.jhelp.android.library.constraint.theme.START_END
-import fr.jhelp.composeclean.models.shared.ImageMasks
+import fr.jhelp.android.library.models.shared.ImageMasks
 
 /**
  * Draw an element of mask chooser

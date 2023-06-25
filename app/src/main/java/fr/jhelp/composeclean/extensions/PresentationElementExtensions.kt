@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.extensions
 
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.presentation.PresentationElement
+import fr.jhelp.android.library.models.presentation.PresentationElement
 
 /**
  * PresentationElement resource text

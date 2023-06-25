@@ -14,7 +14,7 @@ import fr.jhelp.android.library.constraint.extensions.next
 import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.ImageMaskModel
+import fr.jhelp.android.library.models.shared.ImageMaskModel
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 import fr.jhelp.composeclean.ui.composables.maskChooser.MaskChooserButton
 

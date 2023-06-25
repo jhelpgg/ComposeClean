@@ -14,7 +14,7 @@ import fr.jhelp.android.library.constraint.extensions.next
 import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.ImageTintModel
+import fr.jhelp.android.library.models.shared.ImageTintModel
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserButton
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 

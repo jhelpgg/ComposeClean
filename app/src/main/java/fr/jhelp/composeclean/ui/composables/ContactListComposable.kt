@@ -22,9 +22,9 @@ import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.SortType
-import fr.jhelp.composeclean.models.contact.Contact
-import fr.jhelp.composeclean.models.shared.ContactListModel
+import fr.jhelp.android.library.models.SortType
+import fr.jhelp.android.library.models.contact.Contact
+import fr.jhelp.android.library.models.shared.ContactListModel
 import fr.jhelp.composeclean.ui.composables.contact.DrawContact
 
 /**

@@ -13,7 +13,7 @@ import fr.jhelp.android.library.constraint.extensions.next
 import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.ImageInvertColorsModel
+import fr.jhelp.android.library.models.shared.ImageInvertColorsModel
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 
 /**

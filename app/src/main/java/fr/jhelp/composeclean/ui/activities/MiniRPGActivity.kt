@@ -5,7 +5,7 @@ import fr.jhelp.android.library.engine.view.GameActivity
 import fr.jhelp.android.library.engine.view.View3D
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.game.GameManager
-import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.android.library.models.shared.NavigationModel
 import fr.jhelp.android.library.tasks.extensions.observedBy
 
 /**

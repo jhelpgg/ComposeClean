@@ -20,9 +20,9 @@ import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.presentation.Presentation
-import fr.jhelp.composeclean.models.presentation.PresentationType
-import fr.jhelp.composeclean.models.shared.MainPresentationModel
+import fr.jhelp.android.library.models.presentation.Presentation
+import fr.jhelp.android.library.models.presentation.PresentationType
+import fr.jhelp.android.library.models.shared.MainPresentationModel
 import fr.jhelp.composeclean.ui.composables.presentation.DrawPresentation
 
 /**

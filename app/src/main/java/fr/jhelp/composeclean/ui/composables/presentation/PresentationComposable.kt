@@ -1,9 +1,9 @@
 package fr.jhelp.composeclean.ui.composables.presentation
 
 import androidx.compose.runtime.Composable
-import fr.jhelp.composeclean.models.presentation.Presentation
-import fr.jhelp.composeclean.models.presentation.PresentationElement
-import fr.jhelp.composeclean.models.presentation.PresentationSeparator
+import fr.jhelp.android.library.models.presentation.Presentation
+import fr.jhelp.android.library.models.presentation.PresentationElement
+import fr.jhelp.android.library.models.presentation.PresentationSeparator
 
 /**
  * Draw a generic presentation in presentation list

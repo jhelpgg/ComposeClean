@@ -19,7 +19,7 @@ import fr.jhelp.android.library.constraint.theme.NEAR
 import fr.jhelp.android.library.constraint.theme.START_END
 import fr.jhelp.composeclean.extensions.resourceImage
 import fr.jhelp.composeclean.extensions.resourceText
-import fr.jhelp.composeclean.models.presentation.PresentationElement
+import fr.jhelp.android.library.models.presentation.PresentationElement
 
 /**
  * Draw a presentation element in presentation list

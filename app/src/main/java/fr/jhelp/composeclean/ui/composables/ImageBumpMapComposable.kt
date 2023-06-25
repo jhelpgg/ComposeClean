@@ -13,7 +13,7 @@ import fr.jhelp.android.library.constraint.extensions.near
 import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.ImageBumpMapModel
+import fr.jhelp.android.library.models.shared.ImageBumpMapModel
 import fr.jhelp.composeclean.ui.composables.bumpChooser.BumpImageChooserButton
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 

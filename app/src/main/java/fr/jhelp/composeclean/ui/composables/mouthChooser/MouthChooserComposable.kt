@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import fr.jhelp.android.library.engine.resources.Mouths
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
-import fr.jhelp.composeclean.models.shared.MouthChooserModel
+import fr.jhelp.android.library.models.shared.MouthChooserModel
 
 /**
  * Choose a mouth

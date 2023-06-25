@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.annotation.MainThread
 import fr.jhelp.android.library.provider.provideSingle
-import fr.jhelp.composeclean.models.injectModels
+import fr.jhelp.android.library.models.injectModels
 
 /**
  * Application override to do some initialization on creation

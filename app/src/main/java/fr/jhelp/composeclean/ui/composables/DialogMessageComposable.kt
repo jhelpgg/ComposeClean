@@ -14,7 +14,7 @@ import fr.jhelp.android.library.constraint.extensions.near
 import fr.jhelp.android.library.constraint.extensions.next
 import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
-import fr.jhelp.composeclean.models.shared.dialogs.DialogMessage
+import fr.jhelp.android.library.models.shared.dialogs.DialogMessage
 import fr.jhelp.composeclean.ui.theme.DIALOG_TEXT_COLOR
 import fr.jhelp.composeclean.ui.theme.MESSAGE_SIZE
 import fr.jhelp.composeclean.ui.theme.TITLE_SIZE

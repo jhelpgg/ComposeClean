@@ -12,8 +12,8 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import fr.jhelp.android.library.engine.resources.Eyes
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.EyeChooserModel
-import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.android.library.models.shared.EyeChooserModel
+import fr.jhelp.android.library.models.shared.NavigationModel
 
 /**
  * Button for choose an eye

@@ -9,7 +9,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import fr.jhelp.android.library.constraint.extensions.far
 import fr.jhelp.android.library.constraint.extensions.startParent
-import fr.jhelp.composeclean.models.contact.ContactPerson
+import fr.jhelp.android.library.models.contact.ContactPerson
 
 /**
  * Draw a contact that represents a person

@@ -19,7 +19,7 @@ import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.shared.ColorChooserModel
+import fr.jhelp.android.library.models.shared.ColorChooserModel
 
 /**
  * Choose a color

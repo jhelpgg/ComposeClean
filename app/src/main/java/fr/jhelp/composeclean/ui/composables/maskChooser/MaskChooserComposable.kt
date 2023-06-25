@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.recycler.RecyclerComposable
-import fr.jhelp.composeclean.models.shared.ImageMasks
-import fr.jhelp.composeclean.models.shared.MaskChooserModel
+import fr.jhelp.android.library.models.shared.ImageMasks
+import fr.jhelp.android.library.models.shared.MaskChooserModel
 
 /**
  * Choose a mask composable

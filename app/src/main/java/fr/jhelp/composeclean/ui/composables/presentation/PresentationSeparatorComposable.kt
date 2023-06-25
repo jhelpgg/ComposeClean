@@ -6,7 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import fr.jhelp.composeclean.models.presentation.PresentationSeparator
+import fr.jhelp.android.library.models.presentation.PresentationSeparator
 
 /**
  * Draw a presentation separator in presentation list

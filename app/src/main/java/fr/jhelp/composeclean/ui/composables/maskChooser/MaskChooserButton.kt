@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.ImageMasks
-import fr.jhelp.composeclean.models.shared.MaskChooserModel
-import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.android.library.models.shared.ImageMasks
+import fr.jhelp.android.library.models.shared.MaskChooserModel
+import fr.jhelp.android.library.models.shared.NavigationModel
 
 /**
  * Button for choose a mask

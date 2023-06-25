@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.NavigationModel
-import fr.jhelp.composeclean.models.shared.Screens
-import fr.jhelp.composeclean.models.shared.dialogs.DialogMessage
-import fr.jhelp.composeclean.models.shared.dialogs.NoDialog
+import fr.jhelp.android.library.models.shared.NavigationModel
+import fr.jhelp.android.library.models.shared.Screens
+import fr.jhelp.android.library.models.shared.dialogs.DialogMessage
+import fr.jhelp.android.library.models.shared.dialogs.NoDialog
 import fr.jhelp.composeclean.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.composeclean.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.composeclean.ui.composables.eyeChooser.EyeChooserComposable

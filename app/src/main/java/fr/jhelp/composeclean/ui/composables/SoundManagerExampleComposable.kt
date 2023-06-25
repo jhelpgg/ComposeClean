@@ -25,7 +25,7 @@ import fr.jhelp.android.library.constraint.theme.START_END
 import fr.jhelp.android.library.constraint.theme.TOP_BOTTOM
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.shared.SoundManagerExampleModel
+import fr.jhelp.android.library.models.shared.SoundManagerExampleModel
 import fr.jhelp.composeclean.ui.resources.Sounds
 import fr.jhelp.composeclean.ui.theme.TITLE_SIZE
 

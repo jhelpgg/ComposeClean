@@ -14,8 +14,8 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import fr.jhelp.android.library.engine.resources.Mouths
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.MouthChooserModel
-import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.android.library.models.shared.MouthChooserModel
+import fr.jhelp.android.library.models.shared.NavigationModel
 
 /**
  * Button for choose an mouth

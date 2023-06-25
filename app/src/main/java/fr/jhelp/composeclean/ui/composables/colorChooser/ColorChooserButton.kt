@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.unit.dp
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.DEFAULT_COLOR
-import fr.jhelp.composeclean.models.shared.ColorChooserModel
-import fr.jhelp.composeclean.models.shared.NavigationModel
+import fr.jhelp.android.library.models.DEFAULT_COLOR
+import fr.jhelp.android.library.models.shared.ColorChooserModel
+import fr.jhelp.android.library.models.shared.NavigationModel
 
 /**
  * Button for choose color

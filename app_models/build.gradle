@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'fr.jhelp.composeclean.models'
+group = 'fr.jhelp.android.library.models'
 version = '1.0.0'
 
 android {
@@ -31,7 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'fr.jhelp.composeclean.models'
+    namespace 'fr.jhelp.android.library.models'
 }
 
 dependencies {
@@ -61,7 +61,7 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 from components.release
-                groupId = 'fr.jhelp.composeclean.models'
+                groupId = 'fr.jhelp.android.library'
                 artifactId = 'models'
                 version = '1.0.0'
             }

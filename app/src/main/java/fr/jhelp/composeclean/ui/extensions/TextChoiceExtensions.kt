@@ -1,7 +1,7 @@
 package fr.jhelp.composeclean.ui.extensions
 
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.TextChoice
+import fr.jhelp.android.library.models.TextChoice
 
 /** Give string resource associated to text choice */
 val TextChoice.stringResource: Int

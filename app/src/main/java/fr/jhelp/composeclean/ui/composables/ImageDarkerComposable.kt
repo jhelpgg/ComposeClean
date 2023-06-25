@@ -14,7 +14,7 @@ import fr.jhelp.android.library.constraint.extensions.near
 import fr.jhelp.android.library.constraint.extensions.startParent
 import fr.jhelp.android.library.constraint.extensions.topParent
 import fr.jhelp.android.library.provider.provided
-import fr.jhelp.composeclean.models.shared.ImageDarkerModel
+import fr.jhelp.android.library.models.shared.ImageDarkerModel
 import fr.jhelp.composeclean.ui.composables.imageChooser.ImageChooserButton
 
 /**

@@ -7,7 +7,7 @@ import fr.jhelp.android.library.engine.view.touch.View3DTouchNothing
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.compose.ui.engine.View3DComposable
 import fr.jhelp.composeclean.R
-import fr.jhelp.composeclean.models.shared.EngineInterpolationModel
+import fr.jhelp.android.library.models.shared.EngineInterpolationModel
 
 /**
  * Show interpolation show case
