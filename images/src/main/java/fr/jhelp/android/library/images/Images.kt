@@ -262,7 +262,7 @@ fun Bitmap.shift(x: Int, y: Int)
 }
 
 /**
- * Copy a other bitmap.
+ * Copy another bitmap.
  *
  * The bitmap must have same dimensions as this bitmap
  */
@@ -292,7 +292,7 @@ fun Bitmap.copy(): Bitmap =
  *
  * If the bitmap already mutable, it is return.
  *
- * Else a mutbale copy is created and returned
+ * Else a mutable copy is created and returned
  */
 fun Bitmap.mutable(): Bitmap
 {
@@ -393,7 +393,7 @@ fun Bitmap.multiply(bitmap: Bitmap)
 }
 
 /**
- * Addthis bitmap pixels with given bitmap pixels.
+ * Add this bitmap pixels with given bitmap pixels.
  *
  * The given bitmap must have same dimension that this one
  */

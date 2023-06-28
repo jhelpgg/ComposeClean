@@ -11,7 +11,7 @@ For create a scene you can use traditional way or our **DSL** layer.
 
 **Note** : For `fr.jhelp.compose.ui.engine.View3DComposable` only the **DSL** way is available
 
-To add element oon the 3D it it recommended to do i outside the Main thread.
+To add element on the 3D it it recommended to do it outside the Main thread.
 
 Traditional way to manipulate the scene embed :
 
@@ -67,5 +67,5 @@ class MyActivity : AppCaompatActivity()
 
 `fr.jhelp.android.library.engine.scene.Scene3D` describes the scene. 
 
-The background color cn be changed with the `bckground`field.
+The background color cn be changed with the `bckground` field.
 
