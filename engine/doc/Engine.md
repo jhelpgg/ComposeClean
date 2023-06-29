@@ -1,71 +1,27 @@
 # 3D engine for Android
 
-`fr.jhelp.android.library.engine.view.View3D` is a view where 3D scene can be draw on it.
+A 3D engine is a library for help to create 3D scenes/animations.
 
-It can be used and placed as any other graphics component like `Button`, `TextView`, `ImageView`,
-...
+The aims of this 3D engine are :
+* Consume few battery.
+* Be compatible with a maximum of Android devices.
+* Easy to start with.
+* Integrable like any other graphics component.
+* In Kotlin 100%.
+* Have a classic and DSL way to do things, so developer can choose the way he prefers or the situation implies.
 
-For composable, `fr.jhelp.compose.ui.engine.View3DComposable` from `app` module can be used.
+The features are :
+* Create a 3D scene.
+* Create objects.
+* Have some effects.
+* Have pre-build objects.
+* Have a composable version.
+* Create animations. They have lot of interpolation to make animation more smooth and dynamic.
+* Particles effect.
 
-For create a scene you can use traditional way or our **DSL** layer.
-
-**Note** : For `fr.jhelp.compose.ui.engine.View3DComposable` only the **DSL** way is available
-
-To add element on the 3D it it recommended to do it outside the Main thread.
-
-Traditional way to manipulate the scene embed :
-
-`````kotlin
-import fr.jhelp.android.library.engine.view.View3D
-import fr.jhelp.android.library.engine.scene.Scene3D
-
-// ...
-
-class MyActivity : AppCaompatActivity()
-{
-    private val scope = CoroutineScope(Dispatchers.Default)
-
-    override fun onCreate(bundle: Bundle?)
-    {
-        // ...
-        val view3D : View3D = this.findViewById<View3D>(R.id.view3D)
-        this.scope.launch { this@MyActivity.drawScene(view3D.scene3D) }
-    }
-
-    private fun drawScene(scene: Scene3D)
-    {
-        // Fill the scene
-    }
-}
-`````
-
-**DSL** way : 
-
-`````kotlin
-import fr.jhelp.android.library.engine.view.View3D
-import fr.jhelp.android.library.engine.scene.Scene3D
-import fr.jhelp.android.library.engine.extensions.tree
-// ...
-
-class MyActivity : AppCaompatActivity()
-{
-    override fun onCreate(bundle: Bundle?)
-    {
-        // ...
-        val view3D: View3D = this.findViewById<View3D>(R.id.view3D)
-        view3D.tree {
-            // Describe scene here           
-        }
-    }
-}
-
-`````
-
-**Note** : The `tree` extension call the code in the lambda in a separate thread, so no need to use a scope explicitly.
-
-## The scene
-
-`fr.jhelp.android.library.engine.scene.Scene3D` describes the scene. 
-
-The background color cn be changed with the `bckground` field.
-
+* [3D version of hello world](helloWorld/HelloWorld3D.md) : 3D hello world
+  * [Classic way](helloWorld/HelloWorld3D.md#classic-way) : XML layout
+    * [Standard way](helloWorld/HelloWorld3D.md#standard-way) : Strand way to manipulate objects
+    * [DSL way](helloWorld/HelloWorld3D.md#dsl-way) : DSL version
+  * [Composable way](helloWorld/HelloWorld3D.md#composable-way) : Use composable component
+ 
