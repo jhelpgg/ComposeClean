@@ -24,4 +24,7 @@ The features are :
     * [Standard way](helloWorld/HelloWorld3D.md#standard-way) : Strand way to manipulate objects
     * [DSL way](helloWorld/HelloWorld3D.md#dsl-way) : DSL version
   * [Composable way](helloWorld/HelloWorld3D.md#composable-way) : Use composable component
- 
+* [Material and texture](material/Material.md) : Apply image and tint on object
+  * [Material](material/Material.md#material) : Material description and creation
+  * [Texture](material/Material.md#texture) : Create a texture
+  * [Image source](material/Material.md#image-source) : Image source description
