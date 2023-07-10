@@ -28,3 +28,13 @@ The features are :
   * [Material](material/Material.md#material) : Material description and creation
   * [Texture](material/Material.md#texture) : Create a texture
   * [Image source](material/Material.md#image-source) : Image source description
+* [Position in 3D](position/PositionIn3D.md) : Locate objects in coordinate space
+  * [Location with coordinates](position/PositionIn3D.md#location-with-coordinates) : Location in the screen
+  * [Rotations around main axis](position/PositionIn3D.md#rotations-around-main-axis) : To rotate object
+  * [Scale along main axis](position/PositionIn3D.md#scale-along-main-axis) : To change object sizes
+  * [Move an object](position/PositionIn3D.md#move-an-object) : Move an object in coordinate space
+    * [Absolute change](position/PositionIn3D.md#absolute-change) : Change/set object position
+    * [Relative change](position/PositionIn3D.md#relative-change) : Change object position relative to it's current position
+      * [Translation](position/PositionIn3D.md#translation) : Translate an object
+      * [Rotation](position/PositionIn3D.md#rotation) : Rotate an object
+      * [Scale](position/PositionIn3D.md#scale) : Scale an object
