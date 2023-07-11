@@ -138,6 +138,9 @@ enum class Screens
     /** Virtual joystick */
     VIRTUAL_JOYSTICK,
 
+    /** Solar system */
+    SOLAR_SYSTEM,
+
     /** Mini RPG */
     MINI_RPG
 }

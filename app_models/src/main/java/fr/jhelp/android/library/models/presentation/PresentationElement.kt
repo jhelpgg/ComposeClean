@@ -121,6 +121,9 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Virtual joystick */
     VIRTUAL_JOYSTICK(Screens.VIRTUAL_JOYSTICK, PresentationType.ENGINE_3D),
 
+    /** Solar system */
+    SOLAR_SYSTEM(Screens.SOLAR_SYSTEM, PresentationType.ENGINE_3D),
+
     /** Mini RPG */
     MINI_RPG(Screens.MINI_RPG, PresentationType.ENGINE_3D)
 }

@@ -1,20 +1,26 @@
-import fr.jhelp.android.library.engine.extensions.position
-import fr.jhelp.android.library.engine.scene.geometry.Box
+import fr.jhelp.android.library.engine.scene.LIGHT_BLUE
+import fr.jhelp.android.library.engine.scene.LIGHT_GREY
+import fr.jhelp.android.library.engine.scene.Scene3D
+import fr.jhelp.android.library.engine.scene.YELLOW
+import fr.jhelp.android.library.engine.scene.geometry.Sphere
 
-fun t()
+fun sceneReady(scene3D: Scene3D)
 {
-    val object3D = Box()
+    scene3D.root.position.z = -5f
 
-    // Standard scale all axis with same value
-    object3D.position.scale(1.23f)
-    // Standard scale different on axis
-    object3D.position.scale(1.23f, 2.5f, .3f)
+    val sun = Sphere()
+    sun.material.diffuse = YELLOW
+    scene3D.root.add(sun)
 
-    // DSL
-    object3D.position {
-        // All axis with same value
-        this.scale(1.23f)
-        // Scale different on axis
-        this.scale(1.23f, 2.5f, .3f)
-    }
+    val earth = Sphere()
+    earth.position.scale(0.4f)
+    earth.position.y = 2f
+    earth.material.diffuse = LIGHT_BLUE
+    sun.add(earth)
+
+    val moon = Sphere()
+    moon.position.scale(0.4f)
+    moon.position.y = 2f
+    moon.material.diffuse = LIGHT_GREY
+    earth.add(moon)
 }

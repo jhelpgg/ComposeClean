@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
-import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.models.shared.NavigationModel
 import fr.jhelp.android.library.models.shared.Screens
 import fr.jhelp.android.library.models.shared.dialogs.DialogMessage
 import fr.jhelp.android.library.models.shared.dialogs.NoDialog
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.showcase.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.android.library.showcase.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.android.library.showcase.ui.composables.eyeChooser.EyeChooserComposable
@@ -67,6 +67,7 @@ class MainActivityComposable
     private val engineSword: EngineParticleSwordComposable by lazy { EngineParticleSwordComposable() }
     private val engineGUI: EngineGUIComposable by lazy { EngineGUIComposable() }
     private val engineVirtualJoystick: EngineVirtualJoystickComposable by lazy { EngineVirtualJoystickComposable() }
+    private val solarSystem: EngineSolarSystemComposable by lazy { EngineSolarSystemComposable() }
     private val game: GameComposable by lazy { GameComposable() }
 
     // Dialogs
@@ -124,6 +125,7 @@ class MainActivityComposable
             Screens.OVER_GUI_3D                 -> this.engineGUI.Show()
             Screens.VIRTUAL_JOYSTICK            -> this.engineVirtualJoystick.Show()
             Screens.MINI_RPG                    -> this.game.Show()
+            Screens.SOLAR_SYSTEM                -> this.solarSystem.Show()
             else                                -> Text(text = "Not implemented screen : $screen")
         }
 

@@ -43,6 +43,7 @@ val PresentationElement.resourceText: Int
             PresentationElement.PARTICLE_EFFECT_SWORD_SLASH -> R.string.particleEffectSwordSlash
             PresentationElement.OVER_GUI_3D                 -> R.string.overGUI
             PresentationElement.VIRTUAL_JOYSTICK            -> R.string.virtualJoystick
+            PresentationElement.SOLAR_SYSTEM                -> R.string.solarSystem
             PresentationElement.MINI_RPG                    -> R.string.miniRPG
         }
 
