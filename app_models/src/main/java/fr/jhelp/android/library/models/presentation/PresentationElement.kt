@@ -91,6 +91,9 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Field 3D */
     FIELD_3D(Screens.FIELD_3D, PresentationType.ENGINE_3D),
 
+    /** Wire frame 3D */
+    WIRE_FRAME_3D(Screens.WIRE_FRAME_3D, PresentationType.ENGINE_3D),
+
     /** Dice */
     DICE_3D(Screens.DICE_3D, PresentationType.ENGINE_3D),
 

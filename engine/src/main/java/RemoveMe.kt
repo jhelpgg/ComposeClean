@@ -1,26 +1,18 @@
-import fr.jhelp.android.library.engine.scene.LIGHT_BLUE
-import fr.jhelp.android.library.engine.scene.LIGHT_GREY
-import fr.jhelp.android.library.engine.scene.Scene3D
-import fr.jhelp.android.library.engine.scene.YELLOW
-import fr.jhelp.android.library.engine.scene.geometry.Sphere
+import fr.jhelp.android.library.engine.extensions.tree
+import fr.jhelp.android.library.engine.view.View3D
 
-fun sceneReady(scene3D: Scene3D)
+fun sceneReady(view3D: View3D)
 {
-    scene3D.root.position.z = -5f
-
-    val sun = Sphere()
-    sun.material.diffuse = YELLOW
-    scene3D.root.add(sun)
-
-    val earth = Sphere()
-    earth.position.scale(0.4f)
-    earth.position.y = 2f
-    earth.material.diffuse = LIGHT_BLUE
-    sun.add(earth)
-
-    val moon = Sphere()
-    moon.position.scale(0.4f)
-    moon.position.y = 2f
-    moon.material.diffuse = LIGHT_GREY
-    earth.add(moon)
+    view3D.tree {
+        this.root {
+            this.object3D {
+                this.addTriangle(0.2f, 5f, 3f,
+                                 0.1f, 0.2f,
+                                 8f, 4.1f, -5.2f,
+                                 0.2f, 0.3f,
+                                 7f, 8f, 3f,
+                                 .5f, 0.9f)
+            }
+        }
+    }
 }

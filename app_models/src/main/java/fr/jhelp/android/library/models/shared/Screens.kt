@@ -108,6 +108,9 @@ enum class Screens
     /** Field 3D */
     FIELD_3D,
 
+    /** Wire frame */
+    WIRE_FRAME_3D,
+
     /** Dice */
     DICE_3D,
 

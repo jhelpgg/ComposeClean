@@ -36,6 +36,7 @@
     <string name="plane">Show a plane.\nShow 3D engine capacity.</string>
     <string name="revolution">Show a revolution.\nShow 3D engine capacity.</string>
     <string name="field">Show a field.\nShow 3D engine capacity.</string>
+    <string name="wireFrame">Show wire frame</string>
     <string name="dice">Pre-build object dice.\nShow 3D engine capacity.</string>
     <string name="robot">Pre-build object robot.\nShow 3D engine capacity.</string>
     <string name="teddyBear">Load an obj file.\nShow 3D engine capacity.</string>

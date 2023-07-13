@@ -33,6 +33,7 @@ val PresentationElement.resourceText: Int
             PresentationElement.PLANE_3D                    -> R.string.plane
             PresentationElement.REVOLUTION_3D               -> R.string.revolution
             PresentationElement.FIELD_3D                    -> R.string.field
+            PresentationElement.WIRE_FRAME_3D               -> R.string.wireFrame
             PresentationElement.DICE_3D                     -> R.string.dice
             PresentationElement.ROBOT_3D                    -> R.string.robot
             PresentationElement.TEDDY_BEAR_3D               -> R.string.teddyBear
@@ -77,6 +78,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.PLANE_3D                    -> R.drawable.engine_plane
             PresentationElement.REVOLUTION_3D               -> R.drawable.engine_revolution
             PresentationElement.FIELD_3D                    -> R.drawable.engine_field
+            PresentationElement.WIRE_FRAME_3D               -> R.drawable.engine_show_wire
             PresentationElement.DICE_3D                     -> R.drawable.engine_dice
             PresentationElement.ROBOT_3D                    -> R.drawable.engine_robot
             PresentationElement.TEDDY_BEAR_3D               -> R.drawable.engine_load_obj

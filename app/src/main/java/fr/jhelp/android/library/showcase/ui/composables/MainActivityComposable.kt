@@ -57,6 +57,7 @@ class MainActivityComposable
     private val enginePlane: EnginePlaneComposable by lazy { EnginePlaneComposable() }
     private val engineRevolution: EngineRevolutionComposable by lazy { EngineRevolutionComposable() }
     private val engineField: EngineFieldComposable by lazy { EngineFieldComposable() }
+    private val engineWireFrame: EngineShowWireComposable by lazy { EngineShowWireComposable() }
     private val engineDice: EngineDiceComposable by lazy { EngineDiceComposable() }
     private val engineRobot: EngineRobotComposable by lazy { EngineRobotComposable() }
     private val engineLoadObj: EngineLoadObjComposable by lazy { EngineLoadObjComposable() }
@@ -114,6 +115,7 @@ class MainActivityComposable
             Screens.PLANE_3D                    -> this.enginePlane.Show()
             Screens.REVOLUTION_3D               -> this.engineRevolution.Show()
             Screens.FIELD_3D                    -> this.engineField.Show()
+            Screens.WIRE_FRAME_3D               -> this.engineWireFrame.Show()
             Screens.DICE_3D                     -> this.engineDice.Show()
             Screens.ROBOT_3D                    -> this.engineRobot.Show()
             Screens.TEDDY_BEAR_3D               -> this.engineLoadObj.Show()
