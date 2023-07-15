@@ -40,4 +40,16 @@ The features are :
       * [Translation](position/PositionIn3D.md#translation) : Translate an object
       * [Rotation](position/PositionIn3D.md#rotation) : Rotate an object
       * [Scale](position/PositionIn3D.md#scale) : Scale an object
-* [Node hierarchy](nodeHierarchy/NodeHierarchy.md)
+* [Node hierarchy](nodeHierarchy/NodeHierarchy.md) : Hierarchy in 3D
+* [Nodes and objects](nodesAndObjects/NodesAndObjects.md) : Nodes and objects provied by the engine
+  * [Node 3D](nodesAndObjects/geometry/Node3D.md) : More about 3D node
+  * [Object 3D](nodesAndObjects/geometry/Object3D.md) : Generic object 3D
+  * [Clone 3D](nodesAndObjects/geometry/Clone3D.md) : Copy any object 3D to save memory
+  * [Plane](nodesAndObjects/geometry/Plane.md) : Pre-build object : A simple plane
+  * [Box](nodesAndObjects/geometry/Box.md) : Pre-build object : A box wih capacity to define how texture is applies on each face
+  * [Sphere](nodesAndObjects/geometry/Sphere.md) : Pre-build object : A sphere with can choose the precision
+  * [Revolution](nodesAndObjects/geometry/Revolution.md) : Pre-build object : A revolution, that is to say a path rotated around Y axis.
+  * [Field 3D](nodesAndObjects/geometry/Field3D.md) : Pre-build object : Simple filed defines by an equation
+  * [Dice](nodesAndObjects/geometry/Dice.md) : Complex object that represents a dice
+  * [Robot](nodesAndObjects/geometry/Robot.md) : Complex set of objects attached in a node, it represents an humanoid robot here can move each body part.
+
