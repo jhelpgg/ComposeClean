@@ -78,4 +78,3 @@ They all goe from left down point to up right point.
 ![Ellpical arc, angle 90 degree, short arc](EllipticArc_Rotation_090_short.png)
 
 ![Ellpical arc, angle -0 degree, large arc](EllipticArc_Rotation_090_large.png)
-~~~~
