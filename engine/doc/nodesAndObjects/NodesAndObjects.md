@@ -15,7 +15,5 @@ geometry and two "complex" object.
 * [Sphere](geometry/Sphere.md) : Pre-build object : A sphere with can choose the precision
 * [Revolution](geometry/Revolution.md) : Pre-build object : A revolution, that is to say a path rotated around Y axis.
 * [Field 3D](geometry/Field3D.md) : Pre-build object : Simple filed defines by an equation
-* [Object based on paths](geometry/ObjectPath.md) : Pre-build object : A path repeat along another path.
 * [Dice](geometry/Dice.md) : Complex object that represents a dice
 * [Robot](geometry/Robot.md) : Complex set of objects attached in a node, it represents an humanoid robot here can move each body part.
-

@@ -124,7 +124,7 @@ val equation = X + "b" - "F"
 // ...
 ```
 
-But sometime the `variable extation is necessary`
+But sometime the `variable extension is necessary`
 
 ```kotlin
 import fr.jhelp.android.library.math.formal.variable
