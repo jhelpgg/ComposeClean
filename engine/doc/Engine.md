@@ -79,4 +79,5 @@ The features are :
             * [Customizable sensitive](view/View3D.md#customizable-sensitive) : Customize the
               sensitive reaction
             * [Virtual joystick](view/View3D.md#virtual-joystick) : Virtual joystick over the screen
+* [Animation](animation/Animation.md) : Animate nodes and objects
 
