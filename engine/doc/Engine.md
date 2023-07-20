@@ -81,3 +81,4 @@ The features are :
             * [Virtual joystick](view/View3D.md#virtual-joystick) : Virtual joystick over the screen
 * [Animation](animation/Animation.md) : Animate nodes and objects
 * [3D sound](sound/Sound3D.md) : 3D sound effect.
+* [Particle effect](particleEffect/ParticleEffect.md) : Particle effect

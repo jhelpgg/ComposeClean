@@ -293,6 +293,20 @@ class ParticleNodeCreator
     }
 
     /**
+     * Put first and second speed at same value
+     */
+    fun speedFirstSecond(x: Float, y: Float, z: Float)
+    {
+        this.firstSpeedDirectionX = x
+        this.firstSpeedDirectionY = y
+        this.firstSpeedDirectionZ = z
+
+        this.secondSpeedDirectionX = x
+        this.secondSpeedDirectionY = y
+        this.secondSpeedDirectionZ = z
+    }
+
+    /**
      * Scale uniform for first
      */
     fun scaleFirst(scale: Float)

@@ -118,6 +118,9 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Particle effect : sword slash */
     PARTICLE_EFFECT_SWORD_SLASH(Screens.PARTICLE_EFFECT_SWORD_SLASH, PresentationType.ENGINE_3D),
 
+    /** Particle effect : firework */
+    PARTICLE_EFFECT_FIREWORK(Screens.PARTICLE_EFFECT_FIREWORK, PresentationType.ENGINE_3D),
+
     /** Over GUI */
     OVER_GUI_3D(Screens.OVER_GUI_3D, PresentationType.ENGINE_3D),
 

@@ -45,6 +45,7 @@
     <string name="sound3D">Sound 3D effect.\nShow 3D engine capacity.\nRecommended to use stereo speaker/headphone to ear the effect</string>
     <string name="particleEffectExplosion">Particle effect : Explosion.\nShow 3D engine capacity.</string>
     <string name="particleEffectSwordSlash">Particle effect : Sword slash.\nShow 3D engine capacity.</string>
+    <string name="particleEffectFirework">Particle effect : Fireworks.\nShow 3D engine capacity.</string>
     <string name="overGUI">GUI over the 3D.\nShow 3D engine capacity.</string>
     <string name="virtualJoystick">Virtual joystick.\nShow 3D engine capacity.</string>
     <string name="solarSystem">Simplified solar system to show node hierarchy</string>

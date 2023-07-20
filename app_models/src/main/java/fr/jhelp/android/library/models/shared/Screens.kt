@@ -135,6 +135,9 @@ enum class Screens
     /** Particle effect : sword slash */
     PARTICLE_EFFECT_SWORD_SLASH,
 
+    /** Particle effect : fire work */
+    PARTICLE_EFFECT_FIREWORK,
+
     /** Over GUI */
     OVER_GUI_3D,
 
