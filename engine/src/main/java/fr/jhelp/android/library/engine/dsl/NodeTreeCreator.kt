@@ -9,6 +9,7 @@ import fr.jhelp.android.library.engine.scene.Node3D
 import fr.jhelp.android.library.engine.scene.Object3D
 import fr.jhelp.android.library.engine.scene.geometry.Box
 import fr.jhelp.android.library.engine.scene.geometry.Field3D
+import fr.jhelp.android.library.engine.scene.geometry.ObjectPath
 import fr.jhelp.android.library.engine.scene.geometry.Plane
 import fr.jhelp.android.library.engine.scene.geometry.Revolution
 import fr.jhelp.android.library.engine.scene.geometry.Sphere
@@ -129,6 +130,27 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         reference.node = sphereReal
         sphere(sphereReal)
         this.root.add(sphereReal)
+    }
+
+    /** Create object that represents a path along an other one */
+    fun objectPath(reference: NodeReference = junkReference,
+                   mainPath: Path.() -> Unit, mainPathPrecision: Int = 5,
+                   followPath: Path.() -> Unit, followPathPrecision: Int = 5,
+                   startU: Float = 0f, endU: Float = 1f,
+                   startV: Float = 0f, endV: Float = 1f,
+                   objectPath: ObjectPath.() -> Unit)
+    {
+        val mainPathReal = Path()
+        mainPath(mainPathReal)
+        val followPathReal = Path()
+        followPath(followPathReal)
+        val objectPathReal = ObjectPath(mainPathReal, mainPathPrecision,
+                                        followPathReal, followPathPrecision,
+                                        startU, endU,
+                                        startV, endV)
+        reference.node = objectPathReal
+        objectPath(objectPathReal)
+        this.root.add(objectPathReal)
     }
 
     /**

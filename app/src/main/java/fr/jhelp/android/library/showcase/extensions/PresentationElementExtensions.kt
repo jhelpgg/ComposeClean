@@ -33,6 +33,7 @@ val PresentationElement.resourceText: Int
             PresentationElement.PLANE_3D                    -> R.string.plane
             PresentationElement.REVOLUTION_3D               -> R.string.revolution
             PresentationElement.FIELD_3D                    -> R.string.field
+            PresentationElement.WIRE_FRAME_3D               -> R.string.wireFrame
             PresentationElement.DICE_3D                     -> R.string.dice
             PresentationElement.ROBOT_3D                    -> R.string.robot
             PresentationElement.TEDDY_BEAR_3D               -> R.string.teddyBear
@@ -41,8 +42,10 @@ val PresentationElement.resourceText: Int
             PresentationElement.SOUND_3D                    -> R.string.sound3D
             PresentationElement.PARTICLE_EFFECT_EXPLOSION   -> R.string.particleEffectExplosion
             PresentationElement.PARTICLE_EFFECT_SWORD_SLASH -> R.string.particleEffectSwordSlash
+            PresentationElement.PARTICLE_EFFECT_FIREWORK -> R.string.particleEffectFirework
             PresentationElement.OVER_GUI_3D                 -> R.string.overGUI
             PresentationElement.VIRTUAL_JOYSTICK            -> R.string.virtualJoystick
+            PresentationElement.SOLAR_SYSTEM                -> R.string.solarSystem
             PresentationElement.MINI_RPG                    -> R.string.miniRPG
         }
 
@@ -76,6 +79,7 @@ val PresentationElement.resourceImage: Int
             PresentationElement.PLANE_3D                    -> R.drawable.engine_plane
             PresentationElement.REVOLUTION_3D               -> R.drawable.engine_revolution
             PresentationElement.FIELD_3D                    -> R.drawable.engine_field
+            PresentationElement.WIRE_FRAME_3D               -> R.drawable.engine_show_wire
             PresentationElement.DICE_3D                     -> R.drawable.engine_dice
             PresentationElement.ROBOT_3D                    -> R.drawable.engine_robot
             PresentationElement.TEDDY_BEAR_3D               -> R.drawable.engine_load_obj

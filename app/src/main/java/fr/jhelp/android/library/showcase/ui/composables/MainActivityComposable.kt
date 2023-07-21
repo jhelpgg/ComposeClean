@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
-import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.models.shared.NavigationModel
 import fr.jhelp.android.library.models.shared.Screens
 import fr.jhelp.android.library.models.shared.dialogs.DialogMessage
 import fr.jhelp.android.library.models.shared.dialogs.NoDialog
+import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.showcase.ui.composables.bumpChooser.BumpImageChooserComposable
 import fr.jhelp.android.library.showcase.ui.composables.colorChooser.ColorChooserComposable
 import fr.jhelp.android.library.showcase.ui.composables.eyeChooser.EyeChooserComposable
@@ -57,6 +57,7 @@ class MainActivityComposable
     private val enginePlane: EnginePlaneComposable by lazy { EnginePlaneComposable() }
     private val engineRevolution: EngineRevolutionComposable by lazy { EngineRevolutionComposable() }
     private val engineField: EngineFieldComposable by lazy { EngineFieldComposable() }
+    private val engineWireFrame: EngineShowWireComposable by lazy { EngineShowWireComposable() }
     private val engineDice: EngineDiceComposable by lazy { EngineDiceComposable() }
     private val engineRobot: EngineRobotComposable by lazy { EngineRobotComposable() }
     private val engineLoadObj: EngineLoadObjComposable by lazy { EngineLoadObjComposable() }
@@ -65,8 +66,10 @@ class MainActivityComposable
     private val engineSound3D: EngineSound3DComposable by lazy { EngineSound3DComposable() }
     private val engineExplosion: EngineParticleExplodeComposable by lazy { EngineParticleExplodeComposable() }
     private val engineSword: EngineParticleSwordComposable by lazy { EngineParticleSwordComposable() }
+    private val engineFirework : EngineParticleFireworkComposable by lazy { EngineParticleFireworkComposable()}
     private val engineGUI: EngineGUIComposable by lazy { EngineGUIComposable() }
     private val engineVirtualJoystick: EngineVirtualJoystickComposable by lazy { EngineVirtualJoystickComposable() }
+    private val solarSystem: EngineSolarSystemComposable by lazy { EngineSolarSystemComposable() }
     private val game: GameComposable by lazy { GameComposable() }
 
     // Dialogs
@@ -113,6 +116,7 @@ class MainActivityComposable
             Screens.PLANE_3D                    -> this.enginePlane.Show()
             Screens.REVOLUTION_3D               -> this.engineRevolution.Show()
             Screens.FIELD_3D                    -> this.engineField.Show()
+            Screens.WIRE_FRAME_3D               -> this.engineWireFrame.Show()
             Screens.DICE_3D                     -> this.engineDice.Show()
             Screens.ROBOT_3D                    -> this.engineRobot.Show()
             Screens.TEDDY_BEAR_3D               -> this.engineLoadObj.Show()
@@ -121,9 +125,11 @@ class MainActivityComposable
             Screens.SOUND_3D                    -> this.engineSound3D.Show()
             Screens.PARTICLE_EFFECT_EXPLOSION   -> this.engineExplosion.Show()
             Screens.PARTICLE_EFFECT_SWORD_SLASH -> this.engineSword.Show()
+            Screens.PARTICLE_EFFECT_FIREWORK -> this.engineFirework.Show()
             Screens.OVER_GUI_3D                 -> this.engineGUI.Show()
             Screens.VIRTUAL_JOYSTICK            -> this.engineVirtualJoystick.Show()
             Screens.MINI_RPG                    -> this.game.Show()
+            Screens.SOLAR_SYSTEM                -> this.solarSystem.Show()
             else                                -> Text(text = "Not implemented screen : $screen")
         }
 

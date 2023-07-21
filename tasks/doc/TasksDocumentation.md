@@ -15,5 +15,6 @@ Set of tools and utilities for simplify thread manipulation
       * [Wait that several future complete before react](tasks/future/FutureResult.md#wait-that-several-future-complete-before-react)
       * [Short cut when response already known](tasks/future/FutureResult.md#short-cut-when-response-already-known)
 * [Flow extensions](tasks/extensions/FlowExtensions.md) Some coroutines' flow extensions.
-
+* [Functions extensions](tasks/extensions/FunctionsExtensions.md) Some functions extensions.
+* [Network management](tasks/network/NetworkStatusManager.md) Manage network to make network task type available.
 

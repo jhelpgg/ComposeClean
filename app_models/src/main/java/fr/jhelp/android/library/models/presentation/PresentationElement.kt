@@ -91,6 +91,9 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Field 3D */
     FIELD_3D(Screens.FIELD_3D, PresentationType.ENGINE_3D),
 
+    /** Wire frame 3D */
+    WIRE_FRAME_3D(Screens.WIRE_FRAME_3D, PresentationType.ENGINE_3D),
+
     /** Dice */
     DICE_3D(Screens.DICE_3D, PresentationType.ENGINE_3D),
 
@@ -115,11 +118,17 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Particle effect : sword slash */
     PARTICLE_EFFECT_SWORD_SLASH(Screens.PARTICLE_EFFECT_SWORD_SLASH, PresentationType.ENGINE_3D),
 
+    /** Particle effect : firework */
+    PARTICLE_EFFECT_FIREWORK(Screens.PARTICLE_EFFECT_FIREWORK, PresentationType.ENGINE_3D),
+
     /** Over GUI */
     OVER_GUI_3D(Screens.OVER_GUI_3D, PresentationType.ENGINE_3D),
 
     /** Virtual joystick */
     VIRTUAL_JOYSTICK(Screens.VIRTUAL_JOYSTICK, PresentationType.ENGINE_3D),
+
+    /** Solar system */
+    SOLAR_SYSTEM(Screens.SOLAR_SYSTEM, PresentationType.ENGINE_3D),
 
     /** Mini RPG */
     MINI_RPG(Screens.MINI_RPG, PresentationType.ENGINE_3D)

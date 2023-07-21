@@ -20,6 +20,8 @@ import javax.microedition.khronos.opengles.GL10
  */
 class Clone3D(internal val object3D: Object3D) : NodeWithBoundingBox()
 {
+    constructor(clone: Clone3D) : this(clone.object3D)
+
     /**Clone material*/
     var material: Material = Material()
 

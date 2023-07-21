@@ -1,6 +1,7 @@
 package fr.jhelp.android.library.engine.scene
 
 import fr.jhelp.android.library.engine.annotations.OpenGLThread
+import fr.jhelp.android.library.math.extensions.bounds
 import javax.microedition.khronos.opengles.GL10
 
 /**
@@ -9,9 +10,15 @@ import javax.microedition.khronos.opengles.GL10
 class Material
 {
     /**Material opacity in [0, 1] */
-    var alpha : Float = 1f
+    var alpha: Float = 1f
+        set(value)
+        {
+            field = value.bounds(0f, 1f)
+        }
+
     /** Diffuse color */
-    var diffuse : Color3D = GREY
+    var diffuse: Color3D = GREY
+
     /** Texture to apply */
     var texture: Texture? = null
 

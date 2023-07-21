@@ -43,7 +43,7 @@ val alpha: Variable = "alpha".variable
 val epsilon: Variable = "epsilon".variable
 
 /***
- * Function oposite
+ * Function opposite
  */
 operator fun MathFunction<*>.unaryMinus(): UnaryMinus =
     UnaryMinus(this)

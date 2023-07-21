@@ -107,7 +107,7 @@ class BankAccount
 ```
 
 When a thread enter in the `Mutex` open curly it lock the mutex,
-so that other thread that what to enter have to wait that the thread finish its work and pass by the
+so that other thread that want to enter have to wait that the thread finish its work and pass by the
 close curly to un lock the door for the next thread.
 
 Just remember not to do long operation in critical section. 

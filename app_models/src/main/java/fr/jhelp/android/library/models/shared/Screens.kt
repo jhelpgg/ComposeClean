@@ -108,6 +108,9 @@ enum class Screens
     /** Field 3D */
     FIELD_3D,
 
+    /** Wire frame */
+    WIRE_FRAME_3D,
+
     /** Dice */
     DICE_3D,
 
@@ -132,11 +135,17 @@ enum class Screens
     /** Particle effect : sword slash */
     PARTICLE_EFFECT_SWORD_SLASH,
 
+    /** Particle effect : fire work */
+    PARTICLE_EFFECT_FIREWORK,
+
     /** Over GUI */
     OVER_GUI_3D,
 
     /** Virtual joystick */
     VIRTUAL_JOYSTICK,
+
+    /** Solar system */
+    SOLAR_SYSTEM,
 
     /** Mini RPG */
     MINI_RPG

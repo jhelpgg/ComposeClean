@@ -11,7 +11,7 @@ package fr.jhelp.android.library.engine.scene.geometry
 /**
  * Describes how UV are put in a box face.
  *
- * The face is covered by the texture.
+ * By default the face is covered by the texture.
  * @param minU Left U on face
  * @param maxU Right U on face
  * @param minV Up V on face

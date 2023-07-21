@@ -13,7 +13,7 @@ We have created 5 type of possible `TaskType` :
   Tasks here no need particular resources or access.
 * `NETWORK` : For tasks that requires a network access.
   See [NetworkStatusManager](network/NetworkStatusManager.md) for more explanation how initialize
-  the system and mmek it work
+  the system and make it work
     * When their network, tasks are played
     * When their no network, tasks are asleep until network comes.
 * `IO` : For tasks needs file or database operations

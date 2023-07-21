@@ -50,10 +50,8 @@ object View3DTouchMove : View3DTouchAction()
     {
         this.view3D.manipulateNode.position.x =
             (this.view3D.manipulateNode.position.x + (x - previousX) * 0.001f)
-                .bounds(this.view3D.minimumAngleY, this.view3D.maximumAngleY)
         this.view3D.manipulateNode.position.y =
             (this.view3D.manipulateNode.position.y + (previousY - y) * 0.001f)
-                .bounds(this.view3D.minimumAngleX, this.view3D.maximumAngleX)
     }
 
     /**

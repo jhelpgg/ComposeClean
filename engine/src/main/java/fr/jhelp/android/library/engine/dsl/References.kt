@@ -11,9 +11,11 @@ import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleEffectRefere
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleNodeCreator
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleNodeReference
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleNodeReferenceCreator
+import fr.jhelp.android.library.engine.resources.image.ImageSource
 import fr.jhelp.android.library.engine.resources.texture.TextureSourceAsset
 import fr.jhelp.android.library.engine.resources.texture.TextureSourceCreated
 import fr.jhelp.android.library.engine.resources.texture.TextureSourceDrawable
+import fr.jhelp.android.library.engine.resources.texture.TextureSourceImageSource
 
 internal val junkReference = NodeReference()
 
@@ -134,6 +136,17 @@ fun texture(textureReference: TextureReference,
             width: Int, height: Int, draw: (Bitmap, Canvas, Paint) -> Unit)
 {
     textureReference.textureSource = TextureSourceCreated(width, height, draw)
+}
+
+/**
+ * Associate a texture from image source
+ *
+ * @param textureReference Texture reference where associate the texture
+ * @param imageSource Image source to use
+ */
+fun texture(textureReference: TextureReference, imageSource: ImageSource<*>)
+{
+    textureReference.textureSource = TextureSourceImageSource(imageSource)
 }
 
 /**
