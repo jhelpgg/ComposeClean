@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'fr.jhelp.android.library.collection'
-version = '1.0.0'
+version = '1.0.1'
 
 android {
     compileSdk 34
