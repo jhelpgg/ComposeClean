@@ -6,7 +6,7 @@ import kotlin.math.max
 /**
  * Interpolation with anticipation effect.
  *
- * Thai is to say it look goes reverse and then go to the good way, like if it take a run-up
+ * That is to say it look goes reverse and then go to the good way, like if it take a run-up
  * @param tension Effect factor
  */
 class AnticipateInterpolation(tension: Float = 1f) : Interpolation
