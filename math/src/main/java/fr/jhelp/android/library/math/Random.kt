@@ -11,7 +11,7 @@ private val random = Random()
  * Choose a random value between given limits includes
  */
 fun random(bound1: Int, bound2: Int): Int =
-    min(bound1, bound2) + random.nextInt(abs(bound1 - bound2 + 1))
+    min(bound1, bound2) + random.nextInt(abs(bound1 - bound2) + 1)
 
 /**
  * Choose a random value between given limits

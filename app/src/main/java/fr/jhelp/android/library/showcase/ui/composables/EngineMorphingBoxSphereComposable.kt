@@ -19,7 +19,9 @@ import fr.jhelp.android.library.engine.animation.keyFrame.AnimationTextureSize
 import fr.jhelp.android.library.engine.dsl.nodeReference
 import fr.jhelp.android.library.engine.dsl.texture
 import fr.jhelp.android.library.engine.dsl.textureReferences
+import fr.jhelp.android.library.engine.scene.GREEN
 import fr.jhelp.android.library.engine.scene.geometry.Box
+import fr.jhelp.android.library.engine.scene.geometry.CrossUV
 import fr.jhelp.android.library.engine.scene.geometry.Sphere
 import fr.jhelp.android.library.engine.scene.morphing.Morphing
 import fr.jhelp.android.library.math.extensions.bounds
@@ -45,7 +47,7 @@ class EngineMorphingBoxSphereComposable
 
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
             val (textureStart, textureEnd) = textureReferences()
-            texture(textureStart, R.drawable.default_screen, seal = false)
+            texture(textureStart, fr.jhelp.android.library.engine.R.drawable.dice, seal = false)
             texture(textureEnd, R.drawable.floor, seal = false)
             val morphingReference = nodeReference()
 
@@ -62,9 +64,13 @@ class EngineMorphingBoxSphereComposable
                 this.scenePosition { this.z = -2f }
                 this.root {
                     this.morphing(morphingReference,
-                                  Box(seal = false), Sphere(seal = false),
+                                  Box(boxUV = CrossUV(), seal = false), Sphere(seal = false),
                                   textureStart, textureEnd,
-                                  AnimationTextureSize.LARGE) { self.morphingStored = this }
+                                  AnimationTextureSize.LARGE) {
+                        this.diffuseStart = GREEN
+                        this.doubleFace = true
+                        self.morphingStored = this
+                    }
                 }
             }
 

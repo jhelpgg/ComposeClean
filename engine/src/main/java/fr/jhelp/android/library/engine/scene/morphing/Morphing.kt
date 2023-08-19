@@ -7,6 +7,7 @@ import fr.jhelp.android.library.engine.buffer.BufferFloat
 import fr.jhelp.android.library.engine.buffer.floatBuffer
 import fr.jhelp.android.library.engine.resources.draw
 import fr.jhelp.android.library.engine.resources.texture
+import fr.jhelp.android.library.engine.scene.Color3D
 import fr.jhelp.android.library.engine.scene.Node3D
 import fr.jhelp.android.library.engine.scene.Object3D
 import fr.jhelp.android.library.engine.scene.Texture
@@ -47,13 +48,30 @@ class Morphing(source: Object3D, destination: Object3D,
     private val sourcePixels = IntArray(morphingTextureSize.size * morphingTextureSize.size)
     private val destinationPixels = IntArray(morphingTextureSize.size * morphingTextureSize.size)
     private val texture = texture(morphingTextureSize.size, morphingTextureSize.size)
-    private val doubleFace: Boolean
     private val status = AtomicReference<MorphingStatus>(MorphingStatus.CREATING)
     private val mutex = Mutex()
     private val textureSize = morphingTextureSize.size
+    private var diffuse: Color3D = WHITE
+    private var alpha: Float = 1f
 
-    /** Morphing alpha in [[0, 1]] */
-    var alpha: Float = 1f
+    /** Indicates if morphing is double face */
+    var doubleFace: Boolean
+
+    /** Diffuse color at start */
+    var diffuseStart: Color3D = WHITE
+
+    /** Diffuse color at end */
+    var diffuseEnd: Color3D = WHITE
+
+    /** Morphing alpha  at start in [[0, 1]] */
+    var alphaStart: Float = 1f
+        set(value)
+        {
+            field = value.bounds(0f, 1f)
+        }
+
+    /** Morphing alpha  at end in [[0, 1]] */
+    var alphaEnd: Float = 1f
         set(value)
         {
             field = value.bounds(0f, 1f)
@@ -140,16 +158,20 @@ class Morphing(source: Object3D, destination: Object3D,
         var points: FloatBuffer = floatBuffer(1)
         var uvs: FloatBuffer = floatBuffer(1)
         var numberTriangles: Int = 0
+        var alpha = 1f
+        var diffuse = WHITE
 
         this.mutex {
+            alpha = this.alpha
+            diffuse = this.diffuse
             points = this.points.buffer()
             uvs = this.uvs.buffer()
             numberTriangles = this.numberTriangles
         }
 
         gl.glDisable(GL10.GL_TEXTURE_2D)
-        gl.glColor4f(1f, 1f, 1f, this.alpha)
-        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, WHITE.floatBuffer())
+        gl.glColor4f(diffuse.red, diffuse.green, diffuse.blue, alpha)
+        gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, diffuse.floatBuffer())
         gl.glEnable(GL10.GL_TEXTURE_2D)
         this.texture.bind(gl)
 
@@ -213,9 +235,10 @@ class Morphing(source: Object3D, destination: Object3D,
             uvs.add(triangle.third.uv.y)
         }
 
+        val antiPercent = 1f - percent
+
         this.texture.draw { bitmap, _, _ ->
             bitmap.pixelsOperation { pixels ->
-                val antiPercent = 1f - percent
                 for ((index, sourcePixel) in this.sourcePixels.withIndex())
                 {
                     val destinationPixel = this.destinationPixels[index]
@@ -228,7 +251,15 @@ class Morphing(source: Object3D, destination: Object3D,
             }
         }
 
+        val alpha = (this.alphaStart * antiPercent + this.alphaEnd * percent)
+        val diffuse = Color3D(this.diffuseStart.red * antiPercent + this.diffuseEnd.red * percent,
+                              this.diffuseStart.green * antiPercent + this.diffuseEnd.green * percent,
+                              this.diffuseStart.blue * antiPercent + this.diffuseEnd.blue * percent,
+                              this.diffuseStart.alpha * antiPercent + this.diffuseEnd.alpha * percent)
+
         this.mutex {
+            this.alpha = alpha
+            this.diffuse = diffuse
             this.points = points
             this.uvs = uvs
             this.numberTriangles = numberTriangle
@@ -245,8 +276,7 @@ class Morphing(source: Object3D, destination: Object3D,
     {
         val source = ArrayList<Triangle3D>(sourceTriangles)
         val destination = ArrayList<Triangle3D>(destinationTriangles)
-        this.equilibrateNumberTriangles(source, 0, source.size,
-                                        destination, 0, destination.size)
+        this.equilibrateNumberTriangles(source, destination)
 
         if (source.size != destination.size)
         {
@@ -264,92 +294,163 @@ class Morphing(source: Object3D, destination: Object3D,
         this.updatePercentReal(this.percent)
     }
 
-    private fun equilibrateNumberTriangles(
-        source: ArrayList<Triangle3D>, sourceStart: Int, sourceEndExclude: Int,
-        destination: ArrayList<Triangle3D>, destinationStart: Int, destinationEndExclude: Int)
+    private fun equilibrateNumberTriangles(source: ArrayList<Triangle3D>,
+                                           destination: ArrayList<Triangle3D>)
     {
-        val numberSource = sourceEndExclude - sourceStart
-        val numberDestination = destinationEndExclude - destinationStart
-
-        if (numberSource == numberDestination || numberSource == 0 || numberDestination == 0)
+        when
         {
-            return
+            source.size < destination.size -> this.treatSourceSmallerDestination(source,
+                                                                                 destination)
+
+            source.size > destination.size -> this.treatSourceBiggerDestination(source, destination)
+            else                           -> this.treatSourceAndDestinationSameSize(source,
+                                                                                     destination)
+        }
+    }
+
+    private fun treatSourceAndDestinationSameSize(source: ArrayList<Triangle3D>,
+                                                  destination: ArrayList<Triangle3D>)
+    {
+        val pairs = ArrayList<Pair<Triangle3D, Triangle3D>>()
+
+        for (triangle in source)
+        {
+            val nearInfo = NearInfo(triangle, destination)
+            pairs.add(Pair(triangle, nearInfo.nearestTriangle))
+            destination.removeAt(nearInfo.nearestIndex)
         }
 
-        if (numberSource == 1)
+        source.clear()
+        destination.clear()
+
+        for ((triangleSource, triangleDestination) in pairs)
         {
-            val triangles = source[sourceStart].cutInTwo()
+            source.add(triangleSource)
+            destination.add(triangleDestination)
+        }
+    }
 
-            if (MoprphingTriangleComparator.compare(triangles.first, triangles.second) >= 0)
-            {
-                source[sourceStart] = triangles.first
-                source.add(sourceStart, triangles.second)
-            }
-            else
-            {
-                source[sourceStart] = triangles.second
-                source.add(sourceStart, triangles.first)
-            }
+    private fun treatSourceSmallerDestination(source: ArrayList<Triangle3D>,
+                                              destination: ArrayList<Triangle3D>)
+    {
+        val corresponding = ArrayList<Pair<Triangle3D, ArrayList<Triangle3D>>>()
 
-            this.equilibrateNumberTriangles(source, sourceStart, sourceEndExclude + 1,
-                                            destination, destinationStart, destinationEndExclude)
-            return
+        for (triangle in source)
+        {
+            corresponding.add(Pair(triangle, ArrayList<Triangle3D>()))
         }
 
-        if (numberDestination == 1)
+        while (destination.isNotEmpty())
         {
-            val triangles = destination[destinationStart].cutInTwo()
-
-            if (MoprphingTriangleComparator.compare(triangles.first, triangles.second) >= 0)
+            for ((triangle, list) in corresponding)
             {
-                destination[sourceStart] = triangles.first
-                destination.add(sourceStart, triangles.second)
-            }
-            else
-            {
-                destination[sourceStart] = triangles.second
-                destination.add(sourceStart, triangles.first)
-            }
+                val nearInfo = NearInfo(triangle, destination)
+                list.add(nearInfo.nearestTriangle)
+                destination.removeAt(nearInfo.nearestIndex)
 
-            this.equilibrateNumberTriangles(source, sourceStart, sourceEndExclude,
-                                            destination, destinationStart,
-                                            destinationEndExclude + 1)
-            return
+                if (destination.isEmpty())
+                {
+                    break
+                }
+            }
         }
 
-        if (numberSource < numberDestination)
-        {
-            val divide = numberDestination / numberSource
-            val remaining = numberDestination % numberSource
-            var destinationComputed = destinationEndExclude - divide
-            var number = divide
+        source.clear()
+        destination.clear()
 
-            for (index in numberSource - 1 downTo 0)
+        while (corresponding.isNotEmpty())
+        {
+            val (triangle, list) = corresponding.removeAt(0)
+
+            if (list.size == 1)
             {
-                this.equilibrateNumberTriangles(source, sourceStart + index,
-                                                sourceStart + index + 1,
-                                                destination, destinationComputed,
-                                                destinationComputed + number)
-                number = divide + (if (index <= remaining) 1 else 0)
-                destinationComputed -= number
+                source.add(triangle)
+                destination.add(list[0])
+                continue
             }
 
-            return
+            val (triangle1, triangle2) = triangle.cutInTwo()
+            val list1 = ArrayList<Triangle3D>()
+            val list2 = ArrayList<Triangle3D>()
+
+            while (list.isNotEmpty())
+            {
+                var nearInfo = NearInfo(triangle1, list)
+                list1.add(nearInfo.nearestTriangle)
+                list.removeAt(nearInfo.nearestIndex)
+
+                if (list.isNotEmpty())
+                {
+                    nearInfo = NearInfo(triangle2, list)
+                    list2.add(nearInfo.nearestTriangle)
+                    list.removeAt(nearInfo.nearestIndex)
+                }
+            }
+
+            corresponding.add(Pair(triangle1, list1))
+            corresponding.add(Pair(triangle2, list2))
+        }
+    }
+
+    private fun treatSourceBiggerDestination(source: ArrayList<Triangle3D>,
+                                             destination: ArrayList<Triangle3D>)
+    {
+        val corresponding = ArrayList<Pair<Triangle3D, ArrayList<Triangle3D>>>()
+
+        for (triangle in destination)
+        {
+            corresponding.add(Pair(triangle, ArrayList<Triangle3D>()))
         }
 
-        val divide = numberSource / numberDestination
-        val remaining = numberSource % numberDestination
-        var sourceComputed = sourceEndExclude - divide
-        var number = divide
-
-        for (index in numberDestination - 1 downTo 0)
+        while (source.isNotEmpty())
         {
-            this.equilibrateNumberTriangles(source, sourceComputed,
-                                            sourceComputed + number,
-                                            destination, destinationStart + index,
-                                            destinationStart + index + 1)
-            number = divide + (if (index <= remaining) 1 else 0)
-            sourceComputed -= number
+            for ((triangle, list) in corresponding)
+            {
+                val nearInfo = NearInfo(triangle, source)
+                list.add(nearInfo.nearestTriangle)
+                source.removeAt(nearInfo.nearestIndex)
+
+                if (source.isEmpty())
+                {
+                    break
+                }
+            }
+        }
+
+        destination.clear()
+        source.clear()
+
+        while (corresponding.isNotEmpty())
+        {
+            val (triangle, list) = corresponding.removeAt(0)
+
+            if (list.size == 1)
+            {
+                destination.add(triangle)
+                source.add(list[0])
+                continue
+            }
+
+            val (triangle1, triangle2) = triangle.cutInTwo()
+            val list1 = ArrayList<Triangle3D>()
+            val list2 = ArrayList<Triangle3D>()
+
+            while (list.isNotEmpty())
+            {
+                var nearInfo = NearInfo(triangle1, list)
+                list1.add(nearInfo.nearestTriangle)
+                list.removeAt(nearInfo.nearestIndex)
+
+                if (list.isNotEmpty())
+                {
+                    nearInfo = NearInfo(triangle2, list)
+                    list2.add(nearInfo.nearestTriangle)
+                    list.removeAt(nearInfo.nearestIndex)
+                }
+            }
+
+            corresponding.add(Pair(triangle1, list1))
+            corresponding.add(Pair(triangle2, list2))
         }
     }
 }
