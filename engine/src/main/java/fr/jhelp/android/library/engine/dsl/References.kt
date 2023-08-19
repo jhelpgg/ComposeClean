@@ -109,9 +109,9 @@ fun particleNodeReferences(): ParticleNodeReferenceCreator = ParticleNodeReferen
  *
  * The texture will be the image referred by the drawable resource
  */
-fun texture(textureReference: TextureReference, @DrawableRes resource: Int)
+fun texture(textureReference: TextureReference, @DrawableRes resource: Int, seal: Boolean = true)
 {
-    textureReference.textureSource = TextureSourceDrawable(resource)
+    textureReference.textureSource = TextureSourceDrawable(resource, seal)
 }
 
 /**

@@ -66,10 +66,11 @@ class MainActivityComposable
     private val engineSound3D: EngineSound3DComposable by lazy { EngineSound3DComposable() }
     private val engineExplosion: EngineParticleExplodeComposable by lazy { EngineParticleExplodeComposable() }
     private val engineSword: EngineParticleSwordComposable by lazy { EngineParticleSwordComposable() }
-    private val engineFirework : EngineParticleFireworkComposable by lazy { EngineParticleFireworkComposable()}
+    private val engineFirework: EngineParticleFireworkComposable by lazy { EngineParticleFireworkComposable() }
     private val engineGUI: EngineGUIComposable by lazy { EngineGUIComposable() }
     private val engineVirtualJoystick: EngineVirtualJoystickComposable by lazy { EngineVirtualJoystickComposable() }
     private val solarSystem: EngineSolarSystemComposable by lazy { EngineSolarSystemComposable() }
+    private val morphingBoxSphere: EngineMorphingBoxSphereComposable by lazy { EngineMorphingBoxSphereComposable() }
     private val game: GameComposable by lazy { GameComposable() }
 
     // Dialogs
@@ -125,11 +126,12 @@ class MainActivityComposable
             Screens.SOUND_3D                    -> this.engineSound3D.Show()
             Screens.PARTICLE_EFFECT_EXPLOSION   -> this.engineExplosion.Show()
             Screens.PARTICLE_EFFECT_SWORD_SLASH -> this.engineSword.Show()
-            Screens.PARTICLE_EFFECT_FIREWORK -> this.engineFirework.Show()
+            Screens.PARTICLE_EFFECT_FIREWORK    -> this.engineFirework.Show()
             Screens.OVER_GUI_3D                 -> this.engineGUI.Show()
             Screens.VIRTUAL_JOYSTICK            -> this.engineVirtualJoystick.Show()
             Screens.MINI_RPG                    -> this.game.Show()
             Screens.SOLAR_SYSTEM                -> this.solarSystem.Show()
+            Screens.MORPHING_BOX_SPHERE         -> this.morphingBoxSphere.Show()
             else                                -> Text(text = "Not implemented screen : $screen")
         }
 

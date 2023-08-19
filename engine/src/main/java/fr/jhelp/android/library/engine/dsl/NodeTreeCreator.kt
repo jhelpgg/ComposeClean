@@ -2,6 +2,7 @@ package fr.jhelp.android.library.engine.dsl
 
 import android.util.Log
 import androidx.annotation.RawRes
+import fr.jhelp.android.library.engine.animation.keyFrame.AnimationTextureSize
 import fr.jhelp.android.library.engine.loaders.NodeLoader
 import fr.jhelp.android.library.engine.resources.ResourcesAccess
 import fr.jhelp.android.library.engine.scene.Clone3D
@@ -14,6 +15,7 @@ import fr.jhelp.android.library.engine.scene.geometry.Plane
 import fr.jhelp.android.library.engine.scene.geometry.Revolution
 import fr.jhelp.android.library.engine.scene.geometry.Sphere
 import fr.jhelp.android.library.engine.scene.geometry.dice.Dice
+import fr.jhelp.android.library.engine.scene.morphing.Morphing
 import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.formal.MathFunction
 import fr.jhelp.android.library.tasks.TaskType
@@ -254,5 +256,47 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
             }
         node(nodeParent)
         this.root.add(nodeParent)
+    }
+
+    /**
+     * Create a morphing : nodes and textures referenced must not be sealed
+     */
+    fun morphing(reference: NodeReference = junkReference,
+                 startObjectReference: NodeReference,
+                 endObjectReference: NodeReference,
+                 startTextureReference: TextureReference,
+                 endTextureReference: TextureReference,
+                 morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM,
+                 morphing: Morphing.() -> Unit)
+    {
+        val realMorphing = Morphing(startObjectReference.node as Object3D,
+                                    endObjectReference.node as Object3D,
+                                    startTextureReference.textureSource.texture,
+                                    endTextureReference.textureSource.texture,
+                                    morphingTextureSize)
+        reference.node = realMorphing
+        morphing(realMorphing)
+        this.root.add(realMorphing)
+    }
+
+    /**
+     * Create a morphing : nodes and textures referenced must not be sealed
+     */
+    fun morphing(reference: NodeReference = junkReference,
+                 startObject: Object3D,
+                 endObject: Object3D,
+                 startTextureReference: TextureReference,
+                 endTextureReference: TextureReference,
+                 morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM,
+                 morphing: Morphing.() -> Unit)
+    {
+        val realMorphing = Morphing(startObject,
+                                    endObject,
+                                    startTextureReference.textureSource.texture,
+                                    endTextureReference.textureSource.texture,
+                                    morphingTextureSize)
+        reference.node = realMorphing
+        morphing(realMorphing)
+        this.root.add(realMorphing)
     }
 }

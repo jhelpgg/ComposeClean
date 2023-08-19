@@ -48,7 +48,8 @@
     <string name="particleEffectFirework">Particle effect : Fireworks.\nShow 3D engine capacity.</string>
     <string name="overGUI">GUI over the 3D.\nShow 3D engine capacity.</string>
     <string name="virtualJoystick">Virtual joystick.\nShow 3D engine capacity.</string>
-    <string name="solarSystem">Simplified solar system to show node hierarchy</string>
+    <string name="solarSystem">Simplified solar system to show node hierarchy.\nShow 3D engine capacity.</string>
+    <string name="morphingBoxSphere">Morphing between Box and Sphere.\nShow 3D engine capacity.</string>
     <string name="miniRPG">Mini RPG game to show engine in complete action.\nShow 3D engine capacity.</string>
 
     <!-- Presentation list -->

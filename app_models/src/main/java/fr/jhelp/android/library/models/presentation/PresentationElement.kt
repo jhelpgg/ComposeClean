@@ -130,6 +130,9 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Solar system */
     SOLAR_SYSTEM(Screens.SOLAR_SYSTEM, PresentationType.ENGINE_3D),
 
+    /** Morphing between box and sphere */
+    MORPHING_BOX_SPHERE(Screens.MORPHING_BOX_SPHERE, PresentationType.ENGINE_3D),
+
     /** Mini RPG */
     MINI_RPG(Screens.MINI_RPG, PresentationType.ENGINE_3D)
 }

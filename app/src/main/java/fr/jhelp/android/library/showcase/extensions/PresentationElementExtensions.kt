@@ -42,10 +42,11 @@ val PresentationElement.resourceText: Int
             PresentationElement.SOUND_3D                    -> R.string.sound3D
             PresentationElement.PARTICLE_EFFECT_EXPLOSION   -> R.string.particleEffectExplosion
             PresentationElement.PARTICLE_EFFECT_SWORD_SLASH -> R.string.particleEffectSwordSlash
-            PresentationElement.PARTICLE_EFFECT_FIREWORK -> R.string.particleEffectFirework
+            PresentationElement.PARTICLE_EFFECT_FIREWORK    -> R.string.particleEffectFirework
             PresentationElement.OVER_GUI_3D                 -> R.string.overGUI
             PresentationElement.VIRTUAL_JOYSTICK            -> R.string.virtualJoystick
             PresentationElement.SOLAR_SYSTEM                -> R.string.solarSystem
+            PresentationElement.MORPHING_BOX_SPHERE         -> R.string.morphingBoxSphere
             PresentationElement.MINI_RPG                    -> R.string.miniRPG
         }
 
