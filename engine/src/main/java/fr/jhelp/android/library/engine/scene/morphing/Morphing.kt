@@ -127,6 +127,11 @@ class Morphing(source: Object3D, destination: Object3D,
     }
 
     /**
+     * Indicates if object has something to draw (at least one triangle)
+     */
+    override fun hasSomethingToDraw(): Boolean = this.numberTriangles > 0
+
+    /**
      * Draw the object in 3D
      */
     @OpenGLThread
@@ -145,6 +150,8 @@ class Morphing(source: Object3D, destination: Object3D,
         gl.glDisable(GL10.GL_TEXTURE_2D)
         gl.glColor4f(1f, 1f, 1f, this.alpha)
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, WHITE.floatBuffer())
+        gl.glEnable(GL10.GL_TEXTURE_2D)
+        this.texture.bind(gl)
 
         if (this.doubleFace)
         {
