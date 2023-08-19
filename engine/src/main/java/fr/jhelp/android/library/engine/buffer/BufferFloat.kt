@@ -103,4 +103,14 @@ class BufferFloat
             this.array = null
         }
     }
+
+    /**
+     * Copy of values stored in buffer.
+     * Empty if buffer is sealed
+     */
+    fun values(): FloatArray =
+        synchronized(this.dirty)
+        {
+            this.array?.copyOf() ?: FloatArray(0)
+        }
 }
