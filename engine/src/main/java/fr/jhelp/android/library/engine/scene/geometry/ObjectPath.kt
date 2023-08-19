@@ -12,20 +12,23 @@ import kotlin.math.sqrt
 class ObjectPath(mainPath: Path, mainPathPrecision: Int = 5,
                  followPath: Path, followPathPrecision: Int = 5,
                  startU: Float = 0f, endU: Float = 1f,
-                 startV: Float = 0f, endV: Float = 1f) : Object3D()
+                 startV: Float = 0f, endV: Float = 1f,
+                 seal: Boolean = true) : Object3D()
 {
     init
     {
         this.createPath(mainPath, mainPathPrecision.bounds(2, 10),
                         followPath, followPathPrecision.bounds(2, 10),
                         startU, endU,
-                        startV, endV)
+                        startV, endV,
+                        seal)
     }
 
     private fun createPath(mainPath: Path, mainPathPrecision: Int,
                            followPath: Path, followPathPrecision: Int,
                            startU: Float, endU: Float,
-                           startV: Float, endV: Float)
+                           startV: Float, endV: Float,
+                           seal: Boolean)
     {
         val mainList = mainPath.path(mainPathPrecision, startV, endV)
         val followList = followPath.path(followPathPrecision, startU, endU)
@@ -161,7 +164,11 @@ class ObjectPath(mainPath: Path, mainPathPrecision: Int = 5,
         }
 
         this.doubleFace = true
-        this.seal()
+
+        if (seal)
+        {
+            this.seal()
+        }
     }
 
 }

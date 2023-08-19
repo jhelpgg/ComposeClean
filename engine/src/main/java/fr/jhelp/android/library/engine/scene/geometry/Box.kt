@@ -14,7 +14,7 @@ import fr.jhelp.android.library.engine.scene.Object3D
 /**
  * A box
  */
-class Box(boxUV: BoxUV = BoxUV()) : Object3D()
+class Box(boxUV: BoxUV = BoxUV(), seal: Boolean = true) : Object3D()
 {
     init
     {
@@ -79,6 +79,9 @@ class Box(boxUV: BoxUV = BoxUV()) : Object3D()
                        -0.5f, 0.5f, -0.5f,
                        boxUV.back.maxU, boxUV.back.minV)
 
-        this.seal()
+        if (seal)
+        {
+            this.seal()
+        }
     }
 }

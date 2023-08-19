@@ -17,13 +17,15 @@ import kotlin.math.sin
 /**
  * A sphere
  */
-class Sphere(multiplierU: Float = 1f, multiplierV: Float = 1f, slice: Int = 16, slack: Int = 16) :
-    Object3D()
+class Sphere(multiplierU: Float = 1f, multiplierV: Float = 1f,
+             slice: Int = 16, slack: Int = 16,
+             seal: Boolean = true) :
+        Object3D()
 {
     init
     {
         this.computeSphereMesh(slice.bounds(2, 32), slack.bounds(2, 32),
-                               multiplierU, multiplierV)
+                               multiplierU, multiplierV, seal)
     }
 
     /**
@@ -34,7 +36,9 @@ class Sphere(multiplierU: Float = 1f, multiplierV: Float = 1f, slice: Int = 16, 
      * @param multiplierU Number of repetition of U
      * @param multiplierV Number of repetition of V
      */
-    private fun computeSphereMesh(slice: Int, stack: Int, multiplierU: Float, multiplierV: Float)
+    private fun computeSphereMesh(slice: Int, stack: Int,
+                                  multiplierU: Float, multiplierV: Float,
+                                  seal: Boolean)
     {
         // Angles compute for slice and stack
         var sliceAngle: Double
@@ -137,6 +141,9 @@ class Sphere(multiplierU: Float = 1f, multiplierV: Float = 1f, slice: Int = 16, 
             sli++
         }
 
-        this.seal()
+        if (seal)
+        {
+            this.seal()
+        }
     }
 }

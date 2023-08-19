@@ -19,7 +19,8 @@ class Field3D(functionZ: MathFunction<*>,
               private val xStart: Float, private val xEnd: Float, numberPartX: Int,
               private val yStart: Float, private val yEnd: Float, numberPartY: Int,
               private val uStart: Float = 0f, private val uEnd: Float = 1f,
-              private val vStart: Float = 0f, private val vEnd: Float = 1f) : Object3D()
+              private val vStart: Float = 0f, private val vEnd: Float = 1f,
+              seal: Boolean = true) : Object3D()
 {
     private val functionZ = this.checkAndSimplify(functionZ)
     private val numberPartX = numberPartX.bounds(1, 10)
@@ -28,7 +29,7 @@ class Field3D(functionZ: MathFunction<*>,
     init
     {
         this.doubleFace = true
-        this.compute()
+        this.compute(seal)
     }
 
     /**
@@ -37,7 +38,7 @@ class Field3D(functionZ: MathFunction<*>,
     fun z(x: Float, y: Float): Float =
         (this.functionZ.replace(X, x).replace(Y, y).simplifyMax() as Constant).value.toFloat()
 
-    private fun compute()
+    private fun compute(seal: Boolean)
     {
         if (this.xStart.same(this.xEnd) || this.yStart.same(this.yEnd))
         {
@@ -78,7 +79,11 @@ class Field3D(functionZ: MathFunction<*>,
             }
         }
 
-        this.seal()
+        if (seal)
+        {
+            this.seal()
+        }
+
         val center = this.center()
         this.position.position(-center.x, -center.y, -center.z)
     }
