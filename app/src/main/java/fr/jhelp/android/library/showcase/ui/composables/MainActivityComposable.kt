@@ -71,6 +71,7 @@ class MainActivityComposable
     private val engineVirtualJoystick: EngineVirtualJoystickComposable by lazy { EngineVirtualJoystickComposable() }
     private val solarSystem: EngineSolarSystemComposable by lazy { EngineSolarSystemComposable() }
     private val morphingBoxSphere: EngineMorphingBoxSphereComposable by lazy { EngineMorphingBoxSphereComposable() }
+    private val morphingSphereToyComposable : EngineMorphingSphereToyComposable by lazy { EngineMorphingSphereToyComposable() }
     private val game: GameComposable by lazy { GameComposable() }
 
     // Dialogs
@@ -132,6 +133,7 @@ class MainActivityComposable
             Screens.MINI_RPG                    -> this.game.Show()
             Screens.SOLAR_SYSTEM                -> this.solarSystem.Show()
             Screens.MORPHING_BOX_SPHERE         -> this.morphingBoxSphere.Show()
+            Screens.MORPHING_SPHERE_TOY         -> this.morphingSphereToyComposable.Show()
             else                                -> Text(text = "Not implemented screen : $screen")
         }
 

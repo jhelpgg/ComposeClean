@@ -44,6 +44,12 @@ data class Triangle3D(val first: Vertex, val second: Vertex, val third: Vertex)
         }
     }
 
+    /**
+     * Create a scaled version
+     */
+    fun scale(scale: Float): Triangle3D =
+        Triangle3D(this.first.scale(scale), this.second.scale(scale), this.third.scale(scale))
+
     private fun cutInFirstSecondEdge(): Pair<Triangle3D, Triangle3D>
     {
         val vertex = Vertex(Point3D((this.first.point3D.x + this.second.point3D.x) / 2f,

@@ -288,13 +288,16 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
                  startTextureReference: TextureReference,
                  endTextureReference: TextureReference,
                  morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM,
+                 scaleStart: Float = 1f,
+                 scaleEnd: Float = 1f,
                  morphing: Morphing.() -> Unit)
     {
         val realMorphing = Morphing(startObject,
                                     endObject,
                                     startTextureReference.textureSource.texture,
                                     endTextureReference.textureSource.texture,
-                                    morphingTextureSize)
+                                    morphingTextureSize,
+                                    scaleStart, scaleEnd)
         reference.node = realMorphing
         morphing(realMorphing)
         this.root.add(realMorphing)

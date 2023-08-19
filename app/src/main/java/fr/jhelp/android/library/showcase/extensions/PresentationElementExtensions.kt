@@ -47,6 +47,7 @@ val PresentationElement.resourceText: Int
             PresentationElement.VIRTUAL_JOYSTICK            -> R.string.virtualJoystick
             PresentationElement.SOLAR_SYSTEM                -> R.string.solarSystem
             PresentationElement.MORPHING_BOX_SPHERE         -> R.string.morphingBoxSphere
+            PresentationElement.MORPHING_SPHERE_TOY -> R.string.morphingSphereToy
             PresentationElement.MINI_RPG                    -> R.string.miniRPG
         }
 

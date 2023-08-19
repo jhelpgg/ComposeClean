@@ -150,6 +150,9 @@ enum class Screens
     /** Morphing Box <-> Sphere */
     MORPHING_BOX_SPHERE,
 
+    /** Morphing Sphere <-> Toy */
+    MORPHING_SPHERE_TOY,
+
     /** Mini RPG */
     MINI_RPG
 }

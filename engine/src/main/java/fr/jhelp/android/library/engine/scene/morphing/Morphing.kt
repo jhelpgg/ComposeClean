@@ -39,7 +39,9 @@ class Morphing(source: Object3D, destination: Object3D,
                    texture(32, 32)
                        .draw { bitmap, _, _ -> bitmap.clear(COLOR_ORANGE_0500) }!!,
                destinationTexture: Texture = sourceTexture,
-               morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM) : Node3D()
+               morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM,
+               scaleStart: Float = 1f,
+               scaleEnd: Float = 1f) : Node3D()
 {
     private val morphingTriangles = ArrayList<MorphingTriangle>()
     private var numberTriangles = 0
@@ -91,6 +93,7 @@ class Morphing(source: Object3D, destination: Object3D,
             }
         }
 
+
     init
     {
         val errorReport = StringBuilder()
@@ -141,7 +144,10 @@ class Morphing(source: Object3D, destination: Object3D,
         val sourceTriangles = source.triangles()
         val destinationTriangles = destination.triangles()
 
-        ({ this.createMorphing(sourceTriangles, destinationTriangles) }).parallel()
+        ({
+            this.createMorphing(sourceTriangles, scaleStart,
+                                destinationTriangles, scaleEnd)
+        }).parallel()
     }
 
     /**
@@ -271,11 +277,23 @@ class Morphing(source: Object3D, destination: Object3D,
         }
     }
 
-    private fun createMorphing(sourceTriangles: List<Triangle3D>,
-                               destinationTriangles: List<Triangle3D>)
+    private fun createMorphing(sourceTriangles: List<Triangle3D>, scaleSource: Float,
+                               destinationTriangles: List<Triangle3D>, scaleDestination: Float)
     {
-        val source = ArrayList<Triangle3D>(sourceTriangles)
-        val destination = ArrayList<Triangle3D>(destinationTriangles)
+        val source = ArrayList<Triangle3D>()
+
+        for (triangle in sourceTriangles)
+        {
+            source.add(triangle.scale(scaleSource))
+        }
+
+        val destination = ArrayList<Triangle3D>()
+
+        for (triangle in destinationTriangles)
+        {
+            destination.add(triangle.scale(scaleDestination))
+        }
+
         this.equilibrateNumberTriangles(source, destination)
 
         if (source.size != destination.size)
