@@ -14,8 +14,12 @@ import fr.jhelp.android.library.engine.buffer.BufferFloat
 import fr.jhelp.android.library.engine.math.BoundingBox
 import fr.jhelp.android.library.engine.resources.draw
 import fr.jhelp.android.library.engine.resources.texture
+import fr.jhelp.android.library.engine.scene.morphing.MoprphingTriangleComparator
 import fr.jhelp.android.library.images.clear
+import fr.jhelp.android.library.math.Point2D
 import fr.jhelp.android.library.math.Point3D
+import fr.jhelp.android.library.math.Triangle3D
+import fr.jhelp.android.library.math.Vertex
 import javax.microedition.khronos.opengles.GL10
 
 /**
@@ -224,6 +228,51 @@ open class Object3D : NodeWithBoundingBox()
             }
         this.material.diffuse = LIGHT_GREY
         this.material.texture = texture
+    }
+
+    /**
+     * Extract object's triangles.
+     * Empty if object is sealed
+     */
+    fun triangles(): List<Triangle3D>
+    {
+        val triangles = ArrayList<Triangle3D>()
+
+        if (this.sealed)
+        {
+            return triangles
+        }
+
+        val points = this.points.values()
+        val uvs = this.uvs.values()
+        var indexPoint = 0
+        var indexUV = 0
+
+        for (tri in 0 until this.numberTriangle)
+        {
+            var x = points[indexPoint++]
+            var y = points[indexPoint++]
+            var z = points[indexPoint++]
+            var u = uvs[indexUV++]
+            var v = uvs[indexUV++]
+            val first = Vertex(Point3D(x, y, z), Point2D(u, v))
+            x = points[indexPoint++]
+            y = points[indexPoint++]
+            z = points[indexPoint++]
+            u = uvs[indexUV++]
+            v = uvs[indexUV++]
+            val second = Vertex(Point3D(x, y, z), Point2D(u, v))
+            x = points[indexPoint++]
+            y = points[indexPoint++]
+            z = points[indexPoint++]
+            u = uvs[indexUV++]
+            v = uvs[indexUV++]
+            val third = Vertex(Point3D(x, y, z), Point2D(u, v))
+            triangles.add(Triangle3D(first, second, third))
+        }
+
+        triangles.sortWith(MoprphingTriangleComparator)
+        return triangles
     }
 
     /**
