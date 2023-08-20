@@ -79,7 +79,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:1.6.0-alpha01"
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.6.0-alpha01"
 }
-/*
+
 afterEvaluate {
     publishing {
         publications {
@@ -93,4 +93,3 @@ afterEvaluate {
         }
     }
 }
-*/
