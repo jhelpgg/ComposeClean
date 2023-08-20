@@ -46,18 +46,21 @@ import kotlin.math.sqrt
  */
 class Revolution(path: Path, angle: Float = 360f,
                  multiplierU: Float = 1f, startV: Float = 0f, endV: Float = 1f,
-                 pathPrecision: Int = 5, rotationPrecision: Int = 12) : Object3D()
+                 pathPrecision: Int = 5, rotationPrecision: Int = 12,
+                 seal: Boolean = true) : Object3D()
 {
     init
     {
         this.computeMesh(path, Math.toRadians(angle.toDouble().bounds(0.0, 360.0)),
                          multiplierU, startV, endV,
-                         pathPrecision.bounds(2, 10), rotationPrecision.bounds(3, 24))
+                         pathPrecision.bounds(2, 10), rotationPrecision.bounds(3, 24),
+                         seal)
     }
 
     private fun computeMesh(path: Path, radian: Double,
                             multiplierU: Float, startV: Float, endV: Float,
-                            pathPrecision: Int, rotationPrecision: Int)
+                            pathPrecision: Int, rotationPrecision: Int,
+                            seal: Boolean)
     {
         var angle: Double
         var angleFuture: Double
@@ -177,7 +180,11 @@ class Revolution(path: Path, angle: Float = 360f,
             }
         }
 
-        this.seal()
+        if (seal)
+        {
+            this.seal()
+        }
+
         val center = this.center()
         this.position.position(-center.x, -center.y, -center.z)
     }

@@ -147,6 +147,15 @@ enum class Screens
     /** Solar system */
     SOLAR_SYSTEM,
 
+    /** Morphing Box <-> Sphere */
+    MORPHING_BOX_SPHERE,
+
+    /** Morphing Sphere <-> Toy */
+    MORPHING_SPHERE_TOY,
+
+    /** Morphing between two toys */
+    MORPHING_TOYS,
+
     /** Mini RPG */
     MINI_RPG
 }

@@ -7,8 +7,9 @@ import fr.jhelp.android.library.engine.scene.Texture
 /**
  * Texture from drawable resources
  */
-class TextureSourceDrawable(@DrawableRes private val resource: Int) : TextureSource()
+class TextureSourceDrawable(@DrawableRes private val resource: Int,
+                            private val seal: Boolean = true) : TextureSource()
 {
     override fun createTexture(): Texture =
-        ResourcesAccess.obtainTexture(this.resource)
+        ResourcesAccess.obtainTexture(this.resource, this.seal)
 }

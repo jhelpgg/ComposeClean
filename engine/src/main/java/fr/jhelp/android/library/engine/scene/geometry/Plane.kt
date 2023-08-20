@@ -14,7 +14,9 @@ import fr.jhelp.android.library.engine.scene.Object3D
 /**
  * A plane
  */
-class Plane(startU: Float = 0f, endU: Float = 1f, startV: Float = 0f, endV: Float = 1f) : Object3D()
+class Plane(startU: Float = 0f, endU: Float = 1f,
+            startV: Float = 0f, endV: Float = 1f,
+            seal: Boolean = true) : Object3D()
 {
     init
     {
@@ -28,6 +30,10 @@ class Plane(startU: Float = 0f, endU: Float = 1f, startV: Float = 0f, endV: Floa
                        endU, startV)
 
         this.doubleFace = true
-        this.seal()
+
+        if (seal)
+        {
+            this.seal()
+        }
     }
 }

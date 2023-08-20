@@ -4,6 +4,7 @@ import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleEffectRefere
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticlePlayer
 import fr.jhelp.android.library.engine.dsl.animation.player.AnimationNodePlayer
 import fr.jhelp.android.library.engine.dsl.animation.player.AnimationPlayer
+import fr.jhelp.android.library.engine.dsl.animation.player.MorphingPlayer
 import fr.jhelp.android.library.engine.extensions.children
 import fr.jhelp.android.library.engine.extensions.position
 import fr.jhelp.android.library.engine.scene.Color3D
@@ -62,6 +63,12 @@ class SceneCreator internal constructor(val view3D: View3D)
      */
     fun player(particleEffectReference: ParticleEffectReference): ParticlePlayer =
         ParticlePlayer(this.scene3D, particleEffectReference)
+
+    /**
+     * Create a morphing animation player
+     */
+    fun player(animationMorphingReference: AnimationMorphingReference): MorphingPlayer =
+        MorphingPlayer(this.scene3D, animationMorphingReference)
 
     /**
      * Define a background texture

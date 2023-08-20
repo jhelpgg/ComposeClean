@@ -38,6 +38,11 @@ fun color(alpha: Int, red: Int, green: Int, blue: Int): Int =
 fun limitPart(integer: Int): Int = integer.bounds(0, 255)
 
 /**
+ * Limit a value to what a color part support as value
+ */
+fun limitPart(float: Float): Int = float.bounds(0f, 255f).toInt()
+
+/**
  * Compute blue part of color from YUV
  *
  * B = Y + 1.7790 * (U - 128)

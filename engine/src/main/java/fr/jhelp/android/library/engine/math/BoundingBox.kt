@@ -9,6 +9,8 @@
 package fr.jhelp.android.library.engine.math
 
 import fr.jhelp.android.library.math.Point3D
+import fr.jhelp.android.library.math.Triangle3D
+import fr.jhelp.android.library.math.Vertex
 import kotlin.math.max
 import kotlin.math.min
 
@@ -47,6 +49,11 @@ class BoundingBox()
     /** Indicates if box is not empty */
     val notEmpty: Boolean get() = this.minX <= this.maxX
 
+    /** Bounding box current area */
+    val volume: Float
+        get() =
+            if (this.empty) 0f else (this.maxX - this.minX) * (this.maxY - this.minY) * (this.maxZ - this.minZ)
+
     /**
      * Create a bounding box copy from those in parameters
      */
@@ -76,6 +83,32 @@ class BoundingBox()
         this.maxX = max(this.maxX, x)
         this.maxY = max(this.maxY, y)
         this.maxZ = max(this.maxZ, z)
+    }
+
+    /**
+     * Add a point
+     */
+    fun add(point: Point3D)
+    {
+        this.add(point.x, point.y, point.z)
+    }
+
+    /**
+     * Add vertex position
+     */
+    fun add(vertex: Vertex)
+    {
+        this.add(vertex.point3D)
+    }
+
+    /**
+     * Add third point of a triangle
+     */
+    fun add(triangle3D: Triangle3D)
+    {
+        this.add(triangle3D.first)
+        this.add(triangle3D.second)
+        this.add(triangle3D.third)
     }
 
     /**
@@ -229,6 +262,45 @@ class BoundingBox()
     }
 
     /**
+     * Compute bonding box intersection volume with an other one.
+     *
+     * If no intersection zero is returned
+     */
+    fun intersectionVolume(boundingBox: BoundingBox): Float
+    {
+        if (this.empty || boundingBox.empty)
+        {
+            return 0f
+        }
+
+        val minX = max(this.minX, boundingBox.minX)
+        val maxX = min(this.maxX, boundingBox.maxX)
+
+        if (minX > maxX)
+        {
+            return 0f
+        }
+
+        val minY = max(this.minY, boundingBox.minY)
+        val maxY = min(this.maxY, boundingBox.maxY)
+
+        if (minY > maxY)
+        {
+            return 0f
+        }
+
+        val minZ = max(this.minZ, boundingBox.minZ)
+        val maxZ = min(this.maxZ, boundingBox.maxZ)
+
+        if (minZ > maxZ)
+        {
+            return 0f
+        }
+
+        return (maxX - minX) * (maxY - minY) * (maxZ - minZ)
+    }
+
+    /**
      * Compute union with a bonding box
      */
     fun union(boundingBox: BoundingBox): BoundingBox
@@ -251,5 +323,28 @@ class BoundingBox()
         union.minZ = min(this.minZ, boundingBox.minZ)
         union.maxZ = max(this.maxZ, boundingBox.maxZ)
         return union
+    }
+
+    /**
+     * Scale the box
+     */
+    fun scale(scaleX: Float, scaleY: Float = scaleX, scaleZ: Float = scaleX)
+    {
+        if (this.empty)
+        {
+            return
+        }
+
+        var translate = ((this.maxX - this.minX) - ((this.maxX - this.minX) * scaleX)) / 2f
+        this.minX += translate
+        this.maxX -= translate
+
+        translate = ((this.maxY - this.minY) - ((this.maxY - this.minY) * scaleY)) / 2f
+        this.minY += translate
+        this.maxY -= translate
+
+        translate = ((this.maxZ - this.minZ) - ((this.maxZ - this.minZ) * scaleZ)) / 2f
+        this.minZ += translate
+        this.maxZ -= translate
     }
 }

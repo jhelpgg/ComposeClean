@@ -2,6 +2,7 @@ package fr.jhelp.android.library.engine.dsl
 
 import android.util.Log
 import androidx.annotation.RawRes
+import fr.jhelp.android.library.engine.animation.keyFrame.AnimationTextureSize
 import fr.jhelp.android.library.engine.loaders.NodeLoader
 import fr.jhelp.android.library.engine.resources.ResourcesAccess
 import fr.jhelp.android.library.engine.scene.Clone3D
@@ -14,6 +15,7 @@ import fr.jhelp.android.library.engine.scene.geometry.Plane
 import fr.jhelp.android.library.engine.scene.geometry.Revolution
 import fr.jhelp.android.library.engine.scene.geometry.Sphere
 import fr.jhelp.android.library.engine.scene.geometry.dice.Dice
+import fr.jhelp.android.library.engine.scene.morphing.Morphing
 import fr.jhelp.android.library.images.path.Path
 import fr.jhelp.android.library.math.formal.MathFunction
 import fr.jhelp.android.library.tasks.TaskType
@@ -75,9 +77,10 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
     fun plane(reference: NodeReference = junkReference,
               startU: Float = 0f, endU: Float = 1f,
               startV: Float = 0f, endV: Float = 1f,
+              seal: Boolean = true,
               plane: Plane.() -> Unit)
     {
-        val planeReal = Plane(startU, endU, startV, endV)
+        val planeReal = Plane(startU, endU, startV, endV, seal)
         reference.node = planeReal
         plane(planeReal)
         this.root.add(planeReal)
@@ -88,11 +91,12 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
      */
     fun box(reference: NodeReference = junkReference,
             boxUV: BoxUVCreator.() -> Unit = {},
+            seal: Boolean = true,
             box: Box.() -> Unit)
     {
         val boxUVCreator = BoxUVCreator()
         boxUV(boxUVCreator)
-        val boxReal = Box(boxUVCreator.boxUV)
+        val boxReal = Box(boxUVCreator.boxUV, seal)
         reference.node = boxReal
         box(boxReal)
         this.root.add(boxReal)
@@ -106,6 +110,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
                    multiplierU: Float = 1f, startV: Float = 0f, endV: Float = 1f,
                    pathPrecision: Int = 5, rotationPrecision: Int = 12,
                    path: Path.() -> Unit,
+                   seal: Boolean = true,
                    revolution: Revolution.() -> Unit)
     {
         val pathReal = Path()
@@ -113,7 +118,8 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         val revolutionReal = Revolution(pathReal,
                                         angle,
                                         multiplierU, startV, endV,
-                                        pathPrecision, rotationPrecision)
+                                        pathPrecision, rotationPrecision,
+                                        seal)
         reference.node = revolutionReal
         revolution(revolutionReal)
         this.root.add(revolutionReal)
@@ -124,9 +130,10 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
      */
     fun sphere(reference: NodeReference = junkReference,
                multiplierU: Float = 1f, multiplierV: Float = 1f, slice: Int = 16, slack: Int = 16,
+               seal: Boolean = true,
                sphere: Sphere.() -> Unit)
     {
-        val sphereReal = Sphere(multiplierU, multiplierV, slice, slack)
+        val sphereReal = Sphere(multiplierU, multiplierV, slice, slack, seal)
         reference.node = sphereReal
         sphere(sphereReal)
         this.root.add(sphereReal)
@@ -138,6 +145,7 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
                    followPath: Path.() -> Unit, followPathPrecision: Int = 5,
                    startU: Float = 0f, endU: Float = 1f,
                    startV: Float = 0f, endV: Float = 1f,
+                   seal: Boolean = true,
                    objectPath: ObjectPath.() -> Unit)
     {
         val mainPathReal = Path()
@@ -147,7 +155,8 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
         val objectPathReal = ObjectPath(mainPathReal, mainPathPrecision,
                                         followPathReal, followPathPrecision,
                                         startU, endU,
-                                        startV, endV)
+                                        startV, endV,
+                                        seal)
         reference.node = objectPathReal
         objectPath(objectPathReal)
         this.root.add(objectPathReal)
@@ -169,11 +178,12 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
     fun load(reference: NodeReference = junkReference,
              name: String, @RawRes rawID: Int, loader: NodeLoader,
              material: MaterialReference = MaterialReference(),
+             seal: Boolean = true,
              node: Node3D.() -> Unit)
     {
         val nodeParent = Node3D()
         reference.node = nodeParent
-        ResourcesAccess.loadNode(name, rawID, loader)
+        ResourcesAccess.loadNode(name, rawID, loader, seal)
             .and { nodeLoaded ->
                 nodeLoaded.applyMaterialHierarchically(material.material)
                 nodeParent.add(nodeLoaded)
@@ -192,13 +202,15 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
               yStart: Float, yEnd: Float, numberPartY: Int,
               uStart: Float = 0f, uEnd: Float = 1f,
               vStart: Float = 0f, vEnd: Float = 1f,
+              seal: Boolean = true,
               field: Field3D.() -> Unit)
     {
         val fieldReal = Field3D(functionZ,
                                 xStart, xEnd, numberPartX,
                                 yStart, yEnd, numberPartY,
                                 uStart, uEnd,
-                                vStart, vEnd)
+                                vStart, vEnd,
+                                seal)
         reference.node = fieldReal
         field(fieldReal)
         this.root.add(fieldReal)
@@ -210,11 +222,12 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
     fun load(reference: NodeReference = junkReference,
              name: String, assetPath: String, loader: NodeLoader,
              material: MaterialReference = MaterialReference(),
+             seal: Boolean = true,
              node: Node3D.() -> Unit)
     {
         val nodeParent = Node3D()
         reference.node = nodeParent
-        ResourcesAccess.loadNode(name, assetPath, loader)
+        ResourcesAccess.loadNode(name, assetPath, loader, seal)
             .and { nodeLoaded ->
                 nodeLoaded.applyMaterialHierarchically(material.material)
                 nodeParent.add(nodeLoaded)
@@ -230,11 +243,12 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
     fun load(reference: NodeReference = junkReference,
              name: String, inputStream: InputStream, loader: NodeLoader,
              material: MaterialReference = MaterialReference(),
+             seal: Boolean = true,
              node: Node3D.() -> Unit)
     {
         val nodeParent = Node3D()
         reference.node = nodeParent
-        ({ loader.load(name, inputStream, true) }).parallel(TaskType.IO)
+        ({ loader.load(name, inputStream, seal) }).parallel(TaskType.IO)
             .and { nodeLoaded ->
                 nodeLoaded.applyMaterialHierarchically(material.material)
                 nodeParent.add(nodeLoaded)
@@ -242,5 +256,50 @@ class NodeTreeCreator internal constructor(private val root: Node3D)
             }
         node(nodeParent)
         this.root.add(nodeParent)
+    }
+
+    /**
+     * Create a morphing : nodes and textures referenced must not be sealed
+     */
+    fun morphing(reference: NodeReference = junkReference,
+                 startObjectReference: NodeReference,
+                 endObjectReference: NodeReference,
+                 startTextureReference: TextureReference,
+                 endTextureReference: TextureReference,
+                 morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM,
+                 morphing: Morphing.() -> Unit)
+    {
+        val realMorphing = Morphing(startObjectReference.node as Object3D,
+                                    endObjectReference.node as Object3D,
+                                    startTextureReference.textureSource.texture,
+                                    endTextureReference.textureSource.texture,
+                                    morphingTextureSize)
+        reference.node = realMorphing
+        morphing(realMorphing)
+        this.root.add(realMorphing)
+    }
+
+    /**
+     * Create a morphing : nodes and textures referenced must not be sealed
+     */
+    fun morphing(reference: NodeReference = junkReference,
+                 startObject: Object3D,
+                 endObject: Object3D,
+                 startTextureReference: TextureReference,
+                 endTextureReference: TextureReference,
+                 morphingTextureSize: AnimationTextureSize = AnimationTextureSize.MEDIUM,
+                 scaleStart: Float = 1f,
+                 scaleEnd: Float = 1f,
+                 morphing: Morphing.() -> Unit)
+    {
+        val realMorphing = Morphing(startObject,
+                                    endObject,
+                                    startTextureReference.textureSource.texture,
+                                    endTextureReference.textureSource.texture,
+                                    morphingTextureSize,
+                                    scaleStart, scaleEnd)
+        reference.node = realMorphing
+        morphing(realMorphing)
+        this.root.add(realMorphing)
     }
 }

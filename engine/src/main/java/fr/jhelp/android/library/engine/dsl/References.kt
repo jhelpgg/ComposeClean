@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.DrawableRes
+import fr.jhelp.android.library.engine.dsl.animation.AnimationMorphingCreator
 import fr.jhelp.android.library.engine.dsl.animation.AnimationNodeCreator
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleEffectCreator
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleEffectReference
@@ -64,6 +65,14 @@ fun animationNodeReference(nodeReference: NodeReference): AnimationNodeReference
     AnimationNodeReference(nodeReference)
 
 /**
+ * Create animation on node reference to a morphing.
+ *
+ * @param morphingReference Node reference on morphing. Must call : [NodeTreeCreator.morphing] on this reference before
+ */
+fun animationMorphingReference(morphingReference: NodeReference): AnimationMorphingReference =
+    AnimationMorphingReference(morphingReference)
+
+/**
  * Create several animation node references. Example for 3 references (beware must have same number of reference to create as number of node reference in parameters) :
  *
  * ```kotlin
@@ -109,9 +118,9 @@ fun particleNodeReferences(): ParticleNodeReferenceCreator = ParticleNodeReferen
  *
  * The texture will be the image referred by the drawable resource
  */
-fun texture(textureReference: TextureReference, @DrawableRes resource: Int)
+fun texture(textureReference: TextureReference, @DrawableRes resource: Int, seal: Boolean = true)
 {
-    textureReference.textureSource = TextureSourceDrawable(resource)
+    textureReference.textureSource = TextureSourceDrawable(resource, seal)
 }
 
 /**
@@ -166,6 +175,15 @@ fun animationNode(animationNodeReference: AnimationNodeReference,
                   animation: AnimationNodeCreator.() -> Unit)
 {
     animation(animationNodeReference.animationNodeCreator)
+}
+
+/**
+ * Create animation morphing
+ */
+fun animationMorphing(animationMorphingReference: AnimationMorphingReference,
+                      animation: AnimationMorphingCreator.() -> Unit)
+{
+    animation(animationMorphingReference.animationMorphingCreator)
 }
 
 /**
