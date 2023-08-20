@@ -5,7 +5,7 @@
 
 ## Version 1.0.2 -> 1.0.3 (20/08/2023)
 
-* Configuration for get project from jetpack.io
+* Configuration for get project from [jitpack.io](https://jitpack.io)
 
 ## Version 1.0.1 -> 1.0.2 (20/08/2023)
 
