@@ -3,8 +3,37 @@ plugins {
     id 'com.android.library' version '8.1.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
+//    id("maven-publish") apply false
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+println("**********************************************")
+
+subprojects {
+    apply plugin: "maven-publish"
+//    afterEvaluate {
+        publishing {
+            repositories {
+                maven {
+                    name = "GitHubPackages"
+                    url = uri("https://maven.pkg.github.com/jhelpgg/ComposeClean")
+                    credentials {
+                        username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_PUBLISHING_USER")
+                        password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_PUBLISHING_TOKEN")
+                    }
+                }
+            }
+        publications {
+            gpr(MavenPublication) {
+                for (component in components) {
+                    println("component => $component")
+                }
+
+                from(components.findByName("java"))
+            }
+        }
+       // }
+    }
 }

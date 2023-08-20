@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
+    // id 'maven-publish'
 }
 
 group = 'fr.jhelp.android.library.showcase'
@@ -79,7 +79,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:1.6.0-alpha01"
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.6.0-alpha01"
 }
-
+/*
 afterEvaluate {
     publishing {
         publications {
@@ -93,3 +93,4 @@ afterEvaluate {
         }
     }
 }
+*/
