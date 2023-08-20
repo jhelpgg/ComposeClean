@@ -153,6 +153,9 @@ enum class Screens
     /** Morphing Sphere <-> Toy */
     MORPHING_SPHERE_TOY,
 
+    /** Morphing between two toys */
+    MORPHING_TOYS,
+
     /** Mini RPG */
     MINI_RPG
 }

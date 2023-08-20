@@ -136,6 +136,9 @@ enum class PresentationElement(val screen: Screens, val presentationType: Presen
     /** Morphing between sphere and toy */
     MORPHING_SPHERE_TOY(Screens.MORPHING_SPHERE_TOY, PresentationType.ENGINE_3D),
 
+    /** Morphing between two toys */
+    MORPHING_TOYS(Screens.MORPHING_TOYS, PresentationType.ENGINE_3D),
+
     /** Mini RPG */
     MINI_RPG(Screens.MINI_RPG, PresentationType.ENGINE_3D)
 }

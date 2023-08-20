@@ -51,6 +51,7 @@
     <string name="solarSystem">Simplified solar system to show node hierarchy.\nShow 3D engine capacity.</string>
     <string name="morphingBoxSphere">Morphing between Box and Sphere.\nShow 3D engine capacity.</string>
     <string name="morphingSphereToy">Morphing between Sphere and Toy.\nShow 3D engine capacity.</string>
+    <string name="morphingToys">Morphing between two Toys.\nShow 3D engine capacity.</string>
     <string name="miniRPG">Mini RPG game to show engine in complete action.\nShow 3D engine capacity.</string>
 
     <!-- Presentation list -->
