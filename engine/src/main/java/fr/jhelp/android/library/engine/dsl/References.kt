@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.DrawableRes
+import fr.jhelp.android.library.engine.dsl.animation.AnimationMorphingCreator
 import fr.jhelp.android.library.engine.dsl.animation.AnimationNodeCreator
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleEffectCreator
 import fr.jhelp.android.library.engine.dsl.animation.effect.ParticleEffectReference
@@ -62,6 +63,14 @@ fun textureReferences(): TextureReferencesCreator = TextureReferencesCreator
  */
 fun animationNodeReference(nodeReference: NodeReference): AnimationNodeReference =
     AnimationNodeReference(nodeReference)
+
+/**
+ * Create animation on node reference to a morphing.
+ *
+ * @param morphingReference Node reference on morphing. Must call : [NodeTreeCreator.morphing] on this reference before
+ */
+fun animationMorphingReference(morphingReference: NodeReference): AnimationMorphingReference =
+    AnimationMorphingReference(morphingReference)
 
 /**
  * Create several animation node references. Example for 3 references (beware must have same number of reference to create as number of node reference in parameters) :
@@ -166,6 +175,15 @@ fun animationNode(animationNodeReference: AnimationNodeReference,
                   animation: AnimationNodeCreator.() -> Unit)
 {
     animation(animationNodeReference.animationNodeCreator)
+}
+
+/**
+ * Create animation morphing
+ */
+fun animationMorphing(animationMorphingReference: AnimationMorphingReference,
+                      animation: AnimationMorphingCreator.() -> Unit)
+{
+    animation(animationMorphingReference.animationMorphingCreator)
 }
 
 /**
