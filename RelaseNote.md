@@ -1,6 +1,11 @@
 # Release notes
 
+* [Version 1.0.2 -> 1.0.3 (20/08/2023)](#version-102----103--20082023-)
 * [Version 1.0.1 -> 1.0.2 (20/08/2023)](#version-101----102--20082023-)
+
+## Version 1.0.2 -> 1.0.3 (20/08/2023)
+
+* Configuration for get project from jetpack.io
 
 ## Version 1.0.1 -> 1.0.2 (20/08/2023)
 

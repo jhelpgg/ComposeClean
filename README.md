@@ -1,3 +1,128 @@
+# How to get the package
+
+Last version is 1.0.3 see [Release notes](RelaseNote.md)
+
+For make sure can use the project, please check your gradle version, we recommend use of at least `8.2`
+
+![Gradle version location](doc/GradleVersion.png)
+
+```text
+#Sun Aug 20 12:51:44 CEST 2023
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.2-bin.zip
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+```
+
+To get to link to the project, we use **jitpack.io** more info in : [jitpack.io](https://jitpack.io)
+
+To do so, you have to add the maven source in your generic `settings.gradle.kts` :
+
+![Settings example](doc/Settings_gradle_kts.png)
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven ( url= "https://jitpack.io" )
+        google()
+        mavenCentral()
+      // ....
+    }
+}
+```
+
+Then in your application you can add the dependency
+
+![Build gradle example](doc/Build_gradle_kts.png)
+
+```kotlin
+implementation("com.github.jhelpgg:ComposeClean:1.0.3")
+```
+
+Then you can have access to all engine stuffs and tools
+
+**Note**
+> For know you may missing the class : [View3DComposable](app/src/main/java/fr/jhelp/android/library/showcase/ui/engine/View3DComposable.kt)
+> In that case we recommend to copy/paste it, we will move it in a more accessible place soon
+
+```kotlin
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.viewinterop.AndroidView
+import fr.jhelp.android.library.engine.dsl.SceneCreator
+import fr.jhelp.android.library.engine.extensions.tree
+import fr.jhelp.android.library.engine.view.View3D
+import fr.jhelp.android.library.engine.view.touch.View3DTouchAction
+import fr.jhelp.android.library.engine.view.touch.View3DTouchManipulation
+import java.util.concurrent.atomic.AtomicBoolean
+
+/**
+ * Composable with [View3D] inside.
+ *
+ * Convenient to have 3D inside compose UI
+ */
+class View3DComposable
+{
+    private val viewCreated = AtomicBoolean(false)
+    private var action: View3DTouchAction = View3DTouchManipulation
+    private lateinit var view: View3D
+
+    /**
+     * Describes how to react to touch the 3D view
+     */
+    var view3DTouchAction: View3DTouchAction
+        get() =
+            if (this.viewCreated.get())
+            {
+                this.view.view3DTouchAction
+            }
+            else
+            {
+                this.action
+            }
+        set(value)
+        {
+            if (this.viewCreated.get())
+            {
+                this.view.view3DTouchAction = value
+            }
+            else
+            {
+                this.action = value
+            }
+        }
+
+    /**
+     * Call in composable context to draw the 3D
+     *
+     * @param modifier : Modifier used to layout the 3D view
+     * @param scene : Describe how to create the 3D view
+     */
+    @Composable
+    fun Draw(modifier: Modifier = Modifier,
+             scene: SceneCreator.() -> Unit = {
+                 this.scenePosition { this.z = -2f }
+                 this.root { this.box {} }
+             })
+    {
+        AndroidView<View3D>(
+            modifier = modifier,
+            factory = { context ->
+                if (this.viewCreated.compareAndSet(false, true))
+                {
+                    this.view = View3D(context)
+                    this.view.view3DTouchAction = this.action
+                }
+
+                this.view.tree(scene)
+                this.view
+            })
+    }
+}
+```
+
 # Engine 3D 
 
 This presents a 3D engine in 100% **Kotlin** that aim to consume few battery and compatible to the most 
