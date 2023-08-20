@@ -1,11 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
 }
 
 group = 'fr.jhelp.android.library.models'
-version = '1.0.2'
+version = APPLICATION_VERSION
 
 android {
     compileSdk 34
@@ -37,8 +36,8 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
-    implementation "androidx.compose.ui:ui:1.6.0-alpha01"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+    implementation "androidx.compose.ui:ui:1.6.0-alpha03"
 
     implementation(project(":provider"))
     implementation(project(":collection"))
@@ -63,7 +62,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'fr.jhelp.android.library'
                 artifactId = 'models'
-                version = '1.0.0'
+                version = APPLICATION_VERSION
             }
         }
     }

@@ -1,11 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
 }
 
 group = 'fr.jhelp.android.library.common'
-version = '1.0.2'
+version = APPLICATION_VERSION
 
 android {
     compileSdk 34
@@ -51,7 +50,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'fr.jhelp.android.library'
                 artifactId = 'common'
-                version = '1.0.0'
+                version = APPLICATION_VERSION
             }
         }
     }

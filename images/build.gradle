@@ -1,11 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
 }
 
 group = 'fr.jhelp.android.library.images'
-version = '1.0.2'
+version = APPLICATION_VERSION
 
 android {
     namespace 'fr.jhelp.android.library.images'
@@ -52,7 +51,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'fr.jhelp.android.library'
                 artifactId = 'images'
-                version = '1.0.0'
+                version = APPLICATION_VERSION
             }
         }
     }

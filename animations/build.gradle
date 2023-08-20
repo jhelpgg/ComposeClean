@@ -1,11 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
 }
 
 group = 'fr.jhelp.android.library.animations'
-version = '1.0.2'
+version = APPLICATION_VERSION
 
 android {
     namespace 'fr.jhelp.android.library.animations'
@@ -37,7 +36,7 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.10.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
 
     implementation(project(":math"))
     implementation(project(":collection"))
@@ -57,7 +56,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'fr.jhelp.android.library'
                 artifactId = 'animations'
-                version = '1.0.0'
+                version = APPLICATION_VERSION
             }
         }
     }
