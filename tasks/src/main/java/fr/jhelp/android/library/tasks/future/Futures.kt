@@ -1,6 +1,9 @@
 package fr.jhelp.android.library.tasks.future
 
+import fr.jhelp.android.library.tasks.Mutex
+import fr.jhelp.android.library.tasks.TaskType
 import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicReference
 
 /**
  * Simplify a FutureResult<FutureResult&lt;R&gt;> to a FutureResult&lt;R&gt;
@@ -82,4 +85,66 @@ fun <T : Any> String.futureCancel(): FutureResult<T>
     val promise = Promise<T>()
     promise.future.cancel(this)
     return promise.future
+}
+
+/**
+ * Combine two future to one.
+ *
+ * When the both futures succeed, their result used the combiner to create the final result.
+ *
+ * If one of futures complete without success, the final future will fail or cancel
+ */
+fun <R1 : Any, R2 : Any, R3 : Any> combine(future1: FutureResult<R1>,
+                                           future2: FutureResult<R2>,
+                                           combiner: (R1, R2) -> R3,
+                                           taskType: TaskType = TaskType.SHORT_TASK): FutureResult<R3>
+{
+    val promiseCombination = Promise<R3>()
+    future1.onError { exception -> promiseCombination.error(exception) }
+    future1.onCancel { reason -> promiseCombination.future.cancel(reason) }
+    future2.onError { exception -> promiseCombination.error(exception) }
+    future2.onCancel { reason -> promiseCombination.future.cancel(reason) }
+    promiseCombination.onCancel { reason ->
+        future1.cancel(reason)
+        future2.cancel(reason)
+    }
+
+    val mutex = Mutex()
+    val result1 = AtomicReference<R1>()
+    val result2 = AtomicReference<R2>()
+
+    val actionCheck: () -> Unit = {
+        val r1 = result1.get()
+        val r2 = result2.get()
+
+        if (r1 != null && r2 != null)
+        {
+            try
+            {
+                val r3 = combiner(r1, r2)
+                promiseCombination.result(r3)
+            }
+            catch (exception: Exception)
+            {
+                promiseCombination.error(exception)
+            }
+        }
+    }
+
+    future1.and(taskType) { r1 ->
+        mutex {
+            result1.set(r1)
+            actionCheck()
+        }
+    }
+
+
+    future2.and(taskType) { r2 ->
+        mutex {
+            result2.set(r2)
+            actionCheck()
+        }
+    }
+
+    return promiseCombination.future
 }
