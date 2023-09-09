@@ -248,6 +248,11 @@ class FutureResult<R : Any> internal constructor(private val promise: Promise<R>
 
         if (canceled)
         {
+            synchronized(this.lock)
+            {
+                this.lock.notifyAll()
+            }
+
             this.fireListeners()
         }
 
