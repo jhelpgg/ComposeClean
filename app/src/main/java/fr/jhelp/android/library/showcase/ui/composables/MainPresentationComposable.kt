@@ -17,13 +17,13 @@ import fr.jhelp.android.library.constraint.extensions.bottomParent
 import fr.jhelp.android.library.constraint.extensions.endParent
 import fr.jhelp.android.library.constraint.extensions.near
 import fr.jhelp.android.library.constraint.extensions.startParent
-import fr.jhelp.android.library.provider.provided
-import fr.jhelp.android.library.showcase.ui.recycler.RecyclerComposable
-import fr.jhelp.android.library.showcase.R
 import fr.jhelp.android.library.models.presentation.Presentation
 import fr.jhelp.android.library.models.presentation.PresentationType
 import fr.jhelp.android.library.models.shared.MainPresentationModel
+import fr.jhelp.android.library.provider.provided
+import fr.jhelp.android.library.showcase.R
 import fr.jhelp.android.library.showcase.ui.composables.presentation.DrawPresentation
+import fr.jhelp.android.library.showcase.ui.recycler.RecyclerComposable
 
 /**
  * Main activity composable

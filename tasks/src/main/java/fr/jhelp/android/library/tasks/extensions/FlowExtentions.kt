@@ -3,6 +3,7 @@ package fr.jhelp.android.library.tasks.extensions
 import fr.jhelp.android.library.tasks.TaskType
 import fr.jhelp.android.library.tasks.future.FutureResult
 import fr.jhelp.android.library.tasks.future.Promise
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -36,9 +37,10 @@ fun <P, R> Flow<P>.doWhen(taskType: TaskType = TaskType.SHORT_TASK,
                           condition: (P) -> Boolean,
                           action: (P) -> R): FutureResult<Unit>
 {
+    val done = AtomicBoolean(false)
     val promise = Promise<Unit>()
     val attached = this.observedBy(taskType) { value ->
-        if (condition(value))
+        if (condition(value) && done.compareAndSet(false, true))
         {
             try
             {

@@ -13,8 +13,8 @@ import fr.jhelp.android.library.engine.view.joystick.VirtualJoystickDirection
 import fr.jhelp.android.library.engine.view.joystick.VirtualJoystickType
 import fr.jhelp.android.library.engine.view.touch.View3DTouchOverSensitive
 import fr.jhelp.android.library.math.random
-import fr.jhelp.android.library.showcase.ui.engine.View3DComposable
 import fr.jhelp.android.library.showcase.R
+import fr.jhelp.android.library.showcase.ui.engine.View3DComposable
 import fr.jhelp.android.library.tasks.extensions.observedBy
 import java.util.concurrent.atomic.AtomicBoolean
 

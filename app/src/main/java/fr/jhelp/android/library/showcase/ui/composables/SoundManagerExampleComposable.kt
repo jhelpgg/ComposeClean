@@ -23,9 +23,9 @@ import fr.jhelp.android.library.constraint.theme.NEAR
 import fr.jhelp.android.library.constraint.theme.NEXT
 import fr.jhelp.android.library.constraint.theme.START_END
 import fr.jhelp.android.library.constraint.theme.TOP_BOTTOM
+import fr.jhelp.android.library.models.shared.SoundManagerExampleModel
 import fr.jhelp.android.library.provider.provided
 import fr.jhelp.android.library.showcase.R
-import fr.jhelp.android.library.models.shared.SoundManagerExampleModel
 import fr.jhelp.android.library.showcase.ui.resources.Sounds
 import fr.jhelp.android.library.showcase.ui.theme.TITLE_SIZE
 
