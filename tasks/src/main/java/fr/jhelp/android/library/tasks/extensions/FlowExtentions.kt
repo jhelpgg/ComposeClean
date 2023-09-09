@@ -5,8 +5,6 @@ import fr.jhelp.android.library.tasks.future.FutureResult
 import fr.jhelp.android.library.tasks.future.Promise
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.map
 
 /**
  * Observe a flow change by given action on specified task type
@@ -22,7 +20,7 @@ fun <P, R> Flow<P>.observedBy(taskType: TaskType = TaskType.SHORT_TASK,
  * The returned flow if the combination of this flow result where apply the given transformation
  */
 fun <P, R> Flow<P>.then(taskType: TaskType = TaskType.SHORT_TASK, action: (P) -> R): Flow<R> =
-    this.map(action).flowOn(taskType.coroutineScope.coroutineContext)
+    FlowThen<P, R>(this, taskType, action)
 
 /**
  * React when flow have a specified condition.

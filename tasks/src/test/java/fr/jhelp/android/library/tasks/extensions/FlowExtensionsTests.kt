@@ -2,6 +2,7 @@ package fr.jhelp.android.library.tasks.extensions
 
 import fr.jhelp.android.library.tasks.future.FutureResultStatus
 import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicReference
 import java.util.regex.Pattern
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Assert
@@ -55,7 +56,8 @@ class FlowExtensionsTests
     }
 
     @Test
-    fun doWhenCancel() {
+    fun doWhenCancel()
+    {
         val flow = MutableStateFlow<String>("")
         val value = AtomicInteger(-1)
         val future =
@@ -71,5 +73,24 @@ class FlowExtensionsTests
         flow.value = "73"
         Thread.sleep(512)
         Assert.assertEquals(-1, value.get())
+    }
+
+    @Test
+    fun thenTest()
+    {
+        val flow = MutableStateFlow<String>("")
+        val value = AtomicInteger(-1)
+        val result = AtomicReference<String>("")
+            flow.then { string -> string.toInt() }
+                .then { integer ->
+                    value.set(integer)
+                    (integer + 31).toString()
+                }
+                .observedBy { string -> result.set(string) }
+
+        flow.value = "42"
+        Thread.sleep(512)
+        Assert.assertEquals(42, value.get())
+        Assert.assertEquals("73", result.get())
     }
 }
