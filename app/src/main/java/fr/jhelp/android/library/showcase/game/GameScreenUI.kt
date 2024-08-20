@@ -59,8 +59,8 @@ class GameScreenUI(scene3D: Scene3D) : GameScreen(scene3D)
         tableLayout.add(toggle,
                         OverlayTableLayoutConstraint(3, 1))
 
-        tableLayout.add(OverlayText(""),
-                        OverlayTableLayoutConstraint(7, 3))
+        tableLayout.add(OverlayText("Un **bel** été", factor = 4),
+                        OverlayTableLayoutConstraint(4, 2, 3, 3))
 
         this.overlayScreen.mainComponent = tableLayout
         this.scene.root.position.z = -3f

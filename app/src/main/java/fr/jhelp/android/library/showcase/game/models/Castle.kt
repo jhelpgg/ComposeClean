@@ -36,7 +36,7 @@ import kotlinx.coroutines.flow.asStateFlow
 /**
  * A castle
  */
-object Castle : Model3D()
+class Castle : Model3D()
 {
     private val wallImageSource: ImageSource<*> =
         ImageSourceAsset("game/images/textures/WallColorfulD.jpg")
@@ -87,21 +87,21 @@ object Castle : Model3D()
         }
         node.add(tower)
 
-        tower = Castle.tower.copy()
+        tower = this.tower.copy()
         tower.position {
             this.x = 1f
             this.z = -1f
         }
         node.add(tower)
 
-        tower = Castle.tower.copy()
+        tower = this.tower.copy()
         tower.position {
             this.x = 1f
             this.z = 1f
         }
         node.add(tower)
 
-        tower = Castle.tower.copy()
+        tower = this.tower.copy()
         tower.position {
             this.x = -1f
             this.z = 1f
@@ -133,7 +133,7 @@ object Castle : Model3D()
         // Face with door
 
         val door = 0.3f
-        val height = 0.6f
+        val height = 0.8f
         val mainPath = Path()
         mainPath.moveTo(-door, -1f)
         mainPath.lineTo(-1f, -1f)
@@ -423,7 +423,7 @@ object Castle : Model3D()
         }
         node.add(plane)
 
-        plane = Castle.plane.copy()
+        plane = this.plane.copy()
         plane.position {
             this.scaleX = 2f
             this.scaleY = 1.8f
@@ -432,7 +432,7 @@ object Castle : Model3D()
         }
         node.add(plane)
 
-        plane = Castle.plane.copy()
+        plane = this.plane.copy()
         plane.position {
             this.scaleX = 2f
             this.scaleY = 0.3f

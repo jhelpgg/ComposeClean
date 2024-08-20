@@ -26,6 +26,7 @@ class MiniRPGActivity : GameActivity()
     override fun createGameActivity()
     {
         this.onBackPressedDispatcher.addCallback(this, true) {
+            this@MiniRPGActivity.gameManager.stop()
             this@MiniRPGActivity.navigationModel.back()
             this@MiniRPGActivity.finish()
         }

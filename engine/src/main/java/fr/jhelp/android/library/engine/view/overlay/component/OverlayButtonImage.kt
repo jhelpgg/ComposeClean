@@ -31,7 +31,7 @@ class OverlayButtonImage(imageUp: ImageSource<*> = ImageSourceDefault,
 {
     companion object
     {
-        private const val FLY = 32f
+        private const val FLY = 16f
     }
 
     /**
